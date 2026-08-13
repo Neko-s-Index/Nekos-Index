@@ -2,7 +2,7 @@
 
 > A curated collection of useful websites, apps, tools, repositories, and resources.
 
-🌐 **Website:** https://nekos-index.netlify.app/list
+🌐 **Website:** https://neko-s-index.github.io/Nekos-Index/
 
 > [!WARNING]
 > 🚧 **This site is currently in beta / development.**
@@ -31,4 +31,4 @@ Neko's Index is a simple directory inspired by projects like **EverythingMoe** a
 
 ---
 
-🌐 **Visit Neko's Index:** https://nekos-index.netlify.app/list
+🌐 **Visit Neko's Index:** https://neko-s-index.github.io/Nekos-Index/
