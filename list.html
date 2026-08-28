@@ -340,6 +340,58 @@
             color: var(--accent-primary);
         }
 
+        .other-indexes-gate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0 10px 0;
+        }
+
+        .other-indexes-gate span {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .other-indexes-gate input {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            width: 140px;
+            text-align: center;
+            outline: none;
+        }
+
+        .other-indexes-gate input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .other-indexes-gate button {
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-muted);
+            font-size: 14px;
+            cursor: not-allowed;
+            transition: all 0.2s ease;
+        }
+
+        .other-indexes-gate button:enabled {
+            background: var(--accent-gradient);
+            color: #fff;
+            border-color: transparent;
+            cursor: pointer;
+        }
+
+        .other-indexes-gate button:enabled:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+        }
+
         .dmca {
             font-size: 12px;
             color: var(--text-muted);
@@ -724,6 +776,30 @@
             margin: 0 auto 12px auto;
             max-width: 600px;
             line-height: 1.5;
+        }
+
+        /* DuckDuckGo Search Button */
+        .search-ddg {
+            display: none;
+            margin: -10px auto 24px auto;
+            padding: 10px 22px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .search-ddg:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
         }
 
         /* Random App */
@@ -1658,6 +1734,7 @@
             // ==================== SEARCH FUNCTIONALITY ====================
             const searchInput = document.getElementById('searchInput');
             const searchClear = document.getElementById('searchClear');
+            const searchDDG = document.getElementById('searchDuckDuckGo');
             const noResults = document.getElementById('noResults');
             const allItems = document.querySelectorAll('.category li');
 
@@ -1669,6 +1746,7 @@
             searchInput.addEventListener('input', function() {
                 const query = this.value.toLowerCase().trim();
                 searchClear.style.display = query ? 'block' : 'none';
+                searchDDG.style.display = query ? 'block' : 'none';
 
                 allItems.forEach(item => {
                     const link = item.querySelector('a');
@@ -1709,6 +1787,13 @@
                 searchInput.value = '';
                 searchInput.dispatchEvent(new Event('input'));
                 this.style.display = 'none';
+            });
+
+            searchDDG.addEventListener('click', function() {
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.open('https://duckduckgo.com/?q=' + encodeURIComponent(query), '_blank');
+                }
             });
 
             // Apply search from URL query string
@@ -2239,6 +2324,7 @@
         <a href="disclaimer.html">Disclaimer</a>
         <a href="dmca.html">DMCA</a>
         <a href="privacy.html">Privacy</a>
+        <a href="privacy-settings.html">Privacy Settings</a>
         <a href="notes.html">Notes</a>
     </nav>
 </header>
@@ -2268,6 +2354,8 @@
     <p class="search-note">
         Some apps fit more than one category. If you don't see what you need, try another filter or search by name.
     </p>
+
+    <button class="search-ddg" id="searchDuckDuckGo">Search on DuckDuckGo</button>
 
     <button class="random-app" id="randomApp" title="Pick a random app (R)">Random App</button>
 
@@ -3546,7 +3634,12 @@
 
     <div class="other-indexes">
         <strong>Other Useful Indexes:</strong>
-        <ul>
+        <div class="other-indexes-gate" id="otherIndexesGate">
+            <span id="otherIndexesQuestion"></span>
+            <input type="number" id="otherIndexesInput" placeholder="answer" autocomplete="off">
+            <button id="otherIndexesBtn" disabled>Show Indexes</button>
+        </div>
+        <ul id="otherIndexesList" style="display: none;">
             <li><a href="https://theindex.moe" target="_blank">theindex.moe</a></li>
             <li><a href="https://everythingmoe.com" target="_blank">everythingmoe</a></li>
             <li><a href="https://wotaku.wiki" target="_blank">wotaku.wiki</a></li>
@@ -3753,5 +3846,41 @@
 </div>
 
 <script src="pixels.js"></script>
+<script>
+    (function() {
+        const OI_KEY = 'nekos_other_indexes_verified';
+        const gate = document.getElementById('otherIndexesGate');
+        const list = document.getElementById('otherIndexesList');
+        const question = document.getElementById('otherIndexesQuestion');
+        const input = document.getElementById('otherIndexesInput');
+        const btn = document.getElementById('otherIndexesBtn');
+
+        if (localStorage.getItem(OI_KEY) === 'true') {
+            list.style.display = '';
+            gate.style.display = 'none';
+            return;
+        }
+
+        const n1 = Math.floor(Math.random() * 8) + 2;
+        const n2 = Math.floor(Math.random() * 8) + 2;
+        const answer = n1 + n2;
+        question.textContent = `What is ${n1} + ${n2}?`;
+
+        input.addEventListener('input', function() {
+            if (parseInt(input.value) === answer) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        });
+
+        btn.addEventListener('click', function() {
+            if (btn.disabled) return;
+            localStorage.setItem(OI_KEY, 'true');
+            list.style.display = '';
+            gate.style.display = 'none';
+        });
+    })();
+</script>
 </body>
 </html>
