@@ -1716,6 +1716,27 @@
             margin-top: 12px;
         }
 
+        #shareLink {
+            width: 100%;
+            font-family: monospace;
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 13px;
+        }
+        #shareLink:disabled {
+            color: var(--text-muted);
+        }
+        #shareCopy:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        #shareSearch {
+            display: inline-block;
+        }
+
     </style>
 
     <script>
@@ -1955,14 +1976,83 @@
                 }
             });
 
-            // Apply search from URL query string
-            const params = new URLSearchParams(window.location.search);
-            const queryFromUrl = params.get('q');
-            if (queryFromUrl) {
-                searchInput.value = queryFromUrl;
+            // Apply shared search from URL on first load, then clean URL so reload resets
+            const startParams = new URLSearchParams(window.location.search);
+            const sharedQuery = startParams.get('q');
+            if (sharedQuery) {
+                searchInput.value = sharedQuery;
                 searchInput.dispatchEvent(new Event('input'));
-                searchClear.style.display = 'block';
+            } else {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
             }
+            if (window.location.search) {
+                const cleanUrl = window.location.pathname + window.location.hash;
+                history.replaceState(null, '', cleanUrl);
+            }
+
+            // ==================== SHARE MODAL ====================
+            const shareSearch = document.getElementById('shareSearch');
+            const shareModal = document.getElementById('shareModal');
+            const shareQuery = document.getElementById('shareQuery');
+            const sharePuzzle = document.getElementById('sharePuzzle');
+            const shareAnswer = document.getElementById('shareAnswer');
+            const shareVerify = document.getElementById('shareVerify');
+            const shareLink = document.getElementById('shareLink');
+            const shareCopy = document.getElementById('shareCopy');
+            const shareClose = document.getElementById('shareClose');
+            let shareExpected = 0;
+            let sharePuzzleText = '';
+
+            function updateShareLink() {
+                const q = shareQuery.value.trim();
+                const base = window.location.origin + window.location.pathname;
+                shareLink.value = q ? base + '?q=' + encodeURIComponent(q) : base;
+            }
+
+            function openShare() {
+                shareQuery.value = searchInput.value.trim();
+                updateShareLink();
+                const a = Math.floor(Math.random() * 9) + 1;
+                const b = Math.floor(Math.random() * 9) + 1;
+                shareExpected = a + b;
+                sharePuzzleText = `What is ${a} + ${b}?`;
+                sharePuzzle.textContent = sharePuzzleText;
+                shareAnswer.value = '';
+                shareLink.setAttribute('type', 'password');
+                shareLink.disabled = true;
+                shareCopy.disabled = true;
+                shareModal.classList.add('show');
+                shareAnswer.focus();
+            }
+
+            function closeShare() {
+                shareModal.classList.remove('show');
+            }
+
+            shareSearch.addEventListener('click', openShare);
+            shareClose.addEventListener('click', closeShare);
+            shareQuery.addEventListener('input', updateShareLink);
+
+            shareVerify.addEventListener('click', () => {
+                if (parseInt(shareAnswer.value, 10) === shareExpected) {
+                    shareLink.setAttribute('type', 'text');
+                    shareLink.disabled = false;
+                    shareCopy.disabled = false;
+                    sharePuzzle.textContent = 'Correct! You can copy the link now.';
+                } else {
+                    sharePuzzle.textContent = 'Try again: ' + sharePuzzleText;
+                    shareAnswer.value = '';
+                }
+            });
+
+            shareCopy.addEventListener('click', () => {
+                if (shareLink.value) {
+                    navigator.clipboard.writeText(shareLink.value);
+                    shareCopy.textContent = 'Copied!';
+                    setTimeout(() => { shareCopy.textContent = 'Copy Link'; }, 1500);
+                }
+            });
 
             // ==================== RANDOM APP ====================
             const randomAppBtn = document.getElementById('randomApp');
@@ -2735,6 +2825,7 @@
     </p>
 
     <button class="search-ddg" id="searchDuckDuckGo">Search on DuckDuckGo</button>
+    <button class="search-ddg" id="shareSearch">Share</button>
 
     <button class="random-app" id="randomApp" title="Pick a random app (R)">Random App</button>
 
@@ -4429,5 +4520,23 @@
         });
     })();
 </script>
+
+<!-- Share Modal -->
+<div class="disclaimer-modal" id="shareModal">
+    <div class="disclaimer-content">
+        <h2>Share Neko's Index</h2>
+        <p>Share the current search or an app name.</p>
+        <input type="text" class="search-input" id="shareQuery" placeholder="Search or app name..." style="width:100%; margin-bottom:10px;">
+        <p id="sharePuzzle" style="margin:10px 0; font-weight:700;"></p>
+        <input type="text" class="search-input" id="shareAnswer" placeholder="Puzzle answer" style="width:100%; margin-bottom:10px;">
+        <button class="disclaimer-button" id="shareVerify">Verify</button>
+        <input type="password" id="shareLink" readonly value="" style="margin:10px 0;" disabled>
+        <div style="display:flex; gap:10px;">
+            <button class="disclaimer-button" id="shareCopy" disabled style="width:auto; flex:1;">Copy Link</button>
+            <button class="disclaimer-button" id="shareClose" style="background:var(--bg-tertiary); width:auto; flex:1;">Close</button>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

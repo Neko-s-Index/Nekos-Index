@@ -104,7 +104,7 @@
         ) {
             spawnBurst(x, y);
             catJump = 10;
-            cat.targetX = Math.max(cat.scale, Math.min(canvas.width - cat.width - 2 * cat.scale, x - cat.width / 2));
+            cat.targetX = Math.max(cat.scale, Math.min(canvas.width - cat.width * cat.scale - 2 * cat.scale, x - cat.width * cat.scale / 2));
             cat.targetY = Math.max(0, Math.min(canvas.height - 8 * cat.scale, y - 4 * cat.scale));
 
             for (const c of extraCats) {
@@ -128,7 +128,7 @@
         targetX: canvas.width / 2 - 10,
         targetY: canvas.height / 2,
         scale: 3,
-        width: 15,
+        width: 5,
         blinkTimer: 0,
         isBlinking: false,
         tailSway: 0
@@ -143,19 +143,19 @@
         const margin = 4;
         extraCats.push({
             x: margin, y: Math.random() * canvas.height, targetX: margin, targetY: 0,
-            scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+            scale: 2, width: 5, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
             type: 'vwall', speed: (Math.random() + 0.5) * 0.4, dir: Math.random() < 0.5 ? 1 : -1,
             interactive: Math.random() < 0.35
         });
         extraCats.push({
             x: canvas.width - 22, y: Math.random() * canvas.height, targetX: canvas.width - 22, targetY: 0,
-            scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+            scale: 2, width: 5, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
             type: 'vwall', speed: (Math.random() + 0.5) * 0.4, dir: Math.random() < 0.5 ? 1 : -1,
             interactive: Math.random() < 0.35
         });
         extraCats.push({
             x: Math.random() * canvas.width, y: margin, targetX: 0, targetY: margin,
-            scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+            scale: 2, width: 5, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
             type: 'hwall', speed: (Math.random() + 0.5) * 0.4, dir: Math.random() < 0.5 ? 1 : -1,
             interactive: Math.random() < 0.35
         });
@@ -166,7 +166,7 @@
             const rect = b.getBoundingClientRect();
             extraCats.push({
                 x: rect.left, y: rect.top - 22, targetX: rect.left, targetY: rect.top - 22,
-                scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+                scale: 2, width: 5, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
                 type: 'button', speed: 0.4, dir: 1, buttonIndex: i,
                 interactive: Math.random() < 0.35
             });
@@ -217,12 +217,12 @@
 
     function updateCat() {
         if (mouseInCanvas) {
-            cat.targetX = Math.max(cat.scale, Math.min(canvas.width - cat.width - 2 * cat.scale, mouseX - cat.width / 2));
+            cat.targetX = Math.max(cat.scale, Math.min(canvas.width - cat.width * cat.scale - 2 * cat.scale, mouseX - cat.width * cat.scale / 2));
             cat.targetY = Math.max(0, Math.min(canvas.height - 8 * cat.scale, mouseY - 4 * cat.scale));
         } else {
             // Random patrol when mouse leaves the window
             if (Math.random() < 0.01) {
-                cat.targetX = Math.random() * (canvas.width - cat.width - 2 * cat.scale);
+                cat.targetX = Math.random() * (canvas.width - cat.width * cat.scale - 2 * cat.scale);
                 cat.targetY = Math.random() * (canvas.height - 8 * cat.scale);
             }
         }
@@ -231,7 +231,7 @@
         cat.y += (cat.targetY - cat.y) * 0.04;
 
         // Clamp
-        cat.x = Math.max(cat.scale, Math.min(canvas.width - cat.width - 2 * cat.scale, cat.x));
+        cat.x = Math.max(cat.scale, Math.min(canvas.width - cat.width * cat.scale - 2 * cat.scale, cat.x));
         cat.y = Math.max(0, Math.min(canvas.height - 8 * cat.scale, cat.y));
 
         cat.tailSway = Math.sin(Date.now() / 120) * 1.5;
@@ -273,14 +273,16 @@
             }
         }
 
+        const w = c.width * s;
+
         // Ears
         ctx.fillRect(ox - s, oy + s, s, s);
-        ctx.fillRect(ox + c.width, oy + s, s, s);
+        ctx.fillRect(ox + w, oy + s, s, s);
 
         // Tail
         const t = Math.floor(c.tailSway);
-        ctx.fillRect(ox + c.width + s + t, oy + 4 * s, s, 4 * s);
-        ctx.fillRect(ox + c.width + 2 * s + t, oy + 5 * s, s, 3 * s);
+        ctx.fillRect(ox + w + s + t, oy + 4 * s, s, 4 * s);
+        ctx.fillRect(ox + w + 2 * s + t, oy + 5 * s, s, 3 * s);
 
         // Eyes
         if (!c.isBlinking) {
