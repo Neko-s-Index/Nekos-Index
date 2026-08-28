@@ -107,13 +107,6 @@
 const TARGET = "list.html";
 const KEY = "nekos_verified";
 
-/* -------------------------
-   FAST AUTO REDIRECT LOGIC
---------------------------*/
-if (localStorage.getItem(KEY) === "true") {
-    location.replace(TARGET);
-}
-
 const status = document.getElementById("status");
 const action = document.getElementById("action");
 

@@ -1103,11 +1103,14 @@
                 'streaming': ['Open Source Streaming Apps', 'Premium Streaming Services', 'Free Streaming Services'],
                 'anime': ['Open Source Anime & Manga Apps', 'Anime & Manga Databases'],
                 'manga': ['Manga & Novel Reading'],
-                'tools': ['Media Players & Converters', 'Development & Productivity Tools', 'Audio Tagging Tools'],
+                'tools': ['Media Players & Converters', 'Development & Productivity Tools', 'Audio Tagging Tools', 'Open Source Utilities & Browsers'],
                 'download': ['Download Managers & Torrent Clients', 'Usenet & NZB Tools'],
                 'android': ['Open Source Android Apps'],
                 'pc': ['Open Source PC / Desktop Apps'],
-                'ios': ['Open Source iOS Apps']
+                'ios': ['Open Source iOS Apps'],
+                'ai': ['Open Source AI & Chatbots'],
+                'gaming': ['Open Source Gaming'],
+                'privacy': ['Privacy & Security Tools', 'Recommended VPNs & DNS Services']
             };
 
             filterBtns.forEach(btn => {
@@ -1477,6 +1480,9 @@
         <button class="filter-btn" data-filter="android">Android</button>
         <button class="filter-btn" data-filter="pc">PC</button>
         <button class="filter-btn" data-filter="ios">iOS</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="gaming">Gaming</button>
+        <button class="filter-btn" data-filter="privacy">Privacy</button>
     </div>
 
     <p class="hidden" id="noResults" style="text-align: center; color: var(--text-muted); margin: 20px 0;">No results found.</p>
@@ -1518,6 +1524,16 @@
             <li><a href="https://www.rethinkdns.com" target="_blank">ReThinkDNS</a><span class="tag">Open Source</span></li>
             <li><a href="https://www.controld.com" target="_blank">Control D</a><span class="tag">Custom</span></li>
             <li><a href="https://www.zenz-solutions.de/personaldnsfilter-wp" target="_blank">Personal DNS Filter</a><span class="tag">Mobile</span></li>
+            <li><a href="https://www.wireguard.com" target="_blank">WireGuard</a><span class="tag">Protocol</span></li>
+            <li><a href="https://openvpn.net" target="_blank">OpenVPN</a><span class="tag">Protocol</span></li>
+            <li><a href="https://tailscale.com" target="_blank">Tailscale</a><span class="tag">Mesh VPN</span></li>
+            <li><a href="https://github.com/juanfont/headscale" target="_blank">Headscale</a><span class="tag">Self-hosted</span></li>
+            <li><a href="https://dnscrypt.info" target="_blank">DNSCrypt</a><span class="tag">Encrypted</span></li>
+            <li><a href="https://0xerr0r.github.io/blocky" target="_blank">Blocky</a><span class="tag">DNS</span></li>
+            <li><a href="https://technitium.com/dns" target="_blank">Technitium DNS</a><span class="tag">DNS</span></li>
+            <li><a href="https://www.nlnetlabs.nl/projects/unbound/about" target="_blank">Unbound</a><span class="tag">Resolver</span></li>
+            <li><a href="https://www.knot-resolver.cz" target="_blank">Knot Resolver</a><span class="tag">Resolver</span></li>
+            <li><a href="https://getdnsapi.net" target="_blank">Stubby</a><span class="tag">DNS-over-TLS</span></li>
         </ul>
         <p>
             Using a trusted VPN or DNS can help protect your privacy and improve security while browsing streaming services.
@@ -1975,6 +1991,20 @@
             <li><a href="https://github.com/gorhill/uBlock" target="_blank">uBlock Origin</a><span class="tag">Ad-block</span></li>
             <li><a href="https://everythingmoe.com/s/vpnservice" target="_blank">VPN Service</a><span class="tag">Info</span></li>
             <li><a href="https://airvpn.org" target="_blank">AirVPN</a><span class="tag">Privacy</span></li>
+            <li><a href="https://privacybadger.org" target="_blank">Privacy Badger</a><span class="tag">Tracker Block</span></li>
+            <li><a href="https://noscript.net" target="_blank">NoScript</a><span class="tag">Script Block</span></li>
+            <li><a href="https://sponsor.ajay.app" target="_blank">SponsorBlock</a><span class="tag">Sponsor Skip</span></li>
+            <li><a href="https://pi-hole.net" target="_blank">Pi-hole</a><span class="tag">DNS Sinkhole</span></li>
+            <li><a href="https://github.com/AdguardTeam/AdGuardHome" target="_blank">AdGuard Home</a><span class="tag">DNS</span></li>
+            <li><a href="https://safing.io" target="_blank">Portmaster</a><span class="tag">Firewall</span></li>
+            <li><a href="https://simplelogin.io" target="_blank">SimpleLogin</a><span class="tag">Alias</span></li>
+            <li><a href="https://proton.me/mail" target="_blank">Proton Mail</a><span class="tag">Email</span></li>
+            <li><a href="https://tutanota.com" target="_blank">Tutanota</a><span class="tag">Email</span></li>
+            <li><a href="https://onionshare.org" target="_blank">OnionShare</a><span class="tag">Secure Share</span></li>
+            <li><a href="https://signal.org" target="_blank">Signal</a><span class="tag">Messaging</span></li>
+            <li><a href="https://jitsi.org" target="_blank">Jitsi Meet</a><span class="tag">Video</span></li>
+            <li><a href="https://getsession.org" target="_blank">Session</a><span class="tag">Messaging</span></li>
+            <li><a href="https://matrix.org" target="_blank">Matrix</a><span class="tag">Protocol</span></li>
         </ul>
         </div>
     </div>
@@ -2371,6 +2401,93 @@
             <li><a href="https://apps.apple.com/us/app/joplin/id1315599796" target="_blank">Joplin</a><span class="tag">Notes</span></li>
             <li><a href="https://apps.apple.com/us/app/adguard-adblock-privacy/id1047223162" target="_blank">AdGuard for iOS</a><span class="tag">Ad-block</span></li>
             <li><a href="https://apps.apple.com/us/app/mastodon-for-iphone-and-ipad/id1571998974" target="_blank">Mastodon</a><span class="tag">Social</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Open Source AI & Chatbots</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://ollama.com" target="_blank">Ollama</a><span class="tag">Local LLMs</span></li>
+            <li><a href="https://github.com/oobabooga/text-generation-webui" target="_blank">Text Generation Web UI</a><span class="tag">LLMs</span></li>
+            <li><a href="https://github.com/LostRuins/koboldcpp" target="_blank">KoboldCpp</a><span class="tag">Local</span></li>
+            <li><a href="https://github.com/ggerganov/llama.cpp" target="_blank">llama.cpp</a><span class="tag">Local</span></li>
+            <li><a href="https://github.com/nomic-ai/gpt4all" target="_blank">GPT4All</a><span class="tag">Local</span></li>
+            <li><a href="https://github.com/petals-infra/chat.petals.dev" target="_blank">Petals</a><span class="tag">Decentralized</span></li>
+            <li><a href="https://github.com/libre-chat/libre-chat" target="_blank">LibreChat</a><span class="tag">Chat</span></li>
+            <li><a href="https://github.com/Enzime4/Open-WebUI" target="_blank">Open WebUI</a><span class="tag">Chat</span></li>
+            <li><a href="https://github.com/mckaywrigley/chatbot-ui" target="_blank">Chatbot UI</a><span class="tag">Chat</span></li>
+            <li><a href="https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web" target="_blank">ChatGPT Next Web</a><span class="tag">Chat</span></li>
+            <li><a href="https://pinokio.computer" target="_blank">Pinokio</a><span class="tag">Launchers</span></li>
+            <li><a href="https://github.com/comfyanonymous/ComfyUI" target="_blank">ComfyUI</a><span class="tag">AI Image</span></li>
+            <li><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank">Stable Diffusion Web UI</a><span class="tag">AI Image</span></li>
+            <li><a href="https://github.com/invoke-ai/InvokeAI" target="_blank">Invoke AI</a><span class="tag">AI Image</span></li>
+            <li><a href="https://github.com/lllyasviel/Fooocus" target="_blank">Fooocus</a><span class="tag">AI Image</span></li>
+            <li><a href="https://github.com/AshleyMLTravis/DiffusionBee" target="_blank">DiffusionBee</a><span class="tag">Mac</span></li>
+            <li><a href="https://huggingface.co" target="_blank">Hugging Face</a><span class="tag">Models</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Open Source Utilities & Browsers</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://brave.com" target="_blank">Brave</a><span class="tag">Browser</span></li>
+            <li><a href="https://www.mozilla.org/firefox" target="_blank">Firefox</a><span class="tag">Browser</span></li>
+            <li><a href="https://ungoogled-software.github.io" target="_blank">Ungoogled Chromium</a><span class="tag">Browser</span></li>
+            <li><a href="https://librewolf.net" target="_blank">LibreWolf</a><span class="tag">Browser</span></li>
+            <li><a href="https://mullvad.net/en/browser" target="_blank">Mullvad Browser</a><span class="tag">Privacy</span></li>
+            <li><a href="https://www.torproject.org" target="_blank">Tor Browser</a><span class="tag">Privacy</span></li>
+            <li><a href="https://www.waterfox.net" target="_blank">Waterfox</a><span class="tag">Browser</span></li>
+            <li><a href="https://floorp.app" target="_blank">Floorp</a><span class="tag">Browser</span></li>
+            <li><a href="https://qutebrowser.org" target="_blank">qutebrowser</a><span class="tag">Keyboard</span></li>
+            <li><a href="https://nyxt.atlas.engineer" target="_blank">Nyxt</a><span class="tag">Hacker</span></li>
+            <li><a href="https://keepassxc.org" target="_blank">KeePassXC</a><span class="tag">Passwords</span></li>
+            <li><a href="https://bitwarden.com" target="_blank">Bitwarden</a><span class="tag">Passwords</span></li>
+            <li><a href="https://proton.me/pass" target="_blank">Proton Pass</a><span class="tag">Passwords</span></li>
+            <li><a href="https://cryptomator.org" target="_blank">Cryptomator</a><span class="tag">Encryption</span></li>
+            <li><a href="https://www.voidtools.com" target="_blank">Everything</a><span class="tag">Search</span></li>
+            <li><a href="https://flameshot.org" target="_blank">Flameshot</a><span class="tag">Screenshot</span></li>
+            <li><a href="https://krita.org" target="_blank">Krita</a><span class="tag">Art</span></li>
+            <li><a href="https://kdenlive.org" target="_blank">Kdenlive</a><span class="tag">Video</span></li>
+            <li><a href="https://www.openrazer.com" target="_blank">OpenRazer</a><span class="tag">Hardware</span></li>
+            <li><a href="https://github.com/libre-tube/LibreTube" target="_blank">LibreTube</a><span class="tag">YouTube</span></li>
+            <li><a href="https://github.com/TeamNewPipe/NewPipe" target="_blank">NewPipe</a><span class="tag">YouTube</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Open Source Gaming</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://lutris.net" target="_blank">Lutris</a><span class="tag">Launcher</span></li>
+            <li><a href="https://heroicgameslauncher.com" target="_blank">Heroic Games Launcher</a><span class="tag">Launcher</span></li>
+            <li><a href="https://playnite.link" target="_blank">Playnite</a><span class="tag">Library</span></li>
+            <li><a href="https://www.retroarch.com" target="_blank">RetroArch</a><span class="tag">Emulator</span></li>
+            <li><a href="https://dolphin-emu.org" target="_blank">Dolphin</a><span class="tag">Emulator</span></li>
+            <li><a href="https://pcsx2.net" target="_blank">PCSX2</a><span class="tag">Emulator</span></li>
+            <li><a href="https://www.duckstation.org" target="_blank">DuckStation</a><span class="tag">Emulator</span></li>
+            <li><a href="https://mgba.io" target="_blank">mGBA</a><span class="tag">Emulator</span></li>
+            <li><a href="http://melonds.kuribo64.net" target="_blank">melonDS</a><span class="tag">Emulator</span></li>
+            <li><a href="https://xonotic.org" target="_blank">Xonotic</a><span class="tag">FPS</span></li>
+            <li><a href="https://play0ad.com" target="_blank">0 A.D.</a><span class="tag">RTS</span></li>
+            <li><a href="https://www.minetest.net" target="_blank">Minetest</a><span class="tag">Sandbox</span></li>
+            <li><a href="https://www.openttd.org" target="_blank">OpenTTD</a><span class="tag">Sim</span></li>
+            <li><a href="https://wesnoth.org" target="_blank">Battle for Wesnoth</a><span class="tag">Strategy</span></li>
+            <li><a href="https://supertuxkart.net" target="_blank">SuperTuxKart</a><span class="tag">Racing</span></li>
+            <li><a href="https://www.flightgear.org" target="_blank">FlightGear</a><span class="tag">Sim</span></li>
         </ul>
         </div>
     </div>
