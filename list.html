@@ -2024,6 +2024,18 @@
             margin-bottom: 20px;
         }
 
+        .app-modal-socials {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .app-modal-socials .social-links {
+            margin-left: 0;
+        }
+
         .app-modal-links {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -5050,6 +5062,7 @@
         <span class="app-modal-tag" id="appModalTag">Tag</span>
         <p class="app-modal-desc" id="appModalDesc">Description</p>
         <div class="app-modal-stats" id="appModalStats"></div>
+        <div class="app-modal-socials" id="appModalSocials"></div>
         <div class="app-modal-links" id="appModalLinks"></div>
     </div>
 </div>
@@ -5061,6 +5074,7 @@
         const modalTag = document.getElementById('appModalTag');
         const modalDesc = document.getElementById('appModalDesc');
         const modalStats = document.getElementById('appModalStats');
+        const modalSocials = document.getElementById('appModalSocials');
         const modalLinks = document.getElementById('appModalLinks');
         const modalClose = document.getElementById('appModalClose');
 
@@ -5089,6 +5103,15 @@
                 clone.style.height = '22px';
                 modalStats.appendChild(clone);
             });
+
+            modalSocials.innerHTML = '';
+            const socialsEl = li.querySelector('.social-links');
+            if (socialsEl) {
+                modalSocials.appendChild(socialsEl.cloneNode(true));
+                modalSocials.style.display = '';
+            } else {
+                modalSocials.style.display = 'none';
+            }
 
             modalLinks.innerHTML = '';
 
