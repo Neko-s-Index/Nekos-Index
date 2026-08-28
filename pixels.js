@@ -73,6 +73,7 @@
             color: colors[Math.floor(Math.random() * colors.length)],
             alpha: Math.random() * 0.7 + 0.2,
             drift: (Math.random() - 0.5) * 0.6,
+            wander: (Math.random() - 0.5) * 0.08,
             vx: burst ? (Math.random() - 0.5) * 5 : 0,
             vy: burst ? -(Math.random() * 4 + 2) : speed
         });
@@ -117,23 +118,40 @@
         }
         spawnBurst(x, y);
         catJump = 10;
+        cat.targetX = Math.max(0, Math.min(canvas.width - cat.width, x - cat.width / 2));
     });
 
     // ---- Pixel cat ----
     const cat = {
         x: canvas.width / 2 - 10,
         y: 16,
+        targetX: canvas.width / 2 - 10,
         scale: 2,
         width: 20,
         height: 18,
         blinkTimer: 0,
-        isBlinking: false
+        isBlinking: false,
+        tailSway: 0
     };
 
     let catJump = 0;
 
     function updateCat() {
-        cat.x = canvas.width / 2 - cat.width / 2;
+        // Follow mouse, click, or patrol
+        if (mouseInCanvas) {
+            cat.targetX = Math.max(0, Math.min(canvas.width - cat.width, mouseX - cat.width / 2));
+        }
+
+        // Smooth movement toward target
+        cat.x += (cat.targetX - cat.x) * 0.05;
+
+        // Patrol when idle
+        if (!mouseInCanvas && Math.abs(cat.x - cat.targetX) < 1) {
+            cat.targetX = Math.random() * (canvas.width - cat.width);
+        }
+
+        // Tail wag
+        cat.tailSway = Math.sin(Date.now() / 120) * 1.5;
 
         // Blink randomly
         if (cat.blinkTimer++ > 120 + Math.random() * 240) {
@@ -178,8 +196,9 @@
         ctx.fillRect(ox + cat.width, oy + s, s, s);
 
         // Tail
-        ctx.fillRect(ox + cat.width + s, oy + 4 * s, s, 4 * s);
-        ctx.fillRect(ox + cat.width + 2 * s, oy + 5 * s, s, 3 * s);
+        const t = Math.floor(cat.tailSway);
+        ctx.fillRect(ox + cat.width + s + t, oy + 4 * s, s, 4 * s);
+        ctx.fillRect(ox + cat.width + 2 * s + t, oy + 5 * s, s, 3 * s);
 
         // Eyes
         if (!cat.isBlinking) {
@@ -239,6 +258,8 @@
             p.vx *= 0.95;
             p.vy *= 0.98;
             p.vy += 0.05; // gravity
+            p.drift += p.wander;
+            if (Math.random() < 0.02) p.wander = (Math.random() - 0.5) * 0.1;
             p.x += p.vx + p.drift;
             p.y += p.vy;
 
