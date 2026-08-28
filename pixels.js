@@ -106,6 +106,18 @@
             catJump = 10;
             cat.targetX = Math.max(cat.scale, Math.min(canvas.width - cat.width - 2 * cat.scale, x - cat.width / 2));
             cat.targetY = Math.max(0, Math.min(canvas.height - 8 * cat.scale, y - 4 * cat.scale));
+
+            for (const c of extraCats) {
+                if (!c.interactive) continue;
+                const cx = c.x + c.width * c.scale / 2;
+                const cy = c.y + 4 * c.scale;
+                const dx = e.clientX - cx;
+                const dy = e.clientY - cy;
+                if (Math.hypot(dx, dy) < 60 && Math.random() < 0.7) {
+                    c.jump = 12;
+                    c.dir *= -1;
+                }
+            }
         }
     });
 
@@ -123,6 +135,85 @@
     };
 
     let catJump = 0;
+
+    // ---- Extra pixel cats ----
+    const extraCats = [];
+    function initExtraCats() {
+        extraCats.length = 0;
+        const margin = 4;
+        extraCats.push({
+            x: margin, y: Math.random() * canvas.height, targetX: margin, targetY: 0,
+            scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+            type: 'vwall', speed: (Math.random() + 0.5) * 0.4, dir: Math.random() < 0.5 ? 1 : -1,
+            interactive: Math.random() < 0.35
+        });
+        extraCats.push({
+            x: canvas.width - 22, y: Math.random() * canvas.height, targetX: canvas.width - 22, targetY: 0,
+            scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+            type: 'vwall', speed: (Math.random() + 0.5) * 0.4, dir: Math.random() < 0.5 ? 1 : -1,
+            interactive: Math.random() < 0.35
+        });
+        extraCats.push({
+            x: Math.random() * canvas.width, y: margin, targetX: 0, targetY: margin,
+            scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+            type: 'hwall', speed: (Math.random() + 0.5) * 0.4, dir: Math.random() < 0.5 ? 1 : -1,
+            interactive: Math.random() < 0.35
+        });
+        const buttons = Array.from(document.querySelectorAll('button, .main-nav a, .filter-btn, .category-header'));
+        if (buttons.length) {
+            const i = Math.floor(Math.random() * buttons.length);
+            const b = buttons[i];
+            const rect = b.getBoundingClientRect();
+            extraCats.push({
+                x: rect.left, y: rect.top - 22, targetX: rect.left, targetY: rect.top - 22,
+                scale: 2, width: 15, blinkTimer: 0, isBlinking: false, tailSway: 0, jump: 0,
+                type: 'button', speed: 0.4, dir: 1, buttonIndex: i,
+                interactive: Math.random() < 0.35
+            });
+        }
+    }
+
+    function updateExtraCats() {
+        for (const c of extraCats) {
+            if (Math.random() < 0.005) c.interactive = Math.random() < 0.35;
+            if (c.type === 'vwall') {
+                c.y += c.speed * c.dir * c.scale;
+                if (c.y < -40) c.y = canvas.height + 40;
+                if (c.y > canvas.height + 40) c.y = -40;
+            } else if (c.type === 'hwall') {
+                c.x += c.speed * c.dir * c.scale;
+                if (c.x < -40) c.x = canvas.width + 40;
+                if (c.x > canvas.width + 40) c.x = -40;
+            } else if (c.type === 'button') {
+                const buttons = Array.from(document.querySelectorAll('button, .main-nav a, .filter-btn, .category-header'));
+                if (buttons.length) {
+                    const b = buttons[Math.floor(c.buttonIndex % buttons.length)];
+                    const rect = b.getBoundingClientRect();
+                    c.targetX = rect.left + rect.width / 2 - (c.width * c.scale) / 2;
+                    c.targetY = rect.top - c.scale * 9;
+                    c.x += (c.targetX - c.x) * 0.05;
+                    c.y += (c.targetY - c.y) * 0.05;
+                    if (Math.random() < 0.01) c.buttonIndex = (c.buttonIndex + 1) % buttons.length;
+                }
+            }
+            c.tailSway = Math.sin(Date.now() / 120 + c.x) * 1.5;
+            if (c.blinkTimer++ > 120 + Math.random() * 240) {
+                c.isBlinking = true;
+                if (c.blinkTimer > 140 + Math.random() * 240) {
+                    c.isBlinking = false;
+                    c.blinkTimer = 0;
+                }
+            }
+            if (c.jump > 0) c.jump = Math.max(0, c.jump - 0.6);
+        }
+    }
+
+    function drawExtraCats() {
+        for (const c of extraCats) {
+            drawOneCat(c, c.jump);
+        }
+    }
+    initExtraCats();
 
     function updateCat() {
         if (mouseInCanvas) {
@@ -158,12 +249,12 @@
         }
     }
 
-    function drawCat() {
-        const s = cat.scale;
-        const ox = cat.x;
-        const oy = cat.y - catJump;
+    function drawOneCat(c, jump) {
+        const s = c.scale;
+        const ox = c.x;
+        const oy = c.y - (jump || 0);
 
-        // Black 8-bit body
+        // White 8-bit body
         const body = [
             [0, 1, 1, 1, 0],
             [1, 1, 1, 1, 1],
@@ -173,7 +264,7 @@
             [0, 1, 0, 1, 0]
         ];
 
-        ctx.fillStyle = '#0a0a0a';
+        ctx.fillStyle = 'rgba(255,255,255,0.55)';
         for (let row = 0; row < body.length; row++) {
             for (let col = 0; col < body[row].length; col++) {
                 if (body[row][col]) {
@@ -184,15 +275,15 @@
 
         // Ears
         ctx.fillRect(ox - s, oy + s, s, s);
-        ctx.fillRect(ox + cat.width, oy + s, s, s);
+        ctx.fillRect(ox + c.width, oy + s, s, s);
 
         // Tail
-        const t = Math.floor(cat.tailSway);
-        ctx.fillRect(ox + cat.width + s + t, oy + 4 * s, s, 4 * s);
-        ctx.fillRect(ox + cat.width + 2 * s + t, oy + 5 * s, s, 3 * s);
+        const t = Math.floor(c.tailSway);
+        ctx.fillRect(ox + c.width + s + t, oy + 4 * s, s, 4 * s);
+        ctx.fillRect(ox + c.width + 2 * s + t, oy + 5 * s, s, 3 * s);
 
         // Eyes
-        if (!cat.isBlinking) {
+        if (!c.isBlinking) {
             let px = 0, py = 0;
             if (mouseInCanvas) {
                 const dx = mouseX - (ox + 2.5 * s);
@@ -203,11 +294,11 @@
                 py = Math.sin(angle) * dist;
             }
 
-            ctx.fillStyle = '#fff';
+            ctx.fillStyle = '#18181b';
             ctx.fillRect(ox + s, oy + 2 * s, 2 * s, 2 * s);
             ctx.fillRect(ox + 3 * s, oy + 2 * s, 2 * s, 2 * s);
 
-            ctx.fillStyle = '#0a0a0a';
+            ctx.fillStyle = '#f4f4f5';
             ctx.fillRect(ox + s + s + px, oy + 2 * s + s / 2 + py, s, s);
             ctx.fillRect(ox + 3 * s + s + px, oy + 2 * s + s / 2 + py, s, s);
         } else {
@@ -221,6 +312,10 @@
         ctx.fillRect(ox + 2 * s, oy + 4 * s - 1, s, 1);
     }
 
+    function drawCat() {
+        drawOneCat(cat, catJump);
+    }
+
     // ---- Main loop ----
     function loop() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -228,6 +323,7 @@
         if (Math.random() < 0.4) spawnPixel();
 
         updateCat();
+        updateExtraCats();
 
         for (let i = particles.length - 1; i >= 0; i--) {
             const p = particles[i];
@@ -263,6 +359,7 @@
         }
 
         drawCat();
+        drawExtraCats();
 
         requestAnimationFrame(loop);
     }
@@ -270,6 +367,7 @@
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        initExtraCats();
     });
 
     loop();

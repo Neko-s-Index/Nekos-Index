@@ -1488,8 +1488,9 @@
             }
 
             .main-nav a {
-                padding: 6px 12px;
-                font-size: 12px;
+                padding: 5px 10px;
+                font-size: 11px;
+                font-weight: 700;
                 border-radius: 16px;
             }
 
@@ -1647,6 +1648,7 @@
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .dmca-box {
@@ -2251,9 +2253,9 @@
             // Show app descriptions setting
             const showDescriptionsKey = 'nekoIndexShowDescriptions';
             const showDescriptionsToggle = document.getElementById('showDescriptionsToggle');
-            const savedShowDescriptions = localStorage.getItem(showDescriptionsKey) === 'true';
+            const savedShowDescriptions = localStorage.getItem(showDescriptionsKey) !== 'false';
+            showDescriptionsToggle.checked = savedShowDescriptions;
             if (savedShowDescriptions) {
-                showDescriptionsToggle.checked = true;
                 document.body.classList.add('show-descriptions');
             }
             showDescriptionsToggle.addEventListener('change', function() {
@@ -2547,42 +2549,63 @@
                 if (!document.body.classList.contains('show-descriptions') &&
                     localStorage.getItem('nekoIndexShowDescriptions') !== 'true') return;
 
-                // Load local artist/track/app descriptions
-                let localDescriptions = {};
+                // Load local description list as a fallback
+                let localList = [];
+                const urlMap = new Map();
+                const titleMap = new Map();
                 try {
                     const res = await fetch('data/descriptions.json');
-                    if (res.ok) localDescriptions = await res.json();
+                    if (res.ok) {
+                        const json = await res.json();
+                        localList = Array.isArray(json) ? json : [];
+                    }
                 } catch (e) {}
 
+                function normalizeDescUrl(url) {
+                    try {
+                        return new URL(url).toString()
+                            .replace(/^https?:\/\//, '')
+                            .replace(/^www\./, '')
+                            .replace(/\/$/, '')
+                            .toLowerCase();
+                    } catch (e) {
+                        return String(url)
+                            .replace(/^https?:\/\//, '')
+                            .replace(/^www\./, '')
+                            .replace(/\/$/, '')
+                            .toLowerCase();
+                    }
+                }
+
+                // Build lookup maps from the description list
+                for (const entry of localList) {
+                    if (!entry || typeof entry !== 'object') continue;
+                    const desc = entry.description || entry.bio || null;
+                    if (!desc) continue;
+                    if (entry.url) urlMap.set(normalizeDescUrl(entry.url), desc);
+                    if (entry.title) titleMap.set(entry.title, desc);
+                }
+
                 function getLocalDescription(link) {
-                    if (!localDescriptions) return null;
                     const url = link.href;
                     const title = link.textContent.trim();
-
-                    if (localDescriptions.apps) {
-                        const appDesc = localDescriptions.apps[url] ||
-                                        localDescriptions.apps[url.replace(/\/$/, '')] ||
-                                        localDescriptions.apps[url + '/'] ||
-                                        null;
-                        if (appDesc) return appDesc;
-                    }
-                    if (localDescriptions.artists && localDescriptions.artists[title]) {
-                        return localDescriptions.artists[title];
-                    }
-                    if (localDescriptions.tracks && localDescriptions.tracks[title]) {
-                        return localDescriptions.tracks[title];
-                    }
+                    const normalized = normalizeDescUrl(url);
+                    if (urlMap.has(normalized)) return urlMap.get(normalized);
+                    if (titleMap.has(title)) return titleMap.get(title);
                     return null;
                 }
 
                 const allLinks = Array.from(document.querySelectorAll('.category li a'));
 
-                // Apply local descriptions first
+                // Use local list for non-GitHub missing descriptions
                 for (const link of allLinks) {
                     const li = link.closest('li');
                     if (!li) continue;
                     const existing = li.querySelector('.item-desc');
                     if (existing && existing.textContent.trim()) continue;
+                    try {
+                        if (new URL(link.href).hostname.toLowerCase() === 'github.com') continue;
+                    } catch (e) {}
                     const localDesc = getLocalDescription(link);
                     if (localDesc) setDescription(link, localDesc);
                 }
@@ -2619,9 +2642,17 @@
                 for (const { link, owner, repo, key } of batch) {
                     try {
                         const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
-                        if (!res.ok) continue;
-                        const data = await res.json();
-                        const desc = data.description || `${owner}/${repo} on GitHub`;
+                        let desc = null;
+                        if (res.ok) {
+                            const data = await res.json();
+                            desc = data.description || null;
+                        }
+                        if (!desc) {
+                            desc = getLocalDescription(link);
+                        }
+                        if (!desc) {
+                            desc = `${owner}/${repo} on GitHub`;
+                        }
                         localStorage.setItem(key, desc);
                         setDescription(link, desc);
                     } catch (e) {}

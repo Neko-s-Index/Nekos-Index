@@ -1,7 +1,3877 @@
-{
-  "apps": {
-    "https://strawberrymusicplayer.org": "Strawberry is a free, open-source music player and collection organizer."
-  },
-  "artists": {},
-  "tracks": {}
-}
+[
+    {
+        "url":  "https://adguard.com",
+        "title":  "AdGuard VPN / DNS",
+        "description":  "AdGuard VPN / DNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://protonvpn.com",
+        "title":  "Proton VPN",
+        "description":  "Proton VPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://mullvad.net",
+        "title":  "Mullvad VPN",
+        "description":  "Mullvad VPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://nordvpn.com",
+        "title":  "NordVPN",
+        "description":  "NordVPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.expressvpn.com",
+        "title":  "ExpressVPN",
+        "description":  "ExpressVPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://surfshark.com",
+        "title":  "Surfshark",
+        "description":  "Surfshark is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.cyberghostvpn.com",
+        "title":  "CyberGhost VPN",
+        "description":  "CyberGhost VPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.ivpn.net",
+        "title":  "IVPN",
+        "description":  "IVPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://privadovpn.com",
+        "title":  "PrivadoVPN",
+        "description":  "PrivadoVPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.cloudflare.com",
+        "title":  "Cloudflare DNS (1.1.1.1)",
+        "description":  "Cloudflare DNS (1.1.1.1) is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://adguard.com/en/adguard-dns/overview.html",
+        "title":  "AdGuard DNS",
+        "description":  "AdGuard DNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://quad9.net",
+        "title":  "Quad9 DNS",
+        "description":  "Quad9 DNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://nextdns.io",
+        "title":  "NextDNS",
+        "description":  "NextDNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.opendns.com",
+        "title":  "OpenDNS",
+        "description":  "OpenDNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://dns.google",
+        "title":  "Google Public DNS",
+        "description":  "Google Public DNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://cleanbrowsing.org",
+        "title":  "CleanBrowsing DNS",
+        "description":  "CleanBrowsing DNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.rethinkdns.com",
+        "title":  "ReThinkDNS",
+        "description":  "ReThinkDNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.controld.com",
+        "title":  "Control D",
+        "description":  "Control D is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.zenz-solutions.de/personaldnsfilter-wp",
+        "title":  "Personal DNS Filter",
+        "description":  "Personal DNS Filter is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.wireguard.com",
+        "title":  "WireGuard",
+        "description":  "WireGuard is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://openvpn.net",
+        "title":  "OpenVPN",
+        "description":  "OpenVPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://tailscale.com",
+        "title":  "Tailscale",
+        "description":  "Tailscale is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://github.com/juanfont/headscale",
+        "title":  "Headscale",
+        "description":  "Headscale is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://dnscrypt.info",
+        "title":  "DNSCrypt",
+        "description":  "DNSCrypt is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://0xerr0r.github.io/blocky",
+        "title":  "Blocky",
+        "description":  "Blocky is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://technitium.com/dns",
+        "title":  "Technitium DNS",
+        "description":  "Technitium DNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.nlnetlabs.nl/projects/unbound/about",
+        "title":  "Unbound",
+        "description":  "Unbound is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.knot-resolver.cz",
+        "title":  "Knot Resolver",
+        "description":  "Knot Resolver is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://getdnsapi.net",
+        "title":  "Stubby",
+        "description":  "Stubby is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.zerotier.com",
+        "title":  "ZeroTier",
+        "description":  "ZeroTier is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.twingate.com",
+        "title":  "Twingate",
+        "description":  "Twingate is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://github.com/slackhq/nebula",
+        "title":  "Nebula",
+        "description":  "Nebula is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.softether.org",
+        "title":  "SoftEther VPN",
+        "description":  "SoftEther VPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://github.com/trailofbits/algo",
+        "title":  "Algo VPN",
+        "description":  "Algo VPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.pivpn.io",
+        "title":  "PiVPN",
+        "description":  "PiVPN is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://coredns.io",
+        "title":  "CoreDNS",
+        "description":  "CoreDNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://dnsmasq.org",
+        "title":  "dnsmasq",
+        "description":  "dnsmasq is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.powerdns.com",
+        "title":  "PowerDNS",
+        "description":  "PowerDNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.isc.org/bind",
+        "title":  "BIND 9",
+        "description":  "BIND 9 is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.knot-dns.cz",
+        "title":  "Knot DNS",
+        "description":  "Knot DNS is a resource in the Recommended VPNs \u0026 DNS Services category."
+    },
+    {
+        "url":  "https://www.stremio.com",
+        "title":  "Stremio",
+        "description":  "Stremio is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/recloudstream/cloudstream",
+        "title":  "Re-Cloudstream",
+        "description":  "Re-Cloudstream is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/Cloudstream-App/Cloudstream",
+        "title":  "Cloudstream",
+        "description":  "Cloudstream is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/recloudstream/cloudstream-extensions",
+        "title":  "Cloudstream Extensions",
+        "description":  "Cloudstream Extensions is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://kodi.tv",
+        "title":  "Kodi",
+        "description":  "Kodi is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://jellyfin.org",
+        "title":  "Jellyfin",
+        "description":  "Jellyfin is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://emby.media",
+        "title":  "Emby",
+        "description":  "Emby is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://www.plex.tv",
+        "title":  "Plex",
+        "description":  "Plex is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/iv-org/invidious",
+        "title":  "Invidious",
+        "description":  "Invidious is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/TeamPiped/Piped",
+        "title":  "Piped",
+        "description":  "Piped is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/TeamNewPipe/NewPipe",
+        "title":  "NewPipe",
+        "description":  "NewPipe is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/libre-tube/LibreTube",
+        "title":  "LibreTube",
+        "description":  "LibreTube is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/you-apps/YouPlay",
+        "title":  "YouPlay",
+        "description":  "YouPlay is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/you-apps/SkyTube",
+        "title":  "SkyTube",
+        "description":  "SkyTube is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/you-apps/YouPlayer",
+        "title":  "YouPlayer",
+        "description":  "YouPlayer is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/mpv-player/mpv",
+        "title":  "mpv",
+        "description":  "mpv is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/videolan/vlc",
+        "title":  "VLC",
+        "description":  "VLC is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/SpyCatcherOfficial/StreamHub",
+        "title":  "StreamHub",
+        "description":  "StreamHub is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Xtream-Player",
+        "title":  "Xtream Player",
+        "description":  "Xtream Player is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Xtream-Downloader",
+        "title":  "Xtream Downloader",
+        "description":  "Xtream Downloader is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Xtream-Extractor",
+        "title":  "Xtream Extractor",
+        "description":  "Xtream Extractor is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Xtream-Converter",
+        "title":  "Xtream Converter",
+        "description":  "Xtream Converter is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Xtream-Manager",
+        "title":  "Xtream Manager",
+        "description":  "Xtream Manager is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/Syncplay/syncplay",
+        "title":  "Syncplay",
+        "description":  "Syncplay is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/ThaUnknown/miru",
+        "title":  "Miru",
+        "description":  "Miru is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/Anilou/Anilou",
+        "title":  "Anilou",
+        "description":  "Anilou is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/jellyfin/Swiftfin",
+        "title":  "Swiftfin",
+        "description":  "Swiftfin is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/jmshrv/finamp",
+        "title":  "Finamp",
+        "description":  "Finamp is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://www.navidrome.org",
+        "title":  "Navidrome",
+        "description":  "Navidrome is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/jeffvli/feishin",
+        "title":  "Feishin",
+        "description":  "Feishin is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/jellyfin/jellyfin-media-player",
+        "title":  "Jellyfin Media Player",
+        "description":  "Jellyfin Media Player is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/jellyfin/jellyfin-androidtv",
+        "title":  "Jellyfin Android TV",
+        "description":  "Jellyfin Android TV is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/jellyfin/jellyfin-android",
+        "title":  "Findroid / Jellyfin Android",
+        "description":  "Findroid / Jellyfin Android is a resource in the Open Source Streaming Apps (Multi-platform) category."
+    },
+    {
+        "url":  "https://github.com/aniyomiorg/aniyomi",
+        "title":  "Aniyomi",
+        "description":  "Aniyomi is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/aniyomiorg/aniyomi-extensions",
+        "title":  "Aniyomi Extensions",
+        "description":  "Aniyomi Extensions is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/alexfauz/AOT-Video",
+        "title":  "AOT Video",
+        "description":  "AOT Video is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/alexfauz/AOT-Manga",
+        "title":  "AOT Manga",
+        "description":  "AOT Manga is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/alexfauz/AOT-Novel",
+        "title":  "AOT Novel",
+        "description":  "AOT Novel is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Yokai",
+        "title":  "Yokai",
+        "description":  "Yokai is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Shiru",
+        "title":  "Shiru",
+        "description":  "Shiru is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Mihon",
+        "title":  "Mihon",
+        "description":  "Mihon is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Tachidesk",
+        "title":  "Tachidesk",
+        "description":  "Tachidesk is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Houdoku",
+        "title":  "Houdoku",
+        "description":  "Houdoku is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/FMD2",
+        "title":  "FMD2",
+        "description":  "FMD2 is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Hakuneko",
+        "title":  "Hakuneko",
+        "description":  "Hakuneko is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/QuickNovel",
+        "title":  "QuickNovel",
+        "description":  "QuickNovel is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Tsundoku",
+        "title":  "Tsundoku",
+        "description":  "Tsundoku is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/LnCrawler",
+        "title":  "LnCrawler",
+        "description":  "LnCrawler is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Seanime",
+        "title":  "Seanime",
+        "description":  "Seanime is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/AnymeX",
+        "title":  "AnymeX",
+        "description":  "AnymeX is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Mangayomi",
+        "title":  "Mangayomi",
+        "description":  "Mangayomi is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/ReDactedX/Manatan",
+        "title":  "Manatan",
+        "description":  "Manatan is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/KotatsuApp/Kotatsu",
+        "title":  "Kotatsu",
+        "description":  "Kotatsu is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/jobobby04/TachiyomiSY",
+        "title":  "TachiyomiSY",
+        "description":  "TachiyomiSY is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/Jays2Kings/TachiyomiJ2K",
+        "title":  "TachiyomiJ2K",
+        "description":  "TachiyomiJ2K is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/CarlosEsco/Neko",
+        "title":  "Neko",
+        "description":  "Neko is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://github.com/Aidoku/Aidoku",
+        "title":  "Aidoku",
+        "description":  "Aidoku is a resource in the Open Source Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://www.netflix.com",
+        "title":  "Netflix",
+        "description":  "Netflix is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.hulu.com",
+        "title":  "Hulu",
+        "description":  "Hulu is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.disneyplus.com",
+        "title":  "Disney+",
+        "description":  "Disney+ is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.amazon.com/primevideo",
+        "title":  "Amazon Prime Video",
+        "description":  "Amazon Prime Video is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.hbomax.com",
+        "title":  "HBO Max",
+        "description":  "HBO Max is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.paramountplus.com",
+        "title":  "Paramount+",
+        "description":  "Paramount+ is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.peacocktv.com",
+        "title":  "Peacock",
+        "description":  "Peacock is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.apple.com/apple-tv-plus",
+        "title":  "Apple TV+",
+        "description":  "Apple TV+ is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.crunchyroll.com",
+        "title":  "Crunchyroll",
+        "description":  "Crunchyroll is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.funimation.com",
+        "title":  "Funimation",
+        "description":  "Funimation is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.hidive.com",
+        "title":  "HIDIVE",
+        "description":  "HIDIVE is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.viki.com",
+        "title":  "Rakuten Viki",
+        "description":  "Rakuten Viki is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.iq.com",
+        "title":  "iQIYI",
+        "description":  "iQIYI is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.wetv.vip",
+        "title":  "WeTV",
+        "description":  "WeTV is a resource in the Premium Streaming Services category."
+    },
+    {
+        "url":  "https://www.tubitv.com",
+        "title":  "Tubi",
+        "description":  "Tubi is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.pluto.tv",
+        "title":  "Pluto TV",
+        "description":  "Pluto TV is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.plex.tv/free-movies-tv",
+        "title":  "Plex Free",
+        "description":  "Plex Free is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.crackle.com",
+        "title":  "Crackle",
+        "description":  "Crackle is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.popcornflix.com",
+        "title":  "Popcornflix",
+        "description":  "Popcornflix is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.youtube.com",
+        "title":  "YouTube",
+        "description":  "YouTube is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.amazon.com/adp",
+        "title":  "Amazon Freevee",
+        "description":  "Amazon Freevee is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.hoopladigital.com",
+        "title":  "Hoopla",
+        "description":  "Hoopla is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.kanopy.com",
+        "title":  "Kanopy",
+        "description":  "Kanopy is a resource in the Free Streaming Services category."
+    },
+    {
+        "url":  "https://www.videolan.org/vlc",
+        "title":  "VLC Media Player",
+        "description":  "VLC Media Player is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://mpv.io",
+        "title":  "mpv",
+        "description":  "mpv is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.mpc-hc.org",
+        "title":  "MPC-HC",
+        "description":  "MPC-HC is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.mpc-be.com",
+        "title":  "MPC-BE",
+        "description":  "MPC-BE is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.potplayer.daum.net",
+        "title":  "PotPlayer",
+        "description":  "PotPlayer is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.iina.io",
+        "title":  "IINA",
+        "description":  "IINA is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://handbrake.fr",
+        "title":  "HandBrake",
+        "description":  "HandBrake is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.ffmpeg.org",
+        "title":  "FFmpeg",
+        "description":  "FFmpeg is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.shutterencoder.com",
+        "title":  "Shutter Encoder",
+        "description":  "Shutter Encoder is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.xmedia-recode.de",
+        "title":  "XMedia Recode",
+        "description":  "XMedia Recode is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.smplayer.info",
+        "title":  "SMPlayer",
+        "description":  "SMPlayer is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://github.com/g-fb/haruna",
+        "title":  "Haruna",
+        "description":  "Haruna is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://github.com/Rafostar/clapper",
+        "title":  "Clapper",
+        "description":  "Clapper is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://celluloid-player.github.io",
+        "title":  "Celluloid",
+        "description":  "Celluloid is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://mplayerhq.hu",
+        "title":  "MPlayer",
+        "description":  "MPlayer is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://github.com/zaps166/QMPlay2",
+        "title":  "QMPlay2",
+        "description":  "QMPlay2 is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://github.com/stax76/mpv.net",
+        "title":  "mpv.net",
+        "description":  "mpv.net is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://kodi.tv",
+        "title":  "Kodi",
+        "description":  "Kodi is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://jellyfin.org",
+        "title":  "Jellyfin",
+        "description":  "Jellyfin is a resource in the Media Players \u0026 Converters category."
+    },
+    {
+        "url":  "https://www.qbittorrent.org",
+        "title":  "qBittorrent",
+        "description":  "qBittorrent is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://transmissionbt.com",
+        "title":  "Transmission",
+        "description":  "Transmission is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://www.deluge-torrent.org",
+        "title":  "Deluge",
+        "description":  "Deluge is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://aria2.github.io",
+        "title":  "aria2",
+        "description":  "aria2 is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://www.freedownloadmanager.org",
+        "title":  "Free Download Manager",
+        "description":  "Free Download Manager is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://www.internetdownloadmanager.com",
+        "title":  "Internet Download Manager",
+        "description":  "Internet Download Manager is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://www.jdownloader.org",
+        "title":  "JDownloader",
+        "description":  "JDownloader is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://motrix.app",
+        "title":  "Motrix",
+        "description":  "Motrix is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/BiglySoftware/BiglyBT",
+        "title":  "BiglyBT",
+        "description":  "BiglyBT is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/picotorrent/picotorrent",
+        "title":  "PicoTorrent",
+        "description":  "PicoTorrent is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/Tribler/tribler",
+        "title":  "Tribler",
+        "description":  "Tribler is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/webtorrent/webtorrent-desktop",
+        "title":  "WebTorrent Desktop",
+        "description":  "WebTorrent Desktop is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/rakshasa/rtorrent",
+        "title":  "rTorrent",
+        "description":  "rTorrent is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://invent.kde.org/network/ktorrent",
+        "title":  "KTorrent",
+        "description":  "KTorrent is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/frostwire/frostwire",
+        "title":  "FrostWire",
+        "description":  "FrostWire is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/arvidn/libtorrent",
+        "title":  "libtorrent",
+        "description":  "libtorrent is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://pyload.net",
+        "title":  "pyLoad",
+        "description":  "pyLoad is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://github.com/persepolisdm/persepolis",
+        "title":  "Persepolis",
+        "description":  "Persepolis is a resource in the Download Managers \u0026 Torrent Clients category."
+    },
+    {
+        "url":  "https://sabnzbd.org",
+        "title":  "SABnzbd",
+        "description":  "SABnzbd is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://nzbget.net",
+        "title":  "NZBGet",
+        "description":  "NZBGet is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://www.sickchill.com",
+        "title":  "SickChill",
+        "description":  "SickChill is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://sonarr.tv",
+        "title":  "Sonarr",
+        "description":  "Sonarr is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://radarr.video",
+        "title":  "Radarr",
+        "description":  "Radarr is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://lidarr.audio",
+        "title":  "Lidarr",
+        "description":  "Lidarr is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://readarr.com",
+        "title":  "Readarr",
+        "description":  "Readarr is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://prowlarr.com",
+        "title":  "Prowlarr",
+        "description":  "Prowlarr is a resource in the Usenet \u0026 NZB Tools category."
+    },
+    {
+        "url":  "https://myanimelist.net",
+        "title":  "MyAnimeList (MAL)",
+        "description":  "MyAnimeList (MAL) is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://anilist.co",
+        "title":  "AniList",
+        "description":  "AniList is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://kitsu.io",
+        "title":  "Kitsu",
+        "description":  "Kitsu is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://anidb.net",
+        "title":  "AniDB",
+        "description":  "AniDB is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://www.mangaupdates.com",
+        "title":  "Baka-Updates",
+        "description":  "Baka-Updates is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://mangadex.org",
+        "title":  "MangaDex",
+        "description":  "MangaDex is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://comicinfo.org",
+        "title":  "ComicInfo",
+        "description":  "ComicInfo is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://novelupdates.com",
+        "title":  "NovelUpdates",
+        "description":  "NovelUpdates is a resource in the Anime \u0026 Manga Databases category."
+    },
+    {
+        "url":  "https://mangadex.org",
+        "title":  "MangaDex",
+        "description":  "MangaDex is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://comick.app",
+        "title":  "ComicK",
+        "description":  "ComicK is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://mangasee123.com",
+        "title":  "MangaSee",
+        "description":  "MangaSee is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://mangakakalot.com",
+        "title":  "MangaKakalot",
+        "description":  "MangaKakalot is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://mangarock.com",
+        "title":  "MangaRock",
+        "description":  "MangaRock is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://lightnovelworld.org",
+        "title":  "LightNovelWorld",
+        "description":  "LightNovelWorld is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://novelupdates.com",
+        "title":  "NovelUpdates",
+        "description":  "NovelUpdates is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://wuxiaworld.com",
+        "title":  "WuxiaWorld",
+        "description":  "WuxiaWorld is a resource in the Manga \u0026 Novel Reading category."
+    },
+    {
+        "url":  "https://code.visualstudio.com",
+        "title":  "Visual Studio Code",
+        "description":  "Visual Studio Code is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.sublimetext.com",
+        "title":  "Sublime Text",
+        "description":  "Sublime Text is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.jetbrains.com",
+        "title":  "JetBrains",
+        "description":  "JetBrains is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.python.org",
+        "title":  "Python",
+        "description":  "Python is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://nodejs.org",
+        "title":  "Node.js",
+        "description":  "Node.js is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://git-scm.com",
+        "title":  "Git",
+        "description":  "Git is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://github.com",
+        "title":  "GitHub",
+        "description":  "GitHub is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://gitlab.com",
+        "title":  "GitLab",
+        "description":  "GitLab is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://bitbucket.org",
+        "title":  "Bitbucket",
+        "description":  "Bitbucket is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.libreoffice.org",
+        "title":  "LibreOffice",
+        "description":  "LibreOffice is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.openoffice.org",
+        "title":  "Apache OpenOffice",
+        "description":  "Apache OpenOffice is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.7-zip.org",
+        "title":  "7-Zip",
+        "description":  "7-Zip is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.peazip.github.io",
+        "title":  "PeaZip",
+        "description":  "PeaZip is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.gimp.org",
+        "title":  "GIMP",
+        "description":  "GIMP is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.inkscape.org",
+        "title":  "Inkscape",
+        "description":  "Inkscape is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.blender.org",
+        "title":  "Blender",
+        "description":  "Blender is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.calibre-ebook.com",
+        "title":  "Calibre",
+        "description":  "Calibre is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://neovim.io",
+        "title":  "Neovim",
+        "description":  "Neovim is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.vim.org",
+        "title":  "Vim",
+        "description":  "Vim is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.gnu.org/software/emacs",
+        "title":  "Emacs",
+        "description":  "Emacs is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://eclipse.org",
+        "title":  "Eclipse",
+        "description":  "Eclipse is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://netbeans.apache.org",
+        "title":  "Apache NetBeans",
+        "description":  "Apache NetBeans is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.geany.org",
+        "title":  "Geany",
+        "description":  "Geany is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://kate-editor.org",
+        "title":  "Kate",
+        "description":  "Kate is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://micro-editor.github.io",
+        "title":  "Micro",
+        "description":  "Micro is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://godotengine.org",
+        "title":  "Godot Engine",
+        "description":  "Godot Engine is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.sqlite.org",
+        "title":  "SQLite",
+        "description":  "SQLite is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.postgresql.org",
+        "title":  "PostgreSQL",
+        "description":  "PostgreSQL is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://mariadb.org",
+        "title":  "MariaDB",
+        "description":  "MariaDB is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://www.docker.com",
+        "title":  "Docker",
+        "description":  "Docker is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://kubernetes.io",
+        "title":  "Kubernetes",
+        "description":  "Kubernetes is a resource in the Development \u0026 Productivity Tools category."
+    },
+    {
+        "url":  "https://github.com/metabrainz/picard",
+        "title":  "MusicBrainz Picard",
+        "description":  "MusicBrainz Picard is a resource in the Audio Tagging Tools category."
+    },
+    {
+        "url":  "https://kid3.kde.org",
+        "title":  "Kid3",
+        "description":  "Kid3 is a resource in the Audio Tagging Tools category."
+    },
+    {
+        "url":  "https://easytag.github.io",
+        "title":  "EasyTag",
+        "description":  "EasyTag is a resource in the Audio Tagging Tools category."
+    },
+    {
+        "url":  "https://www.mp3tag.de",
+        "title":  "Mp3tag",
+        "description":  "Mp3tag is a resource in the Audio Tagging Tools category."
+    },
+    {
+        "url":  "https://github.com/beetbox/beets",
+        "title":  "beets",
+        "description":  "beets is a resource in the Audio Tagging Tools category."
+    },
+    {
+        "url":  "https://anime.nexus",
+        "title":  "Anime Nexus",
+        "description":  "Anime Nexus is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://kaa.lt/",
+        "title":  "KickAssAnime",
+        "description":  "KickAssAnime is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://www.miruro.to/",
+        "title":  "Miruro",
+        "description":  "Miruro is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://anime.uniquestream.net/",
+        "title":  "AnimeStream",
+        "description":  "AnimeStream is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://animeverse.to/",
+        "title":  "AnimeVerse",
+        "description":  "AnimeVerse is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://reanime.to/home",
+        "title":  "Re:ANIME",
+        "description":  "Re:ANIME is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://anizone.to/",
+        "title":  "AniZone",
+        "description":  "AniZone is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://allmanga.to/anime?tr=sub\u0026cty=ALL",
+        "title":  "All Manga (Anime)",
+        "description":  "All Manga (Anime) is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://anibd.app/",
+        "title":  "Anibd",
+        "description":  "Anibd is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://anihq.cc/home/",
+        "title":  "AniHQ",
+        "description":  "AniHQ is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://animepahe.pw/",
+        "title":  "AnimePahe",
+        "description":  "AnimePahe is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://www.animotvslash.org/",
+        "title":  "Animotvslash",
+        "description":  "Animotvslash is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://beta.otaku-streamers.com/",
+        "title":  "Otaku-Streamers",
+        "description":  "Otaku-Streamers is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://www.wco.tv/",
+        "title":  "Watch Cartoon Online",
+        "description":  "Watch Cartoon Online is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animekai",
+        "title":  "AnimeKai",
+        "description":  "AnimeKai is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anikoto",
+        "title":  "Anikoto",
+        "description":  "Anikoto is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/AllAnime",
+        "title":  "AllAnime",
+        "description":  "AllAnime is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anidbstream",
+        "title":  "AniDB Stream",
+        "description":  "AniDB Stream is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animetsu",
+        "title":  "Animetsu",
+        "description":  "Animetsu is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anitakuto",
+        "title":  "AniNeko",
+        "description":  "AniNeko is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/senshi",
+        "title":  "Senshi",
+        "description":  "Senshi is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/AnimeOnsen",
+        "title":  "AnimeOnsen",
+        "description":  "AnimeOnsen is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://www.bilibili.com",
+        "title":  "Bilibili",
+        "description":  "Bilibili is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anisnatch",
+        "title":  "AniSnatch",
+        "description":  "AniSnatch is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/otakuu",
+        "title":  "AnimeX",
+        "description":  "AnimeX is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/123animes",
+        "title":  "aniwaves.ru",
+        "description":  "aniwaves.ru is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animekhor",
+        "title":  "AnimeKhor",
+        "description":  "AnimeKhor is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/AnimeXin",
+        "title":  "AnimeXin",
+        "description":  "AnimeXin is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/donghuastream",
+        "title":  "DonghuaStream",
+        "description":  "DonghuaStream is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/myanimelive",
+        "title":  "Myanime.live",
+        "description":  "Myanime.live is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/LManime",
+        "title":  "LManime",
+        "description":  "LManime is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animecube",
+        "title":  "Anime Cube",
+        "description":  "Anime Cube is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anoboye",
+        "title":  "Anoboye",
+        "description":  "Anoboye is a resource in the Free Anime Streaming Sites category."
+    },
+    {
+        "url":  "https://kagane.to/",
+        "title":  "Kagane",
+        "description":  "Kagane is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://weebcentral.com/",
+        "title":  "Weeb Central",
+        "description":  "Weeb Central is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://atsu.moe/",
+        "title":  "Atsumaru",
+        "description":  "Atsumaru is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangafire.to/home",
+        "title":  "MangaFire",
+        "description":  "MangaFire is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangadot.net/",
+        "title":  "MangaDotNet",
+        "description":  "MangaDotNet is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangakatana.com/",
+        "title":  "MangaKatana",
+        "description":  "MangaKatana is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangaball.net/",
+        "title":  "MangaBall",
+        "description":  "MangaBall is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://onisaga.com/home",
+        "title":  "OniSaga",
+        "description":  "OniSaga is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://comix.to/",
+        "title":  "Comix",
+        "description":  "Comix is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangataro.org/home",
+        "title":  "MangaTaro",
+        "description":  "MangaTaro is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangak.io/home",
+        "title":  "MangaK",
+        "description":  "MangaK is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangahub.io/",
+        "title":  "MangaHub",
+        "description":  "MangaHub is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://mangafox.la/",
+        "title":  "Manga Fox",
+        "description":  "Manga Fox is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mangago",
+        "title":  "Mangago",
+        "description":  "Mangago is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/allmanga",
+        "title":  "MKissa Manga",
+        "description":  "MKissa Manga is a resource in the Free Manga Reading Sites category."
+    },
+    {
+        "url":  "https://lightnovelworld.org",
+        "title":  "LightNovelWorld",
+        "description":  "LightNovelWorld is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://novelarchive.net",
+        "title":  "NovelArchive",
+        "description":  "NovelArchive is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://novelbuddy.com",
+        "title":  "NovelBuddy",
+        "description":  "NovelBuddy is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://novelfire.net",
+        "title":  "NovelFire",
+        "description":  "NovelFire is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://annas-archive.org",
+        "title":  "Anna\u0027s Archive",
+        "description":  "Anna\u0027s Archive is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/jnovelclub",
+        "title":  "J-Novel Club",
+        "description":  "J-Novel Club is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/noveldex",
+        "title":  "NovelDex",
+        "description":  "NovelDex is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/wuxiap",
+        "title":  "Wuxia Box",
+        "description":  "Wuxia Box is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/wuxiaclick",
+        "title":  "WuxiaClick",
+        "description":  "WuxiaClick is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/lnori",
+        "title":  "Lnori",
+        "description":  "Lnori is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/novelsonline",
+        "title":  "NovelsOnline",
+        "description":  "NovelsOnline is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/innread",
+        "title":  "FreeWebNovel",
+        "description":  "FreeWebNovel is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/ranobestop",
+        "title":  "Ranobes",
+        "description":  "Ranobes is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/cyrisia",
+        "title":  "Cyrisia",
+        "description":  "Cyrisia is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/bakatsuki",
+        "title":  "Baka-Tsuki",
+        "description":  "Baka-Tsuki is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/novelcool",
+        "title":  "NovelCool",
+        "description":  "NovelCool is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/lncrawler",
+        "title":  "LnCrawler",
+        "description":  "LnCrawler is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/novelusb",
+        "title":  "Novel Bin",
+        "description":  "Novel Bin is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/novelhall",
+        "title":  "Novelhall",
+        "description":  "Novelhall is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mvlempyr",
+        "title":  "MVLEMPYR",
+        "description":  "MVLEMPYR is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/fucknovelpia",
+        "title":  "FUCKNOVELPIA",
+        "description":  "FUCKNOVELPIA is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/elscioneserver",
+        "title":  "server.elscione",
+        "description":  "server.elscione is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/foxaholic",
+        "title":  "Foxaholic",
+        "description":  "Foxaholic is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/wtrlab",
+        "title":  "WTR-LAB",
+        "description":  "WTR-LAB is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/kurehaone",
+        "title":  "Kureha One forum",
+        "description":  "Kureha One forum is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/jnovels",
+        "title":  "jnovels",
+        "description":  "jnovels is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/armaelllib",
+        "title":  "Armaell\u0027s Library",
+        "description":  "Armaell\u0027s Library is a resource in the Novel Reading Sites category."
+    },
+    {
+        "url":  "https://kisskh.com",
+        "title":  "Kisskh",
+        "description":  "Kisskh is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://goplay.com",
+        "title":  "GoPlay",
+        "description":  "GoPlay is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://viki.com",
+        "title":  "Rakuten Viki",
+        "description":  "Rakuten Viki is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://www.iq.com",
+        "title":  "iQIYI",
+        "description":  "iQIYI is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://asianc.tv",
+        "title":  "Asianc TV",
+        "description":  "Asianc TV is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://wetv.vip",
+        "title":  "WeTV",
+        "description":  "WeTV is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://kdramaweb.com",
+        "title":  "Kdramaweb",
+        "description":  "Kdramaweb is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://dramanicee.cl",
+        "title":  "Dramanicee.cl",
+        "description":  "Dramanicee.cl is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://lovo.tv",
+        "title":  "Lovo",
+        "description":  "Lovo is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://tokuzilla.com",
+        "title":  "Tokuzilla",
+        "description":  "Tokuzilla is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://zokaj.com",
+        "title":  "Zokaj",
+        "description":  "Zokaj is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://toku555.com",
+        "title":  "Toku555",
+        "description":  "Toku555 is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/kisskhweb",
+        "title":  "kisskhweb.com",
+        "description":  "kisskhweb.com is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/onlykdrama",
+        "title":  "OnlyKDrama",
+        "description":  "OnlyKDrama is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/dramaday",
+        "title":  "Dramaday",
+        "description":  "Dramaday is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mkvdramame",
+        "title":  "MkvDrama.net",
+        "description":  "MkvDrama.net is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/myasiantv",
+        "title":  "Myasiantv",
+        "description":  "Myasiantv is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/asiaflix",
+        "title":  "Asiaflix",
+        "description":  "Asiaflix is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/kissoppa",
+        "title":  "KissOppa",
+        "description":  "KissOppa is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/asianview",
+        "title":  "Kisskh.club",
+        "description":  "Kisskh.club is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/kissasiantv",
+        "title":  "Kissasiantv",
+        "description":  "Kissasiantv is a resource in the Asian Drama Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/seanime",
+        "title":  "Seanime",
+        "description":  "Seanime is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mangayomi",
+        "title":  "Mangayomi",
+        "description":  "Mangayomi is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anymex",
+        "title":  "AnymeX",
+        "description":  "AnymeX is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/cloudstream",
+        "title":  "CloudStream",
+        "description":  "CloudStream is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/miru",
+        "title":  "Hayase / Miru",
+        "description":  "Hayase / Miru is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/quicknovel",
+        "title":  "QuickNovel",
+        "description":  "QuickNovel is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/yokai",
+        "title":  "Yokai",
+        "description":  "Yokai is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/manatan",
+        "title":  "Manatan",
+        "description":  "Manatan is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/tsundoku",
+        "title":  "Tsundoku",
+        "description":  "Tsundoku is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mirujs",
+        "title":  "Miru (JS)",
+        "description":  "Miru (JS) is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/tachidesk",
+        "title":  "Suwayomi / Tachidesk",
+        "description":  "Suwayomi / Tachidesk is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/houdoku",
+        "title":  "Houdoku",
+        "description":  "Houdoku is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/fmd2",
+        "title":  "FMD2",
+        "description":  "FMD2 is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/hakuneko",
+        "title":  "Hakuneko",
+        "description":  "Hakuneko is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/shiru",
+        "title":  "Shiru",
+        "description":  "Shiru is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/lncrawlerapp",
+        "title":  "Lightnovel Crawler",
+        "description":  "Lightnovel Crawler is a resource in the Additional Anime \u0026 Manga Apps category."
+    },
+    {
+        "url":  "https://nyaa.si",
+        "title":  "Nyaa",
+        "description":  "Nyaa is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://animetosho.org",
+        "title":  "AnimeTosho",
+        "description":  "AnimeTosho is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://tsukihime.moe",
+        "title":  "TsukiHime",
+        "description":  "TsukiHime is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://subsplease.org",
+        "title":  "SubsPlease",
+        "description":  "SubsPlease is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://www.tokyotosho.info",
+        "title":  "Tokyo Toshokan",
+        "description":  "Tokyo Toshokan is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://www.cdjapan.co.jp",
+        "title":  "CDJapan",
+        "description":  "CDJapan is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://releases.moe",
+        "title":  "SeaDex",
+        "description":  "SeaDex is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://nekobt.com",
+        "title":  "nekoBT",
+        "description":  "nekoBT is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://anirena.com",
+        "title":  "AniRena",
+        "description":  "AniRena is a resource in the Torrent \u0026 Download Sites category."
+    },
+    {
+        "url":  "https://github.com/gorhill/uBlock",
+        "title":  "uBlock Origin",
+        "description":  "uBlock Origin is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/vpnservice",
+        "title":  "VPN Service",
+        "description":  "VPN Service is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://airvpn.org",
+        "title":  "AirVPN",
+        "description":  "AirVPN is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://privacybadger.org",
+        "title":  "Privacy Badger",
+        "description":  "Privacy Badger is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://noscript.net",
+        "title":  "NoScript",
+        "description":  "NoScript is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://sponsor.ajay.app",
+        "title":  "SponsorBlock",
+        "description":  "SponsorBlock is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://pi-hole.net",
+        "title":  "Pi-hole",
+        "description":  "Pi-hole is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://github.com/AdguardTeam/AdGuardHome",
+        "title":  "AdGuard Home",
+        "description":  "AdGuard Home is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://safing.io",
+        "title":  "Portmaster",
+        "description":  "Portmaster is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://simplelogin.io",
+        "title":  "SimpleLogin",
+        "description":  "SimpleLogin is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://proton.me/mail",
+        "title":  "Proton Mail",
+        "description":  "Proton Mail is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://tutanota.com",
+        "title":  "Tutanota",
+        "description":  "Tutanota is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://onionshare.org",
+        "title":  "OnionShare",
+        "description":  "OnionShare is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://signal.org",
+        "title":  "Signal",
+        "description":  "Signal is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://jitsi.org",
+        "title":  "Jitsi Meet",
+        "description":  "Jitsi Meet is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://getsession.org",
+        "title":  "Session",
+        "description":  "Session is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://matrix.org",
+        "title":  "Matrix",
+        "description":  "Matrix is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://bitwarden.com",
+        "title":  "Bitwarden",
+        "description":  "Bitwarden is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://www.torproject.org",
+        "title":  "Tor Browser",
+        "description":  "Tor Browser is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://mullvad.net",
+        "title":  "Mullvad VPN",
+        "description":  "Mullvad VPN is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://www.ivpn.net",
+        "title":  "IVPN",
+        "description":  "IVPN is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://exifcleaner.com",
+        "title":  "ExifCleaner",
+        "description":  "ExifCleaner is a resource in the Privacy \u0026 Security Tools category."
+    },
+    {
+        "url":  "https://github.com/Karmesinrotz/MAL-sync",
+        "title":  "MAL-sync",
+        "description":  "MAL-sync is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://saucenao.com",
+        "title":  "Saucenao",
+        "description":  "Saucenao is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://trace.moe",
+        "title":  "Trace.moe",
+        "description":  "Trace.moe is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://cubari.moe",
+        "title":  "Cubari",
+        "description":  "Cubari is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://due.moe",
+        "title":  "due.moe",
+        "description":  "due.moe is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://github.com/taiga-app/taiga",
+        "title":  "Taiga",
+        "description":  "Taiga is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://github.com/z411/trackma",
+        "title":  "Trackma",
+        "description":  "Trackma is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/shoko",
+        "title":  "Shoko",
+        "description":  "Shoko is a resource in the Tracking \u0026 Sync Tools category."
+    },
+    {
+        "url":  "https://mangabaka.com",
+        "title":  "MangaBaka",
+        "description":  "MangaBaka is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://comick.app",
+        "title":  "ComicK",
+        "description":  "ComicK is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://www.mangaupdates.com",
+        "title":  "Baka-Updates",
+        "description":  "Baka-Updates is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://anidb.net",
+        "title":  "AniDB",
+        "description":  "AniDB is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://kuroiru.com",
+        "title":  "Kuroiru",
+        "description":  "Kuroiru is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://myfigurecollection.net",
+        "title":  "MyFigureCollection",
+        "description":  "MyFigureCollection is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://vndb.org",
+        "title":  "Visual Novel DB",
+        "description":  "Visual Novel DB is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://vnclub.net",
+        "title":  "VN Club",
+        "description":  "VN Club is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://novilist.com",
+        "title":  "NoviList",
+        "description":  "NoviList is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://novelupdates.com",
+        "title":  "NovelUpdates",
+        "description":  "NovelUpdates is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://ranobelib.com",
+        "title":  "RanobeDB",
+        "description":  "RanobeDB is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://vocadb.net",
+        "title":  "VocaDB",
+        "description":  "VocaDB is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://mydramalist.com",
+        "title":  "MyDramaList",
+        "description":  "MyDramaList is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://kenmei.com",
+        "title":  "Kenmei",
+        "description":  "Kenmei is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://vgmdb.net",
+        "title":  "VGMdb",
+        "description":  "VGMdb is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://anisoncharts.com",
+        "title":  "Anison Charts",
+        "description":  "Anison Charts is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://mywaifulist.com",
+        "title":  "MyWaifuList",
+        "description":  "MyWaifuList is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mudae",
+        "title":  "Mudae",
+        "description":  "Mudae is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/konsumr",
+        "title":  "konsumr",
+        "description":  "konsumr is a resource in the Additional Database Sites category."
+    },
+    {
+        "url":  "https://cineby.com",
+        "title":  "Cineby",
+        "description":  "Cineby is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/shuttletv",
+        "title":  "ShuttleTV",
+        "description":  "ShuttleTV is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/hydrahd",
+        "title":  "HydraHD",
+        "description":  "HydraHD is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/neputo",
+        "title":  "NEPU Stream",
+        "description":  "NEPU Stream is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/m4uhd",
+        "title":  "M4uHD",
+        "description":  "M4uHD is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/cinemaos",
+        "title":  "Cinemaos",
+        "description":  "Cinemaos is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/rivestream",
+        "title":  "Rive",
+        "description":  "Rive is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/watchroo",
+        "title":  "Watchroo",
+        "description":  "Watchroo is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/vidboxto",
+        "title":  "Vidbox",
+        "description":  "Vidbox is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/hexawatch",
+        "title":  "Hexa Watch",
+        "description":  "Hexa Watch is a resource in the Additional Streaming Sites category."
+    },
+    {
+        "url":  "https://animesonglyrics.com",
+        "title":  "Anime Song Lyrics",
+        "description":  "Anime Song Lyrics is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://lyrical-nonsense.com",
+        "title":  "Lyrical Nonsense",
+        "description":  "Lyrical Nonsense is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://animethemes.moe",
+        "title":  "AnimeThemes",
+        "description":  "AnimeThemes is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://anison.info",
+        "title":  "Anime Song Online",
+        "description":  "Anime Song Online is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://anisongdb.com",
+        "title":  "AnisongDB",
+        "description":  "AnisongDB is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://listen.moe",
+        "title":  "listen.moe",
+        "description":  "listen.moe is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://r-a-d.io",
+        "title":  "R/a/dio",
+        "description":  "R/a/dio is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://sittingonclouds.net",
+        "title":  "Sitting on Clouds",
+        "description":  "Sitting on Clouds is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/allanimusic",
+        "title":  "MKissa Music",
+        "description":  "MKissa Music is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/okamimiost",
+        "title":  "OkamimiOST",
+        "description":  "OkamimiOST is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/doujinstyle",
+        "title":  "DoujinStyle",
+        "description":  "DoujinStyle is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/tmlc",
+        "title":  "TLMC",
+        "description":  "TLMC is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/touhoukuukunen",
+        "title":  "Touhou Player",
+        "description":  "Touhou Player is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mikudb",
+        "title":  "MikuDB",
+        "description":  "MikuDB is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/khinsider",
+        "title":  "KHInsider",
+        "description":  "KHInsider is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/sonixgvn",
+        "title":  "Sonix\u0027s OST",
+        "description":  "Sonix\u0027s OST is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/osanime",
+        "title":  "Osanime",
+        "description":  "Osanime is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/musicdex",
+        "title":  "Musicdex",
+        "description":  "Musicdex is a resource in the Music \u0026 OST Sites category."
+    },
+    {
+        "url":  "https://livechart.me",
+        "title":  "Livechart",
+        "description":  "Livechart is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://anichart.net",
+        "title":  "Anichart",
+        "description":  "Anichart is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://cal.syoboi.jp",
+        "title":  "Syoboi",
+        "description":  "Syoboi is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://animeschedule.net",
+        "title":  "AnimeSchedule",
+        "description":  "AnimeSchedule is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/upcomingdubanime",
+        "title":  "Upcoming Dubbed Anime",
+        "description":  "Upcoming Dubbed Anime is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/teamupdubschedule",
+        "title":  "Dubs Release Calendar",
+        "description":  "Dubs Release Calendar is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/otakucalendar",
+        "title":  "Otaku Calendar",
+        "description":  "Otaku Calendar is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/lnrelease",
+        "title":  "LNRelease",
+        "description":  "LNRelease is a resource in the Calendar \u0026 Schedule Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/AnimeMusicQuiz",
+        "title":  "AnimeMusicQuiz",
+        "description":  "AnimeMusicQuiz is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/aniguessr",
+        "title":  "AniGuessr",
+        "description":  "AniGuessr is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/chiakiquiz",
+        "title":  "Chiaki Quiz",
+        "description":  "Chiaki Quiz is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/aniconnections",
+        "title":  "AniConnections",
+        "description":  "AniConnections is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/baranimes",
+        "title":  "Baranimes",
+        "description":  "Baranimes is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/erogemusicquiz",
+        "title":  "ErogeMusicQuiz",
+        "description":  "ErogeMusicQuiz is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/guesstheopening",
+        "title":  "Guess The Anime Opening",
+        "description":  "Guess The Anime Opening is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animeopeningquiz",
+        "title":  "Anime Opening Quiz",
+        "description":  "Anime Opening Quiz is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animesongsorg",
+        "title":  "AnimeSongs.org",
+        "description":  "AnimeSongs.org is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animerdle",
+        "title":  "Animerdle",
+        "description":  "Animerdle is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animetrivia",
+        "title":  "AnimeTrivia",
+        "description":  "AnimeTrivia is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animeguess",
+        "title":  "AnimeGuess.moe",
+        "description":  "AnimeGuess.moe is a resource in the Quiz \u0026 Game Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animestats",
+        "title":  "Anime Stats",
+        "description":  "Anime Stats is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animekarmalist",
+        "title":  "AnimeKarmaList",
+        "description":  "AnimeKarmaList is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anitrendz",
+        "title":  "Anime Trending",
+        "description":  "Anime Trending is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animecorner",
+        "title":  "AnimeCorner",
+        "description":  "AnimeCorner is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mangatumeo",
+        "title":  "Manga Plus Top 40",
+        "description":  "Manga Plus Top 40 is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mangacodex",
+        "title":  "MangaCodex",
+        "description":  "MangaCodex is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/jajanken",
+        "title":  "Jajanken",
+        "description":  "Jajanken is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/japanesewithanimewiki",
+        "title":  "Japanese with Anime",
+        "description":  "Japanese with Anime is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/wotaku",
+        "title":  "Wotaku",
+        "description":  "Wotaku is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/anifillerlist",
+        "title":  "AnimeFillerList",
+        "description":  "AnimeFillerList is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animefillerguide",
+        "title":  "AnimeFillerGuide",
+        "description":  "AnimeFillerGuide is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animechrono",
+        "title":  "AnimeChrono",
+        "description":  "AnimeChrono is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/miyomi",
+        "title":  "Miyomi",
+        "description":  "Miyomi is a resource in the Stats \u0026 Info Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/hentaitagsearch",
+        "title":  "Tag Search Blogs",
+        "description":  "Tag Search Blogs is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://touhouwiki.net",
+        "title":  "Touhou Wiki",
+        "description":  "Touhou Wiki is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://recommendmeanime.com",
+        "title":  "RecommendMeAnime",
+        "description":  "RecommendMeAnime is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://safebooru.org",
+        "title":  "Safebooru",
+        "description":  "Safebooru is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://sakugabooru.com",
+        "title":  "sakugabooru",
+        "description":  "sakugabooru is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/pixivpics",
+        "title":  "Pixiv Viewer",
+        "description":  "Pixiv Viewer is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://pixiv.net",
+        "title":  "Pixiv",
+        "description":  "Pixiv is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://artstreet.io",
+        "title":  "ARTstreet",
+        "description":  "ARTstreet is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/gsbooru",
+        "title":  "Gsbooru",
+        "description":  "Gsbooru is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/setteidreams",
+        "title":  "Settei Dreams",
+        "description":  "Settei Dreams is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/booruwf",
+        "title":  "booruwf",
+        "description":  "booruwf is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/pawchive",
+        "title":  "Pawchive",
+        "description":  "Pawchive is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://kemono.party",
+        "title":  "Kemono",
+        "description":  "Kemono is a resource in the Image \u0026 Art Resources category."
+    },
+    {
+        "url":  "https://holodex.net",
+        "title":  "Holodex",
+        "description":  "Holodex is a resource in the VTuber Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/amatsukaze",
+        "title":  "Amatsukaze",
+        "description":  "Amatsukaze is a resource in the VTuber Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/vtubie",
+        "title":  "vTubie",
+        "description":  "vTubie is a resource in the VTuber Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/hololist",
+        "title":  "Hololist",
+        "description":  "Hololist is a resource in the VTuber Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/ragtagmoe",
+        "title":  "Ragtag Archive",
+        "description":  "Ragtag Archive is a resource in the VTuber Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/patchwork",
+        "title":  "Patchwork Archive",
+        "description":  "Patchwork Archive is a resource in the VTuber Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/asmrarchive",
+        "title":  "ASMR Archive",
+        "description":  "ASMR Archive is a resource in the VTuber Tools category."
+    },
+    {
+        "url":  "https://prydwengg.com",
+        "title":  "Prydwen.gg",
+        "description":  "Prydwen.gg is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://game8.co",
+        "title":  "Game8",
+        "description":  "Game8 is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/gacharevenue",
+        "title":  "Gacha Revenue Tracker",
+        "description":  "Gacha Revenue Tracker is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/seelie",
+        "title":  "SEELIE.me",
+        "description":  "SEELIE.me is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/wishsimulator",
+        "title":  "Wish Simulator",
+        "description":  "Wish Simulator is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/wuwatracker",
+        "title":  "WuWa Tracker",
+        "description":  "WuWa Tracker is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/stardb",
+        "title":  "stardb.gg",
+        "description":  "stardb.gg is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/genshingg",
+        "title":  "Genshin.gg",
+        "description":  "Genshin.gg is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/encoremoe",
+        "title":  "encore.moe",
+        "description":  "encore.moe is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/gachareddit",
+        "title":  "r/gachagaming",
+        "description":  "r/gachagaming is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/ennead",
+        "title":  "torikushiii",
+        "description":  "torikushiii is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/gongeous",
+        "title":  "gongeo.us",
+        "description":  "gongeo.us is a resource in the Gacha Tools category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/twintaillauncher",
+        "title":  "Twintail Launcher",
+        "description":  "Twintail Launcher is a resource in the Game Launchers category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/collapselauncher",
+        "title":  "Collapse Launcher",
+        "description":  "Collapse Launcher is a resource in the Game Launchers category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/launchermoe",
+        "title":  "Launcher.moe",
+        "description":  "Launcher.moe is a resource in the Game Launchers category."
+    },
+    {
+        "url":  "https://ezcosplay.com",
+        "title":  "EZ Cosplay",
+        "description":  "EZ Cosplay is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://miccostumes.com",
+        "title":  "MicCostumes",
+        "description":  "MicCostumes is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/moeflavor",
+        "title":  "MoeFlavor",
+        "description":  "MoeFlavor is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/uwowocosplay",
+        "title":  "Uwowo Cosplay",
+        "description":  "Uwowo Cosplay is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/rolecosplay",
+        "title":  "Role Cosplay",
+        "description":  "Role Cosplay is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/dokidokicos",
+        "title":  "DokiDoki Cosplay",
+        "description":  "DokiDoki Cosplay is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/cosrea",
+        "title":  "CosRea",
+        "description":  "CosRea is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/meowcos",
+        "title":  "Meowcos",
+        "description":  "Meowcos is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/simcosplay",
+        "title":  "Sim Cosplay",
+        "description":  "Sim Cosplay is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/procosplay",
+        "title":  "Pro Cosplay",
+        "description":  "Pro Cosplay is a resource in the Cosplay Resources category."
+    },
+    {
+        "url":  "https://animemusicvideos.org",
+        "title":  "AnimeMusicVideos.org",
+        "description":  "AnimeMusicVideos.org is a resource in the AMV Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/akross",
+        "title":  "AKROSS",
+        "description":  "AKROSS is a resource in the AMV Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/amvnews",
+        "title":  "AMVnews",
+        "description":  "AMVnews is a resource in the AMV Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/amvhell",
+        "title":  "AMV Hell",
+        "description":  "AMV Hell is a resource in the AMV Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animeclips",
+        "title":  "animeclips.online",
+        "description":  "animeclips.online is a resource in the AMV Resources category."
+    },
+    {
+        "url":  "https://reddit.com",
+        "title":  "Reddit",
+        "description":  "Reddit is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://myanimelist.net/forum",
+        "title":  "MyAnimeList Forum",
+        "description":  "MyAnimeList Forum is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://anilist.co/forum",
+        "title":  "Anilist Forum",
+        "description":  "Anilist Forum is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://anidb.net/forum",
+        "title":  "AniDB Forum",
+        "description":  "AniDB Forum is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://anime-sharing.com",
+        "title":  "Anime-Sharing",
+        "description":  "Anime-Sharing is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://fuwanovel.net",
+        "title":  "Fuwanovel Forum",
+        "description":  "Fuwanovel Forum is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://animeforums.net",
+        "title":  "Animeforums",
+        "description":  "Animeforums is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/discussanime",
+        "title":  "Chuunime",
+        "description":  "Chuunime is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/annforum",
+        "title":  "ANN Forum",
+        "description":  "ANN Forum is a resource in the Forums \u0026 Communities category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/tokyoinsider",
+        "title":  "TokyoInsider",
+        "description":  "TokyoInsider is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animeout",
+        "title":  "AnimeOut",
+        "description":  "AnimeOut is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/asiamediablog",
+        "title":  "Asia Media Blog",
+        "description":  "Asia Media Blog is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/mangazip",
+        "title":  "MangaZip",
+        "description":  "MangaZip is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/dlraw",
+        "title":  "DLRaw",
+        "description":  "DLRaw is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/dlrawse",
+        "title":  "DL-Raw",
+        "description":  "DL-Raw is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/animesakura",
+        "title":  "AnimeToki",
+        "description":  "AnimeToki is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/kayoanime",
+        "title":  "KayoAnime",
+        "description":  "KayoAnime is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/pandabackup",
+        "title":  "Panda Backup",
+        "description":  "Panda Backup is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://everythingmoe.com/s/karamoe",
+        "title":  "Karaoke Mugen",
+        "description":  "Karaoke Mugen is a resource in the Additional Resources category."
+    },
+    {
+        "url":  "https://f-droid.org",
+        "title":  "F-Droid",
+        "description":  "F-Droid is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://droid-ify.github.io",
+        "title":  "Droid-ify",
+        "description":  "Droid-ify is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/TeamNewPipe/NewPipe",
+        "title":  "NewPipe",
+        "description":  "NewPipe is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/libre-tube/LibreTube",
+        "title":  "LibreTube",
+        "description":  "LibreTube is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/AntennaPod/AntennaPod",
+        "title":  "AntennaPod",
+        "description":  "AntennaPod is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/com.aurora.store",
+        "title":  "Aurora Store",
+        "description":  "Aurora Store is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/org.fossify.phone",
+        "title":  "Fossify Phone",
+        "description":  "Fossify Phone is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/com.simplemobiletools.gallery.pro",
+        "title":  "Simple Gallery",
+        "description":  "Simple Gallery is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/deckerst/aves",
+        "title":  "Aves",
+        "description":  "Aves is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://termux.dev",
+        "title":  "Termux",
+        "description":  "Termux is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/thundernest/k-9",
+        "title":  "K-9 Mail / Thunderbird Mobile",
+        "description":  "K-9 Mail / Thunderbird Mobile is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/com.bitwarden",
+        "title":  "Bitwarden",
+        "description":  "Bitwarden is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/com.nextcloud.client",
+        "title":  "Nextcloud",
+        "description":  "Nextcloud is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/mozilla-mobile/fenix",
+        "title":  "Firefox",
+        "description":  "Firefox is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/brave/brave-browser",
+        "title":  "Brave",
+        "description":  "Brave is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/nova-video-player/aos-AVP",
+        "title":  "Nova Video Player",
+        "description":  "Nova Video Player is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/moneytoo/Just-Player",
+        "title":  "Just Player",
+        "description":  "Just Player is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/mpv-android/mpv-android",
+        "title":  "mpv-android",
+        "description":  "mpv-android is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/AnilabX/NextPlayer",
+        "title":  "Next Player",
+        "description":  "Next Player is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/AdrienPoupa/VinylMusicPlayer",
+        "title":  "Vinyl Music Player",
+        "description":  "Vinyl Music Player is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/MuntashirAkon/Metro",
+        "title":  "Metro",
+        "description":  "Metro is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/KotatsuApp/Kotatsu",
+        "title":  "Kotatsu",
+        "description":  "Kotatsu is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/jobobby04/TachiyomiSY",
+        "title":  "TachiyomiSY",
+        "description":  "TachiyomiSY is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/Jays2Kings/TachiyomiJ2K",
+        "title":  "TachiyomiJ2K",
+        "description":  "TachiyomiJ2K is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/mihonapp/mihon",
+        "title":  "Mihon",
+        "description":  "Mihon is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/8bitPit/Niagara-Issues",
+        "title":  "Niagara Launcher",
+        "description":  "Niagara Launcher is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/LawnchairLauncher/lawnchair",
+        "title":  "Lawnchair",
+        "description":  "Lawnchair is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/sdvcode/Seal",
+        "title":  "Seal",
+        "description":  "Seal is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/alefvanoon/limbo",
+        "title":  "Limbo PC Emulator",
+        "description":  "Limbo PC Emulator is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/net.typeblog.shelter/",
+        "title":  "Shelter",
+        "description":  "Shelter is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/net.gsantner.markor/",
+        "title":  "Markor",
+        "description":  "Markor is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/com.nononsenseapps.feeder/",
+        "title":  "Feeder",
+        "description":  "Feeder is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://github.com/Sangwan5688/BlackHole",
+        "title":  "BlackHole",
+        "description":  "BlackHole is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://f-droid.org/packages/org.breezyweather/",
+        "title":  "Breezy Weather",
+        "description":  "Breezy Weather is a resource in the Open Source Android Apps category."
+    },
+    {
+        "url":  "https://code.visualstudio.com",
+        "title":  "Visual Studio Code",
+        "description":  "Visual Studio Code is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://vscodium.com",
+        "title":  "VSCodium",
+        "description":  "VSCodium is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://www.libreoffice.org",
+        "title":  "LibreOffice",
+        "description":  "LibreOffice is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://www.7-zip.org",
+        "title":  "7-Zip",
+        "description":  "7-Zip is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://www.gimp.org",
+        "title":  "GIMP",
+        "description":  "GIMP is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://www.inkscape.org",
+        "title":  "Inkscape",
+        "description":  "Inkscape is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://www.blender.org",
+        "title":  "Blender",
+        "description":  "Blender is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://obsproject.com",
+        "title":  "OBS Studio",
+        "description":  "OBS Studio is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://getsharex.com",
+        "title":  "ShareX",
+        "description":  "ShareX is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://github.com/microsoft/PowerToys",
+        "title":  "PowerToys",
+        "description":  "PowerToys is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://keepassxc.org",
+        "title":  "KeePassXC",
+        "description":  "KeePassXC is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://notepad-plus-plus.org",
+        "title":  "Notepad++",
+        "description":  "Notepad++ is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://www.mozilla.org/firefox",
+        "title":  "Firefox",
+        "description":  "Firefox is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://brave.com",
+        "title":  "Brave",
+        "description":  "Brave is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://github.com/Flow-Launcher/Flow.Launcher",
+        "title":  "Flow Launcher",
+        "description":  "Flow Launcher is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://github.com/ModernFlyouts-Community/ModernFlyouts",
+        "title":  "ModernFlyouts",
+        "description":  "ModernFlyouts is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://krita.org",
+        "title":  "Krita",
+        "description":  "Krita is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://www.audacityteam.org",
+        "title":  "Audacity",
+        "description":  "Audacity is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://shotcut.org",
+        "title":  "Shotcut",
+        "description":  "Shotcut is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://peazip.github.io",
+        "title":  "PeaZip",
+        "description":  "PeaZip is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://thunderbird.net",
+        "title":  "Thunderbird",
+        "description":  "Thunderbird is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://localsend.org",
+        "title":  "LocalSend",
+        "description":  "LocalSend is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://syncthing.net",
+        "title":  "Syncthing",
+        "description":  "Syncthing is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://handbrake.fr",
+        "title":  "HandBrake",
+        "description":  "HandBrake is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://kdeconnect.kde.org",
+        "title":  "KDE Connect",
+        "description":  "KDE Connect is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://github.com/files-community/Files",
+        "title":  "Files",
+        "description":  "Files is a resource in the Open Source PC / Desktop Apps category."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/firefox-web-browser/id989804926",
+        "title":  "Firefox",
+        "description":  "Mozilla\u0027s open-source mobile browser with Enhanced Tracking Protection and optional extension support."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/brave-browser-fast-adblock/id1052879175",
+        "title":  "Brave",
+        "description":  "A fast, Chromium-based browser that blocks ads and trackers by default and offers optional Brave Rewards."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/duckduckgo-privacy-browser/id663592361",
+        "title":  "DuckDuckGo",
+        "description":  "A privacy-first browser with built-in tracker blocking, Fire Button tab clearing, and private search by default."
+    },
+    {
+        "url":  "https://github.com/mozilla-mobile/focus-ios",
+        "title":  "Firefox Focus",
+        "description":  "A lightweight, no-history browser that automatically erases your session and blocks ads/ trackers."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/proton-vpn-fast-secure/id1437005085",
+        "title":  "Proton VPN",
+        "description":  "A no-logs Swiss VPN with NetShield ad/ malware blocking and strong transparency record."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/mullvad-vpn/id1406469469",
+        "title":  "Mullvad VPN",
+        "description":  "A privacy-first VPN that requires no email, accepts cash payments, and publishes regular audits."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/adguard-adblock-privacy/id1047223162",
+        "title":  "AdGuard for iOS",
+        "description":  "System-wide ad and tracker blocking via Safari content blockers and custom DNS filtering."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/bitwarden-password-manager/id1132384485",
+        "title":  "Bitwarden",
+        "description":  "An open-source password manager with cross-device sync, secure sharing, and full AutoFill support."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/keepassium-password-manager/id1433184202",
+        "title":  "KeePassium",
+        "description":  "A polished KeePass client for iOS with AutoFill, biometric unlock, and multiple database support."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/strongbox-keepass-p-safe/id897283731",
+        "title":  "Strongbox",
+        "description":  "A secure KeePass and Password Safe manager with iOS, iPadOS, and macOS support."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/proton-mail-encrypted-email/id981733454",
+        "title":  "Proton Mail",
+        "description":  "End-to-end encrypted email from Proton with PGP support and no scanning of message content."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/proton-pass/id1640584498",
+        "title":  "Proton Pass",
+        "description":  "A password manager with email alias integration and end-to-end encrypted item storage."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/cryptomator/id953096334",
+        "title":  "Cryptomator",
+        "description":  "Client-side encryption for cloud storage that keeps files unreadable by the cloud provider."
+    },
+    {
+        "url":  "https://github.com/simple-login/iOS",
+        "title":  "SimpleLogin",
+        "description":  "Generate unlimited email aliases to protect your real address and reduce spam."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/signal-private-messenger/id874069120",
+        "title":  "Signal",
+        "description":  "End-to-end encrypted messaging with disappearing messages, calls, and open-source clients."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/wire-secure-messenger/id930090764",
+        "title":  "Wire",
+        "description":  "A secure team messenger with end-to-end encryption and strong EU data-residency focus."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/element-messenger/id1089229963",
+        "title":  "Element",
+        "description":  "A Matrix client for secure, decentralized messaging, group chats, and bridging."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/simplex-chat/id1602108209",
+        "title":  "SimpleX Chat",
+        "description":  "A privacy-first chat network with no user IDs stored on servers and end-to-end encryption."
+    },
+    {
+        "url":  "https://github.com/oxen-io/session-ios",
+        "title":  "Session",
+        "description":  "An anonymous, decentralized messenger that uses onion routing and requires no phone number."
+    },
+    {
+        "url":  "https://github.com/deltachat/deltachat-ios",
+        "title":  "Delta Chat",
+        "description":  "Chat over your existing email account with end-to-end encryption when the other user supports it."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/mastodon-for-iphone-and-ipad/id1571998974",
+        "title":  "Mastodon",
+        "description":  "The official app for the decentralized, open-source microblogging network."
+    },
+    {
+        "url":  "https://github.com/Dimillian/IceCubesApp",
+        "title":  "IceCubes",
+        "description":  "A fast, modern Mastodon client for iOS with customizable timelines and notifications."
+    },
+    {
+        "url":  "https://github.com/mlemgroup/mlem",
+        "title":  "Mlem",
+        "description":  "A clean, open-source Lemmy client for browsing and posting to federated forums."
+    },
+    {
+        "url":  "https://github.com/aeharding/voyager",
+        "title":  "Voyager",
+        "description":  "A compact, PWA-inspired Lemmy client with threaded discussions and community lists."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/joplin/id1315599796",
+        "title":  "Joplin",
+        "description":  "A powerful note-taking and to-do app with Markdown, sync, and a plugin ecosystem."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/logseq/id1601019808",
+        "title":  "Logseq",
+        "description":  "A privacy-first, outline-based knowledge base and task manager for connected notes."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/standard-notes/id1286932451",
+        "title":  "Standard Notes",
+        "description":  "A secure, end-to-end encrypted note app with themes, extensions, and daily backups."
+    },
+    {
+        "url":  "https://github.com/Automattic/simplenote-ios",
+        "title":  "Simplenote",
+        "description":  "A fast, minimal note app by Automattic that syncs seamlessly across devices."
+    },
+    {
+        "url":  "https://github.com/streetwriters/notesnook",
+        "title":  "Notesnook",
+        "description":  "An end-to-end encrypted note app with notebooks, tags, reminders, and rich text."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/nextcloud/id1125421572",
+        "title":  "Nextcloud",
+        "description":  "The official iOS client for self-hosted file sync, notes, calendars, and groupware."
+    },
+    {
+        "url":  "https://github.com/insidegui/CloudKicker",
+        "title":  "CloudKicker",
+        "description":  "A lightweight cloud storage browser and file manager for iOS."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/proton-calendar-secure/id6443491334",
+        "title":  "Proton Calendar",
+        "description":  "An encrypted calendar that keeps your event details private and supports sharing."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/proton-drive-secure-cloud/id1657061044",
+        "title":  "Proton Drive",
+        "description":  "Encrypted cloud storage with file versioning, secure sharing, and Proton integration."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/vlc-media-player/id650377962",
+        "title":  "VLC for iOS",
+        "description":  "The open-source media player that plays nearly every audio and video format."
+    },
+    {
+        "url":  "https://github.com/yattee/yattee",
+        "title":  "Yattee",
+        "description":  "A privacy-friendly YouTube client for iOS using Invidious and Piped backends."
+    },
+    {
+        "url":  "https://github.com/TortugaPower/BookPlayer",
+        "title":  "BookPlayer",
+        "description":  "A free audiobook player that supports local files, playlists, and chapter navigation."
+    },
+    {
+        "url":  "https://github.com/Aidoku/Aidoku",
+        "title":  "Aidoku",
+        "description":  "An open-source manga reader for iOS with a source extension system."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/netnewswire-rss-reader/id1480649325",
+        "title":  "NetNewsWire",
+        "description":  "A fast, free RSS reader that syncs with Feedbin, Feedly, and iCloud."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/jellyfin/id1480192616",
+        "title":  "Jellyfin",
+        "description":  "The official client for the open-source Jellyfin media server."
+    },
+    {
+        "url":  "https://github.com/jellyfin/swiftfin",
+        "title":  "Swiftfin",
+        "description":  "A native Jellyfin video player for iOS and tvOS with modern playback controls."
+    },
+    {
+        "url":  "https://github.com/Automattic/pocket-casts-ios",
+        "title":  "Pocket Casts",
+        "description":  "A powerful podcast player with cross-platform sync, filters, and discovery."
+    },
+    {
+        "url":  "https://kodi.tv",
+        "title":  "Kodi",
+        "description":  "A versatile open-source media center; iOS builds are available for sideloading."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/lichess-online-chess/id968371784",
+        "title":  "Lichess",
+        "description":  "A free, ad-free chess app with online play, puzzles, and deep game analysis."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/organic-maps-offline-maps/id1567437057",
+        "title":  "Organic Maps",
+        "description":  "A fast, privacy-focused offline map app based on OpenStreetMap."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/osmand-maps-travel-navigate/id934850257",
+        "title":  "OsmAnd",
+        "description":  "An advanced offline map and navigation app with topographic, cycling, and travel maps."
+    },
+    {
+        "url":  "https://apps.apple.com/us/app/a-shell/id1473805438",
+        "title":  "a-Shell",
+        "description":  "A complete local terminal for iOS with Unix commands, Python, and file access."
+    },
+    {
+        "url":  "https://github.com/ish-app/ish",
+        "title":  "iSH",
+        "description":  "An Alpine Linux shell for iOS that runs x86 Linux binaries and package installs."
+    },
+    {
+        "url":  "https://github.com/localsend/localsend",
+        "title":  "LocalSend",
+        "description":  "Share files to nearby devices without an internet connection or cloud provider."
+    },
+    {
+        "url":  "https://github.com/passepartoutvpn/passepartout-vpn",
+        "title":  "Passepartout",
+        "description":  "A user-friendly, open-source VPN client supporting multiple protocols."
+    },
+    {
+        "url":  "https://github.com/WireGuard/wireguard-apple",
+        "title":  "WireGuard",
+        "description":  "The official fast, modern, and secure VPN client for iOS."
+    },
+    {
+        "url":  "https://github.com/nextdns/nextdns-app",
+        "title":  "NextDNS",
+        "description":  "A private DNS client that blocks ads, trackers, and malware network-wide."
+    },
+    {
+        "url":  "https://adguard-dns.io",
+        "title":  "AdGuard DNS",
+        "description":  "A DNS filtering service and app for blocking ads, trackers, and adult content."
+    },
+    {
+        "url":  "https://github.com/guardianproject/orbot",
+        "title":  "Orbot",
+        "description":  "A Tor VPN client for iOS that routes app traffic through the Tor network."
+    },
+    {
+        "url":  "https://ollama.com",
+        "title":  "Ollama",
+        "description":  "Ollama is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/oobabooga/text-generation-webui",
+        "title":  "Text Generation Web UI",
+        "description":  "Text Generation Web UI is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/LostRuins/koboldcpp",
+        "title":  "KoboldCpp",
+        "description":  "KoboldCpp is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/ggerganov/llama.cpp",
+        "title":  "llama.cpp",
+        "description":  "llama.cpp is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/nomic-ai/gpt4all",
+        "title":  "GPT4All",
+        "description":  "GPT4All is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/petals-infra/chat.petals.dev",
+        "title":  "Petals",
+        "description":  "Petals is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/libre-chat/libre-chat",
+        "title":  "LibreChat",
+        "description":  "LibreChat is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/Enzime4/Open-WebUI",
+        "title":  "Open WebUI",
+        "description":  "Open WebUI is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/mckaywrigley/chatbot-ui",
+        "title":  "Chatbot UI",
+        "description":  "Chatbot UI is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web",
+        "title":  "ChatGPT Next Web",
+        "description":  "ChatGPT Next Web is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://pinokio.computer",
+        "title":  "Pinokio",
+        "description":  "Pinokio is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/comfyanonymous/ComfyUI",
+        "title":  "ComfyUI",
+        "description":  "ComfyUI is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+        "title":  "Stable Diffusion Web UI",
+        "description":  "Stable Diffusion Web UI is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/invoke-ai/InvokeAI",
+        "title":  "Invoke AI",
+        "description":  "Invoke AI is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/lllyasviel/Fooocus",
+        "title":  "Fooocus",
+        "description":  "Fooocus is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/AshleyMLTravis/DiffusionBee",
+        "title":  "DiffusionBee",
+        "description":  "DiffusionBee is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://huggingface.co",
+        "title":  "Hugging Face",
+        "description":  "Hugging Face is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/premAI-io/prem-app",
+        "title":  "Prem",
+        "description":  "Prem is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/chatchat-space/Langchain-Chatchat",
+        "title":  "Langchain-Chatchat",
+        "description":  "Langchain-Chatchat is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/janhq/jan",
+        "title":  "Jan",
+        "description":  "Jan is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/lmstudio-ai/lmstudio-v0",
+        "title":  "LM Studio",
+        "description":  "LM Studio is a resource in the Open Source AI \u0026 Chatbots category."
+    },
+    {
+        "url":  "https://github.com/continuedev/continue",
+        "title":  "Continue",
+        "description":  "Continue is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/Aider-AI/aider",
+        "title":  "Aider",
+        "description":  "Aider is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/All-Hands-AI/OpenHands",
+        "title":  "OpenHands",
+        "description":  "OpenHands is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/cline/cline",
+        "title":  "Cline",
+        "description":  "Cline is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/RooVetGit/Roo-Code",
+        "title":  "Roo Code",
+        "description":  "Roo Code is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/TabbyML/tabby",
+        "title":  "Tabby",
+        "description":  "Tabby is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/fauxpilot/fauxpilot",
+        "title":  "FauxPilot",
+        "description":  "FauxPilot is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/stitionai/devika",
+        "title":  "Devika",
+        "description":  "Devika is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/meta-llama/codellama",
+        "title":  "CodeLlama",
+        "description":  "CodeLlama is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/bigcode-project/starcoder",
+        "title":  "StarCoder",
+        "description":  "StarCoder is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/vllm-project/vllm",
+        "title":  "vLLM",
+        "description":  "vLLM is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://github.com/mudler/LocalAI",
+        "title":  "LocalAI",
+        "description":  "LocalAI is a resource in the AI Coding \u0026 Dev Assistants category."
+    },
+    {
+        "url":  "https://brave.com",
+        "title":  "Brave",
+        "description":  "Brave is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.mozilla.org/firefox",
+        "title":  "Firefox",
+        "description":  "Firefox is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://ungoogled-software.github.io",
+        "title":  "Ungoogled Chromium",
+        "description":  "Ungoogled Chromium is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://librewolf.net",
+        "title":  "LibreWolf",
+        "description":  "LibreWolf is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://mullvad.net/en/browser",
+        "title":  "Mullvad Browser",
+        "description":  "Mullvad Browser is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.torproject.org",
+        "title":  "Tor Browser",
+        "description":  "Tor Browser is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.waterfox.net",
+        "title":  "Waterfox",
+        "description":  "Waterfox is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://floorp.app",
+        "title":  "Floorp",
+        "description":  "Floorp is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://qutebrowser.org",
+        "title":  "qutebrowser",
+        "description":  "qutebrowser is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://nyxt.atlas.engineer",
+        "title":  "Nyxt",
+        "description":  "Nyxt is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://keepassxc.org",
+        "title":  "KeePassXC",
+        "description":  "KeePassXC is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://bitwarden.com",
+        "title":  "Bitwarden",
+        "description":  "Bitwarden is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://proton.me/pass",
+        "title":  "Proton Pass",
+        "description":  "Proton Pass is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://cryptomator.org",
+        "title":  "Cryptomator",
+        "description":  "Cryptomator is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.voidtools.com",
+        "title":  "Everything",
+        "description":  "Everything is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://flameshot.org",
+        "title":  "Flameshot",
+        "description":  "Flameshot is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://krita.org",
+        "title":  "Krita",
+        "description":  "Krita is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://kdenlive.org",
+        "title":  "Kdenlive",
+        "description":  "Kdenlive is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.openrazer.com",
+        "title":  "OpenRazer",
+        "description":  "OpenRazer is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/libre-tube/LibreTube",
+        "title":  "LibreTube",
+        "description":  "LibreTube is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/TeamNewPipe/NewPipe",
+        "title":  "NewPipe",
+        "description":  "NewPipe is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://joplinapp.org",
+        "title":  "Joplin",
+        "description":  "Joplin is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://logseq.com",
+        "title":  "Logseq",
+        "description":  "Logseq is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://standardnotes.com",
+        "title":  "Standard Notes",
+        "description":  "Standard Notes is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/marktext/marktext",
+        "title":  "MarkText",
+        "description":  "MarkText is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/Zettlr/Zettlr",
+        "title":  "Zettlr",
+        "description":  "Zettlr is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://audacityteam.org",
+        "title":  "Audacity",
+        "description":  "Audacity is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/tenacityteam/tenacity",
+        "title":  "Tenacity",
+        "description":  "Tenacity is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://lmms.io",
+        "title":  "LMMS",
+        "description":  "LMMS is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://ardour.org",
+        "title":  "Ardour",
+        "description":  "Ardour is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://musescore.org",
+        "title":  "MuseScore",
+        "description":  "MuseScore is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://shotcut.org",
+        "title":  "Shotcut",
+        "description":  "Shotcut is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.openshot.org",
+        "title":  "OpenShot",
+        "description":  "OpenShot is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://natrongit.github.io",
+        "title":  "Natron",
+        "description":  "Natron is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/yt-dlp/yt-dlp",
+        "title":  "yt-dlp",
+        "description":  "yt-dlp is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.ventoy.net",
+        "title":  "Ventoy",
+        "description":  "Ventoy is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://rufus.ie",
+        "title":  "Rufus",
+        "description":  "Rufus is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://gitlab.com/bztsrc/usbimager",
+        "title":  "USBImager",
+        "description":  "USBImager is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.bleachbit.org",
+        "title":  "BleachBit",
+        "description":  "BleachBit is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/Klocman/Bulk-Crap-Uninstaller",
+        "title":  "Bulk Crap Uninstaller",
+        "description":  "Bulk Crap Uninstaller is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://gitlab.com/CalcProgrammer1/OpenRGB",
+        "title":  "OpenRGB",
+        "description":  "OpenRGB is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/libratbag/piper",
+        "title":  "Piper",
+        "description":  "Piper is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/pwr-Solaar/Solaar",
+        "title":  "Solaar",
+        "description":  "Solaar is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor",
+        "title":  "LibreHardwareMonitor",
+        "description":  "LibreHardwareMonitor is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.7-zip.org",
+        "title":  "7-Zip",
+        "description":  "7-Zip is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://peazip.github.io",
+        "title":  "PeaZip",
+        "description":  "PeaZip is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.qbittorrent.org",
+        "title":  "qBittorrent",
+        "description":  "qBittorrent is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://transmissionbt.com",
+        "title":  "Transmission",
+        "description":  "Transmission is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://clementine-player.org",
+        "title":  "Clementine",
+        "description":  "Clementine is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://strawberrymusicplayer.org",
+        "title":  "Strawberry",
+        "description":  "Strawberry is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://www.mapeditor.org",
+        "title":  "Tiled",
+        "description":  "Tiled is a resource in the Open Source Utilities \u0026 Browsers category."
+    },
+    {
+        "url":  "https://lutris.net",
+        "title":  "Lutris",
+        "description":  "Lutris is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://heroicgameslauncher.com",
+        "title":  "Heroic Games Launcher",
+        "description":  "Heroic Games Launcher is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://playnite.link",
+        "title":  "Playnite",
+        "description":  "Playnite is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://www.retroarch.com",
+        "title":  "RetroArch",
+        "description":  "RetroArch is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://dolphin-emu.org",
+        "title":  "Dolphin",
+        "description":  "Dolphin is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://pcsx2.net",
+        "title":  "PCSX2",
+        "description":  "PCSX2 is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://www.duckstation.org",
+        "title":  "DuckStation",
+        "description":  "DuckStation is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://mgba.io",
+        "title":  "mGBA",
+        "description":  "mGBA is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "http://melonds.kuribo64.net",
+        "title":  "melonDS",
+        "description":  "melonDS is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://xonotic.org",
+        "title":  "Xonotic",
+        "description":  "Xonotic is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://play0ad.com",
+        "title":  "0 A.D.",
+        "description":  "0 A.D. is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://www.minetest.net",
+        "title":  "Minetest",
+        "description":  "Minetest is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://www.openttd.org",
+        "title":  "OpenTTD",
+        "description":  "OpenTTD is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://wesnoth.org",
+        "title":  "Battle for Wesnoth",
+        "description":  "Battle for Wesnoth is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://supertuxkart.net",
+        "title":  "SuperTuxKart",
+        "description":  "SuperTuxKart is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://www.flightgear.org",
+        "title":  "FlightGear",
+        "description":  "FlightGear is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://github.com/yuzu-emu/yuzu",
+        "title":  "yuzu (Forks)",
+        "description":  "yuzu (Forks) is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://github.com/cemu-project/Cemu",
+        "title":  "Cemu",
+        "description":  "Cemu is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://rpcs3.net",
+        "title":  "RPCS3",
+        "description":  "RPCS3 is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://github.com/xemu-project/xemu",
+        "title":  "xemu",
+        "description":  "xemu is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://taisei-project.org",
+        "title":  "Taisei",
+        "description":  "Taisei is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://ppsspp.org",
+        "title":  "PPSSPP",
+        "description":  "PPSSPP is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://ryujinx.org",
+        "title":  "Ryujinx",
+        "description":  "Ryujinx is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://openmw.org",
+        "title":  "OpenMW",
+        "description":  "OpenMW is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://www.openra.net",
+        "title":  "OpenRA",
+        "description":  "OpenRA is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://veloren.net",
+        "title":  "Veloren",
+        "description":  "Veloren is a resource in the Open Source Gaming category."
+    },
+    {
+        "url":  "https://f-droid.org",
+        "title":  "F-Droid",
+        "description":  "F-Droid is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://droid-ify.github.io",
+        "title":  "Droid-ify",
+        "description":  "Droid-ify is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://flathub.org",
+        "title":  "Flathub",
+        "description":  "Flathub is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://appimage.github.io",
+        "title":  "AppImageHub",
+        "description":  "AppImageHub is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://brew.sh",
+        "title":  "Homebrew",
+        "description":  "Homebrew is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://www.macports.org",
+        "title":  "MacPorts",
+        "description":  "MacPorts is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://chocolatey.org",
+        "title":  "Chocolatey",
+        "description":  "Chocolatey is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://scoop.sh",
+        "title":  "Scoop",
+        "description":  "Scoop is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://github.com/microsoft/winget-cli",
+        "title":  "winget",
+        "description":  "winget is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://search.nixos.org/packages",
+        "title":  "Nix Packages",
+        "description":  "Nix Packages is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://aur.archlinux.org",
+        "title":  "Arch User Repository",
+        "description":  "Arch User Repository is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://guix.gnu.org",
+        "title":  "GNU Guix",
+        "description":  "GNU Guix is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://pkgs.org",
+        "title":  "pkgs.org",
+        "description":  "pkgs.org is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://repology.org",
+        "title":  "Repology",
+        "description":  "Repology is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://codeberg.org",
+        "title":  "Codeberg",
+        "description":  "Codeberg is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://gitea.io",
+        "title":  "Gitea",
+        "description":  "Gitea is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://sourceforge.net",
+        "title":  "SourceForge",
+        "description":  "SourceForge is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://github.com",
+        "title":  "GitHub",
+        "description":  "GitHub is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://gitlab.com",
+        "title":  "GitLab",
+        "description":  "GitLab is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://open-vsx.org",
+        "title":  "Open VSX",
+        "description":  "Open VSX is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://www.pling.com",
+        "title":  "Pling",
+        "description":  "Pling is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://alternativeto.net",
+        "title":  "AlternativeTo",
+        "description":  "AlternativeTo is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://www.osalt.com",
+        "title":  "OSAlt",
+        "description":  "OSAlt is a resource in the Open Source App Stores \u0026 Repositories category."
+    },
+    {
+        "url":  "https://archive.org",
+        "title":  "Internet Archive",
+        "description":  "Internet Archive is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://web.archive.org",
+        "title":  "Wayback Machine",
+        "description":  "Wayback Machine is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://archive.today",
+        "title":  "Archive.today",
+        "description":  "Archive.today is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://www.apkmirror.com",
+        "title":  "APKMirror",
+        "description":  "APKMirror is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://f-droid.org",
+        "title":  "F-Droid Archive",
+        "description":  "F-Droid Archive is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://www.fosshub.com",
+        "title":  "FossHub",
+        "description":  "FossHub is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://sourceforge.net",
+        "title":  "SourceForge",
+        "description":  "SourceForge is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://en.uptodown.com",
+        "title":  "Uptodown",
+        "description":  "Uptodown is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://www.oldversion.com",
+        "title":  "OldVersion.com",
+        "description":  "OldVersion.com is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://www.oldapps.com",
+        "title":  "OldApps",
+        "description":  "OldApps is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://winworldpc.com",
+        "title":  "WinWorld",
+        "description":  "WinWorld is a resource in the Archives \u0026 Mirrors category."
+    },
+    {
+        "url":  "https://github.com",
+        "title":  "GitHub Releases",
+        "description":  "GitHub Releases is a resource in the Archives \u0026 Mirrors category."
+    }
+]
