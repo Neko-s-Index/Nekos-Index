@@ -119,5 +119,18 @@
     <a href="notes.html">Notes</a>
 </footer>
 
+<script>
+    document.body.style.userSelect = 'none';
+    document.body.style.webkitUserSelect = 'none';
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    ['copy', 'cut', 'paste', 'dragstart'].forEach(evt =>
+        document.addEventListener(evt, e => e.preventDefault())
+    );
+    document.addEventListener('keydown', e => {
+        if (e.key === 'F12') return e.preventDefault();
+        if (e.ctrlKey && e.shiftKey && ['i','j','c','k','u'].includes(e.key.toLowerCase())) return e.preventDefault();
+        if (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()) && !e.shiftKey) return e.preventDefault();
+    });
+</script>
 </body>
 </html>
