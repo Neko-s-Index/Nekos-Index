@@ -1393,6 +1393,11 @@
             font-size: 12px;
             line-height: 1.4;
             margin-top: 4px;
+            white-space: normal;
+            text-align: left;
+            direction: ltr;
+            word-break: normal;
+            overflow-wrap: break-word;
         }
 
         body.show-descriptions .item-desc {
@@ -1418,6 +1423,11 @@
             font-size: 11px;
             line-height: 1.35;
             margin-top: 4px;
+            white-space: normal;
+            text-align: left;
+            direction: ltr;
+            word-break: normal;
+            overflow-wrap: break-word;
         }
 
         body.layout-list .category-content li {
@@ -1489,15 +1499,24 @@
         }
         .main-nav {
             margin-top: 10px;
-            display: inline-flex;
-            justify-content: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
             gap: 8px;
-            flex-wrap: wrap;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
             background: rgba(20, 20, 22, 0.75);
             border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 8px;
             backdrop-filter: blur(8px);
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .main-nav::-webkit-scrollbar {
+            display: none;
         }
         .main-nav a {
             color: var(--text-secondary);
@@ -2523,12 +2542,52 @@
             }
             addArchiveLinks();
 
-            // ==================== AUTO-FETCH GITHUB DESCRIPTIONS ====================
+            // ==================== AUTO-FETCH DESCRIPTIONS ====================
             async function loadGitHubDescriptions() {
                 if (!document.body.classList.contains('show-descriptions') &&
                     localStorage.getItem('nekoIndexShowDescriptions') !== 'true') return;
 
-                const githubLinks = Array.from(document.querySelectorAll('.category li a')).filter(link => {
+                // Load local artist/track/app descriptions
+                let localDescriptions = {};
+                try {
+                    const res = await fetch('data/descriptions.json');
+                    if (res.ok) localDescriptions = await res.json();
+                } catch (e) {}
+
+                function getLocalDescription(link) {
+                    if (!localDescriptions) return null;
+                    const url = link.href;
+                    const title = link.textContent.trim();
+
+                    if (localDescriptions.apps) {
+                        const appDesc = localDescriptions.apps[url] ||
+                                        localDescriptions.apps[url.replace(/\/$/, '')] ||
+                                        localDescriptions.apps[url + '/'] ||
+                                        null;
+                        if (appDesc) return appDesc;
+                    }
+                    if (localDescriptions.artists && localDescriptions.artists[title]) {
+                        return localDescriptions.artists[title];
+                    }
+                    if (localDescriptions.tracks && localDescriptions.tracks[title]) {
+                        return localDescriptions.tracks[title];
+                    }
+                    return null;
+                }
+
+                const allLinks = Array.from(document.querySelectorAll('.category li a'));
+
+                // Apply local descriptions first
+                for (const link of allLinks) {
+                    const li = link.closest('li');
+                    if (!li) continue;
+                    const existing = li.querySelector('.item-desc');
+                    if (existing && existing.textContent.trim()) continue;
+                    const localDesc = getLocalDescription(link);
+                    if (localDesc) setDescription(link, localDesc);
+                }
+
+                const githubLinks = allLinks.filter(link => {
                     try { return new URL(link.href).hostname.toLowerCase() === 'github.com'; }
                     catch (e) { return false; }
                 });
