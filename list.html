@@ -962,6 +962,22 @@
                 padding: 20px;
             }
         }
+        .main-nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            color: var(--accent-primary);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .main-nav a:hover {
+            text-decoration: underline;
+        }
     </style>
 
     <script>
@@ -1479,6 +1495,14 @@
 <header>
     <h1>Neko's Index</h1>
     <p>Your go-to resource for movies, shows, and anime</p>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="list.html">Index</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="dmca.html">DMCA</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="notes.html">Notes</a>
+    </nav>
 </header>
 
 <!-- Theme Toggle -->
@@ -2670,6 +2694,14 @@
 
 <footer>
     <p>&copy; 2026 Neko's Index. All Rights Reserved.</p>
+
+    <div style="margin: 20px 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" style="color: var(--text-secondary); font-size: 13px;">Home</a>
+        <a href="disclaimer.html" style="color: var(--text-secondary); font-size: 13px;">Disclaimer</a>
+        <a href="dmca.html" style="color: var(--text-secondary); font-size: 13px;">DMCA</a>
+        <a href="privacy.html" style="color: var(--text-secondary); font-size: 13px;">Privacy</a>
+        <a href="notes.html" style="color: var(--text-secondary); font-size: 13px;">Notes</a>
+    </div>
 
     <div class="other-indexes">
         <strong>Other Useful Indexes:</strong>

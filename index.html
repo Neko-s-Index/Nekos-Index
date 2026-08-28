@@ -71,7 +71,23 @@
     a:hover {
         color: #fff;
     }
-</style>
+        .main-nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            color: #3b82f6;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .main-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -79,14 +95,26 @@
 <div class="center">
     <h1>Welcome to Neko's Index</h1>
     <p id="status">Checking verification...</p>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="list.html">Index</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="dmca.html">DMCA</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="notes.html">Notes</a>
+    </nav>
     <div id="action"></div>
 </div>
 
 <footer>
     <div>
-        🔗 <a href="list.html">Main Site</a> |
+        <a href="list.html">Main Site</a> |
         <a href="https://github.com/MarshMeadow">Developer</a> |
-        <a href="https://github.com/MarshMeadow/Nekos-Index">GitHub Repo</a>
+        <a href="https://github.com/MarshMeadow/Nekos-Index">GitHub Repo</a> |
+        <a href="disclaimer.html">Disclaimer</a> |
+        <a href="dmca.html">DMCA</a> |
+        <a href="privacy.html">Privacy</a> |
+        <a href="notes.html">Notes</a>
     </div>
 
     <br>
