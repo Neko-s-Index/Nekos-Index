@@ -858,13 +858,12 @@
             box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
         }
 
-        .app-highlight {
-            animation: highlightApp 1.5s ease;
-        }
-
-        @keyframes highlightApp {
-            0% { background: rgba(59, 130, 246, 0.3); }
-            100% { background: transparent; }
+        li.app-highlight {
+            background: rgba(59, 130, 246, 0.22) !important;
+            border: 1px solid rgba(59, 130, 246, 0.6) !important;
+            border-radius: 12px;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2), 0 4px 14px rgba(59, 130, 246, 0.15) !important;
+            transition: all 0.3s ease;
         }
 
         /* Category Filter */
@@ -1917,6 +1916,7 @@
 
             // ==================== RANDOM APP ====================
             const randomAppBtn = document.getElementById('randomApp');
+            let randomAppHighlightTimeout;
 
             function pickRandomApp() {
                 const allLinks = document.querySelectorAll('.category li a');
@@ -1924,9 +1924,14 @@
                 const random = allLinks[Math.floor(Math.random() * allLinks.length)];
                 const li = random.closest('li');
 
+                clearTimeout(randomAppHighlightTimeout);
                 document.querySelectorAll('.app-highlight').forEach(el => el.classList.remove('app-highlight'));
                 li.classList.add('app-highlight');
                 li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                randomAppHighlightTimeout = setTimeout(() => {
+                    li.classList.remove('app-highlight');
+                }, 30000);
 
                 const category = li.closest('.category');
                 if (category) {
