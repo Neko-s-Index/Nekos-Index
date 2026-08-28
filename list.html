@@ -3070,53 +3070,108 @@
                     return null;
                 }
 
-                function addSocialLinks() {
-                    const typePatterns = [
-                        { type: 'discord', re: /(discord\.gg|discord\.com\/invite|discordapp\.com\/invite)/i },
-                        { type: 'telegram', re: /(t\.me|telegram\.me)/i },
-                        { type: 'reddit', re: /(reddit\.com|redd\.it)/i },
-                        { type: 'x', re: /(x\.com|twitter\.com|nitter\.net)/i },
-                        { type: 'mastodon', re: /mastodon/i }
-                    ];
+                function getSocialType(url) {
+                    try {
+                        const u = new URL(url);
+                        if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+                        const host = u.hostname.toLowerCase();
+                        if (host === 'discord.gg' || ((host === 'discord.com' || host === 'discordapp.com') && u.pathname.startsWith('/invite/'))) return 'discord';
+                        if (host === 't.me' || host === 'telegram.me') return 'telegram';
+                        if (host === 'reddit.com' || host === 'redd.it' || host.endsWith('.reddit.com')) return 'reddit';
+                        if (host === 'x.com' || host === 'twitter.com' || host === 'nitter.net' || host.endsWith('.twitter.com')) return 'x';
+                        if (host.includes('mastodon') && host !== 'joinmastodon.org') return 'mastodon';
+                    } catch (e) {}
+                    return null;
+                }
 
+                function appendSocials(li, rawSocials) {
+                    if (!Array.isArray(rawSocials) || rawSocials.length === 0) return;
+                    let container = li.querySelector('.social-links');
+                    if (!container) {
+                        container = document.createElement('div');
+                        container.className = 'social-links';
+                        li.appendChild(container);
+                    }
+
+                    for (const social of rawSocials) {
+                        try {
+                            if (!social || typeof social !== 'object') continue;
+                            const rawUrl = social.url || social.link || social.href;
+                            if (!rawUrl) continue;
+                            const u = new URL(rawUrl);
+                            if (u.protocol !== 'http:' && u.protocol !== 'https:') continue;
+                            const url = u.toString();
+                            if (Array.from(container.children).some(a => a.href === url)) continue;
+
+                            const matched = getSocialType(url);
+                            const socialType = matched || social.type || 'generic';
+                            const label = social.label || (socialType === 'generic' ? 'Social' : socialType.charAt(0).toUpperCase() + socialType.slice(1));
+
+                            const a = document.createElement('a');
+                            a.className = 'social-link ' + socialType;
+                            a.href = url;
+                            a.target = '_blank';
+                            a.rel = 'noopener noreferrer';
+                            a.textContent = label;
+                            container.appendChild(a);
+                        } catch (e) {}
+                    }
+                }
+
+                function addSocialLinks() {
                     document.querySelectorAll('.category li a').forEach(link => {
                         try {
                             const li = link.closest('li');
                             if (!li) return;
-                            if (li.querySelector('.social-links')) return;
+                            const local = getLocalSocials(link);
+                            if (local) appendSocials(li, local);
+                        } catch (e) {}
+                    });
 
-                            const rawSocials = getLocalSocials(link);
-                            if (!Array.isArray(rawSocials) || rawSocials.length === 0) return;
-
-                            const container = document.createElement('div');
-                            container.className = 'social-links';
-
-                            for (const social of rawSocials) {
-                                try {
-                                    if (!social || typeof social !== 'object') continue;
-                                    const rawUrl = social.url || social.link || social.href;
-                                    if (!rawUrl) continue;
-                                    const u = new URL(rawUrl);
-                                    if (u.protocol !== 'http:' && u.protocol !== 'https:') continue;
-
-                                    const url = u.toString();
-                                    const matched = typePatterns.find(t => t.re.test(url));
-                                    const socialType = matched ? matched.type : (social.type || 'generic');
-                                    const label = social.label || (socialType === 'generic' ? 'Social' : socialType.charAt(0).toUpperCase() + socialType.slice(1));
-
-                                    const a = document.createElement('a');
-                                    a.className = 'social-link ' + socialType;
-                                    a.href = url;
-                                    a.target = '_blank';
-                                    a.rel = 'noopener noreferrer';
-                                    a.textContent = label;
-                                    container.appendChild(a);
-                                } catch (e) {}
-                            }
-
-                            if (container.children.length > 0) {
-                                li.appendChild(container);
-                            }
+                    let budget = 15;
+                    document.querySelectorAll('.category li a').forEach(link => {
+                        if (budget <= 0) return;
+                        try {
+                            const li = link.closest('li');
+                            if (!li) return;
+                            const u = new URL(link.href);
+                            if (u.hostname.toLowerCase() !== 'github.com') return;
+                            const parts = u.pathname.split('/').filter(Boolean);
+                            if (parts.length < 2) return;
+                            const [owner, repo] = parts;
+                            budget--;
+                            fetch(`https://api.github.com/repos/${owner}/${repo}/readme`)
+                                .then(res => res.ok ? res.json() : null)
+                                .then(data => {
+                                    if (!data || !data.content) return;
+                                    const text = atob(data.content.replace(/\s/g, ''));
+                                    const socials = [];
+                                    const seen = new Set();
+                                    for (const token of text.split(/\s+/)) {
+                                        const pieces = token.split('http');
+                                        for (let i = 1; i < pieces.length; i++) {
+                                            const part = pieces[i];
+                                            if (!part.startsWith('://') && !part.startsWith('s://')) continue;
+                                            let c = 'http' + part;
+                                            while (c.length > 10) {
+                                                try {
+                                                    const parsed = new URL(c);
+                                                    if ((parsed.protocol === 'http:' || parsed.protocol === 'https:') && !seen.has(parsed.toString())) {
+                                                        const type = getSocialType(parsed.toString());
+                                                        if (type) {
+                                                            seen.add(parsed.toString());
+                                                            socials.push({ url: parsed.toString() });
+                                                            break;
+                                                        }
+                                                    }
+                                                } catch (e) {}
+                                                c = c.slice(0, -1);
+                                            }
+                                        }
+                                    }
+                                    if (socials.length) appendSocials(li, socials);
+                                })
+                                .catch(() => {});
                         } catch (e) {}
                     });
                 }
