@@ -1388,7 +1388,10 @@
         .item-desc {
             display: none;
             width: 100%;
+            min-width: 100%;
+            flex-basis: 100%;
             order: 10;
+            align-self: flex-start;
             color: var(--text-secondary);
             font-size: 12px;
             line-height: 1.4;
@@ -1502,22 +1505,16 @@
             margin-top: 10px;
             display: flex;
             flex-direction: row;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             justify-content: flex-start;
             gap: 8px;
             width: 100%;
             max-width: 100%;
-            overflow-x: auto;
             background: rgba(20, 20, 22, 0.75);
             border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 8px;
             backdrop-filter: blur(8px);
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .main-nav::-webkit-scrollbar {
-            display: none;
         }
         .main-nav a {
             color: var(--text-secondary);
