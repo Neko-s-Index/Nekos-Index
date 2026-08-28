@@ -166,13 +166,14 @@
         }
 
         .category-content {
-            max-height: 2000px;
-            overflow: hidden;
+            max-height: 60vh;
+            overflow-y: auto;
             transition: max-height 0.4s ease-out;
         }
 
         .category-content.collapsed {
             max-height: 0;
+            overflow-y: hidden;
         }
 
         ul {
@@ -923,6 +924,14 @@
             display: none !important;
         }
 
+        /* GitHub Star Badges */
+        .github-stars {
+            height: 20px;
+            border-radius: 4px;
+            margin-left: 8px;
+            flex-shrink: 0;
+        }
+
         /* Mobile Responsive Fixes */
         @media (max-width: 768px) {
             .theme-toggle {
@@ -1428,6 +1437,28 @@
                 // Store that user has accepted the disclaimer
                 localStorage.setItem(disclaimerKey, 'true');
             });
+
+            // ==================== GITHUB STAR BADGES ====================
+            function addGitHubStars() {
+                document.querySelectorAll('.category a[href*="github.com/"]').forEach(link => {
+                    try {
+                        const url = new URL(link.href);
+                        if (url.hostname !== 'github.com') return;
+                        const parts = url.pathname.split('/').filter(Boolean);
+                        if (parts.length < 2) return;
+                        const [owner, repo] = parts;
+                        if (!owner || !repo) return;
+                        const badge = document.createElement('img');
+                        badge.className = 'github-stars';
+                        badge.src = `https://img.shields.io/github/stars/${owner}/${repo}?style=flat-square&logo=github&label=%20`;
+                        badge.alt = 'GitHub stars';
+                        badge.loading = 'lazy';
+                        badge.onerror = () => badge.remove();
+                        link.parentElement.appendChild(badge);
+                    } catch (e) {}
+                });
+            }
+            addGitHubStars();
         });
     </script>
 </head>
@@ -1534,6 +1565,17 @@
             <li><a href="https://www.nlnetlabs.nl/projects/unbound/about" target="_blank">Unbound</a><span class="tag">Resolver</span></li>
             <li><a href="https://www.knot-resolver.cz" target="_blank">Knot Resolver</a><span class="tag">Resolver</span></li>
             <li><a href="https://getdnsapi.net" target="_blank">Stubby</a><span class="tag">DNS-over-TLS</span></li>
+            <li><a href="https://www.zerotier.com" target="_blank">ZeroTier</a><span class="tag">Mesh VPN</span></li>
+            <li><a href="https://www.twingate.com" target="_blank">Twingate</a><span class="tag">VPN</span></li>
+            <li><a href="https://github.com/slackhq/nebula" target="_blank">Nebula</a><span class="tag">Mesh VPN</span></li>
+            <li><a href="https://www.softether.org" target="_blank">SoftEther VPN</a><span class="tag">VPN</span></li>
+            <li><a href="https://github.com/trailofbits/algo" target="_blank">Algo VPN</a><span class="tag">Self-hosted</span></li>
+            <li><a href="https://www.pivpn.io" target="_blank">PiVPN</a><span class="tag">Self-hosted</span></li>
+            <li><a href="https://coredns.io" target="_blank">CoreDNS</a><span class="tag">DNS</span></li>
+            <li><a href="https://dnsmasq.org" target="_blank">dnsmasq</a><span class="tag">DNS</span></li>
+            <li><a href="https://www.powerdns.com" target="_blank">PowerDNS</a><span class="tag">DNS</span></li>
+            <li><a href="https://www.isc.org/bind" target="_blank">BIND 9</a><span class="tag">DNS</span></li>
+            <li><a href="https://www.knot-dns.cz" target="_blank">Knot DNS</a><span class="tag">DNS</span></li>
         </ul>
         <p>
             Using a trusted VPN or DNS can help protect your privacy and improve security while browsing streaming services.
@@ -1574,6 +1616,13 @@
             <li><a href="https://github.com/Syncplay/syncplay" target="_blank">Syncplay</a><span class="tag">Sync</span></li>
             <li><a href="https://github.com/ThaUnknown/miru" target="_blank">Miru</a><span class="tag">Anime</span></li>
             <li><a href="https://github.com/Anilou/Anilou" target="_blank">Anilou</a><span class="tag">Anime</span></li>
+            <li><a href="https://github.com/jellyfin/Swiftfin" target="_blank">Swiftfin</a><span class="tag">iOS</span></li>
+            <li><a href="https://github.com/jmshrv/finamp" target="_blank">Finamp</a><span class="tag">Music</span></li>
+            <li><a href="https://www.navidrome.org" target="_blank">Navidrome</a><span class="tag">Music</span></li>
+            <li><a href="https://github.com/jeffvli/feishin" target="_blank">Feishin</a><span class="tag">Music</span></li>
+            <li><a href="https://github.com/jellyfin/jellyfin-media-player" target="_blank">Jellyfin Media Player</a><span class="tag">Desktop</span></li>
+            <li><a href="https://github.com/jellyfin/jellyfin-androidtv" target="_blank">Jellyfin Android TV</a><span class="tag">Android TV</span></li>
+            <li><a href="https://github.com/jellyfin/jellyfin-android" target="_blank">Findroid / Jellyfin Android</a><span class="tag">Android</span></li>
         </ul>
         </div>
     </div>
@@ -1604,6 +1653,11 @@
             <li><a href="https://github.com/ReDactedX/AnymeX" target="_blank">AnymeX</a><span class="tag">Anime</span></li>
             <li><a href="https://github.com/ReDactedX/Mangayomi" target="_blank">Mangayomi</a><span class="tag">Manga</span></li>
             <li><a href="https://github.com/ReDactedX/Manatan" target="_blank">Manatan</a><span class="tag">Manga</span></li>
+            <li><a href="https://github.com/KotatsuApp/Kotatsu" target="_blank">Kotatsu</a><span class="tag">Android</span></li>
+            <li><a href="https://github.com/jobobby04/TachiyomiSY" target="_blank">TachiyomiSY</a><span class="tag">Android</span></li>
+            <li><a href="https://github.com/Jays2Kings/TachiyomiJ2K" target="_blank">TachiyomiJ2K</a><span class="tag">Android</span></li>
+            <li><a href="https://github.com/CarlosEsco/Neko" target="_blank">Neko</a><span class="tag">MangaDex</span></li>
+            <li><a href="https://github.com/Aidoku/Aidoku" target="_blank">Aidoku</a><span class="tag">iOS</span></li>
         </ul>
         </div>
     </div>
@@ -1670,6 +1724,15 @@
             <li><a href="https://www.ffmpeg.org" target="_blank">FFmpeg</a><span class="tag">CLI</span></li>
             <li><a href="https://www.shutterencoder.com" target="_blank">Shutter Encoder</a><span class="tag">Converter</span></li>
             <li><a href="https://www.xmedia-recode.de" target="_blank">XMedia Recode</a><span class="tag">Converter</span></li>
+            <li><a href="https://www.smplayer.info" target="_blank">SMPlayer</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/g-fb/haruna" target="_blank">Haruna</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/Rafostar/clapper" target="_blank">Clapper</a><span class="tag">Player</span></li>
+            <li><a href="https://celluloid-player.github.io" target="_blank">Celluloid</a><span class="tag">Player</span></li>
+            <li><a href="https://mplayerhq.hu" target="_blank">MPlayer</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/zaps166/QMPlay2" target="_blank">QMPlay2</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/stax76/mpv.net" target="_blank">mpv.net</a><span class="tag">Windows</span></li>
+            <li><a href="https://kodi.tv" target="_blank">Kodi</a><span class="tag">Media Center</span></li>
+            <li><a href="https://jellyfin.org" target="_blank">Jellyfin</a><span class="tag">Media Server</span></li>
         </ul>
         </div>
     </div>
@@ -1689,6 +1752,16 @@
             <li><a href="https://www.internetdownloadmanager.com" target="_blank">Internet Download Manager</a><span class="tag">Premium</span></li>
             <li><a href="https://www.jdownloader.org" target="_blank">JDownloader</a><span class="tag">Free</span></li>
             <li><a href="https://motrix.app" target="_blank">Motrix</a><span class="tag">Modern</span></li>
+            <li><a href="https://github.com/BiglySoftware/BiglyBT" target="_blank">BiglyBT</a><span class="tag">Torrent</span></li>
+            <li><a href="https://github.com/picotorrent/picotorrent" target="_blank">PicoTorrent</a><span class="tag">Torrent</span></li>
+            <li><a href="https://github.com/Tribler/tribler" target="_blank">Tribler</a><span class="tag">P2P</span></li>
+            <li><a href="https://github.com/webtorrent/webtorrent-desktop" target="_blank">WebTorrent Desktop</a><span class="tag">Streaming</span></li>
+            <li><a href="https://github.com/rakshasa/rtorrent" target="_blank">rTorrent</a><span class="tag">CLI</span></li>
+            <li><a href="https://invent.kde.org/network/ktorrent" target="_blank">KTorrent</a><span class="tag">KDE</span></li>
+            <li><a href="https://github.com/frostwire/frostwire" target="_blank">FrostWire</a><span class="tag">Torrent</span></li>
+            <li><a href="https://github.com/arvidn/libtorrent" target="_blank">libtorrent</a><span class="tag">Library</span></li>
+            <li><a href="https://pyload.net" target="_blank">pyLoad</a><span class="tag">Downloader</span></li>
+            <li><a href="https://github.com/persepolisdm/persepolis" target="_blank">Persepolis</a><span class="tag">Downloader</span></li>
         </ul>
         </div>
     </div>
@@ -1774,6 +1847,20 @@
             <li><a href="https://www.inkscape.org" target="_blank">Inkscape</a><span class="tag">Vector</span></li>
             <li><a href="https://www.blender.org" target="_blank">Blender</a><span class="tag">3D</span></li>
             <li><a href="https://www.calibre-ebook.com" target="_blank">Calibre</a><span class="tag">Ebooks</span></li>
+            <li><a href="https://neovim.io" target="_blank">Neovim</a><span class="tag">Editor</span></li>
+            <li><a href="https://www.vim.org" target="_blank">Vim</a><span class="tag">Editor</span></li>
+            <li><a href="https://www.gnu.org/software/emacs" target="_blank">Emacs</a><span class="tag">Editor</span></li>
+            <li><a href="https://eclipse.org" target="_blank">Eclipse</a><span class="tag">IDE</span></li>
+            <li><a href="https://netbeans.apache.org" target="_blank">Apache NetBeans</a><span class="tag">IDE</span></li>
+            <li><a href="https://www.geany.org" target="_blank">Geany</a><span class="tag">Editor</span></li>
+            <li><a href="https://kate-editor.org" target="_blank">Kate</a><span class="tag">Editor</span></li>
+            <li><a href="https://micro-editor.github.io" target="_blank">Micro</a><span class="tag">Editor</span></li>
+            <li><a href="https://godotengine.org" target="_blank">Godot Engine</a><span class="tag">Game Dev</span></li>
+            <li><a href="https://www.sqlite.org" target="_blank">SQLite</a><span class="tag">Database</span></li>
+            <li><a href="https://www.postgresql.org" target="_blank">PostgreSQL</a><span class="tag">Database</span></li>
+            <li><a href="https://mariadb.org" target="_blank">MariaDB</a><span class="tag">Database</span></li>
+            <li><a href="https://www.docker.com" target="_blank">Docker</a><span class="tag">DevOps</span></li>
+            <li><a href="https://kubernetes.io" target="_blank">Kubernetes</a><span class="tag">DevOps</span></li>
         </ul>
         </div>
     </div>
@@ -2353,6 +2440,15 @@
             <li><a href="https://f-droid.org/packages/com.nextcloud.client" target="_blank">Nextcloud</a><span class="tag">Cloud</span></li>
             <li><a href="https://github.com/mozilla-mobile/fenix" target="_blank">Firefox</a><span class="tag">Browser</span></li>
             <li><a href="https://github.com/brave/brave-browser" target="_blank">Brave</a><span class="tag">Browser</span></li>
+            <li><a href="https://github.com/nova-video-player/aos-AVP" target="_blank">Nova Video Player</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/moneytoo/Just-Player" target="_blank">Just Player</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/mpv-android/mpv-android" target="_blank">mpv-android</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/AnilabX/NextPlayer" target="_blank">Next Player</a><span class="tag">Player</span></li>
+            <li><a href="https://github.com/AdrienPoupa/VinylMusicPlayer" target="_blank">Vinyl Music Player</a><span class="tag">Music</span></li>
+            <li><a href="https://github.com/MuntashirAkon/Metro" target="_blank">Metro</a><span class="tag">Music</span></li>
+            <li><a href="https://github.com/KotatsuApp/Kotatsu" target="_blank">Kotatsu</a><span class="tag">Reader</span></li>
+            <li><a href="https://github.com/jobobby04/TachiyomiSY" target="_blank">TachiyomiSY</a><span class="tag">Reader</span></li>
+            <li><a href="https://github.com/Jays2Kings/TachiyomiJ2K" target="_blank">TachiyomiJ2K</a><span class="tag">Reader</span></li>
         </ul>
         </div>
     </div>
@@ -2401,6 +2497,9 @@
             <li><a href="https://apps.apple.com/us/app/joplin/id1315599796" target="_blank">Joplin</a><span class="tag">Notes</span></li>
             <li><a href="https://apps.apple.com/us/app/adguard-adblock-privacy/id1047223162" target="_blank">AdGuard for iOS</a><span class="tag">Ad-block</span></li>
             <li><a href="https://apps.apple.com/us/app/mastodon-for-iphone-and-ipad/id1571998974" target="_blank">Mastodon</a><span class="tag">Social</span></li>
+            <li><a href="https://github.com/yattee/yattee" target="_blank">Yattee</a><span class="tag">YouTube</span></li>
+            <li><a href="https://github.com/TortugaPower/BookPlayer" target="_blank">BookPlayer</a><span class="tag">Audiobooks</span></li>
+            <li><a href="https://github.com/Aidoku/Aidoku" target="_blank">Aidoku</a><span class="tag">Reader</span></li>
         </ul>
         </div>
     </div>
@@ -2461,6 +2560,31 @@
             <li><a href="https://www.openrazer.com" target="_blank">OpenRazer</a><span class="tag">Hardware</span></li>
             <li><a href="https://github.com/libre-tube/LibreTube" target="_blank">LibreTube</a><span class="tag">YouTube</span></li>
             <li><a href="https://github.com/TeamNewPipe/NewPipe" target="_blank">NewPipe</a><span class="tag">YouTube</span></li>
+            <li><a href="https://joplinapp.org" target="_blank">Joplin</a><span class="tag">Notes</span></li>
+            <li><a href="https://logseq.com" target="_blank">Logseq</a><span class="tag">Notes</span></li>
+            <li><a href="https://standardnotes.com" target="_blank">Standard Notes</a><span class="tag">Notes</span></li>
+            <li><a href="https://github.com/marktext/marktext" target="_blank">MarkText</a><span class="tag">Markdown</span></li>
+            <li><a href="https://github.com/Zettlr/Zettlr" target="_blank">Zettlr</a><span class="tag">Markdown</span></li>
+            <li><a href="https://audacityteam.org" target="_blank">Audacity</a><span class="tag">Audio</span></li>
+            <li><a href="https://github.com/tenacityteam/tenacity" target="_blank">Tenacity</a><span class="tag">Audio</span></li>
+            <li><a href="https://lmms.io" target="_blank">LMMS</a><span class="tag">Music</span></li>
+            <li><a href="https://ardour.org" target="_blank">Ardour</a><span class="tag">DAW</span></li>
+            <li><a href="https://musescore.org" target="_blank">MuseScore</a><span class="tag">Music</span></li>
+            <li><a href="https://shotcut.org" target="_blank">Shotcut</a><span class="tag">Video</span></li>
+            <li><a href="https://www.openshot.org" target="_blank">OpenShot</a><span class="tag">Video</span></li>
+            <li><a href="https://natrongit.github.io" target="_blank">Natron</a><span class="tag">Compositing</span></li>
+            <li><a href="https://github.com/yt-dlp/yt-dlp" target="_blank">yt-dlp</a><span class="tag">Downloader</span></li>
+            <li><a href="https://www.ventoy.net" target="_blank">Ventoy</a><span class="tag">Bootable</span></li>
+            <li><a href="https://rufus.ie" target="_blank">Rufus</a><span class="tag">Bootable</span></li>
+            <li><a href="https://gitlab.com/bztsrc/usbimager" target="_blank">USBImager</a><span class="tag">Bootable</span></li>
+            <li><a href="https://www.bleachbit.org" target="_blank">BleachBit</a><span class="tag">Cleaner</span></li>
+            <li><a href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank">Bulk Crap Uninstaller</a><span class="tag">Uninstaller</span></li>
+            <li><a href="https://gitlab.com/CalcProgrammer1/OpenRGB" target="_blank">OpenRGB</a><span class="tag">Hardware</span></li>
+            <li><a href="https://github.com/libratbag/piper" target="_blank">Piper</a><span class="tag">Hardware</span></li>
+            <li><a href="https://github.com/pwr-Solaar/Solaar" target="_blank">Solaar</a><span class="tag">Hardware</span></li>
+            <li><a href="https://github.com/LibreHardwareMonitor/LibreHardwareMonitor" target="_blank">LibreHardwareMonitor</a><span class="tag">Hardware</span></li>
+            <li><a href="https://www.7-zip.org" target="_blank">7-Zip</a><span class="tag">Archive</span></li>
+            <li><a href="https://peazip.github.io" target="_blank">PeaZip</a><span class="tag">Archive</span></li>
         </ul>
         </div>
     </div>
@@ -2488,6 +2612,36 @@
             <li><a href="https://wesnoth.org" target="_blank">Battle for Wesnoth</a><span class="tag">Strategy</span></li>
             <li><a href="https://supertuxkart.net" target="_blank">SuperTuxKart</a><span class="tag">Racing</span></li>
             <li><a href="https://www.flightgear.org" target="_blank">FlightGear</a><span class="tag">Sim</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Open Source App Stores & Repositories</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://f-droid.org" target="_blank">F-Droid</a><span class="tag">Android</span></li>
+            <li><a href="https://droid-ify.github.io" target="_blank">Droid-ify</a><span class="tag">Android</span></li>
+            <li><a href="https://flathub.org" target="_blank">Flathub</a><span class="tag">Linux</span></li>
+            <li><a href="https://appimage.github.io" target="_blank">AppImageHub</a><span class="tag">Linux</span></li>
+            <li><a href="https://brew.sh" target="_blank">Homebrew</a><span class="tag">macOS</span></li>
+            <li><a href="https://www.macports.org" target="_blank">MacPorts</a><span class="tag">macOS</span></li>
+            <li><a href="https://chocolatey.org" target="_blank">Chocolatey</a><span class="tag">Windows</span></li>
+            <li><a href="https://scoop.sh" target="_blank">Scoop</a><span class="tag">Windows</span></li>
+            <li><a href="https://github.com/microsoft/winget-cli" target="_blank">winget</a><span class="tag">Windows</span></li>
+            <li><a href="https://search.nixos.org/packages" target="_blank">Nix Packages</a><span class="tag">Nix</span></li>
+            <li><a href="https://aur.archlinux.org" target="_blank">Arch User Repository</a><span class="tag">Arch</span></li>
+            <li><a href="https://guix.gnu.org" target="_blank">GNU Guix</a><span class="tag">Guix</span></li>
+            <li><a href="https://pkgs.org" target="_blank">pkgs.org</a><span class="tag">Index</span></li>
+            <li><a href="https://repology.org" target="_blank">Repology</a><span class="tag">Index</span></li>
+            <li><a href="https://codeberg.org" target="_blank">Codeberg</a><span class="tag">Git</span></li>
+            <li><a href="https://gitea.io" target="_blank">Gitea</a><span class="tag">Git</span></li>
+            <li><a href="https://sourceforge.net" target="_blank">SourceForge</a><span class="tag">Legacy</span></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a><span class="tag">Git</span></li>
+            <li><a href="https://gitlab.com" target="_blank">GitLab</a><span class="tag">Git</span></li>
         </ul>
         </div>
     </div>
