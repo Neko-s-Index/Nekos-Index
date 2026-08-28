@@ -20,6 +20,7 @@ Neko's Index is a static resource directory inspired by community indexes like E
 - **dmca.html** — DMCA policy
 - **privacy.html** — Privacy policy
 - **notes.html** — About, usage notes, and changelog
+- **privacy-settings.html** — Privacy settings guide for mobile and PC
 - **404.html** — Custom not-found page
 
 ## Features
@@ -42,6 +43,11 @@ Neko's Index is a static resource directory inspired by community indexes like E
 - Archive fallback links for each resource via the Wayback Machine
 - 404 page with an index search
 - `robots.txt` and `sitemap.xml` for search engines
+- Guide side panel on the list page with a full feature overview
+- iOS getting-started guide in the Guides section
+- DuckDuckGo search button on the list page
+- Verification gate for the "Other Useful Indexes" footer
+- Privacy Settings guide page with brand-specific recommendations
 
 ## Categories
 
