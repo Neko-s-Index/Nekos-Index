@@ -1850,7 +1850,7 @@
         #shareLink:disabled {
             color: var(--text-muted);
         }
-        #shareCopy:disabled {
+        #shareModalCopy:disabled {
             opacity: 0.4;
             cursor: not-allowed;
         }
@@ -2120,7 +2120,7 @@
             const shareAnswer = document.getElementById('shareAnswer');
             const shareVerify = document.getElementById('shareVerify');
             const shareLink = document.getElementById('shareLink');
-            const shareCopy = document.getElementById('shareCopy');
+            const shareCopy = document.getElementById('shareModalCopy');
             const shareClose = document.getElementById('shareClose');
             let shareExpected = 0;
             let sharePuzzleText = '';
@@ -2169,9 +2169,13 @@
 
             shareCopy.addEventListener('click', () => {
                 if (shareLink.value) {
-                    navigator.clipboard.writeText(shareLink.value);
-                    shareCopy.textContent = 'Copied!';
-                    setTimeout(() => { shareCopy.textContent = 'Copy Link'; }, 1500);
+                    navigator.clipboard.writeText(shareLink.value).then(() => {
+                        shareCopy.textContent = 'Copied!';
+                        setTimeout(() => { shareCopy.textContent = 'Copy Link'; }, 1500);
+                    }).catch(() => {
+                        shareCopy.textContent = 'Copy failed';
+                        setTimeout(() => { shareCopy.textContent = 'Copy Link'; }, 1500);
+                    });
                 }
             });
 
@@ -4656,7 +4660,7 @@
         <button class="disclaimer-button" id="shareVerify">Verify</button>
         <input type="password" id="shareLink" readonly value="" style="margin:10px 0;" disabled>
         <div style="display:flex; gap:10px;">
-            <button class="disclaimer-button" id="shareCopy" disabled style="width:auto; flex:1;">Copy Link</button>
+            <button class="disclaimer-button" id="shareModalCopy" disabled style="width:auto; flex:1;">Copy Link</button>
             <button class="disclaimer-button" id="shareClose" style="background:var(--bg-tertiary); width:auto; flex:1;">Close</button>
         </div>
     </div>
