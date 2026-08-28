@@ -383,7 +383,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10000;
+            z-index: 10001;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -777,62 +777,122 @@
         .settings-panel {
             position: fixed;
             top: 0;
-            right: -400px;
-            width: 350px;
+            right: 0;
+            width: 360px;
+            max-width: 90%;
             height: 100%;
             background: var(--bg-card);
             border-left: 1px solid var(--border-color);
-            padding: 30px;
-            transition: right 0.3s ease;
-            z-index: 1001;
+            border-radius: 16px 0 0 16px;
+            padding: 28px;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10001;
             overflow-y: auto;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
         }
 
         .settings-panel.show {
-            right: 0;
+            transform: translateX(0);
         }
 
         .settings-panel h3 {
-            margin: 0 0 20px 0;
+            margin: 0 0 24px 0;
+            padding-right: 40px;
             color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
         .settings-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
         }
 
-        .settings-group label {
+        .settings-group > label {
             display: block;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            font-size: 14px;
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+        }
+
+        .settings-btn-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .settings-btn-row .settings-btn-action {
+            flex: 1;
+            min-width: 0;
         }
 
         .settings-btn-action {
             width: 100%;
-            padding: 10px;
-            background: var(--accent-gradient);
-            border: none;
-            border-radius: 8px;
-            color: white;
+            padding: 12px 16px;
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
             cursor: pointer;
             font-size: 14px;
+            font-weight: 500;
             margin-bottom: 10px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .settings-btn-action:hover {
-            opacity: 0.9;
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
+        }
+
+        .settings-btn-action.danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .settings-btn-action.danger:hover {
+            background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+            box-shadow: 0 6px 18px rgba(239, 68, 68, 0.3);
         }
 
         .settings-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
+            top: 22px;
+            right: 22px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
             color: var(--text-secondary);
             cursor: pointer;
-            font-size: 24px;
+            font-size: 18px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .settings-close:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: #fff;
+            transform: rotate(90deg);
         }
 
         /* Toggle Switch */
@@ -840,9 +900,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px;
-            background: var(--bg-tertiary);
-            border-radius: 8px;
+            padding: 10px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
             margin-bottom: 10px;
         }
 
@@ -858,12 +919,13 @@
 
         .toggle-slider {
             position: relative;
-            width: 50px;
-            height: 26px;
+            width: 44px;
+            height: 24px;
             background: var(--bg-card-hover);
-            border-radius: 13px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .toggle-slider::before {
@@ -871,19 +933,21 @@
             position: absolute;
             top: 3px;
             left: 3px;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             background: white;
             border-radius: 50%;
-            transition: transform 0.3s ease;
+            transition: transform 0.25s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .toggle-switch input:checked + .toggle-slider {
-            background: var(--accent-primary);
+            background: var(--accent-gradient);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .toggle-switch input:checked + .toggle-slider::before {
-            transform: translateX(24px);
+            transform: translateX(20px);
         }
 
         /* Keyboard Shortcuts Modal */
@@ -897,7 +961,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10000;
+            z-index: 10001;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -956,7 +1020,7 @@
         }
 
         /* GitHub Star Badges */
-        .github-stars {
+        .repo-badge {
             height: 20px;
             border-radius: 4px;
             margin-left: 8px;
@@ -986,7 +1050,9 @@
 
             .settings-panel {
                 width: 100%;
-                right: -100%;
+                max-width: 100%;
+                border-radius: 0;
+                padding: 24px;
             }
 
             .shortcuts-content {
@@ -1042,7 +1108,7 @@
             padding: 2px 8px;
             font-size: 10px;
         }
-        body.compact-mode .github-stars {
+        body.compact-mode .repo-badge {
             height: 16px;
         }
         body.compact-mode .search-container {
@@ -1588,27 +1654,61 @@
                 localStorage.setItem(disclaimerKey, 'true');
             });
 
-            // ==================== GITHUB STAR BADGES ====================
-            function addGitHubStars() {
-                document.querySelectorAll('.category a[href*="github.com/"]').forEach(link => {
+            // ==================== POPULARITY BADGES ====================
+            function addRepoBadges() {
+                const selectors = '.category a';
+                document.querySelectorAll(selectors).forEach(link => {
                     try {
                         const url = new URL(link.href);
-                        if (url.hostname !== 'github.com') return;
+                        const host = url.hostname.toLowerCase();
                         const parts = url.pathname.split('/').filter(Boolean);
-                        if (parts.length < 2) return;
-                        const [owner, repo] = parts;
-                        if (!owner || !repo) return;
+                        let badgeSrc = '';
+                        let alt = '';
+
+                        if (host === 'github.com' && parts.length >= 2) {
+                            const [owner, repo] = parts;
+                            badgeSrc = `https://img.shields.io/github/stars/${owner}/${repo}?style=flat-square&logo=github&label=%20`;
+                            alt = 'GitHub stars';
+                        }
+                        else if (host === 'gitlab.com' && parts.length >= 2) {
+                            const project = encodeURIComponent(parts.join('/'));
+                            badgeSrc = `https://img.shields.io/gitlab/stars/${project}?gitlab_url=https%3A%2F%2Fgitlab.com&style=flat-square&logo=gitlab&label=%20`;
+                            alt = 'GitLab stars';
+                        }
+                        else if (host === 'gitea.com' && parts.length >= 2) {
+                            const [owner, repo] = parts;
+                            badgeSrc = `https://img.shields.io/gitea/stars/${owner}/${repo}?style=flat-square&logo=gitea&label=%20`;
+                            alt = 'Gitea stars';
+                        }
+                        else if (host === 'codeberg.org' && parts.length >= 2) {
+                            const [owner, repo] = parts;
+                            badgeSrc = `https://img.shields.io/gitea/stars/${owner}/${repo}?gitea_url=https%3A%2F%2Fcodeberg.org&style=flat-square&logo=codeberg&label=%20`;
+                            alt = 'Codeberg stars';
+                        }
+                        else if ((host === 'sourceforge.net' || host === 'sourceforge.io') && parts.length >= 2 && parts[0] === 'projects') {
+                            const project = parts[1];
+                            badgeSrc = `https://img.shields.io/sourceforge/dm/${project}?style=flat-square&logo=sourceforge&label=%20`;
+                            alt = 'SourceForge monthly downloads';
+                        }
+                        else if (host === 'flathub.org' && parts.length >= 1) {
+                            const appId = parts[parts.length - 1];
+                            badgeSrc = `https://img.shields.io/flathub/downloads/${appId}?style=flat-square&logo=flathub&label=%20`;
+                            alt = 'Flathub downloads';
+                        }
+
+                        if (!badgeSrc) return;
+
                         const badge = document.createElement('img');
-                        badge.className = 'github-stars';
-                        badge.src = `https://img.shields.io/github/stars/${owner}/${repo}?style=flat-square&logo=github&label=%20`;
-                        badge.alt = 'GitHub stars';
+                        badge.className = 'repo-badge';
+                        badge.src = badgeSrc;
+                        badge.alt = alt;
                         badge.loading = 'lazy';
                         badge.onerror = () => badge.remove();
                         link.parentElement.appendChild(badge);
                     } catch (e) {}
                 });
             }
-            addGitHubStars();
+            addRepoBadges();
         });
     </script>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
@@ -1649,7 +1749,7 @@
 </button>
 
 <!-- Settings Button -->
-<button class="settings-btn" id="settingsBtn">⚙️ Settings</button>
+<button class="settings-btn" id="settingsBtn">Settings</button>
 
 <div class="container">
     <h2>Categories</h2>
@@ -2888,12 +2988,12 @@
 <!-- Settings Panel -->
 <div class="settings-panel" id="settingsPanel">
     <button class="settings-close" id="settingsClose">✕</button>
-    <h3>⚙️ Settings</h3>
-    
+    <h3>Settings</h3>
+
     <!-- Display Settings -->
     <div class="settings-group">
-        <label>Display Settings</label>
-        
+        <label>Display</label>
+
         <div class="toggle-switch">
             <label>Hide IP Warning</label>
             <label>
@@ -2901,7 +3001,7 @@
                 <span class="toggle-slider"></span>
             </label>
         </div>
-        
+
         <div class="toggle-switch">
             <label>Hide Beta Notice</label>
             <label>
@@ -2909,7 +3009,7 @@
                 <span class="toggle-slider"></span>
             </label>
         </div>
-        
+
         <div class="toggle-switch">
             <label>Compact Mode</label>
             <label>
@@ -2918,11 +3018,11 @@
             </label>
         </div>
     </div>
-    
+
     <!-- Behavior Settings -->
     <div class="settings-group">
-        <label>Behavior Settings</label>
-        
+        <label>Behavior</label>
+
         <div class="toggle-switch">
             <label>Auto-collapse Categories</label>
             <label>
@@ -2931,20 +3031,22 @@
             </label>
         </div>
     </div>
-    
+
     <!-- Data Management -->
     <div class="settings-group">
-        <label>Data Management</label>
-        <button class="settings-btn-action" id="exportSettings">📥 Export Settings</button>
-        <button class="settings-btn-action" id="importSettings">📤 Import Settings</button>
+        <label>Data</label>
+        <div class="settings-btn-row">
+            <button class="settings-btn-action" id="exportSettings">Export</button>
+            <button class="settings-btn-action" id="importSettings">Import</button>
+        </div>
         <input type="file" id="importFile" accept=".json" style="display: none;">
-        <button class="settings-btn-action" id="clearData" style="background: var(--danger);">🗑️ Clear All Data</button>
+        <button class="settings-btn-action danger" id="clearData">Clear All Data</button>
     </div>
-    
+
     <!-- Help -->
     <div class="settings-group">
         <label>Help</label>
-        <button class="settings-btn-action" id="showShortcuts">⌨️ View Keyboard Shortcuts</button>
+        <button class="settings-btn-action" id="showShortcuts">Keyboard Shortcuts</button>
     </div>
 </div>
 

@@ -1,6 +1,4 @@
 (() => {
-    const IS_MOBILE = () => window.innerWidth < 768;
-
     // ---- Scanline overlay for retro CRT look ----
     const scanlines = document.createElement('div');
     scanlines.setAttribute('aria-hidden', 'true');
@@ -23,29 +21,22 @@
     `;
     document.body.appendChild(scanlines);
 
-    // ---- Pixel canvas ----
+    // ---- Full-page pixel canvas ----
     const canvas = document.createElement('canvas');
     canvas.id = 'pixel-rain';
     canvas.setAttribute('aria-hidden', 'true');
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
-    canvas.style.right = '0';
-    canvas.style.width = '120px';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
     canvas.style.height = '100vh';
-    canvas.style.zIndex = '0';
+    canvas.style.zIndex = '10000';
     canvas.style.pointerEvents = 'none';
-    canvas.style.opacity = '0.6';
+    canvas.style.opacity = '0.45';
     canvas.style.imageRendering = 'pixelated';
-    canvas.width = 120;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     document.body.appendChild(canvas);
-
-    if (IS_MOBILE()) {
-        canvas.style.width = '70px';
-        canvas.style.height = '120px';
-        canvas.width = 70;
-        canvas.height = 120;
-    }
 
     const ctx = canvas.getContext('2d');
 
@@ -59,7 +50,7 @@
         '#06b6d4'  // cyan
     ];
 
-    // ---- Particle system ----
+    // ---- Particles ----
     const particles = [];
 
     function spawnPixel(x, y, burst = false) {
@@ -80,7 +71,7 @@
     }
 
     function spawnBurst(x, y) {
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 20; i++) {
             spawnPixel(x, y, true);
         }
     }
@@ -103,32 +94,29 @@
 
     window.addEventListener('click', e => {
         const rect = canvas.getBoundingClientRect();
-        let x, y;
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
         if (
             e.clientX >= rect.left &&
             e.clientX <= rect.right &&
             e.clientY >= rect.top &&
             e.clientY <= rect.bottom
         ) {
-            x = e.clientX - rect.left;
-            y = e.clientY - rect.top;
-        } else {
-            x = canvas.width / 2;
-            y = 30;
+            spawnBurst(x, y);
+            catJump = 10;
+            cat.targetX = Math.max(cat.scale, Math.min(canvas.width - cat.width - 2 * cat.scale, x - cat.width / 2));
+            cat.targetY = Math.max(0, Math.min(canvas.height - 8 * cat.scale, y - 4 * cat.scale));
         }
-        spawnBurst(x, y);
-        catJump = 10;
-        cat.targetX = Math.max(0, Math.min(canvas.width - cat.width, x - cat.width / 2));
     });
 
     // ---- Pixel cat ----
     const cat = {
         x: canvas.width / 2 - 10,
-        y: 16,
+        y: canvas.height / 2,
         targetX: canvas.width / 2 - 10,
-        scale: 2,
-        width: 20,
-        height: 18,
+        targetY: canvas.height / 2,
+        scale: 3,
+        width: 15,
         blinkTimer: 0,
         isBlinking: false,
         tailSway: 0
@@ -137,23 +125,26 @@
     let catJump = 0;
 
     function updateCat() {
-        // Follow mouse, click, or patrol
         if (mouseInCanvas) {
-            cat.targetX = Math.max(0, Math.min(canvas.width - cat.width, mouseX - cat.width / 2));
+            cat.targetX = Math.max(cat.scale, Math.min(canvas.width - cat.width - 2 * cat.scale, mouseX - cat.width / 2));
+            cat.targetY = Math.max(0, Math.min(canvas.height - 8 * cat.scale, mouseY - 4 * cat.scale));
+        } else {
+            // Random patrol when mouse leaves the window
+            if (Math.random() < 0.01) {
+                cat.targetX = Math.random() * (canvas.width - cat.width - 2 * cat.scale);
+                cat.targetY = Math.random() * (canvas.height - 8 * cat.scale);
+            }
         }
 
-        // Smooth movement toward target
-        cat.x += (cat.targetX - cat.x) * 0.05;
+        cat.x += (cat.targetX - cat.x) * 0.04;
+        cat.y += (cat.targetY - cat.y) * 0.04;
 
-        // Patrol when idle
-        if (!mouseInCanvas && Math.abs(cat.x - cat.targetX) < 1) {
-            cat.targetX = Math.random() * (canvas.width - cat.width);
-        }
+        // Clamp
+        cat.x = Math.max(cat.scale, Math.min(canvas.width - cat.width - 2 * cat.scale, cat.x));
+        cat.y = Math.max(0, Math.min(canvas.height - 8 * cat.scale, cat.y));
 
-        // Tail wag
         cat.tailSway = Math.sin(Date.now() / 120) * 1.5;
 
-        // Blink randomly
         if (cat.blinkTimer++ > 120 + Math.random() * 240) {
             cat.isBlinking = true;
             if (cat.blinkTimer > 140 + Math.random() * 240) {
@@ -172,7 +163,7 @@
         const ox = cat.x;
         const oy = cat.y - catJump;
 
-        // Black 8-bit cat sprite
+        // Black 8-bit body
         const body = [
             [0, 1, 1, 1, 0],
             [1, 1, 1, 1, 1],
@@ -202,7 +193,6 @@
 
         // Eyes
         if (!cat.isBlinking) {
-            // Eye movement based on mouse
             let px = 0, py = 0;
             if (mouseInCanvas) {
                 const dx = mouseX - (ox + 2.5 * s);
@@ -235,7 +225,7 @@
     function loop() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (Math.random() < 0.25) spawnPixel();
+        if (Math.random() < 0.4) spawnPixel();
 
         updateCat();
 
@@ -247,8 +237,8 @@
                 const dx = p.x - mouseX;
                 const dy = p.y - mouseY;
                 const dist = Math.hypot(dx, dy);
-                if (dist < 50 && dist > 0) {
-                    const force = (50 - dist) / 50 * 0.6;
+                if (dist < 60 && dist > 0) {
+                    const force = (60 - dist) / 60 * 0.7;
                     p.vx += (dx / dist) * force;
                     p.vy += (dy / dist) * force;
                 }
@@ -278,11 +268,8 @@
     }
 
     window.addEventListener('resize', () => {
-        const isMobile = IS_MOBILE();
-        canvas.width = isMobile ? 70 : 120;
-        canvas.height = isMobile ? 120 : window.innerHeight;
-        canvas.style.height = isMobile ? '120px' : '100vh';
-        canvas.style.width = isMobile ? '70px' : '120px';
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 
     loop();
