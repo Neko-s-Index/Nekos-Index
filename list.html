@@ -1041,7 +1041,13 @@
             // ==================== SEARCH FUNCTIONALITY ====================
             const searchInput = document.getElementById('searchInput');
             const searchClear = document.getElementById('searchClear');
-            const allItems = document.querySelectorAll('li');
+            const noResults = document.getElementById('noResults');
+            const allItems = document.querySelectorAll('.category li');
+
+            function updateNoResults() {
+                const visible = document.querySelectorAll('.category:not(.hidden)').length;
+                noResults.classList.toggle('hidden', visible > 0);
+            }
 
             searchInput.addEventListener('input', function() {
                 const query = this.value.toLowerCase().trim();
@@ -1050,9 +1056,12 @@
                 allItems.forEach(item => {
                     const link = item.querySelector('a');
                     const text = link.textContent.toLowerCase();
+                    const tag = item.querySelector('.tag');
+                    const tagText = tag ? tag.textContent.toLowerCase() : '';
+                    const searchText = text + ' ' + tagText;
                     const parentCategory = item.closest('.category');
                     
-                    if (text.includes(query)) {
+                    if (searchText.includes(query)) {
                         item.classList.remove('hidden');
                         // Expand parent category if collapsed
                         if (parentCategory) {
@@ -1075,6 +1084,8 @@
                         category.classList.remove('hidden');
                     }
                 });
+
+                updateNoResults();
             });
 
             searchClear.addEventListener('click', function() {
@@ -1093,7 +1104,10 @@
                 'anime': ['Open Source Anime & Manga Apps', 'Anime & Manga Databases'],
                 'manga': ['Manga & Novel Reading'],
                 'tools': ['Media Players & Converters', 'Development & Productivity Tools', 'Audio Tagging Tools'],
-                'download': ['Download Managers & Torrent Clients', 'Usenet & NZB Tools']
+                'download': ['Download Managers & Torrent Clients', 'Usenet & NZB Tools'],
+                'android': ['Open Source Android Apps'],
+                'pc': ['Open Source PC / Desktop Apps'],
+                'ios': ['Open Source iOS Apps']
             };
 
             filterBtns.forEach(btn => {
@@ -1108,6 +1122,8 @@
                         const shouldShow = filter === 'all' || categoryFilters[filter].some(f => header.includes(f));
                         category.classList.toggle('hidden', !shouldShow);
                     });
+
+                    updateNoResults();
                 });
             });
 
@@ -1458,7 +1474,12 @@
         <button class="filter-btn" data-filter="manga">Manga</button>
         <button class="filter-btn" data-filter="tools">Tools</button>
         <button class="filter-btn" data-filter="download">Downloads</button>
+        <button class="filter-btn" data-filter="android">Android</button>
+        <button class="filter-btn" data-filter="pc">PC</button>
+        <button class="filter-btn" data-filter="ios">iOS</button>
     </div>
+
+    <p class="hidden" id="noResults" style="text-align: center; color: var(--text-muted); margin: 20px 0;">No results found.</p>
 
     <!-- Favorites Section -->
     <div class="favorites-section" id="favoritesSection">
@@ -2276,6 +2297,80 @@
             <li><a href="https://everythingmoe.com/s/kayoanime" target="_blank">KayoAnime</a><span class="tag">Download</span></li>
             <li><a href="https://everythingmoe.com/s/pandabackup" target="_blank">Panda Backup</a><span class="tag">Archive</span></li>
             <li><a href="https://everythingmoe.com/s/karamoe" target="_blank">Karaoke Mugen</a><span class="tag">Karaoke</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Open Source Android Apps</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://f-droid.org" target="_blank">F-Droid</a><span class="tag">Store</span></li>
+            <li><a href="https://droid-ify.github.io" target="_blank">Droid-ify</a><span class="tag">Store</span></li>
+            <li><a href="https://github.com/TeamNewPipe/NewPipe" target="_blank">NewPipe</a><span class="tag">YouTube</span></li>
+            <li><a href="https://github.com/libre-tube/LibreTube" target="_blank">LibreTube</a><span class="tag">YouTube</span></li>
+            <li><a href="https://github.com/AntennaPod/AntennaPod" target="_blank">AntennaPod</a><span class="tag">Podcasts</span></li>
+            <li><a href="https://f-droid.org/packages/com.aurora.store" target="_blank">Aurora Store</a><span class="tag">Store</span></li>
+            <li><a href="https://f-droid.org/packages/org.fossify.phone" target="_blank">Fossify Phone</a><span class="tag">Dialer</span></li>
+            <li><a href="https://f-droid.org/packages/com.simplemobiletools.gallery.pro" target="_blank">Simple Gallery</a><span class="tag">Gallery</span></li>
+            <li><a href="https://github.com/deckerst/aves" target="_blank">Aves</a><span class="tag">Gallery</span></li>
+            <li><a href="https://termux.dev" target="_blank">Termux</a><span class="tag">Terminal</span></li>
+            <li><a href="https://github.com/thundernest/k-9" target="_blank">K-9 Mail / Thunderbird Mobile</a><span class="tag">Email</span></li>
+            <li><a href="https://f-droid.org/packages/com.bitwarden" target="_blank">Bitwarden</a><span class="tag">Passwords</span></li>
+            <li><a href="https://f-droid.org/packages/com.nextcloud.client" target="_blank">Nextcloud</a><span class="tag">Cloud</span></li>
+            <li><a href="https://github.com/mozilla-mobile/fenix" target="_blank">Firefox</a><span class="tag">Browser</span></li>
+            <li><a href="https://github.com/brave/brave-browser" target="_blank">Brave</a><span class="tag">Browser</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Open Source PC / Desktop Apps</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a><span class="tag">Editor</span></li>
+            <li><a href="https://vscodium.com" target="_blank">VSCodium</a><span class="tag">Editor</span></li>
+            <li><a href="https://www.libreoffice.org" target="_blank">LibreOffice</a><span class="tag">Office</span></li>
+            <li><a href="https://www.7-zip.org" target="_blank">7-Zip</a><span class="tag">Archive</span></li>
+            <li><a href="https://www.gimp.org" target="_blank">GIMP</a><span class="tag">Image</span></li>
+            <li><a href="https://www.inkscape.org" target="_blank">Inkscape</a><span class="tag">Vector</span></li>
+            <li><a href="https://www.blender.org" target="_blank">Blender</a><span class="tag">3D</span></li>
+            <li><a href="https://obsproject.com" target="_blank">OBS Studio</a><span class="tag">Streaming</span></li>
+            <li><a href="https://getsharex.com" target="_blank">ShareX</a><span class="tag">Screenshot</span></li>
+            <li><a href="https://github.com/microsoft/PowerToys" target="_blank">PowerToys</a><span class="tag">Utils</span></li>
+            <li><a href="https://keepassxc.org" target="_blank">KeePassXC</a><span class="tag">Passwords</span></li>
+            <li><a href="https://notepad-plus-plus.org" target="_blank">Notepad++</a><span class="tag">Editor</span></li>
+            <li><a href="https://www.mozilla.org/firefox" target="_blank">Firefox</a><span class="tag">Browser</span></li>
+            <li><a href="https://brave.com" target="_blank">Brave</a><span class="tag">Browser</span></li>
+            <li><a href="https://github.com/Flow-Launcher/Flow.Launcher" target="_blank">Flow Launcher</a><span class="tag">Launcher</span></li>
+            <li><a href="https://github.com/ModernFlyouts-Community/ModernFlyouts" target="_blank">ModernFlyouts</a><span class="tag">Windows</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Open Source iOS Apps</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://apps.apple.com/us/app/vlc-media-player/id650377962" target="_blank">VLC for iOS</a><span class="tag">Player</span></li>
+            <li><a href="https://apps.apple.com/us/app/firefox-web-browser/id989804926" target="_blank">Firefox</a><span class="tag">Browser</span></li>
+            <li><a href="https://apps.apple.com/us/app/brave-browser-fast-adblock/id1052879175" target="_blank">Brave</a><span class="tag">Browser</span></li>
+            <li><a href="https://apps.apple.com/us/app/signal-private-messenger/id874069120" target="_blank">Signal</a><span class="tag">Messaging</span></li>
+            <li><a href="https://apps.apple.com/us/app/bitwarden-password-manager/id1132384485" target="_blank">Bitwarden</a><span class="tag">Passwords</span></li>
+            <li><a href="https://apps.apple.com/us/app/nextcloud/id1125421572" target="_blank">Nextcloud</a><span class="tag">Cloud</span></li>
+            <li><a href="https://apps.apple.com/us/app/proton-vpn-fast-secure/id1437005085" target="_blank">Proton VPN</a><span class="tag">VPN</span></li>
+            <li><a href="https://apps.apple.com/us/app/joplin/id1315599796" target="_blank">Joplin</a><span class="tag">Notes</span></li>
+            <li><a href="https://apps.apple.com/us/app/adguard-adblock-privacy/id1047223162" target="_blank">AdGuard for iOS</a><span class="tag">Ad-block</span></li>
+            <li><a href="https://apps.apple.com/us/app/mastodon-for-iphone-and-ipad/id1571998974" target="_blank">Mastodon</a><span class="tag">Social</span></li>
         </ul>
         </div>
     </div>
