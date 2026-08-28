@@ -798,7 +798,7 @@
 
         .settings-panel h3 {
             margin: 0 0 24px 0;
-            padding-right: 40px;
+            padding-right: 50px;
             color: var(--text-primary);
             font-size: 1.5rem;
             font-weight: 700;
@@ -830,6 +830,7 @@
         .settings-btn-row .settings-btn-action {
             flex: 1;
             min-width: 0;
+            width: auto;
         }
 
         .settings-btn-action {
@@ -919,6 +920,8 @@
 
         .toggle-slider {
             position: relative;
+            display: inline-block;
+            vertical-align: middle;
             width: 44px;
             height: 24px;
             background: var(--bg-card-hover);
@@ -1315,7 +1318,7 @@
                 'anime': ['Open Source Anime & Manga Apps', 'Anime & Manga Databases'],
                 'manga': ['Manga & Novel Reading'],
                 'tools': ['Media Players & Converters', 'Development & Productivity Tools', 'Audio Tagging Tools', 'Open Source Utilities & Browsers'],
-                'download': ['Download Managers & Torrent Clients', 'Usenet & NZB Tools'],
+                'download': ['Download Managers & Torrent Clients', 'Usenet & NZB Tools', 'Archives & Mirrors'],
                 'android': ['Open Source Android Apps'],
                 'pc': ['Open Source PC / Desktop Apps'],
                 'ios': ['Open Source iOS Apps'],
@@ -2931,6 +2934,29 @@
         </ul>
         </div>
     </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Archives &amp; Mirrors</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://archive.org" target="_blank">Internet Archive</a><span class="tag">Web Archive</span></li>
+            <li><a href="https://web.archive.org" target="_blank">Wayback Machine</a><span class="tag">Web Archive</span></li>
+            <li><a href="https://archive.today" target="_blank">Archive.today</a><span class="tag">Web Snapshot</span></li>
+            <li><a href="https://www.apkmirror.com" target="_blank">APKMirror</a><span class="tag">Android APK</span></li>
+            <li><a href="https://f-droid.org" target="_blank">F-Droid Archive</a><span class="tag">Android</span></li>
+            <li><a href="https://www.fosshub.com" target="_blank">FossHub</a><span class="tag">Windows / Mac</span></li>
+            <li><a href="https://sourceforge.net" target="_blank">SourceForge</a><span class="tag">Multi</span></li>
+            <li><a href="https://en.uptodown.com" target="_blank">Uptodown</a><span class="tag">Multi</span></li>
+            <li><a href="https://www.oldversion.com" target="_blank">OldVersion.com</a><span class="tag">Old Software</span></li>
+            <li><a href="https://www.oldapps.com" target="_blank">OldApps</a><span class="tag">Old Software</span></li>
+            <li><a href="https://winworldpc.com" target="_blank">WinWorld</a><span class="tag">Abandonware</span></li>
+            <li><a href="https://github.com" target="_blank">GitHub Releases</a><span class="tag">Source Code</span></li>
+        </ul>
+        </div>
+    </div>
 </div>
 
 <footer>
@@ -2987,7 +3013,7 @@
 
 <!-- Settings Panel -->
 <div class="settings-panel" id="settingsPanel">
-    <button class="settings-close" id="settingsClose">✕</button>
+    <button class="settings-close" id="settingsClose" aria-label="Close settings">&times;</button>
     <h3>Settings</h3>
 
     <!-- Display Settings -->
