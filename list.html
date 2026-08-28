@@ -890,6 +890,13 @@
             border-color: transparent;
         }
 
+        .filter-bar-label {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 16px 0 10px 0;
+        }
+
         /* Recently Added Badge */
         .new-badge {
             background: var(--success);
@@ -1797,10 +1804,9 @@
                     addCategoryNote(header, 'Large category', 'large-note');
                 }
 
-                // Apply saved state - DEFAULT TO COLLAPSED if no saved state, except important
+                // Apply saved state - DEFAULT TO COLLAPSED if no saved state
                 const saved = savedCollapsedState[categoryName];
-                const defaultCollapse = isImportant ? false : (itemCount >= largeThreshold || true);
-                const shouldCollapse = saved !== undefined ? saved : defaultCollapse;
+                const shouldCollapse = saved !== undefined ? saved : true;
 
                 if (shouldCollapse) {
                     header.classList.add('collapsed');
@@ -2079,8 +2085,6 @@
             function applyAutoCollapse(shouldCollapse) {
                 categoryHeaders.forEach(header => {
                     const content = header.nextElementSibling;
-                    const categoryName = header.querySelector('span').textContent;
-                    if (isImportantCategory(categoryName)) return;
                     if (shouldCollapse) {
                         header.classList.add('collapsed');
                         content.classList.add('collapsed');
@@ -2500,6 +2504,8 @@
     <button class="search-ddg" id="searchDuckDuckGo">Search on DuckDuckGo</button>
 
     <button class="random-app" id="randomApp" title="Pick a random app (R)">Random App</button>
+
+    <p class="filter-bar-label">Also check out these pages</p>
 
     <!-- Category Filter -->
     <div class="category-filter" id="categoryFilter">
