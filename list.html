@@ -317,6 +317,7 @@
 
         .social-links {
             display: flex;
+            flex-wrap: wrap;
             gap: 8px;
             margin-left: 8px;
         }
@@ -328,11 +329,21 @@
             font-weight: 600;
             text-decoration: none !important;
             transition: all 0.2s ease;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
         }
 
         .social-link.discord {
             background: #5865f2;
             color: white;
+            border-color: transparent;
         }
 
         .social-link.discord:hover {
@@ -342,10 +353,41 @@
         .social-link.telegram {
             background: #0088cc;
             color: white;
+            border-color: transparent;
         }
 
         .social-link.telegram:hover {
             background: #0077b5;
+        }
+
+        .social-link.reddit {
+            background: #ff4500;
+            color: white;
+            border-color: transparent;
+        }
+
+        .social-link.reddit:hover {
+            background: #cc3700;
+        }
+
+        .social-link.x {
+            background: #0f1419;
+            color: white;
+            border-color: transparent;
+        }
+
+        .social-link.x:hover {
+            background: #000000;
+        }
+
+        .social-link.mastodon {
+            background: #6364ff;
+            color: white;
+            border-color: transparent;
+        }
+
+        .social-link.mastodon:hover {
+            background: #4f50cc;
         }
 
         footer {
@@ -1871,6 +1913,179 @@
             display: inline-flex;
         }
 
+        /* App detail modal */
+        .app-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10005;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .app-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .app-modal-content {
+            width: 90%;
+            max-width: 540px;
+            max-height: 85vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .app-modal-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .app-modal-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .app-modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .app-modal-close:hover {
+            color: var(--text-primary);
+            background: var(--bg-card-hover);
+        }
+
+        .app-modal-tag {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .app-modal-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .app-modal-stats {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .app-modal-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+        }
+
+        .app-modal-link {
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .app-modal-link:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+        }
+
+        .app-modal-link.primary {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .app-modal-link.primary:hover {
+            opacity: 0.92;
+        }
+
+        @media (max-width: 768px) {
+            .app-modal {
+                padding: 16px;
+            }
+
+            .app-modal-content {
+                width: 95%;
+                padding: 24px;
+                border-radius: 20px;
+            }
+
+            .app-modal-title {
+                font-size: 1.25rem;
+            }
+
+            .app-modal-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 
     <script>
@@ -2213,16 +2428,23 @@
                     const header = category.querySelector('.category-header');
                     content.classList.remove('collapsed');
                     header.classList.remove('collapsed');
+                    content.style.transition = 'none';
                     content.style.maxHeight = content.scrollHeight + 'px';
+                    void content.offsetHeight;
+                    content.style.transition = '';
                 }
 
-                setTimeout(() => {
+                requestAnimationFrame(() => {
+                    const rect = li.getBoundingClientRect();
+                    if (!rect.height) return;
+                    const targetY = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
+                    const y = Math.max(0, targetY);
                     try {
-                        li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        window.scrollTo({ top: y, behavior: 'smooth' });
                     } catch (e) {
-                        li.scrollIntoView();
+                        window.scrollTo(0, y);
                     }
-                }, 150);
+                });
 
                 randomAppHighlightTimeout = setTimeout(() => {
                     li.classList.remove('app-highlight');
@@ -2789,6 +3011,8 @@
                 let localList = [];
                 const urlMap = new Map();
                 const titleMap = new Map();
+                const socialsUrlMap = new Map();
+                const socialsTitleMap = new Map();
                 try {
                     const res = await fetch('data/descriptions.json');
                     if (res.ok) {
@@ -2813,13 +3037,19 @@
                     }
                 }
 
-                // Build lookup maps from the description list
+                // Build lookup maps for descriptions and socials
                 for (const entry of localList) {
                     if (!entry || typeof entry !== 'object') continue;
                     const desc = entry.description || entry.bio || null;
-                    if (!desc) continue;
-                    if (entry.url) urlMap.set(normalizeDescUrl(entry.url), desc);
-                    if (entry.title) titleMap.set(entry.title, desc);
+                    if (desc) {
+                        if (entry.url) urlMap.set(normalizeDescUrl(entry.url), desc);
+                        if (entry.title) titleMap.set(entry.title, desc);
+                    }
+                    const socials = entry.socials;
+                    if (Array.isArray(socials) && socials.length > 0) {
+                        if (entry.url) socialsUrlMap.set(normalizeDescUrl(entry.url), socials);
+                        if (entry.title) socialsTitleMap.set(entry.title, socials);
+                    }
                 }
 
                 function getLocalDescription(link) {
@@ -2830,6 +3060,71 @@
                     if (titleMap.has(title)) return titleMap.get(title);
                     return null;
                 }
+
+                function getLocalSocials(link) {
+                    const url = link.href;
+                    const title = link.textContent.trim();
+                    const normalized = normalizeDescUrl(url);
+                    if (socialsUrlMap.has(normalized)) return socialsUrlMap.get(normalized);
+                    if (socialsTitleMap.has(title)) return socialsTitleMap.get(title);
+                    return null;
+                }
+
+                function addSocialLinks() {
+                    const typePatterns = [
+                        { type: 'discord', re: /(discord\.gg|discord\.com\/invite|discordapp\.com\/invite)/i },
+                        { type: 'telegram', re: /(t\.me|telegram\.me)/i },
+                        { type: 'reddit', re: /(reddit\.com|redd\.it)/i },
+                        { type: 'x', re: /(x\.com|twitter\.com|nitter\.net)/i },
+                        { type: 'mastodon', re: /mastodon/i }
+                    ];
+
+                    document.querySelectorAll('.category li a').forEach(link => {
+                        try {
+                            const li = link.closest('li');
+                            if (!li) return;
+                            if (li.querySelector('.social-links')) return;
+
+                            const rawSocials = getLocalSocials(link);
+                            if (!Array.isArray(rawSocials) || rawSocials.length === 0) return;
+
+                            const container = document.createElement('div');
+                            container.className = 'social-links';
+
+                            for (const social of rawSocials) {
+                                try {
+                                    if (!social || typeof social !== 'object') continue;
+                                    const rawUrl = social.url || social.link || social.href;
+                                    if (!rawUrl) continue;
+                                    const u = new URL(rawUrl);
+                                    if (u.protocol !== 'http:' && u.protocol !== 'https:') continue;
+
+                                    const url = u.toString();
+                                    const matched = typePatterns.find(t => t.re.test(url));
+                                    const socialType = matched ? matched.type : (social.type || 'generic');
+                                    const label = social.label || (socialType === 'generic' ? 'Social' : socialType.charAt(0).toUpperCase() + socialType.slice(1));
+
+                                    const a = document.createElement('a');
+                                    a.className = 'social-link ' + socialType;
+                                    a.href = url;
+                                    a.target = '_blank';
+                                    a.rel = 'noopener noreferrer';
+                                    a.textContent = label;
+                                    container.appendChild(a);
+                                } catch (e) {}
+                            }
+
+                            if (container.children.length > 0) {
+                                li.appendChild(container);
+                            }
+                        } catch (e) {}
+                    });
+                }
+                addSocialLinks();
+
+                const shouldLoadDesc = document.body.classList.contains('show-descriptions') ||
+                    localStorage.getItem('nekoIndexShowDescriptions') === 'true';
+                if (!shouldLoadDesc) return;
 
                 const allLinks = Array.from(document.querySelectorAll('.category li a'));
 
@@ -4689,6 +4984,163 @@
         </div>
     </div>
 </div>
+
+<!-- App Detail Modal -->
+<div class="app-modal" id="appModal">
+    <div class="app-modal-content">
+        <div class="app-modal-header">
+            <h3 class="app-modal-title" id="appModalTitle">App</h3>
+            <button class="app-modal-close" id="appModalClose" aria-label="Close">&times;</button>
+        </div>
+        <span class="app-modal-tag" id="appModalTag">Tag</span>
+        <p class="app-modal-desc" id="appModalDesc">Description</p>
+        <div class="app-modal-stats" id="appModalStats"></div>
+        <div class="app-modal-links" id="appModalLinks"></div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const modal = document.getElementById('appModal');
+        const modalTitle = document.getElementById('appModalTitle');
+        const modalTag = document.getElementById('appModalTag');
+        const modalDesc = document.getElementById('appModalDesc');
+        const modalStats = document.getElementById('appModalStats');
+        const modalLinks = document.getElementById('appModalLinks');
+        const modalClose = document.getElementById('appModalClose');
+
+        function openAppModal(li) {
+            const link = li.querySelector('a');
+            if (!link) return;
+
+            const title = link.textContent.trim();
+            const tagEl = li.querySelector('.tag');
+            const descEl = li.querySelector('.item-desc');
+            const archiveEl = li.querySelector('.archive-link');
+            const badgeEls = li.querySelectorAll('.repo-badge');
+
+            modalTitle.textContent = title;
+            if (tagEl) {
+                modalTag.textContent = tagEl.textContent.trim();
+                modalTag.style.display = 'inline-block';
+            } else {
+                modalTag.style.display = 'none';
+            }
+            modalDesc.textContent = descEl ? descEl.textContent.trim() : 'No description available.';
+
+            modalStats.innerHTML = '';
+            badgeEls.forEach(badge => {
+                const clone = badge.cloneNode(true);
+                clone.style.height = '22px';
+                modalStats.appendChild(clone);
+            });
+
+            modalLinks.innerHTML = '';
+
+            const mainLink = document.createElement('a');
+            mainLink.href = link.href;
+            mainLink.target = '_blank';
+            mainLink.rel = 'noopener noreferrer';
+            mainLink.className = 'app-modal-link primary';
+            mainLink.textContent = 'Open';
+            modalLinks.appendChild(mainLink);
+
+            if (archiveEl) {
+                const archiveLink = document.createElement('a');
+                archiveLink.href = archiveEl.href;
+                archiveLink.target = '_blank';
+                archiveLink.rel = 'noopener noreferrer';
+                archiveLink.className = 'app-modal-link';
+                archiveLink.textContent = 'Archive';
+                modalLinks.appendChild(archiveLink);
+            }
+
+            try {
+                const url = new URL(link.href);
+                if (url.hostname.toLowerCase() === 'github.com') {
+                    const parts = url.pathname.split('/').filter(Boolean);
+                    if (parts.length >= 2) {
+                        const [owner, repo] = parts;
+                        const repoBase = `https://github.com/${owner}/${repo}`;
+
+                        const releases = document.createElement('a');
+                        releases.href = `${repoBase}/releases`;
+                        releases.target = '_blank';
+                        releases.rel = 'noopener noreferrer';
+                        releases.className = 'app-modal-link';
+                        releases.textContent = 'Releases';
+                        modalLinks.appendChild(releases);
+
+                        const issues = document.createElement('a');
+                        issues.href = `${repoBase}/issues`;
+                        issues.target = '_blank';
+                        issues.rel = 'noopener noreferrer';
+                        issues.className = 'app-modal-link';
+                        issues.textContent = 'Issues';
+                        modalLinks.appendChild(issues);
+                    }
+                }
+            } catch (e) {}
+
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'app-modal-link';
+            copyBtn.textContent = 'Copy URL';
+            copyBtn.addEventListener('click', () => {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link.href).then(() => {
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(() => copyBtn.textContent = 'Copy URL', 1500);
+                    }).catch(() => {
+                        fallbackCopy();
+                    });
+                } else {
+                    fallbackCopy();
+                }
+
+                function fallbackCopy() {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = link.href;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-9999px';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        copyBtn.textContent = 'Copied!';
+                    } catch (err) {}
+                    document.body.removeChild(textArea);
+                    setTimeout(() => copyBtn.textContent = 'Copy URL', 1500);
+                }
+            });
+            modalLinks.appendChild(copyBtn);
+
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAppModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeAppModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeAppModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) closeAppModal();
+        });
+
+        document.querySelector('.container').addEventListener('click', (e) => {
+            const a = e.target.closest('.category li a');
+            if (!a) return;
+            if (a.classList.contains('archive-link')) return;
+            e.preventDefault();
+            const li = a.closest('li');
+            if (li) openAppModal(li);
+        });
+    })();
+</script>
 
 </body>
 </html>
