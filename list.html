@@ -148,6 +148,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
             gap: 10px;
             padding: 16px 20px;
             background: var(--bg-card);
@@ -167,6 +168,14 @@
             height: 24px;
             background: var(--accent-gradient);
             border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .category-header > span:first-of-type {
+            flex: 1;
+            min-width: 0;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .category-header .toggle-icon {
@@ -280,8 +289,10 @@
             font-size: 14px;
             flex: 1;
             min-width: 0;
+            max-width: 100%;
             transition: color 0.2s ease;
             word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
         li:hover a {
@@ -298,6 +309,9 @@
             font-weight: 600;
             color: white;
             white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .social-links {
@@ -580,9 +594,18 @@
 
         /* Search Bar */
         .search-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin: 0 auto 30px auto;
-            max-width: 600px;
+            max-width: 900px;
+            align-items: stretch;
+        }
+
+        .search-input-wrapper {
             position: relative;
+            flex: 1 1 300px;
+            min-width: 0;
         }
 
         .search-input {
@@ -632,6 +655,38 @@
 
         .search-clear:hover {
             color: var(--text-primary);
+        }
+
+        .search-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: stretch;
+            margin-left: auto;
+        }
+
+        .search-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .search-action:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
         }
 
         /* Back to Top Button */
@@ -1368,6 +1423,8 @@
             border-radius: 4px;
             margin-left: 8px;
             flex-shrink: 0;
+            max-width: 100%;
+            object-fit: contain;
         }
 
         /* Archive fallback links */
@@ -1378,6 +1435,8 @@
             margin-left: 8px;
             flex-shrink: 0;
             transition: color 0.2s ease;
+            max-width: 100%;
+            overflow-wrap: anywhere;
         }
 
         .archive-link:hover {
@@ -1399,8 +1458,9 @@
             white-space: normal;
             text-align: left;
             direction: ltr;
-            word-break: normal;
-            overflow-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            max-width: 100%;
         }
 
         body.show-descriptions .item-desc {
@@ -1429,8 +1489,9 @@
             white-space: normal;
             text-align: left;
             direction: ltr;
-            word-break: normal;
-            overflow-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            max-width: 100%;
         }
 
         body.layout-list .category-content li {
@@ -1606,6 +1667,66 @@
                 width: 60px;
                 height: 60px;
             }
+
+            .container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                margin-bottom: 24px;
+            }
+
+            .category-header {
+                font-size: 1rem;
+                padding: 12px 14px;
+            }
+
+            .category-header .important-note,
+            .category-header .large-note {
+                margin-left: 0;
+                flex-basis: 100%;
+                text-align: right;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            ul {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            body.layout-compact .category-content ul {
+                grid-template-columns: 1fr;
+            }
+
+            li {
+                padding: 12px 14px;
+                gap: 8px;
+            }
+
+            .search-container {
+                gap: 8px;
+                margin: 0 auto 24px auto;
+            }
+
+            .search-input-wrapper {
+                flex-basis: 100%;
+            }
+
+            .search-actions {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+            }
+
+            .search-action {
+                flex: 1 1 auto;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
         }
         /* List Gate */
         .list-gate {
@@ -1734,7 +1855,7 @@
             cursor: not-allowed;
         }
         #shareSearch {
-            display: inline-block;
+            display: inline-flex;
         }
 
     </style>
@@ -2815,9 +2936,15 @@
 
     <!-- Search Bar -->
     <div class="search-container">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search apps, tools, and services...">
-        <button class="search-clear" id="searchClear">✕</button>
+        <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search apps, tools, and services...">
+            <button class="search-clear" id="searchClear">✕</button>
+        </div>
+        <div class="search-actions">
+            <button class="search-action" id="randomApp" title="Pick a random app (R)">Random App</button>
+            <button class="search-action" id="shareSearch">Share</button>
+        </div>
     </div>
 
     <p class="search-note">
@@ -2825,9 +2952,6 @@
     </p>
 
     <button class="search-ddg" id="searchDuckDuckGo">Search on DuckDuckGo</button>
-    <button class="search-ddg" id="shareSearch">Share</button>
-
-    <button class="random-app" id="randomApp" title="Pick a random app (R)">Random App</button>
 
     <p class="filter-bar-label">Check out these categories</p>
 
