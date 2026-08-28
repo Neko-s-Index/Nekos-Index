@@ -2198,7 +2198,7 @@
             let randomAppHighlightTimeout;
 
             function pickRandomApp() {
-                const allLinks = document.querySelectorAll('.category li a');
+                const allLinks = Array.from(document.querySelectorAll('.category li a')).filter(a => a.closest('li').offsetParent !== null);
                 if (allLinks.length === 0) return;
                 const random = allLinks[Math.floor(Math.random() * allLinks.length)];
                 const li = random.closest('li');
@@ -2217,8 +2217,12 @@
                 }
 
                 setTimeout(() => {
-                    li.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 50);
+                    try {
+                        li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } catch (e) {
+                        li.scrollIntoView();
+                    }
+                }, 150);
 
                 randomAppHighlightTimeout = setTimeout(() => {
                     li.classList.remove('app-highlight');
