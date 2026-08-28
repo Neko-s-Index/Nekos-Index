@@ -26,13 +26,22 @@ Neko's Index is a static resource directory inspired by community indexes like E
 
 - Search resources by name and tags
 - Category filters for Android, PC, iOS, AI, Gaming, Privacy, Tools, Downloads, and more
-- Favorites saved in local storage
-- Light and dark theme toggle
+- My List — save/star apps to a personal list stored in local storage
+- Verification gate with a simple puzzle on the home page and list page
+- Light and dark theme toggle that respects your OS preference
+- Random App button and `R` keyboard shortcut
+- Scroll progress bar
 - Collapsible categories with a responsive, scrollable layout
+- App layout switcher: Grid, List, or Compact Grid
 - Settings panel with import/export, compact mode, auto-collapse, and warning toggles
-- GitHub star badges for repository links
+- Live popularity badges for GitHub, GitLab, Codeberg, SourceForge, and Flathub links
+- Interactive pixel cat and falling particle animation
 - Cross-site menu bar and footer navigation
 - Mobile and desktop responsive design
+- PWA manifest for installable app support
+- Archive fallback links for each resource via the Wayback Machine
+- 404 page with an index search
+- `robots.txt` and `sitemap.xml` for search engines
 
 ## Categories
 
@@ -49,6 +58,7 @@ Neko's Index is a static resource directory inspired by community indexes like E
 - Download Managers & Torrent Clients
 - Development & Productivity Tools
 - Open Source App Stores & Repositories
+- Archives & Mirrors
 - And more
 
 ## Safety

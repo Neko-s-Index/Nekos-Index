@@ -208,6 +208,34 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
         }
 
+        body.layout-list .category-content ul {
+            display: block;
+        }
+
+        body.layout-list .category-content li {
+            flex-direction: row;
+            padding: 14px 18px;
+            margin-bottom: 8px;
+        }
+
+        body.layout-compact .category-content ul {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 8px;
+        }
+
+        body.layout-compact .category-content li {
+            padding: 10px 12px;
+        }
+
+        body.layout-compact .category-content a {
+            font-size: 13px;
+        }
+
+        body.layout-compact .category-content .tag {
+            padding: 2px 6px;
+            font-size: 10px;
+        }
+
         a {
             text-decoration: none;
             color: var(--text-primary);
@@ -547,6 +575,18 @@
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
         }
 
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: var(--accent-gradient);
+            z-index: 10002;
+            transition: width 0.1s ease;
+        }
+
         /* Theme Toggle */
         .theme-toggle {
             position: fixed;
@@ -681,9 +721,41 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 13px;
-            margin: 0 auto 18px auto;
+            margin: 0 auto 12px auto;
             max-width: 600px;
             line-height: 1.5;
+        }
+
+        /* Random App */
+        .random-app {
+            display: block;
+            margin: 0 auto 18px auto;
+            padding: 10px 22px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .random-app:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
+        }
+
+        .app-highlight {
+            animation: highlightApp 1.5s ease;
+        }
+
+        @keyframes highlightApp {
+            0% { background: rgba(59, 130, 246, 0.3); }
+            100% { background: transparent; }
         }
 
         /* Category Filter */
@@ -953,6 +1025,34 @@
             transform: translateX(20px);
         }
 
+        .setting-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .setting-row label {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .settings-select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+
         /* Keyboard Shortcuts Modal */
         .shortcuts-modal {
             position: fixed;
@@ -1028,6 +1128,20 @@
             border-radius: 4px;
             margin-left: 8px;
             flex-shrink: 0;
+        }
+
+        /* Archive fallback links */
+        .archive-link {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-decoration: underline;
+            margin-left: 8px;
+            flex-shrink: 0;
+            transition: color 0.2s ease;
+        }
+
+        .archive-link:hover {
+            color: var(--accent-primary);
         }
 
         /* Mobile Responsive Fixes */
@@ -1159,6 +1273,114 @@
                 height: 60px;
             }
         }
+        /* List Gate */
+        .list-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg-primary);
+            z-index: 10002;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .list-gate.hidden {
+            display: none;
+        }
+
+        .list-gate-content {
+            width: 100%;
+            max-width: 520px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .list-gate-content h2 {
+            margin: 0 0 16px 0;
+            font-size: 1.8rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dmca-box {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            text-align: left;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-height: 160px;
+            overflow-y: auto;
+        }
+
+        .dmca-box strong {
+            color: var(--text-primary);
+        }
+
+        .gate-prompt {
+            margin: 16px 0 12px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .gate-status {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin: 0 0 18px 0;
+        }
+
+        .gate-input {
+            display: block;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            width: 100%;
+            max-width: 180px;
+            text-align: center;
+            margin: 0 auto 20px auto;
+            outline: none;
+        }
+
+        .gate-btn {
+            background: var(--accent-gradient);
+            color: #fff;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+
+        .gate-btn:enabled {
+            opacity: 1;
+        }
+
+        .favorites-notice {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
     </style>
 
     <script>
@@ -1201,15 +1423,64 @@
 
         // Main functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // ==================== VERIFICATION GATE ====================
+            const listGate = document.getElementById('listGate');
+            const gateStatus = document.getElementById('gateStatus');
+            const gateAction = document.getElementById('gateAction');
+
+            if (localStorage.getItem('nekos_verified') === 'true') {
+                listGate.classList.add('hidden');
+            } else {
+                const num1 = Math.floor(Math.random() * 8) + 2;
+                const num2 = Math.floor(Math.random() * 8) + 2;
+                const answer = num1 + num2;
+
+                const prompt = document.createElement('p');
+                prompt.className = 'gate-prompt';
+                prompt.textContent = `What is ${num1} + ${num2}?`;
+                gateAction.appendChild(prompt);
+
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.className = 'gate-input';
+                input.placeholder = 'answer';
+                input.autocomplete = 'off';
+                gateAction.appendChild(input);
+
+                const btn = document.createElement('button');
+                btn.className = 'gate-btn';
+                btn.textContent = 'Verify & Continue';
+                btn.disabled = true;
+                gateAction.appendChild(btn);
+
+                input.addEventListener('input', () => {
+                    if (parseInt(input.value) === answer) {
+                        btn.disabled = false;
+                        gateStatus.textContent = 'Puzzle solved. Click below to continue.';
+                    } else {
+                        btn.disabled = true;
+                        gateStatus.textContent = 'Complete the puzzle below to continue.';
+                    }
+                });
+
+                btn.addEventListener('click', () => {
+                    if (btn.disabled) return;
+                    localStorage.setItem('nekos_verified', 'true');
+                    listGate.classList.add('hidden');
+                });
+            }
+
             // ==================== THEME TOGGLE ====================
             const themeToggle = document.getElementById('themeToggle');
             const themeIcon = themeToggle.querySelector('.theme-icon');
             const themeText = themeToggle.querySelector('.theme-text');
             const themeKey = 'nekoIndexTheme';
 
-            // Load saved theme
+            // Load saved theme or respect OS preference
             const savedTheme = localStorage.getItem(themeKey);
-            if (savedTheme === 'light') {
+            const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            const isLight = savedTheme === 'light' || (!savedTheme && prefersLight);
+            if (isLight) {
                 document.body.classList.add('light-mode');
                 themeIcon.textContent = '☀️';
                 themeText.textContent = 'Light';
@@ -1307,6 +1578,37 @@
                 searchInput.dispatchEvent(new Event('input'));
                 this.style.display = 'none';
             });
+
+            // Apply search from URL query string
+            const params = new URLSearchParams(window.location.search);
+            const queryFromUrl = params.get('q');
+            if (queryFromUrl) {
+                searchInput.value = queryFromUrl;
+                searchInput.dispatchEvent(new Event('input'));
+                searchClear.style.display = 'block';
+            }
+
+            // ==================== RANDOM APP ====================
+            const randomAppBtn = document.getElementById('randomApp');
+
+            function pickRandomApp() {
+                const allLinks = document.querySelectorAll('.category li a');
+                if (allLinks.length === 0) return;
+                const random = allLinks[Math.floor(Math.random() * allLinks.length)];
+                const li = random.closest('li');
+
+                document.querySelectorAll('.app-highlight').forEach(el => el.classList.remove('app-highlight'));
+                li.classList.add('app-highlight');
+                li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                const category = li.closest('.category');
+                if (category) {
+                    category.querySelector('.category-content').style.maxHeight = '1000px';
+                    category.querySelector('.category-header').classList.remove('collapsed');
+                }
+            }
+
+            randomAppBtn.addEventListener('click', pickRandomApp);
 
             // ==================== CATEGORY FILTER ====================
             const filterBtns = document.querySelectorAll('.filter-btn');
@@ -1417,6 +1719,7 @@
 
             // ==================== BACK TO TOP ====================
             const backToTop = document.getElementById('backToTop');
+            const scrollProgress = document.getElementById('scrollProgress');
             
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 300) {
@@ -1424,6 +1727,10 @@
                 } else {
                     backToTop.classList.remove('show');
                 }
+
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+                scrollProgress.style.width = `${progress}%`;
             });
 
             backToTop.addEventListener('click', function() {
@@ -1519,6 +1826,21 @@
                 document.body.classList.toggle('compact-mode');
             });
 
+            // App Layout setting
+            const layoutKey = 'nekoIndexLayout';
+            const layoutSelect = document.getElementById('layoutSelect');
+            const savedLayout = localStorage.getItem(layoutKey) || 'grid';
+
+            layoutSelect.value = savedLayout;
+            document.body.classList.add(`layout-${savedLayout}`);
+
+            layoutSelect.addEventListener('change', function() {
+                const newLayout = this.value;
+                document.body.classList.remove('layout-grid', 'layout-list', 'layout-compact');
+                document.body.classList.add(`layout-${newLayout}`);
+                localStorage.setItem(layoutKey, newLayout);
+            });
+
             // Export Settings
             document.getElementById('exportSettings').addEventListener('click', function() {
                 const settings = {
@@ -1528,7 +1850,8 @@
                     autoCollapse: localStorage.getItem(autoCollapseKey),
                     hideIPWarning: localStorage.getItem(hideIPWarningKey),
                     hideBetaNotice: localStorage.getItem(hideBetaNoticeKey),
-                    compactMode: localStorage.getItem(compactModeKey)
+                    compactMode: localStorage.getItem(compactModeKey),
+                    layout: localStorage.getItem(layoutKey)
                 };
                 const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
                 const url = URL.createObjectURL(blob);
@@ -1558,6 +1881,7 @@
                             if (settings.hideIPWarning) localStorage.setItem(hideIPWarningKey, settings.hideIPWarning);
                             if (settings.hideBetaNotice) localStorage.setItem(hideBetaNoticeKey, settings.hideBetaNotice);
                             if (settings.compactMode) localStorage.setItem(compactModeKey, settings.compactMode);
+                            if (settings.layout) localStorage.setItem(layoutKey, settings.layout);
                             alert('Settings imported successfully! Please refresh the page.');
                         } catch (err) {
                             alert('Invalid settings file.');
@@ -1604,6 +1928,10 @@
                     case 's':
                         e.preventDefault();
                         settingsBtn.click();
+                        break;
+                    case 'r':
+                        e.preventDefault();
+                        pickRandomApp();
                         break;
                     case 'home':
                         e.preventDefault();
@@ -1712,12 +2040,36 @@
                 });
             }
             addRepoBadges();
+
+            // ==================== ARCHIVE FALLBACK LINKS ====================
+            function addArchiveLinks() {
+                document.querySelectorAll('.category li > a').forEach(link => {
+                    try {
+                        const url = new URL(link.href);
+                        if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
+
+                        const archive = document.createElement('a');
+                        archive.className = 'archive-link';
+                        archive.href = `https://web.archive.org/web/*/${encodeURIComponent(link.href)}`;
+                        archive.target = '_blank';
+                        archive.rel = 'noopener noreferrer';
+                        archive.title = 'View archived copy or search snapshots';
+                        archive.textContent = 'Archive';
+                        link.parentElement.appendChild(archive);
+                    } catch (e) {}
+                });
+            }
+            addArchiveLinks();
+
         });
     </script>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <div class="ip-warning">
     ⚠️ Your public IP address is visible to websites you visit.<br>
@@ -1768,6 +2120,8 @@
         Some apps fit more than one category. If you don't see what you need, try another filter or search by name.
     </p>
 
+    <button class="random-app" id="randomApp" title="Pick a random app (R)">Random App</button>
+
     <!-- Category Filter -->
     <div class="category-filter" id="categoryFilter">
         <button class="filter-btn active" data-filter="all">All</button>
@@ -1786,10 +2140,11 @@
 
     <p class="hidden" id="noResults" style="text-align: center; color: var(--text-muted); margin: 20px 0;">No results found.</p>
 
-    <!-- Favorites Section -->
+    <!-- My List Section -->
     <div class="favorites-section" id="favoritesSection">
-        <h3>⭐ Favorites</h3>
+        <h3>My List</h3>
         <ul class="favorites-list" id="favoritesList"></ul>
+        <p class="favorites-notice">This personal list is saved in your browser. Clearing page data will delete it.</p>
     </div>
 
     <!-- Statistics Counter -->
@@ -2360,6 +2715,11 @@
             <li><a href="https://jitsi.org" target="_blank">Jitsi Meet</a><span class="tag">Video</span></li>
             <li><a href="https://getsession.org" target="_blank">Session</a><span class="tag">Messaging</span></li>
             <li><a href="https://matrix.org" target="_blank">Matrix</a><span class="tag">Protocol</span></li>
+            <li><a href="https://bitwarden.com" target="_blank">Bitwarden</a><span class="tag">Passwords</span></li>
+            <li><a href="https://www.torproject.org" target="_blank">Tor Browser</a><span class="tag">Anonymity</span></li>
+            <li><a href="https://mullvad.net" target="_blank">Mullvad VPN</a><span class="tag">VPN</span></li>
+            <li><a href="https://www.ivpn.net" target="_blank">IVPN</a><span class="tag">VPN</span></li>
+            <li><a href="https://exifcleaner.com" target="_blank">ExifCleaner</a><span class="tag">Metadata</span></li>
         </ul>
         </div>
     </div>
@@ -2717,6 +3077,11 @@
             <li><a href="https://github.com/KotatsuApp/Kotatsu" target="_blank">Kotatsu</a><span class="tag">Reader</span></li>
             <li><a href="https://github.com/jobobby04/TachiyomiSY" target="_blank">TachiyomiSY</a><span class="tag">Reader</span></li>
             <li><a href="https://github.com/Jays2Kings/TachiyomiJ2K" target="_blank">TachiyomiJ2K</a><span class="tag">Reader</span></li>
+            <li><a href="https://github.com/mihonapp/mihon" target="_blank">Mihon</a><span class="tag">Reader</span></li>
+            <li><a href="https://github.com/8bitPit/Niagara-Issues" target="_blank">Niagara Launcher</a><span class="tag">Launcher</span></li>
+            <li><a href="https://github.com/LawnchairLauncher/lawnchair" target="_blank">Lawnchair</a><span class="tag">Launcher</span></li>
+            <li><a href="https://github.com/sdvcode/Seal" target="_blank">Seal</a><span class="tag">Downloader</span></li>
+            <li><a href="https://github.com/alefvanoon/limbo" target="_blank">Limbo PC Emulator</a><span class="tag">Emulator</span></li>
         </ul>
         </div>
     </div>
@@ -2744,6 +3109,11 @@
             <li><a href="https://brave.com" target="_blank">Brave</a><span class="tag">Browser</span></li>
             <li><a href="https://github.com/Flow-Launcher/Flow.Launcher" target="_blank">Flow Launcher</a><span class="tag">Launcher</span></li>
             <li><a href="https://github.com/ModernFlyouts-Community/ModernFlyouts" target="_blank">ModernFlyouts</a><span class="tag">Windows</span></li>
+            <li><a href="https://krita.org" target="_blank">Krita</a><span class="tag">Art</span></li>
+            <li><a href="https://www.audacityteam.org" target="_blank">Audacity</a><span class="tag">Audio</span></li>
+            <li><a href="https://shotcut.org" target="_blank">Shotcut</a><span class="tag">Video</span></li>
+            <li><a href="https://peazip.github.io" target="_blank">PeaZip</a><span class="tag">Archive</span></li>
+            <li><a href="https://thunderbird.net" target="_blank">Thunderbird</a><span class="tag">Email</span></li>
         </ul>
         </div>
     </div>
@@ -2768,6 +3138,10 @@
             <li><a href="https://github.com/yattee/yattee" target="_blank">Yattee</a><span class="tag">YouTube</span></li>
             <li><a href="https://github.com/TortugaPower/BookPlayer" target="_blank">BookPlayer</a><span class="tag">Audiobooks</span></li>
             <li><a href="https://github.com/Aidoku/Aidoku" target="_blank">Aidoku</a><span class="tag">Reader</span></li>
+            <li><a href="https://apps.apple.com/us/app/duckduckgo-privacy-browser/id663592361" target="_blank">DuckDuckGo</a><span class="tag">Browser</span></li>
+            <li><a href="https://apps.apple.com/us/app/wire-secure-messenger/id930090764" target="_blank">Wire</a><span class="tag">Messaging</span></li>
+            <li><a href="https://apps.apple.com/us/app/standard-notes/id1286932451" target="_blank">Standard Notes</a><span class="tag">Notes</span></li>
+            <li><a href="https://github.com/insidegui/CloudKicker" target="_blank">CloudKicker</a><span class="tag">Cloud</span></li>
         </ul>
         </div>
     </div>
@@ -2796,6 +3170,10 @@
             <li><a href="https://github.com/lllyasviel/Fooocus" target="_blank">Fooocus</a><span class="tag">AI Image</span></li>
             <li><a href="https://github.com/AshleyMLTravis/DiffusionBee" target="_blank">DiffusionBee</a><span class="tag">Mac</span></li>
             <li><a href="https://huggingface.co" target="_blank">Hugging Face</a><span class="tag">Models</span></li>
+            <li><a href="https://github.com/premAI-io/prem-app" target="_blank">Prem</a><span class="tag">LLM Hub</span></li>
+            <li><a href="https://github.com/chatchat-space/Langchain-Chatchat" target="_blank">Langchain-Chatchat</a><span class="tag">RAG</span></li>
+            <li><a href="https://github.com/janhq/jan" target="_blank">Jan</a><span class="tag">Local LLM</span></li>
+            <li><a href="https://github.com/lmstudio-ai/lmstudio-v0" target="_blank">LM Studio</a><span class="tag">Local LLM</span></li>
         </ul>
         </div>
     </div>
@@ -2853,6 +3231,11 @@
             <li><a href="https://github.com/LibreHardwareMonitor/LibreHardwareMonitor" target="_blank">LibreHardwareMonitor</a><span class="tag">Hardware</span></li>
             <li><a href="https://www.7-zip.org" target="_blank">7-Zip</a><span class="tag">Archive</span></li>
             <li><a href="https://peazip.github.io" target="_blank">PeaZip</a><span class="tag">Archive</span></li>
+            <li><a href="https://www.qbittorrent.org" target="_blank">qBittorrent</a><span class="tag">Torrent</span></li>
+            <li><a href="https://transmissionbt.com" target="_blank">Transmission</a><span class="tag">Torrent</span></li>
+            <li><a href="https://clementine-player.org" target="_blank">Clementine</a><span class="tag">Music</span></li>
+            <li><a href="https://strawberrymusicplayer.org" target="_blank">Strawberry</a><span class="tag">Music</span></li>
+            <li><a href="https://www.mapeditor.org" target="_blank">Tiled</a><span class="tag">Game Dev</span></li>
         </ul>
         </div>
     </div>
@@ -2880,6 +3263,11 @@
             <li><a href="https://wesnoth.org" target="_blank">Battle for Wesnoth</a><span class="tag">Strategy</span></li>
             <li><a href="https://supertuxkart.net" target="_blank">SuperTuxKart</a><span class="tag">Racing</span></li>
             <li><a href="https://www.flightgear.org" target="_blank">FlightGear</a><span class="tag">Sim</span></li>
+            <li><a href="https://github.com/yuzu-emu/yuzu" target="_blank">yuzu (Forks)</a><span class="tag">Emulator</span></li>
+            <li><a href="https://github.com/cemu-project/Cemu" target="_blank">Cemu</a><span class="tag">Emulator</span></li>
+            <li><a href="https://rpcs3.net" target="_blank">RPCS3</a><span class="tag">Emulator</span></li>
+            <li><a href="https://github.com/xemu-project/xemu" target="_blank">xemu</a><span class="tag">Emulator</span></li>
+            <li><a href="https://taisei-project.org" target="_blank">Taisei</a><span class="tag">Bullet Hell</span></li>
         </ul>
         </div>
     </div>
@@ -2910,6 +3298,10 @@
             <li><a href="https://sourceforge.net" target="_blank">SourceForge</a><span class="tag">Legacy</span></li>
             <li><a href="https://github.com" target="_blank">GitHub</a><span class="tag">Git</span></li>
             <li><a href="https://gitlab.com" target="_blank">GitLab</a><span class="tag">Git</span></li>
+            <li><a href="https://open-vsx.org" target="_blank">Open VSX</a><span class="tag">VS Code</span></li>
+            <li><a href="https://www.pling.com" target="_blank">Pling</a><span class="tag">Themes/Apps</span></li>
+            <li><a href="https://alternativeto.net" target="_blank">AlternativeTo</a><span class="tag">Discovery</span></li>
+            <li><a href="https://www.osalt.com" target="_blank">OSAlt</a><span class="tag">Discovery</span></li>
         </ul>
         </div>
     </div>
@@ -3043,6 +3435,15 @@
                 <span class="toggle-slider"></span>
             </label>
         </div>
+
+        <div class="setting-row">
+            <label for="layoutSelect">App Layout</label>
+            <select class="settings-select" id="layoutSelect">
+                <option value="grid">Grid</option>
+                <option value="list">List</option>
+                <option value="compact">Compact Grid</option>
+            </select>
+        </div>
     </div>
 
     <!-- Behavior Settings -->
@@ -3093,6 +3494,10 @@
             <span class="shortcut-key">S</span>
         </div>
         <div class="shortcut-item">
+            <span>Random App</span>
+            <span class="shortcut-key">R</span>
+        </div>
+        <div class="shortcut-item">
             <span>Back to Top</span>
             <span class="shortcut-key">Home</span>
         </div>
@@ -3118,6 +3523,20 @@
         </ul>
         <p>By clicking "I Understand", you acknowledge that you have read and agree to this disclaimer.</p>
         <button class="disclaimer-button" id="acceptDisclaimer">I Understand</button>
+    </div>
+</div>
+
+<!-- List Gate -->
+<div class="list-gate" id="listGate">
+    <div class="list-gate-content">
+        <h2>Verify to Continue</h2>
+        <p class="gate-status" id="gateStatus">Complete the puzzle below to continue.</p>
+
+        <div class="dmca-box">
+            <p><strong>DMCA &amp; Legal Notice:</strong> Neko&apos;s Index is an informational guide only. We do not host, distribute, or facilitate access to copyrighted material. All links go to third-party services. If you believe content on a linked site infringes your copyright, please contact that site directly. By continuing, you acknowledge that you use these resources at your own risk and in compliance with your local laws.</p>
+        </div>
+
+        <div id="gateAction"></div>
     </div>
 </div>
 

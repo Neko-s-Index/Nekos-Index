@@ -92,6 +92,7 @@
     }
 </style>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -109,6 +110,24 @@
     <h1>404</h1>
     <h2>Page Not Found</h2>
     <p>Sorry, the page you are looking for does not exist or may have moved.</p>
+    <input type="text" id="search404" placeholder="Search the index..." style="padding: 12px 18px; border-radius: 8px; border: 1px solid #27272a; background: #141416; color: #fff; width: 100%; max-width: 300px; margin-bottom: 15px; font-size: 14px;">
+    <br>
+    <a href="list.html" id="goSearch">Search Index</a>
+    <script>
+        document.getElementById('goSearch').addEventListener('click', function(e) {
+            const q = document.getElementById('search404').value.trim();
+            if (q) {
+                e.preventDefault();
+                window.location.href = 'list.html?q=' + encodeURIComponent(q);
+            }
+        });
+        document.getElementById('search404').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const q = this.value.trim();
+                if (q) window.location.href = 'list.html?q=' + encodeURIComponent(q);
+            }
+        });
+    </script>
     <a href="list.html">Go to Neko's Index</a>
 </div>
 
