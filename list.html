@@ -216,6 +216,7 @@
             overflow: auto;
             transition: max-height 0.4s ease-out;
             overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
         }
 
         .category-content.collapsed {
@@ -1464,7 +1465,11 @@
         }
 
         body.show-descriptions .item-desc {
-            display: block;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            line-clamp: 4;
+            overflow: hidden;
         }
 
         body.hide-badges .repo-badge {
@@ -1482,7 +1487,11 @@
 
         body.layout-compact.show-descriptions .item-desc,
         body.layout-list.show-descriptions .item-desc {
-            display: block;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
             font-size: 11px;
             line-height: 1.35;
             margin-top: 4px;
@@ -2027,6 +2036,7 @@
                 }
 
                 header.addEventListener('click', function() {
+                    content.style.maxHeight = '';
                     this.classList.toggle('collapsed');
                     content.classList.toggle('collapsed');
                     
@@ -2196,17 +2206,23 @@
                 clearTimeout(randomAppHighlightTimeout);
                 document.querySelectorAll('.app-highlight').forEach(el => el.classList.remove('app-highlight'));
                 li.classList.add('app-highlight');
-                li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                const category = li.closest('.category');
+                if (category) {
+                    const content = category.querySelector('.category-content');
+                    const header = category.querySelector('.category-header');
+                    content.classList.remove('collapsed');
+                    header.classList.remove('collapsed');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+
+                setTimeout(() => {
+                    li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 50);
 
                 randomAppHighlightTimeout = setTimeout(() => {
                     li.classList.remove('app-highlight');
                 }, 30000);
-
-                const category = li.closest('.category');
-                if (category) {
-                    category.querySelector('.category-content').style.maxHeight = '1000px';
-                    category.querySelector('.category-header').classList.remove('collapsed');
-                }
             }
 
             randomAppBtn.addEventListener('click', pickRandomApp);
