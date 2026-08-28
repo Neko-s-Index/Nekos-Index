@@ -1003,6 +1003,56 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
         }
+
+        /* Compact Mode */
+        body.compact-mode .container {
+            padding: 24px;
+        }
+        body.compact-mode h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        body.compact-mode .category-header {
+            padding: 12px 16px;
+            font-size: 1.1rem;
+        }
+        body.compact-mode .category-header .toggle-icon {
+            font-size: 18px;
+        }
+        body.compact-mode li {
+            padding: 12px 16px;
+        }
+        body.compact-mode .tag {
+            padding: 2px 8px;
+            font-size: 10px;
+        }
+        body.compact-mode .github-stars {
+            height: 16px;
+        }
+        body.compact-mode .search-container {
+            margin-bottom: 20px;
+        }
+        body.compact-mode .stats-counter {
+            padding: 12px;
+        }
+
+        /* Button Hover Polish */
+        .filter-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
+        }
+        .settings-btn-action:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+        }
+        .share-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .category-header:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
     </style>
 
     <script>
@@ -1285,13 +1335,27 @@
             const autoCollapseKey = 'nekoIndexAutoCollapse';
             const autoCollapseToggle = document.getElementById('autoCollapseToggle');
             const savedAutoCollapse = localStorage.getItem(autoCollapseKey);
-            
-            if (savedAutoCollapse === 'true') {
-                autoCollapseToggle.checked = true;
+
+            function applyAutoCollapse(shouldCollapse) {
+                categoryHeaders.forEach(header => {
+                    const content = header.nextElementSibling;
+                    if (shouldCollapse) {
+                        header.classList.add('collapsed');
+                        content.classList.add('collapsed');
+                    } else {
+                        header.classList.remove('collapsed');
+                        content.classList.remove('collapsed');
+                    }
+                });
             }
-            
+
+            const isAutoCollapsed = savedAutoCollapse !== 'false';
+            autoCollapseToggle.checked = isAutoCollapsed;
+            applyAutoCollapse(isAutoCollapsed);
+
             autoCollapseToggle.addEventListener('change', function() {
                 localStorage.setItem(autoCollapseKey, this.checked);
+                applyAutoCollapse(this.checked);
             });
 
             // Hide IP warning setting
