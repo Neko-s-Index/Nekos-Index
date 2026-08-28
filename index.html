@@ -178,6 +178,20 @@
         100% { background-position: 0% 50%; }
     }
 
+    .logo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        display: block;
+        filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
     @media (max-width: 600px) {
         .card {
             padding: 40px 24px;
@@ -186,18 +200,24 @@
         h1 {
             font-size: 1.9rem;
         }
+        .logo {
+            width: 90px;
+            height: 90px;
+        }
         button {
             padding: 16px 36px;
             font-size: 1rem;
         }
     }
     </style>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 
 <body>
 
 <div class="center">
     <div class="card">
+        <img src="logo.svg" alt="Neko's Index" class="logo">
         <h1>Welcome to Neko's Index</h1>
         <p id="status">Checking verification...</p>
         <nav class="main-nav">

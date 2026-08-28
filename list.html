@@ -1053,6 +1053,27 @@
             transform: translateY(-1px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+
+        .site-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            display: block;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @media (max-width: 600px) {
+            .site-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
     </style>
 
     <script>
@@ -1574,6 +1595,7 @@
             addGitHubStars();
         });
     </script>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 
 <body>
@@ -1590,6 +1612,7 @@
 </div>
 
 <header>
+    <img src="logo.svg" alt="Neko's Index" class="site-logo">
     <h1>Neko's Index</h1>
     <p>Your go-to resource for movies, shows, and anime</p>
     <nav class="main-nav">

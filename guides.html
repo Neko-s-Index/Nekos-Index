@@ -146,14 +146,24 @@
         border-top: 1px solid var(--border-color);
     }
 
+    .site-logo {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 12px;
+        display: block;
+        filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+    }
+
     @media (max-width: 600px) {
         h1 { font-size: 1.7rem; }
     }
 </style>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 <body>
 
 <header>
+    <img src="logo.svg" alt="Neko's Index" class="site-logo">
     <h1>Guides & How-To</h1>
     <nav class="main-nav">
         <a href="index.html">Home</a>
