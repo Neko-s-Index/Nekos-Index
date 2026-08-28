@@ -2,7 +2,10 @@
 
 > A curated directory of open-source apps, privacy tools, streaming utilities, and more.
 
-**Live site:** https://neko-s-index.github.io/Nekos-Index/
+**Live sites:**
+
+- GitHub Pages: https://neko-s-index.github.io/Nekos-Index/
+- Netlify: https://n3k0s-index.netlify.app/
 
 ## About
 
