@@ -204,8 +204,9 @@
 
         .category-content {
             max-height: 60vh;
-            overflow-y: auto;
+            overflow: auto;
             transition: max-height 0.4s ease-out;
+            overscroll-behavior: contain;
         }
 
         .category-content.collapsed {
@@ -232,6 +233,9 @@
             align-items: center;
             justify-content: space-between;
             gap: 12px;
+            flex-wrap: wrap;
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
         li:hover {
@@ -275,7 +279,9 @@
             font-weight: 500;
             font-size: 14px;
             flex: 1;
+            min-width: 0;
             transition: color 0.2s ease;
+            word-break: break-word;
         }
 
         li:hover a {
@@ -288,6 +294,7 @@
             padding: 4px 10px;
             border-radius: 6px;
             font-size: 11px;
+            flex-shrink: 0;
             font-weight: 600;
             color: white;
             white-space: nowrap;
@@ -1956,7 +1963,7 @@
                 'android': ['Open Source Android Apps'],
                 'pc': ['Open Source PC / Desktop Apps'],
                 'ios': ['iOS — Browsers', 'iOS — Privacy & Security', 'iOS — Messaging & Social', 'iOS — Productivity & Notes', 'iOS — Media, Reading & Entertainment', 'iOS — Maps & Utilities'],
-                'ai': ['Open Source AI & Chatbots'],
+                'ai': ['Open Source AI & Chatbots', 'AI Coding & Dev Assistants'],
                 'gaming': ['Open Source Gaming'],
                 'privacy': ['Privacy & Security Tools', 'Recommended VPNs & DNS Services']
             };
@@ -2095,6 +2102,16 @@
                 guidePanel.classList.remove('show');
             });
 
+            document.getElementById('openSettingsFromGuide').addEventListener('click', function() {
+                guidePanel.classList.remove('show');
+                settingsPanel.classList.add('show');
+            });
+
+            document.getElementById('openGuideFromSettings').addEventListener('click', function() {
+                settingsPanel.classList.remove('show');
+                guidePanel.classList.add('show');
+            });
+
             // ==================== NEW SETTINGS ====================
             
             // Auto-collapse categories setting
@@ -2160,9 +2177,10 @@
             const compactModeKey = 'nekoIndexCompactMode';
             const compactModeToggle = document.getElementById('compactModeToggle');
             const savedCompactMode = localStorage.getItem(compactModeKey);
+            const isCompactByDefault = savedCompactMode !== 'false';
             
-            if (savedCompactMode === 'true') {
-                compactModeToggle.checked = true;
+            compactModeToggle.checked = isCompactByDefault;
+            if (isCompactByDefault) {
                 document.body.classList.add('compact-mode');
             }
             
@@ -2174,7 +2192,7 @@
             // App Layout setting
             const layoutKey = 'nekoIndexLayout';
             const layoutSelect = document.getElementById('layoutSelect');
-            const savedLayout = localStorage.getItem(layoutKey) || 'grid';
+            const savedLayout = localStorage.getItem(layoutKey) || 'compact';
 
             layoutSelect.value = savedLayout;
             document.body.classList.add(`layout-${savedLayout}`);
@@ -2197,20 +2215,19 @@
             showDescriptionsToggle.addEventListener('change', function() {
                 localStorage.setItem(showDescriptionsKey, this.checked);
                 document.body.classList.toggle('show-descriptions', this.checked);
+                if (this.checked) loadGitHubDescriptions();
             });
 
             // Show review badges setting
             const showBadgesKey = 'nekoIndexShowBadges';
             const showBadgesToggle = document.getElementById('showBadgesToggle');
-            const savedShowBadges = localStorage.getItem(showBadgesKey) !== 'false';
+            const savedShowBadges = localStorage.getItem(showBadgesKey) === 'true';
             showBadgesToggle.checked = savedShowBadges;
             document.body.classList.toggle('hide-badges', !savedShowBadges);
             showBadgesToggle.addEventListener('change', function() {
                 localStorage.setItem(showBadgesKey, this.checked);
                 document.body.classList.toggle('hide-badges', !this.checked);
-                if (this.checked && !document.querySelector('.repo-badge')) {
-                    addRepoBadges();
-                }
+                if (this.checked) addRepoBadges();
             });
 
             // Show archive links setting
@@ -2305,8 +2322,8 @@
             });
 
             document.addEventListener('keydown', function(e) {
-                // Don't trigger shortcuts when typing in input
-                if (e.target.tagName === 'INPUT') return;
+                // Don't trigger shortcuts when typing in input, except Esc and ?
+                if (e.target.tagName === 'INPUT' && e.key !== 'Escape' && e.key !== '?') return;
 
                 switch(e.key.toLowerCase()) {
                     case '/':
@@ -2321,15 +2338,38 @@
                         e.preventDefault();
                         settingsBtn.click();
                         break;
+                    case 'g':
+                        e.preventDefault();
+                        guidePanel.classList.add('show');
+                        break;
                     case 'r':
                         e.preventDefault();
                         pickRandomApp();
+                        break;
+                    case 'l':
+                        e.preventDefault();
+                        const layouts = ['grid', 'list', 'compact'];
+                        const current = layouts.indexOf(layoutSelect.value);
+                        const next = layouts[(current + 1) % layouts.length];
+                        layoutSelect.value = next;
+                        layoutSelect.dispatchEvent(new Event('change'));
+                        break;
+                    case 'c':
+                        e.preventDefault();
+                        searchInput.value = '';
+                        searchInput.dispatchEvent(new Event('input'));
+                        searchInput.focus();
+                        break;
+                    case '?':
+                        e.preventDefault();
+                        shortcutsModal.classList.add('show');
                         break;
                     case 'home':
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         break;
                     case 'escape':
+                        e.preventDefault();
                         shortcutsModal.classList.remove('show');
                         settingsPanel.classList.remove('show');
                         guidePanel.classList.remove('show');
@@ -2380,7 +2420,7 @@
 
             // ==================== POPULARITY BADGES ====================
             function addRepoBadges() {
-                if (localStorage.getItem('nekoIndexShowBadges') === 'false') return;
+                if (localStorage.getItem('nekoIndexShowBadges') !== 'true') return;
                 const selectors = '.category a';
                 document.querySelectorAll(selectors).forEach(link => {
                     try {
@@ -2457,6 +2497,66 @@
                 });
             }
             addArchiveLinks();
+
+            // ==================== AUTO-FETCH GITHUB DESCRIPTIONS ====================
+            async function loadGitHubDescriptions() {
+                if (!document.body.classList.contains('show-descriptions') &&
+                    localStorage.getItem('nekoIndexShowDescriptions') !== 'true') return;
+
+                const githubLinks = Array.from(document.querySelectorAll('.category li a')).filter(link => {
+                    try { return new URL(link.href).hostname.toLowerCase() === 'github.com'; }
+                    catch (e) { return false; }
+                });
+
+                let budget = 40;
+                const batch = [];
+                for (const link of githubLinks) {
+                    if (budget <= 0) break;
+                    const li = link.closest('li');
+                    if (!li) continue;
+                    const existing = li.querySelector('.item-desc');
+                    if (existing && existing.textContent.trim()) continue;
+                    try {
+                        const url = new URL(link.href);
+                        const parts = url.pathname.split('/').filter(Boolean);
+                        if (parts.length < 2) continue;
+                        const [owner, repo] = parts;
+                        const key = `nekoIndexDesc:${owner}/${repo}`;
+                        const cached = localStorage.getItem(key);
+                        if (cached) {
+                            setDescription(link, cached);
+                            continue;
+                        }
+                        batch.push({ link, owner, repo, key });
+                        budget--;
+                    } catch (e) {}
+                }
+
+                for (const { link, owner, repo, key } of batch) {
+                    try {
+                        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
+                        if (!res.ok) continue;
+                        const data = await res.json();
+                        const desc = data.description || `${owner}/${repo} on GitHub`;
+                        localStorage.setItem(key, desc);
+                        setDescription(link, desc);
+                    } catch (e) {}
+                }
+            }
+
+            function setDescription(link, text) {
+                const li = link.closest('li');
+                if (!li) return;
+                let descEl = li.querySelector('.item-desc');
+                if (!descEl) {
+                    descEl = document.createElement('span');
+                    descEl.className = 'item-desc';
+                    li.appendChild(descEl);
+                }
+                descEl.textContent = text;
+            }
+
+            loadGitHubDescriptions();
 
         });
     </script>
@@ -3687,6 +3787,29 @@
 
     <div class="category">
         <div class="category-header">
+            <span>AI Coding &amp; Dev Assistants</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://github.com/continuedev/continue" rel="noopener noreferrer" target="_blank">Continue</a><span class="tag">Coding</span></li>
+            <li><a href="https://github.com/Aider-AI/aider" rel="noopener noreferrer" target="_blank">Aider</a><span class="tag">Pair</span></li>
+            <li><a href="https://github.com/All-Hands-AI/OpenHands" rel="noopener noreferrer" target="_blank">OpenHands</a><span class="tag">Dev Agent</span></li>
+            <li><a href="https://github.com/cline/cline" rel="noopener noreferrer" target="_blank">Cline</a><span class="tag">Coding</span></li>
+            <li><a href="https://github.com/RooVetGit/Roo-Code" rel="noopener noreferrer" target="_blank">Roo Code</a><span class="tag">Coding</span></li>
+            <li><a href="https://github.com/TabbyML/tabby" rel="noopener noreferrer" target="_blank">Tabby</a><span class="tag">Self-Hosted</span></li>
+            <li><a href="https://github.com/fauxpilot/fauxpilot" rel="noopener noreferrer" target="_blank">FauxPilot</a><span class="tag">Self-Hosted</span></li>
+            <li><a href="https://github.com/stitionai/devika" rel="noopener noreferrer" target="_blank">Devika</a><span class="tag">Dev Agent</span></li>
+            <li><a href="https://github.com/meta-llama/codellama" rel="noopener noreferrer" target="_blank">CodeLlama</a><span class="tag">Model</span></li>
+            <li><a href="https://github.com/bigcode-project/starcoder" rel="noopener noreferrer" target="_blank">StarCoder</a><span class="tag">Model</span></li>
+            <li><a href="https://github.com/vllm-project/vllm" rel="noopener noreferrer" target="_blank">vLLM</a><span class="tag">Inference</span></li>
+            <li><a href="https://github.com/mudler/LocalAI" rel="noopener noreferrer" target="_blank">LocalAI</a><span class="tag">API</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
             <span>Open Source Utilities & Browsers</span>
             <span class="toggle-icon">▼</span>
         </div>
@@ -4014,7 +4137,10 @@
     <!-- Help -->
     <div class="settings-group">
         <label>Help</label>
-        <button class="settings-btn-action" id="showShortcuts">Keyboard Shortcuts</button>
+        <div class="settings-btn-row">
+            <button class="settings-btn-action" id="showShortcuts">Shortcuts</button>
+            <button class="settings-btn-action" id="openGuideFromSettings">Guide</button>
+        </div>
     </div>
 </div>
 
@@ -4037,6 +4163,7 @@
             <li>Click the <strong>star</strong> on any item to save it to favorites.</li>
             <li>Switch to <strong>light/dark mode</strong> with the top-right toggle.</li>
             <li>Open <strong>Settings</strong> to change layout, compact mode, and more.</li>
+            <li>Enable <strong>Show descriptions</strong> to load short project bios for GitHub repos automatically.</li>
         </ul>
 
         <h4>Discover</h4>
@@ -4045,19 +4172,37 @@
             <li>Click any resource to open its official page in a new tab.</li>
             <li>Use the <strong>Archive</strong> link for a Wayback Machine fallback.</li>
         </ul>
+
+        <h4>Keyboard &amp; Mouse Shortcuts</h4>
+        <ul>
+            <li><strong>/</strong> — focus the search bar.</li>
+            <li><strong>T</strong> — toggle light/dark theme.</li>
+            <li><strong>S</strong> — open Settings.</li>
+            <li><strong>G</strong> — open this Guide.</li>
+            <li><strong>R</strong> — pick a random app.</li>
+            <li><strong>L</strong> — cycle the app layout (grid, list, compact).</li>
+            <li><strong>C</strong> — clear the search field.</li>
+            <li><strong>Home</strong> — scroll back to the top.</li>
+            <li><strong>Esc</strong> — close any open panel or modal.</li>
+            <li><strong>?</strong> — show keyboard shortcuts.</li>
+            <li><strong>Click a star</strong> — add or remove a favorite.</li>
+            <li><strong>Click a category header</strong> — expand or collapse it.</li>
+        </ul>
+
+        <button class="settings-btn-action" id="openSettingsFromGuide" style="margin-top: 20px; width: 100%;">Open Settings</button>
     </div>
 </div>
 
 <!-- Keyboard Shortcuts Modal -->
 <div class="shortcuts-modal" id="shortcutsModal">
     <div class="shortcuts-content">
-        <h3>⌨️ Keyboard Shortcuts</h3>
+        <h3>⌨️ Keyboard &amp; Mouse Shortcuts</h3>
         <div class="shortcut-item">
-            <span>Search</span>
+            <span>Focus search</span>
             <span class="shortcut-key">/</span>
         </div>
         <div class="shortcut-item">
-            <span>Toggle Theme</span>
+            <span>Toggle theme</span>
             <span class="shortcut-key">T</span>
         </div>
         <div class="shortcut-item">
@@ -4065,16 +4210,40 @@
             <span class="shortcut-key">S</span>
         </div>
         <div class="shortcut-item">
+            <span>Open Guide</span>
+            <span class="shortcut-key">G</span>
+        </div>
+        <div class="shortcut-item">
             <span>Random App</span>
             <span class="shortcut-key">R</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Cycle layout</span>
+            <span class="shortcut-key">L</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Clear search</span>
+            <span class="shortcut-key">C</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Show shortcuts</span>
+            <span class="shortcut-key">?</span>
         </div>
         <div class="shortcut-item">
             <span>Back to Top</span>
             <span class="shortcut-key">Home</span>
         </div>
         <div class="shortcut-item">
-            <span>Close Modal</span>
+            <span>Close panels</span>
             <span class="shortcut-key">Esc</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Toggle favorite</span>
+            <span class="shortcut-key">Click star</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Expand/collapse</span>
+            <span class="shortcut-key">Click header</span>
         </div>
         <button class="settings-btn-action" id="closeShortcuts" style="margin-top: 20px;">Close</button>
     </div>
