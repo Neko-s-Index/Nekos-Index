@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guides - Neko's Index</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-primary: #0a0a0b;
+        --bg-secondary: #141416;
+        --bg-card: #1c1c1f;
+        --bg-card-hover: #27272a;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1aa;
+        --text-muted: #71717a;
+        --accent-primary: #3b82f6;
+        --accent-secondary: #8b5cf6;
+        --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        --border-color: #27272a;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-primary);
+        color: #ddd;
+        font-family: 'Inter', Arial, sans-serif;
+        line-height: 1.7;
+    }
+
+    header {
+        background: var(--bg-secondary);
+        padding: 40px 20px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 2.2rem;
+        color: #fff;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .container {
+        flex: 1;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 24px;
+        width: 100%;
+    }
+
+    h2 {
+        color: #fff;
+        margin-top: 40px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    h3 {
+        color: #fff;
+        margin-top: 24px;
+    }
+
+    p {
+        color: var(--text-secondary);
+    }
+
+    a {
+        color: #3b82f6;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    .main-nav {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .main-nav a {
+        color: #fff;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-nav a:hover {
+        background: var(--accent-gradient);
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+    }
+
+    .guide-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    .guide-card h3 {
+        margin-top: 0;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: #666;
+        font-size: 13px;
+        border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 600px) {
+        h1 { font-size: 1.7rem; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Guides & How-To</h1>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="list.html">Index</a>
+        <a href="guides.html">Guides</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="dmca.html">DMCA</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="notes.html">Notes</a>
+    </nav>
+</header>
+
+<div class="container">
+    <p>
+        These guides are meant to help you get started with open-source apps and tools listed on the main index. They are for informational purposes only.
+    </p>
+
+    <div class="guide-card">
+        <h3>Safety &amp; Verification</h3>
+        <p>
+            This index links to third-party websites and open-source projects. <strong>Always be cautious</strong> when downloading software from the internet, especially executable files and APKs.
+        </p>
+        <ul>
+            <li>Download apps from their <strong>official website</strong> or a trusted store such as <a href="https://f-droid.org" target="_blank">F-Droid</a>, <a href="https://flathub.org" target="_blank">Flathub</a>, or the developer's GitHub releases page.</li>
+            <li>Before running a downloaded file, scan it with <a href="https://www.virustotal.com" target="_blank">VirusTotal</a>. It checks the file with many antivirus engines at once.</li>
+            <li>Keep an antivirus or anti-malware tool installed and updated, such as <a href="https://www.malwarebytes.com" target="_blank">Malwarebytes</a> or <a href="https://www.avast.com" target="_blank">Avast</a>.</li>
+            <li>Read user reviews, GitHub issues, and community feedback before installing lesser-known apps.</li>
+            <li>Keep your operating system, browser, and apps up to date to avoid known security holes.</li>
+            <li>Use a VPN or private DNS if you want extra privacy, but remember that no tool is 100% anonymous.</li>
+        </ul>
+        <p style="color: var(--text-muted);">
+            Neko&apos;s Index does not host or control these apps. We are not responsible for the content, safety, or behavior of third-party sites or software. Use them at your own risk.
+        </p>
+    </div>
+
+    <div class="guide-card">
+        <h3>PC Apps — Getting Started</h3>
+        <ul>
+            <li><strong>Package managers (Windows):</strong> Use <a href="https://scoop.sh" target="_blank">Scoop</a>, <a href="https://chocolatey.org" target="_blank">Chocolatey</a>, or <a href="https://github.com/microsoft/winget-cli" target="_blank">winget</a> to install open-source apps from the command line.</li>
+            <li><strong>Video players:</strong> Download <a href="https://mpv.io" target="_blank">mpv</a> or <a href="https://www.videolan.org/vlc" target="_blank">VLC</a>. Drag and drop a file or URL to play.</li>
+            <li><strong>Torrenting:</strong> Use <a href="https://www.qbittorrent.org" target="_blank">qBittorrent</a> or <a href="https://transmissionbt.com" target="_blank">Transmission</a>. Always make sure your downloads are legal in your region.</li>
+            <li><strong>Archives / utilities:</strong> <a href="https://www.7-zip.org" target="_blank">7-Zip</a> and <a href="https://peazip.github.io" target="_blank">PeaZip</a> handle zip, rar, 7z, and more.</li>
+            <li><strong>Privacy / ad blocking:</strong> Try <a href="https://brave.com" target="_blank">Brave</a>, <a href="https://librewolf.net" target="_blank">LibreWolf</a>, <a href="https://github.com/gorhill/uBlock" target="_blank">uBlock Origin</a>, or <a href="https://privacybadger.org" target="_blank">Privacy Badger</a>.</li>
+        </ul>
+    </div>
+
+    <div class="guide-card">
+        <h3>Android Apps — Getting Started</h3>
+        <ul>
+            <li><strong>Alternative app store:</strong> Install <a href="https://f-droid.org" target="_blank">F-Droid</a> or <a href="https://droid-ify.github.io" target="_blank">Droid-ify</a> for open-source apps outside Google Play.</li>
+            <li><strong>Play Store without Google:</strong> <a href="https://auroraoss.com" target="_blank">Aurora Store</a> lets you download APKs anonymously.</li>
+            <li><strong>Unknown sources:</strong> On Android, go to Settings &gt; Security (or Apps) and allow installs from your file manager or browser for APK files.</li>
+            <li><strong>YouTube apps:</strong> <a href="https://github.com/TeamNewPipe/NewPipe" target="_blank">NewPipe</a> and <a href="https://github.com/libre-tube/LibreTube" target="_blank">LibreTube</a> are ad-free alternatives.</li>
+            <li><strong>Video / anime / manga readers:</strong> Apps like <a href="https://github.com/aniyomiorg/aniyomi" target="_blank">Aniyomi</a>, <a href="https://github.com/mihonapp/mihon" target="_blank">Mihon</a>, and <a href="https://github.com/Aidoku/Aidoku" target="_blank">Aidoku</a> use extensions; install the app first, then add extensions from within it.</li>
+        </ul>
+    </div>
+
+    <div class="guide-card">
+        <h3>VPN & DNS — Quick Setup</h3>
+        <ul>
+            <li><strong>VPN clients:</strong> Download the official client for <a href="https://www.wireguard.com" target="_blank">WireGuard</a> or <a href="https://openvpn.net" target="_blank">OpenVPN</a>. Import a config file from your provider.</li>
+            <li><strong>Private DNS (Android):</strong> Settings &gt; Network &amp; Internet &gt; Private DNS &gt; enter a hostname such as <code>dns.adguard-dns.com</code> or your NextDNS address.</li>
+            <li><strong>DNS on PC / router:</strong> Use <a href="https://adguard.com" target="_blank">AdGuard DNS</a>, <a href="https://nextdns.io" target="_blank">NextDNS</a>, <a href="https://quad9.net" target="_blank">Quad9</a>, or run your own <a href="https://pi-hole.net" target="_blank">Pi-hole</a>.</li>
+            <li><strong>Mesh / self-hosted VPNs:</strong> <a href="https://tailscale.com" target="_blank">Tailscale</a>, <a href="https://www.zerotier.com" target="_blank">ZeroTier</a>, and <a href="https://www.twingate.com" target="_blank">Twingate</a> are easy to set up for private networks.</li>
+        </ul>
+    </div>
+
+    <div class="guide-card">
+        <h3>Streaming & Media</h3>
+        <ul>
+            <li><strong>Multi-platform servers:</strong> <a href="https://jellyfin.org" target="_blank">Jellyfin</a> and <a href="https://kodi.tv" target="_blank">Kodi</a> are free media centers that work on PC, Android, iOS, and TV.</li>
+            <li><strong>CloudStream:</strong> Install the app, then add extensions from the community to get content sources.</li>
+            <li><strong>Stremio:</strong> Install, then use the built-in add-ons or community add-ons. Pair with <a href="https://www.real-debrid.com" target="_blank">Real-Debrid</a> for smoother streaming if allowed in your region.</li>
+            <li><strong>Music / audiobooks:</strong> <a href="https://www.videolan.org/vlc" target="_blank">VLC</a>, <a href="https://jellyfin.org" target="_blank">Jellyfin</a>, or <a href="https://github.com/TortugaPower/BookPlayer" target="_blank">BookPlayer</a> on iOS handle most formats.</li>
+        </ul>
+    </div>
+
+    <p>
+        <a href="list.html">Back to Neko's Index</a>
+    </p>
+</div>
+
+<footer>
+    &copy; 2026 Neko's Index.
+    <a href="index.html">Home</a> |
+    <a href="list.html">Index</a> |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a href="dmca.html">DMCA</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="notes.html">Notes</a>
+</footer>
+
+<script>
+    document.body.style.userSelect = 'none';
+    document.body.style.webkitUserSelect = 'none';
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    ['copy', 'cut', 'paste', 'dragstart'].forEach(evt =>
+        document.addEventListener(evt, e => e.preventDefault())
+    );
+    document.addEventListener('keydown', e => {
+        if (e.key === 'F12') return e.preventDefault();
+        if (e.ctrlKey && e.shiftKey && ['i','j','c','k','u'].includes(e.key.toLowerCase())) return e.preventDefault();
+        if (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()) && !e.shiftKey) return e.preventDefault();
+    });
+</script>
+
+</body>
+</html>
