@@ -3075,6 +3075,8 @@
                 const titleMap = new Map();
                 const socialsUrlMap = new Map();
                 const socialsTitleMap = new Map();
+                const websiteUrlMap = new Map();
+                const websiteTitleMap = new Map();
                 try {
                     const res = await fetch('data/descriptions.json');
                     if (res.ok) {
@@ -3112,6 +3114,11 @@
                         if (entry.url) socialsUrlMap.set(normalizeDescUrl(entry.url), socials);
                         if (entry.title) socialsTitleMap.set(entry.title, socials);
                     }
+                    const website = entry.website;
+                    if (website) {
+                        if (entry.url) websiteUrlMap.set(normalizeDescUrl(entry.url), website);
+                        if (entry.title) websiteTitleMap.set(entry.title, website);
+                    }
                 }
 
                 function getLocalDescription(link) {
@@ -3130,6 +3137,22 @@
                     if (socialsUrlMap.has(normalized)) return socialsUrlMap.get(normalized);
                     if (socialsTitleMap.has(title)) return socialsTitleMap.get(title);
                     return null;
+                }
+
+                function getLocalHomepage(link) {
+                    const url = link.href;
+                    const title = link.textContent.trim();
+                    const normalized = normalizeDescUrl(url);
+                    const website = websiteUrlMap.has(normalized) ? websiteUrlMap.get(normalized) :
+                        (websiteTitleMap.has(title) ? websiteTitleMap.get(title) : null);
+                    if (!website) return null;
+                    try {
+                        const u = new URL(website);
+                        if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+                        return u.toString();
+                    } catch (e) {
+                        return null;
+                    }
                 }
 
                 function getSocialType(url) {
@@ -3151,14 +3174,13 @@
                     return null;
                 }
 
-                function appendSocials(li, rawSocials) {
+                function storeSocials(li, rawSocials) {
                     if (!Array.isArray(rawSocials) || rawSocials.length === 0) return;
-                    let container = li.querySelector('.social-links');
-                    if (!container) {
-                        container = document.createElement('div');
-                        container.className = 'social-links';
-                        li.appendChild(container);
-                    }
+                    let list = [];
+                    try {
+                        list = JSON.parse(li.dataset.socials || '[]');
+                    } catch (e) {}
+                    const existingUrls = new Set(list.map(s => s.url));
 
                     for (const social of rawSocials) {
                         try {
@@ -3168,21 +3190,18 @@
                             const u = new URL(rawUrl);
                             if (u.protocol !== 'http:' && u.protocol !== 'https:') continue;
                             const url = u.toString();
-                            if (Array.from(container.children).some(a => a.href === url)) continue;
+                            if (existingUrls.has(url)) continue;
+                            existingUrls.add(url);
 
                             const matched = getSocialType(url);
                             const socialType = matched || social.type || 'generic';
                             const label = social.label || (socialType === 'generic' ? 'Social' : socialType.charAt(0).toUpperCase() + socialType.slice(1));
 
-                            const a = document.createElement('a');
-                            a.className = 'social-link ' + socialType;
-                            a.href = url;
-                            a.target = '_blank';
-                            a.rel = 'noopener noreferrer';
-                            a.textContent = label;
-                            container.appendChild(a);
+                            list.push({ url, type: socialType, label });
                         } catch (e) {}
                     }
+
+                    li.dataset.socials = JSON.stringify(list);
                 }
 
                 function addSocialLinks() {
@@ -3191,7 +3210,7 @@
                             const li = link.closest('li');
                             if (!li) return;
                             const local = getLocalSocials(link);
-                            if (local) appendSocials(li, local);
+                            if (local) storeSocials(li, local);
                         } catch (e) {}
                     });
 
@@ -3210,7 +3229,7 @@
                             const cached = localStorage.getItem(cacheKey);
                             if (cached) {
                                 try {
-                                    appendSocials(li, JSON.parse(cached));
+                                    storeSocials(li, JSON.parse(cached));
                                 } catch (e) {}
                                 return;
                             }
@@ -3247,7 +3266,7 @@
                                     try {
                                         localStorage.setItem(cacheKey, JSON.stringify(socials));
                                     } catch (e) {}
-                                    if (socials.length) appendSocials(li, socials);
+                                    if (socials.length) storeSocials(li, socials);
                                 })
                                 .catch(() => {});
                         } catch (e) {}
@@ -3261,10 +3280,12 @@
 
                 const allLinks = Array.from(document.querySelectorAll('.category li a'));
 
-                // Use local list for non-GitHub missing descriptions
+                // Use local list for descriptions and homepages
                 for (const link of allLinks) {
                     const li = link.closest('li');
                     if (!li) continue;
+                    const localHomepage = getLocalHomepage(link);
+                    if (localHomepage) li.dataset.homepage = localHomepage;
                     const existing = li.querySelector('.item-desc');
                     if (existing && existing.textContent.trim()) continue;
                     try {
@@ -5153,6 +5174,61 @@
         const modalLinks = document.getElementById('appModalLinks');
         const modalClose = document.getElementById('appModalClose');
 
+        function renderSocials(container, socials) {
+            container.innerHTML = '';
+            const div = document.createElement('div');
+            div.className = 'social-links';
+            for (const social of socials) {
+                try {
+                    const a = document.createElement('a');
+                    a.className = 'social-link ' + (social.type || 'generic');
+                    a.href = social.url;
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    a.textContent = social.label || 'Social';
+                    div.appendChild(a);
+                } catch (e) {}
+            }
+            container.appendChild(div);
+        }
+
+        function renderSocialPuzzle(container, socials) {
+            container.innerHTML = '';
+            const title = document.createElement('p');
+            title.textContent = 'Solve to view social links:';
+            const puzzle = document.createElement('p');
+            puzzle.style.fontWeight = '700';
+            const a = Math.floor(Math.random() * 9) + 1;
+            const b = Math.floor(Math.random() * 9) + 1;
+            const expected = a + b;
+            puzzle.textContent = `What is ${a} + ${b}?`;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'search-input';
+            input.placeholder = 'Answer';
+            input.style.cssText = 'width:100%; margin-bottom:10px;';
+            const btn = document.createElement('button');
+            btn.className = 'app-modal-link';
+            btn.style.width = '100%';
+            btn.textContent = 'Verify';
+            btn.addEventListener('click', () => {
+                if (parseInt(input.value, 10) === expected) {
+                    sessionStorage.setItem('nekoIndexSocialUnlocked', 'true');
+                    renderSocials(container, socials);
+                } else {
+                    puzzle.textContent = `Try again: What is ${a} + ${b}?`;
+                    input.value = '';
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') btn.click();
+            });
+            container.appendChild(title);
+            container.appendChild(puzzle);
+            container.appendChild(input);
+            container.appendChild(btn);
+        }
+
         function openAppModal(li) {
             const link = li.querySelector('a');
             if (!link) return;
@@ -5180,12 +5256,18 @@
             });
 
             modalSocials.innerHTML = '';
-            const socialsEl = li.querySelector('.social-links');
-            if (socialsEl) {
-                modalSocials.appendChild(socialsEl.cloneNode(true));
-                modalSocials.style.display = '';
-            } else {
+            let socialsData = [];
+            try {
+                socialsData = li.dataset.socials ? JSON.parse(li.dataset.socials) : [];
+            } catch (e) {}
+            if (socialsData.length === 0) {
                 modalSocials.style.display = 'none';
+            } else if (sessionStorage.getItem('nekoIndexSocialUnlocked') === 'true') {
+                modalSocials.style.display = '';
+                renderSocials(modalSocials, socialsData);
+            } else {
+                modalSocials.style.display = '';
+                renderSocialPuzzle(modalSocials, socialsData);
             }
 
             modalLinks.innerHTML = '';
@@ -5198,7 +5280,7 @@
             mainLink.textContent = 'Open';
             modalLinks.appendChild(mainLink);
 
-            if (li.dataset.homepage) {
+            if (li.dataset.homepage && li.dataset.homepage !== link.href) {
                 const websiteLink = document.createElement('a');
                 websiteLink.href = li.dataset.homepage;
                 websiteLink.target = '_blank';
