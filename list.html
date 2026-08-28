@@ -169,6 +169,30 @@
             transform: rotate(-90deg);
         }
 
+        .category-header .important-note {
+            font-size: 12px;
+            font-weight: 500;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .category-header .large-note {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: var(--bg-card-hover);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
         .category-content {
             max-height: 60vh;
             overflow-y: auto;
@@ -1338,6 +1362,38 @@
             color: var(--accent-primary);
         }
 
+        /* App descriptions */
+        .item-desc {
+            display: none;
+            width: 100%;
+            order: 10;
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.4;
+            margin-top: 4px;
+        }
+
+        body.show-descriptions .item-desc {
+            display: block;
+        }
+
+        body.hide-badges .repo-badge {
+            display: none !important;
+        }
+
+        body.hide-archives .archive-link {
+            display: none !important;
+        }
+
+        body.layout-compact .item-desc,
+        body.layout-list .item-desc {
+            display: none;
+        }
+
+        body.layout-list .category-content li {
+            flex-wrap: wrap;
+        }
+
         /* Mobile Responsive Fixes */
         @media (max-width: 768px) {
             .theme-toggle {
@@ -1709,16 +1765,49 @@
             // Load saved collapsed state
             const savedCollapsedState = JSON.parse(localStorage.getItem(collapsedStateKey) || '{}');
 
+            const largeThreshold = 16;
+            const importantCategories = [
+                'Recommended VPNs & DNS Services',
+                'Privacy & Security Tools',
+                'iOS — Privacy & Security'
+            ];
+
+            function isImportantCategory(name) {
+                return importantCategories.some(n => name.includes(n));
+            }
+
+            function addCategoryNote(header, text, className) {
+                const toggle = header.querySelector('.toggle-icon');
+                if (!toggle || header.querySelector('.' + className)) return;
+                const note = document.createElement('span');
+                note.className = className;
+                note.textContent = text;
+                header.insertBefore(note, toggle);
+            }
+
             categoryHeaders.forEach((header, index) => {
                 const categoryName = header.querySelector('span').textContent;
                 const content = header.nextElementSibling;
+                const itemCount = content ? content.querySelectorAll('li').length : 0;
+                const isImportant = isImportantCategory(categoryName);
 
-                // Apply saved state - DEFAULT TO COLLAPSED if no saved state
-                const shouldCollapse = savedCollapsedState[categoryName] !== undefined ? savedCollapsedState[categoryName] : true;
-                
+                if (isImportant) {
+                    addCategoryNote(header, 'Please read', 'important-note');
+                } else if (itemCount >= largeThreshold) {
+                    addCategoryNote(header, 'Large category', 'large-note');
+                }
+
+                // Apply saved state - DEFAULT TO COLLAPSED if no saved state, except important
+                const saved = savedCollapsedState[categoryName];
+                const defaultCollapse = isImportant ? false : (itemCount >= largeThreshold || true);
+                const shouldCollapse = saved !== undefined ? saved : defaultCollapse;
+
                 if (shouldCollapse) {
                     header.classList.add('collapsed');
                     content.classList.add('collapsed');
+                } else {
+                    header.classList.remove('collapsed');
+                    content.classList.remove('collapsed');
                 }
 
                 header.addEventListener('click', function() {
@@ -1840,7 +1929,7 @@
                 'download': ['Download Managers & Torrent Clients', 'Usenet & NZB Tools', 'Archives & Mirrors'],
                 'android': ['Open Source Android Apps'],
                 'pc': ['Open Source PC / Desktop Apps'],
-                'ios': ['Open Source iOS Apps'],
+                'ios': ['iOS — Browsers', 'iOS — Privacy & Security', 'iOS — Messaging & Social', 'iOS — Productivity & Notes', 'iOS — Media, Reading & Entertainment', 'iOS — Maps & Utilities'],
                 'ai': ['Open Source AI & Chatbots'],
                 'gaming': ['Open Source Gaming'],
                 'privacy': ['Privacy & Security Tools', 'Recommended VPNs & DNS Services']
@@ -1990,6 +2079,8 @@
             function applyAutoCollapse(shouldCollapse) {
                 categoryHeaders.forEach(header => {
                     const content = header.nextElementSibling;
+                    const categoryName = header.querySelector('span').textContent;
+                    if (isImportantCategory(categoryName)) return;
                     if (shouldCollapse) {
                         header.classList.add('collapsed');
                         content.classList.add('collapsed');
@@ -2071,6 +2162,47 @@
                 localStorage.setItem(layoutKey, newLayout);
             });
 
+            // Show app descriptions setting
+            const showDescriptionsKey = 'nekoIndexShowDescriptions';
+            const showDescriptionsToggle = document.getElementById('showDescriptionsToggle');
+            const savedShowDescriptions = localStorage.getItem(showDescriptionsKey) === 'true';
+            if (savedShowDescriptions) {
+                showDescriptionsToggle.checked = true;
+                document.body.classList.add('show-descriptions');
+            }
+            showDescriptionsToggle.addEventListener('change', function() {
+                localStorage.setItem(showDescriptionsKey, this.checked);
+                document.body.classList.toggle('show-descriptions', this.checked);
+            });
+
+            // Show review badges setting
+            const showBadgesKey = 'nekoIndexShowBadges';
+            const showBadgesToggle = document.getElementById('showBadgesToggle');
+            const savedShowBadges = localStorage.getItem(showBadgesKey) !== 'false';
+            showBadgesToggle.checked = savedShowBadges;
+            document.body.classList.toggle('hide-badges', !savedShowBadges);
+            showBadgesToggle.addEventListener('change', function() {
+                localStorage.setItem(showBadgesKey, this.checked);
+                document.body.classList.toggle('hide-badges', !this.checked);
+                if (this.checked && !document.querySelector('.repo-badge')) {
+                    addRepoBadges();
+                }
+            });
+
+            // Show archive links setting
+            const showArchivesKey = 'nekoIndexShowArchives';
+            const showArchivesToggle = document.getElementById('showArchivesToggle');
+            const savedShowArchives = localStorage.getItem(showArchivesKey) !== 'false';
+            showArchivesToggle.checked = savedShowArchives;
+            document.body.classList.toggle('hide-archives', !savedShowArchives);
+            showArchivesToggle.addEventListener('change', function() {
+                localStorage.setItem(showArchivesKey, this.checked);
+                document.body.classList.toggle('hide-archives', !this.checked);
+                if (this.checked && !document.querySelector('.archive-link')) {
+                    addArchiveLinks();
+                }
+            });
+
             // Export Settings
             document.getElementById('exportSettings').addEventListener('click', function() {
                 const settings = {
@@ -2081,7 +2213,10 @@
                     hideIPWarning: localStorage.getItem(hideIPWarningKey),
                     hideBetaNotice: localStorage.getItem(hideBetaNoticeKey),
                     compactMode: localStorage.getItem(compactModeKey),
-                    layout: localStorage.getItem(layoutKey)
+                    layout: localStorage.getItem(layoutKey),
+                    showDescriptions: localStorage.getItem(showDescriptionsKey),
+                    showBadges: localStorage.getItem(showBadgesKey),
+                    showArchives: localStorage.getItem(showArchivesKey)
                 };
                 const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
                 const url = URL.createObjectURL(blob);
@@ -2112,6 +2247,9 @@
                             if (settings.hideBetaNotice) localStorage.setItem(hideBetaNoticeKey, settings.hideBetaNotice);
                             if (settings.compactMode) localStorage.setItem(compactModeKey, settings.compactMode);
                             if (settings.layout) localStorage.setItem(layoutKey, settings.layout);
+                            if (settings.showDescriptions) localStorage.setItem(showDescriptionsKey, settings.showDescriptions);
+                            if (settings.showBadges) localStorage.setItem(showBadgesKey, settings.showBadges);
+                            if (settings.showArchives) localStorage.setItem(showArchivesKey, settings.showArchives);
                             alert('Settings imported successfully! Please refresh the page.');
                         } catch (err) {
                             alert('Invalid settings file.');
@@ -2218,9 +2356,11 @@
 
             // ==================== POPULARITY BADGES ====================
             function addRepoBadges() {
+                if (localStorage.getItem('nekoIndexShowBadges') === 'false') return;
                 const selectors = '.category a';
                 document.querySelectorAll(selectors).forEach(link => {
                     try {
+                        if (link.parentElement.querySelector('.repo-badge')) return;
                         const url = new URL(link.href);
                         const host = url.hostname.toLowerCase();
                         const parts = url.pathname.split('/').filter(Boolean);
@@ -2274,8 +2414,10 @@
 
             // ==================== ARCHIVE FALLBACK LINKS ====================
             function addArchiveLinks() {
+                if (localStorage.getItem('nekoIndexShowArchives') === 'false') return;
                 document.querySelectorAll('.category li > a').forEach(link => {
                     try {
+                        if (link.parentElement.querySelector('.archive-link')) return;
                         const url = new URL(link.href);
                         if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
 
@@ -2389,7 +2531,7 @@
         Total Apps: <span id="totalApps">0</span> | Categories: <span id="totalCategories">0</span>
     </div>
 
-    <div class="category">
+    <div class="category" id="recommended-vpns">
         <div class="category-header">
             <span>Recommended VPNs & DNS Services</span>
             <span class="toggle-icon">▼</span>
@@ -3367,46 +3509,119 @@
 
     <div class="category">
         <div class="category-header">
-            <span>Open Source iOS Apps</span>
+            <span>iOS — Browsers</span>
             <span class="toggle-icon">▼</span>
         </div>
         <div class="category-content">
         <ul>
-            <li><a href="https://apps.apple.com/us/app/vlc-media-player/id650377962" rel="noopener noreferrer" target="_blank">VLC for iOS</a><span class="tag">Player</span></li>
-            <li><a href="https://apps.apple.com/us/app/firefox-web-browser/id989804926" rel="noopener noreferrer" target="_blank">Firefox</a><span class="tag">Browser</span></li>
-            <li><a href="https://apps.apple.com/us/app/brave-browser-fast-adblock/id1052879175" rel="noopener noreferrer" target="_blank">Brave</a><span class="tag">Browser</span></li>
-            <li><a href="https://apps.apple.com/us/app/signal-private-messenger/id874069120" rel="noopener noreferrer" target="_blank">Signal</a><span class="tag">Messaging</span></li>
-            <li><a href="https://apps.apple.com/us/app/bitwarden-password-manager/id1132384485" rel="noopener noreferrer" target="_blank">Bitwarden</a><span class="tag">Passwords</span></li>
-            <li><a href="https://apps.apple.com/us/app/nextcloud/id1125421572" rel="noopener noreferrer" target="_blank">Nextcloud</a><span class="tag">Cloud</span></li>
-            <li><a href="https://apps.apple.com/us/app/proton-vpn-fast-secure/id1437005085" rel="noopener noreferrer" target="_blank">Proton VPN</a><span class="tag">VPN</span></li>
-            <li><a href="https://apps.apple.com/us/app/joplin/id1315599796" rel="noopener noreferrer" target="_blank">Joplin</a><span class="tag">Notes</span></li>
-            <li><a href="https://apps.apple.com/us/app/adguard-adblock-privacy/id1047223162" rel="noopener noreferrer" target="_blank">AdGuard for iOS</a><span class="tag">Ad-block</span></li>
-            <li><a href="https://apps.apple.com/us/app/mastodon-for-iphone-and-ipad/id1571998974" rel="noopener noreferrer" target="_blank">Mastodon</a><span class="tag">Social</span></li>
-            <li><a href="https://github.com/yattee/yattee" rel="noopener noreferrer" target="_blank">Yattee</a><span class="tag">YouTube</span></li>
-            <li><a href="https://github.com/TortugaPower/BookPlayer" rel="noopener noreferrer" target="_blank">BookPlayer</a><span class="tag">Audiobooks</span></li>
-            <li><a href="https://github.com/Aidoku/Aidoku" rel="noopener noreferrer" target="_blank">Aidoku</a><span class="tag">Reader</span></li>
-            <li><a href="https://apps.apple.com/us/app/duckduckgo-privacy-browser/id663592361" rel="noopener noreferrer" target="_blank">DuckDuckGo</a><span class="tag">Browser</span></li>
-            <li><a href="https://apps.apple.com/us/app/wire-secure-messenger/id930090764" rel="noopener noreferrer" target="_blank">Wire</a><span class="tag">Messaging</span></li>
-            <li><a href="https://apps.apple.com/us/app/standard-notes/id1286932451" rel="noopener noreferrer" target="_blank">Standard Notes</a><span class="tag">Notes</span></li>
-            <li><a href="https://github.com/insidegui/CloudKicker" rel="noopener noreferrer" target="_blank">CloudKicker</a><span class="tag">Cloud</span></li>
-            <li><a href="https://apps.apple.com/us/app/proton-mail-encrypted-email/id981733454" rel="noopener noreferrer" target="_blank">Proton Mail</a><span class="tag">Email</span></li>
-            <li><a href="https://apps.apple.com/us/app/proton-calendar-secure/id6443491334" rel="noopener noreferrer" target="_blank">Proton Calendar</a><span class="tag">Calendar</span></li>
-            <li><a href="https://apps.apple.com/us/app/proton-drive-secure-cloud/id1657061044" rel="noopener noreferrer" target="_blank">Proton Drive</a><span class="tag">Cloud</span></li>
-            <li><a href="https://apps.apple.com/us/app/proton-pass/id1640584498" rel="noopener noreferrer" target="_blank">Proton Pass</a><span class="tag">Passwords</span></li>
-            <li><a href="https://apps.apple.com/us/app/element-messenger/id1089229963" rel="noopener noreferrer" target="_blank">Element</a><span class="tag">Messaging</span></li>
-            <li><a href="https://apps.apple.com/us/app/simplex-chat/id1602108209" rel="noopener noreferrer" target="_blank">SimpleX Chat</a><span class="tag">Messaging</span></li>
-            <li><a href="https://apps.apple.com/us/app/mullvad-vpn/id1406469469" rel="noopener noreferrer" target="_blank">Mullvad VPN</a><span class="tag">VPN</span></li>
-            <li><a href="https://apps.apple.com/us/app/cryptomator/id953096334" rel="noopener noreferrer" target="_blank">Cryptomator</a><span class="tag">Encryption</span></li>
-            <li><a href="https://apps.apple.com/us/app/keepassium-password-manager/id1433184202" rel="noopener noreferrer" target="_blank">KeePassium</a><span class="tag">Passwords</span></li>
-            <li><a href="https://apps.apple.com/us/app/netnewswire-rss-reader/id1480649325" rel="noopener noreferrer" target="_blank">NetNewsWire</a><span class="tag">RSS</span></li>
-            <li><a href="https://apps.apple.com/us/app/logseq/id1601019808" rel="noopener noreferrer" target="_blank">Logseq</a><span class="tag">Notes</span></li>
-            <li><a href="https://apps.apple.com/us/app/organic-maps-offline-maps/id1567437057" rel="noopener noreferrer" target="_blank">Organic Maps</a><span class="tag">Maps</span></li>
-            <li><a href="https://apps.apple.com/us/app/a-shell/id1473805438" rel="noopener noreferrer" target="_blank">a-Shell</a><span class="tag">Terminal</span></li>
-            <li><a href="https://github.com/ish-app/ish" rel="noopener noreferrer" target="_blank">iSH</a><span class="tag">Terminal</span></li>
-            <li><a href="https://apps.apple.com/us/app/jellyfin/id1480192616" rel="noopener noreferrer" target="_blank">Jellyfin</a><span class="tag">Media</span></li>
-            <li><a href="https://apps.apple.com/us/app/strongbox-keepass-p-safe/id897283731" rel="noopener noreferrer" target="_blank">Strongbox</a><span class="tag">Passwords</span></li>
-            <li><a href="https://apps.apple.com/us/app/osmand-maps-travel-navigate/id934850257" rel="noopener noreferrer" target="_blank">OsmAnd</a><span class="tag">Maps</span></li>
-            <li><a href="https://apps.apple.com/us/app/lichess-online-chess/id968371784" rel="noopener noreferrer" target="_blank">Lichess</a><span class="tag">Chess</span></li>
+            <li><a href="https://apps.apple.com/us/app/firefox-web-browser/id989804926" rel="noopener noreferrer" target="_blank">Firefox</a><span class="tag">Browser</span><span class="item-desc">Mozilla's open-source mobile browser with Enhanced Tracking Protection and optional extension support.</span></li>
+            <li><a href="https://apps.apple.com/us/app/brave-browser-fast-adblock/id1052879175" rel="noopener noreferrer" target="_blank">Brave</a><span class="tag">Browser</span><span class="item-desc">A fast, Chromium-based browser that blocks ads and trackers by default and offers optional Brave Rewards.</span></li>
+            <li><a href="https://apps.apple.com/us/app/duckduckgo-privacy-browser/id663592361" rel="noopener noreferrer" target="_blank">DuckDuckGo</a><span class="tag">Browser</span><span class="item-desc">A privacy-first browser with built-in tracker blocking, Fire Button tab clearing, and private search by default.</span></li>
+            <li><a href="https://github.com/mozilla-mobile/focus-ios" rel="noopener noreferrer" target="_blank">Firefox Focus</a><span class="tag">Browser</span><span class="item-desc">A lightweight, no-history browser that automatically erases your session and blocks ads/ trackers.</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>iOS — Privacy &amp; Security</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://apps.apple.com/us/app/proton-vpn-fast-secure/id1437005085" rel="noopener noreferrer" target="_blank">Proton VPN</a><span class="tag">VPN</span><span class="item-desc">A no-logs Swiss VPN with NetShield ad/ malware blocking and strong transparency record.</span></li>
+            <li><a href="https://apps.apple.com/us/app/mullvad-vpn/id1406469469" rel="noopener noreferrer" target="_blank">Mullvad VPN</a><span class="tag">VPN</span><span class="item-desc">A privacy-first VPN that requires no email, accepts cash payments, and publishes regular audits.</span></li>
+            <li><a href="https://apps.apple.com/us/app/adguard-adblock-privacy/id1047223162" rel="noopener noreferrer" target="_blank">AdGuard for iOS</a><span class="tag">Ad-block</span><span class="item-desc">System-wide ad and tracker blocking via Safari content blockers and custom DNS filtering.</span></li>
+            <li><a href="https://apps.apple.com/us/app/bitwarden-password-manager/id1132384485" rel="noopener noreferrer" target="_blank">Bitwarden</a><span class="tag">Passwords</span><span class="item-desc">An open-source password manager with cross-device sync, secure sharing, and full AutoFill support.</span></li>
+            <li><a href="https://apps.apple.com/us/app/keepassium-password-manager/id1433184202" rel="noopener noreferrer" target="_blank">KeePassium</a><span class="tag">Passwords</span><span class="item-desc">A polished KeePass client for iOS with AutoFill, biometric unlock, and multiple database support.</span></li>
+            <li><a href="https://apps.apple.com/us/app/strongbox-keepass-p-safe/id897283731" rel="noopener noreferrer" target="_blank">Strongbox</a><span class="tag">Passwords</span><span class="item-desc">A secure KeePass and Password Safe manager with iOS, iPadOS, and macOS support.</span></li>
+            <li><a href="https://apps.apple.com/us/app/proton-mail-encrypted-email/id981733454" rel="noopener noreferrer" target="_blank">Proton Mail</a><span class="tag">Email</span><span class="item-desc">End-to-end encrypted email from Proton with PGP support and no scanning of message content.</span></li>
+            <li><a href="https://apps.apple.com/us/app/proton-pass/id1640584498" rel="noopener noreferrer" target="_blank">Proton Pass</a><span class="tag">Passwords</span><span class="item-desc">A password manager with email alias integration and end-to-end encrypted item storage.</span></li>
+            <li><a href="https://apps.apple.com/us/app/cryptomator/id953096334" rel="noopener noreferrer" target="_blank">Cryptomator</a><span class="tag">Encryption</span><span class="item-desc">Client-side encryption for cloud storage that keeps files unreadable by the cloud provider.</span></li>
+            <li><a href="https://github.com/simple-login/iOS" rel="noopener noreferrer" target="_blank">SimpleLogin</a><span class="tag">Aliases</span><span class="item-desc">Generate unlimited email aliases to protect your real address and reduce spam.</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>iOS — Messaging &amp; Social</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://apps.apple.com/us/app/signal-private-messenger/id874069120" rel="noopener noreferrer" target="_blank">Signal</a><span class="tag">Messaging</span><span class="item-desc">End-to-end encrypted messaging with disappearing messages, calls, and open-source clients.</span></li>
+            <li><a href="https://apps.apple.com/us/app/wire-secure-messenger/id930090764" rel="noopener noreferrer" target="_blank">Wire</a><span class="tag">Messaging</span><span class="item-desc">A secure team messenger with end-to-end encryption and strong EU data-residency focus.</span></li>
+            <li><a href="https://apps.apple.com/us/app/element-messenger/id1089229963" rel="noopener noreferrer" target="_blank">Element</a><span class="tag">Messaging</span><span class="item-desc">A Matrix client for secure, decentralized messaging, group chats, and bridging.</span></li>
+            <li><a href="https://apps.apple.com/us/app/simplex-chat/id1602108209" rel="noopener noreferrer" target="_blank">SimpleX Chat</a><span class="tag">Messaging</span><span class="item-desc">A privacy-first chat network with no user IDs stored on servers and end-to-end encryption.</span></li>
+            <li><a href="https://github.com/oxen-io/session-ios" rel="noopener noreferrer" target="_blank">Session</a><span class="tag">Messaging</span><span class="item-desc">An anonymous, decentralized messenger that uses onion routing and requires no phone number.</span></li>
+            <li><a href="https://github.com/deltachat/deltachat-ios" rel="noopener noreferrer" target="_blank">Delta Chat</a><span class="tag">Email</span><span class="item-desc">Chat over your existing email account with end-to-end encryption when the other user supports it.</span></li>
+            <li><a href="https://apps.apple.com/us/app/mastodon-for-iphone-and-ipad/id1571998974" rel="noopener noreferrer" target="_blank">Mastodon</a><span class="tag">Social</span><span class="item-desc">The official app for the decentralized, open-source microblogging network.</span></li>
+            <li><a href="https://github.com/Dimillian/IceCubesApp" rel="noopener noreferrer" target="_blank">IceCubes</a><span class="tag">Mastodon</span><span class="item-desc">A fast, modern Mastodon client for iOS with customizable timelines and notifications.</span></li>
+            <li><a href="https://github.com/mlemgroup/mlem" rel="noopener noreferrer" target="_blank">Mlem</a><span class="tag">Lemmy</span><span class="item-desc">A clean, open-source Lemmy client for browsing and posting to federated forums.</span></li>
+            <li><a href="https://github.com/aeharding/voyager" rel="noopener noreferrer" target="_blank">Voyager</a><span class="tag">Lemmy</span><span class="item-desc">A compact, PWA-inspired Lemmy client with threaded discussions and community lists.</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>iOS — Productivity &amp; Notes</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://apps.apple.com/us/app/joplin/id1315599796" rel="noopener noreferrer" target="_blank">Joplin</a><span class="tag">Notes</span><span class="item-desc">A powerful note-taking and to-do app with Markdown, sync, and a plugin ecosystem.</span></li>
+            <li><a href="https://apps.apple.com/us/app/logseq/id1601019808" rel="noopener noreferrer" target="_blank">Logseq</a><span class="tag">Notes</span><span class="item-desc">A privacy-first, outline-based knowledge base and task manager for connected notes.</span></li>
+            <li><a href="https://apps.apple.com/us/app/standard-notes/id1286932451" rel="noopener noreferrer" target="_blank">Standard Notes</a><span class="tag">Notes</span><span class="item-desc">A secure, end-to-end encrypted note app with themes, extensions, and daily backups.</span></li>
+            <li><a href="https://github.com/Automattic/simplenote-ios" rel="noopener noreferrer" target="_blank">Simplenote</a><span class="tag">Notes</span><span class="item-desc">A fast, minimal note app by Automattic that syncs seamlessly across devices.</span></li>
+            <li><a href="https://github.com/streetwriters/notesnook" rel="noopener noreferrer" target="_blank">Notesnook</a><span class="tag">Notes</span><span class="item-desc">An end-to-end encrypted note app with notebooks, tags, reminders, and rich text.</span></li>
+            <li><a href="https://apps.apple.com/us/app/nextcloud/id1125421572" rel="noopener noreferrer" target="_blank">Nextcloud</a><span class="tag">Cloud</span><span class="item-desc">The official iOS client for self-hosted file sync, notes, calendars, and groupware.</span></li>
+            <li><a href="https://github.com/insidegui/CloudKicker" rel="noopener noreferrer" target="_blank">CloudKicker</a><span class="tag">Cloud</span><span class="item-desc">A lightweight cloud storage browser and file manager for iOS.</span></li>
+            <li><a href="https://apps.apple.com/us/app/proton-calendar-secure/id6443491334" rel="noopener noreferrer" target="_blank">Proton Calendar</a><span class="tag">Calendar</span><span class="item-desc">An encrypted calendar that keeps your event details private and supports sharing.</span></li>
+            <li><a href="https://apps.apple.com/us/app/proton-drive-secure-cloud/id1657061044" rel="noopener noreferrer" target="_blank">Proton Drive</a><span class="tag">Cloud</span><span class="item-desc">Encrypted cloud storage with file versioning, secure sharing, and Proton integration.</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>iOS — Media, Reading &amp; Entertainment</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://apps.apple.com/us/app/vlc-media-player/id650377962" rel="noopener noreferrer" target="_blank">VLC for iOS</a><span class="tag">Player</span><span class="item-desc">The open-source media player that plays nearly every audio and video format.</span></li>
+            <li><a href="https://github.com/yattee/yattee" rel="noopener noreferrer" target="_blank">Yattee</a><span class="tag">YouTube</span><span class="item-desc">A privacy-friendly YouTube client for iOS using Invidious and Piped backends.</span></li>
+            <li><a href="https://github.com/TortugaPower/BookPlayer" rel="noopener noreferrer" target="_blank">BookPlayer</a><span class="tag">Audiobooks</span><span class="item-desc">A free audiobook player that supports local files, playlists, and chapter navigation.</span></li>
+            <li><a href="https://github.com/Aidoku/Aidoku" rel="noopener noreferrer" target="_blank">Aidoku</a><span class="tag">Reader</span><span class="item-desc">An open-source manga reader for iOS with a source extension system.</span></li>
+            <li><a href="https://apps.apple.com/us/app/netnewswire-rss-reader/id1480649325" rel="noopener noreferrer" target="_blank">NetNewsWire</a><span class="tag">RSS</span><span class="item-desc">A fast, free RSS reader that syncs with Feedbin, Feedly, and iCloud.</span></li>
+            <li><a href="https://apps.apple.com/us/app/jellyfin/id1480192616" rel="noopener noreferrer" target="_blank">Jellyfin</a><span class="tag">Media</span><span class="item-desc">The official client for the open-source Jellyfin media server.</span></li>
+            <li><a href="https://github.com/jellyfin/swiftfin" rel="noopener noreferrer" target="_blank">Swiftfin</a><span class="tag">Media</span><span class="item-desc">A native Jellyfin video player for iOS and tvOS with modern playback controls.</span></li>
+            <li><a href="https://github.com/Automattic/pocket-casts-ios" rel="noopener noreferrer" target="_blank">Pocket Casts</a><span class="tag">Podcasts</span><span class="item-desc">A powerful podcast player with cross-platform sync, filters, and discovery.</span></li>
+            <li><a href="https://kodi.tv" rel="noopener noreferrer" target="_blank">Kodi</a><span class="tag">Media</span><span class="item-desc">A versatile open-source media center; iOS builds are available for sideloading.</span></li>
+            <li><a href="https://apps.apple.com/us/app/lichess-online-chess/id968371784" rel="noopener noreferrer" target="_blank">Lichess</a><span class="tag">Chess</span><span class="item-desc">A free, ad-free chess app with online play, puzzles, and deep game analysis.</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>iOS — Maps &amp; Utilities</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://apps.apple.com/us/app/organic-maps-offline-maps/id1567437057" rel="noopener noreferrer" target="_blank">Organic Maps</a><span class="tag">Maps</span><span class="item-desc">A fast, privacy-focused offline map app based on OpenStreetMap.</span></li>
+            <li><a href="https://apps.apple.com/us/app/osmand-maps-travel-navigate/id934850257" rel="noopener noreferrer" target="_blank">OsmAnd</a><span class="tag">Maps</span><span class="item-desc">An advanced offline map and navigation app with topographic, cycling, and travel maps.</span></li>
+            <li><a href="https://apps.apple.com/us/app/a-shell/id1473805438" rel="noopener noreferrer" target="_blank">a-Shell</a><span class="tag">Terminal</span><span class="item-desc">A complete local terminal for iOS with Unix commands, Python, and file access.</span></li>
+            <li><a href="https://github.com/ish-app/ish" rel="noopener noreferrer" target="_blank">iSH</a><span class="tag">Terminal</span><span class="item-desc">An Alpine Linux shell for iOS that runs x86 Linux binaries and package installs.</span></li>
+            <li><a href="https://github.com/localsend/localsend" rel="noopener noreferrer" target="_blank">LocalSend</a><span class="tag">Share</span><span class="item-desc">Share files to nearby devices without an internet connection or cloud provider.</span></li>
+            <li><a href="https://github.com/passepartoutvpn/passepartout-vpn" rel="noopener noreferrer" target="_blank">Passepartout</a><span class="tag">VPN</span><span class="item-desc">A user-friendly, open-source VPN client supporting multiple protocols.</span></li>
+            <li><a href="https://github.com/WireGuard/wireguard-apple" rel="noopener noreferrer" target="_blank">WireGuard</a><span class="tag">VPN</span><span class="item-desc">The official fast, modern, and secure VPN client for iOS.</span></li>
+            <li><a href="https://github.com/nextdns/nextdns-app" rel="noopener noreferrer" target="_blank">NextDNS</a><span class="tag">DNS</span><span class="item-desc">A private DNS client that blocks ads, trackers, and malware network-wide.</span></li>
+            <li><a href="https://adguard-dns.io" rel="noopener noreferrer" target="_blank">AdGuard DNS</a><span class="tag">DNS</span><span class="item-desc">A DNS filtering service and app for blocking ads, trackers, and adult content.</span></li>
+            <li><a href="https://github.com/guardianproject/orbot" rel="noopener noreferrer" target="_blank">Orbot</a><span class="tag">Tor</span><span class="item-desc">A Tor VPN client for iOS that routes app traffic through the Tor network.</span></li>
         </ul>
         </div>
     </div>
@@ -3718,6 +3933,30 @@
                 <option value="list">List</option>
                 <option value="compact">Compact Grid</option>
             </select>
+        </div>
+
+        <div class="toggle-switch">
+            <label>Show App Descriptions</label>
+            <label>
+                <input type="checkbox" id="showDescriptionsToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="toggle-switch">
+            <label>Show Review Badges</label>
+            <label>
+                <input type="checkbox" id="showBadgesToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="toggle-switch">
+            <label>Show Archive Links</label>
+            <label>
+                <input type="checkbox" id="showArchivesToggle">
+                <span class="toggle-slider"></span>
+            </label>
         </div>
     </div>
 
