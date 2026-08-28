@@ -126,6 +126,14 @@
         color: var(--text-primary);
     }
 
+    .description {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin: 0 0 18px 0;
+        line-height: 1.6;
+        animation: fadeIn 0.6s 0.2s both;
+    }
+
     .main-nav {
         margin-top: 28px;
         display: flex;
@@ -219,6 +227,12 @@
     <div class="card">
         <img src="logo.svg" alt="Neko's Index" class="logo">
         <h1>Welcome to Neko's Index</h1>
+        <p class="description">
+            A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.
+        </p>
+        <p class="description">
+            This is an open-source project. View the code, report issues, or contribute on <a href="https://github.com/MarshMeadow/Nekos-Index" target="_blank">GitHub</a>.
+        </p>
         <p id="status">Checking verification...</p>
         <nav class="main-nav">
             <a href="index.html">Home</a>
@@ -266,21 +280,75 @@ const KEY = "nekos_verified";
 const status = document.getElementById("status");
 const action = document.getElementById("action");
 
-status.textContent = "Verification required";
+status.textContent = "Complete the puzzle below to continue.";
+
+// Basic math puzzle
+const num1 = Math.floor(Math.random() * 8) + 2;
+const num2 = Math.floor(Math.random() * 8) + 2;
+const answer = num1 + num2;
+
+const question = document.createElement("p");
+question.textContent = `What is ${num1} + ${num2}?`;
+question.style.margin = "0 0 14px";
+question.style.color = "var(--text-secondary)";
+question.style.fontWeight = "500";
+action.appendChild(question);
+
+const input = document.createElement("input");
+input.type = "number";
+input.inputMode = "numeric";
+input.placeholder = "Answer";
+input.autocomplete = "off";
+input.style.padding = "14px 18px";
+input.style.borderRadius = "14px";
+input.style.border = "1px solid var(--border-color)";
+input.style.background = "var(--bg-secondary)";
+input.style.color = "var(--text-primary)";
+input.style.fontSize = "1.1rem";
+input.style.width = "100%";
+input.style.maxWidth = "180px";
+input.style.textAlign = "center";
+input.style.marginBottom = "20px";
+input.style.outline = "none";
+input.style.transition = "border-color 0.2s";
+action.appendChild(input);
 
 const btn = document.createElement("button");
 btn.textContent = "Verify & Continue";
+btn.disabled = true;
+btn.style.opacity = "0.5";
+btn.style.cursor = "not-allowed";
+
+input.addEventListener("input", () => {
+    if (parseInt(input.value) === answer) {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        btn.style.cursor = "pointer";
+        status.textContent = "Puzzle solved. Click below to continue.";
+    } else {
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+        btn.style.cursor = "not-allowed";
+        status.textContent = "Complete the puzzle below to continue.";
+    }
+});
 
 btn.onclick = () => {
+    if (btn.disabled) return;
     localStorage.setItem(KEY, "true");
     status.textContent = "Verified. Redirecting...";
-
-    setTimeout(() => {
-        location.replace(TARGET);
-    }, 100);
+    setTimeout(() => location.replace(TARGET), 100);
 };
 
 action.appendChild(btn);
+
+// Blur out and disable the list-page links on this gate
+document.querySelectorAll('a[href="list.html"]').forEach(link => {
+    link.style.pointerEvents = "none";
+    link.style.filter = "blur(1.5px) grayscale(100%)";
+    link.style.opacity = "0.45";
+    link.style.cursor = "not-allowed";
+});
 
 /* -------------------------
    DISABLE RIGHT CLICK
