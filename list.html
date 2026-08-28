@@ -99,6 +99,15 @@
             font-size: 1.1rem;
         }
 
+        header .page-links-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 14px 0 6px 0;
+        }
+
         .container {
             position: relative;
             z-index: 1;
@@ -1448,30 +1457,36 @@
             }
         }
         .main-nav {
-            margin-top: 25px;
-            display: flex;
+            margin-top: 10px;
+            display: inline-flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
+            background: rgba(20, 20, 22, 0.75);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 8px;
+            backdrop-filter: blur(8px);
         }
         .main-nav a {
-            color: var(--text-primary);
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 10px 18px;
-            border-radius: 30px;
-            font-size: 14px;
+            color: var(--text-secondary);
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: 500;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .main-nav a:hover {
             background: var(--accent-gradient);
             color: #fff;
             border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+        }
+        .main-nav a:active {
+            transform: scale(0.96);
         }
 
         /* Compact Mode */
@@ -2463,6 +2478,7 @@
     <img src="logo.svg" alt="Neko's Index" class="site-logo">
     <h1>Neko's Index</h1>
     <p>Your go-to resource for movies, shows, and anime</p>
+    <p class="page-links-label">Check out pages</p>
     <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="list.html">Index</a>
@@ -2505,7 +2521,7 @@
 
     <button class="random-app" id="randomApp" title="Pick a random app (R)">Random App</button>
 
-    <p class="filter-bar-label">Also check out these pages</p>
+    <p class="filter-bar-label">Check out these categories</p>
 
     <!-- Category Filter -->
     <div class="category-filter" id="categoryFilter">
