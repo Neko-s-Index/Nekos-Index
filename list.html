@@ -2212,6 +2212,40 @@
             transition: none !important;
         }
 
+        /* High Contrast */
+        body.high-contrast {
+            filter: contrast(1.25) saturate(1.1);
+        }
+
+        body.high-contrast a,
+        body.high-contrast button {
+            text-decoration: underline;
+        }
+
+        /* Marquee pause (separate from reduce motion) */
+        body.marquee-paused .main-nav-track,
+        body.marquee-paused .footer-nav-track {
+            animation-play-state: paused !important;
+        }
+
+        .marquee-hint {
+            display: none;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 8px 0 0;
+        }
+
+        body.reduce-motion .marquee-hint {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .marquee-hint {
+                display: block;
+            }
+        }
+
     </style>
 
     <script>
@@ -2864,7 +2898,7 @@
             // Show review badges setting
             const showBadgesKey = 'nekoIndexShowBadges';
             const showBadgesToggle = document.getElementById('showBadgesToggle');
-            const savedShowBadges = localStorage.getItem(showBadgesKey) === 'true';
+            const savedShowBadges = localStorage.getItem(showBadgesKey) !== 'false';
             showBadgesToggle.checked = savedShowBadges;
             document.body.classList.toggle('hide-badges', !savedShowBadges);
             showBadgesToggle.addEventListener('change', function() {
@@ -2893,9 +2927,80 @@
             const savedReduceMotion = localStorage.getItem(reduceMotionKey) !== 'false';
             reduceMotionToggle.checked = savedReduceMotion;
             document.body.classList.toggle('reduce-motion', savedReduceMotion);
+
+            // Marquee Animation setting
+            const marqueeKey = 'nekoIndexMarquee';
+            const marqueeToggle = document.getElementById('marqueeToggle');
+            const savedMarquee = localStorage.getItem(marqueeKey) === 'true';
+            marqueeToggle.checked = savedMarquee;
+            document.body.classList.toggle('marquee-paused', !savedMarquee);
+
+            function resolveMotionMarquee() {
+                if (reduceMotionToggle.checked && marqueeToggle.checked) {
+                    // Reduce Motion wins: turn off Marquee
+                    marqueeToggle.checked = false;
+                    localStorage.setItem(marqueeKey, 'false');
+                    document.body.classList.add('marquee-paused');
+                }
+            }
+
             reduceMotionToggle.addEventListener('change', function() {
                 localStorage.setItem(reduceMotionKey, this.checked);
                 document.body.classList.toggle('reduce-motion', this.checked);
+                if (this.checked && marqueeToggle.checked) {
+                    marqueeToggle.checked = false;
+                    localStorage.setItem(marqueeKey, 'false');
+                    document.body.classList.add('marquee-paused');
+                }
+            });
+
+            marqueeToggle.addEventListener('change', function() {
+                localStorage.setItem(marqueeKey, this.checked);
+                document.body.classList.toggle('marquee-paused', !this.checked);
+                if (this.checked && reduceMotionToggle.checked) {
+                    // Marquee needs motion: turn off Reduce Motion
+                    reduceMotionToggle.checked = false;
+                    localStorage.setItem(reduceMotionKey, 'false');
+                    document.body.classList.remove('reduce-motion');
+                }
+            });
+
+            resolveMotionMarquee();
+
+            // High Contrast setting
+            const highContrastKey = 'nekoIndexHighContrast';
+            const highContrastToggle = document.getElementById('highContrastToggle');
+            const savedHighContrast = localStorage.getItem(highContrastKey) === 'true';
+            highContrastToggle.checked = savedHighContrast;
+            document.body.classList.toggle('high-contrast', savedHighContrast);
+            highContrastToggle.addEventListener('change', function() {
+                localStorage.setItem(highContrastKey, this.checked);
+                document.body.classList.toggle('high-contrast', this.checked);
+            });
+
+            // Hide Donation Notice setting
+            const hideDonationNoticeKey = 'nekoIndexHideDonationNotice';
+            const hideDonationNoticeToggle = document.getElementById('hideDonationNoticeToggle');
+            const savedHideDonationNotice = localStorage.getItem(hideDonationNoticeKey) === 'true';
+            hideDonationNoticeToggle.checked = savedHideDonationNotice;
+            const donationNotice = document.querySelector('.footer-notice');
+            if (donationNotice) {
+                donationNotice.style.display = savedHideDonationNotice ? 'none' : 'block';
+            }
+            hideDonationNoticeToggle.addEventListener('change', function() {
+                localStorage.setItem(hideDonationNoticeKey, this.checked);
+                if (donationNotice) {
+                    donationNotice.style.display = this.checked ? 'none' : 'block';
+                }
+            });
+
+            // Clear Puzzle Exemption
+            document.getElementById('clearPuzzleExemption').addEventListener('click', function() {
+                localStorage.removeItem('nekos_verified');
+                localStorage.removeItem('nekos_puzzle_exempt');
+                localStorage.removeItem('nekos_puzzle_count');
+                alert('Puzzle verification cleared. You will be asked to solve puzzles again.');
+                location.reload();
             });
 
             // Export Settings
@@ -2911,7 +3016,11 @@
                     layout: localStorage.getItem(layoutKey),
                     showDescriptions: localStorage.getItem(showDescriptionsKey),
                     showBadges: localStorage.getItem(showBadgesKey),
-                    showArchives: localStorage.getItem(showArchivesKey)
+                    showArchives: localStorage.getItem(showArchivesKey),
+                    reduceMotion: localStorage.getItem(reduceMotionKey),
+                    marquee: localStorage.getItem(marqueeKey),
+                    highContrast: localStorage.getItem(highContrastKey),
+                    hideDonationNotice: localStorage.getItem(hideDonationNoticeKey)
                 };
                 const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
                 const url = URL.createObjectURL(blob);
@@ -2945,6 +3054,10 @@
                             if (settings.showDescriptions) localStorage.setItem(showDescriptionsKey, settings.showDescriptions);
                             if (settings.showBadges) localStorage.setItem(showBadgesKey, settings.showBadges);
                             if (settings.showArchives) localStorage.setItem(showArchivesKey, settings.showArchives);
+                            if (settings.reduceMotion) localStorage.setItem(reduceMotionKey, settings.reduceMotion);
+                            if (settings.marquee) localStorage.setItem(marqueeKey, settings.marquee);
+                            if (settings.highContrast) localStorage.setItem(highContrastKey, settings.highContrast);
+                            if (settings.hideDonationNotice) localStorage.setItem(hideDonationNoticeKey, settings.hideDonationNotice);
                             alert('Settings imported successfully! Please refresh the page.');
                         } catch (err) {
                             alert('Invalid settings file.');
@@ -3066,7 +3179,7 @@
 
             // ==================== POPULARITY BADGES ====================
             function addRepoBadges() {
-                if (localStorage.getItem('nekoIndexShowBadges') !== 'true') return;
+                if (localStorage.getItem('nekoIndexShowBadges') === 'false') return;
                 const selectors = '.category a';
                 document.querySelectorAll(selectors).forEach(link => {
                     try {
@@ -3526,6 +3639,7 @@
         <a href="sitemap.html">Sitemap</a>
         <a href="donations.html">Donate</a>
     </nav>
+    <p class="marquee-hint">Scroll or drag to view more buttons</p>
 </header>
 
 <!-- Theme Toggle -->
@@ -4949,7 +5063,7 @@
 
 <footer>
     <p>&copy; 2026 Neko's Index. All Rights Reserved.</p>
-    <p style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);">
+    <p class="footer-notice" style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);">
         All resources listed are third-party. If you find this index useful, please consider <a href="donations.html" style="color: var(--text-primary); text-decoration: underline;">donating</a>.
     </p>
 
@@ -4964,6 +5078,7 @@
         <a href="donations.html">Donate</a>
         <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 13px;">Dev</a>
     </div>
+    <p class="marquee-hint">Scroll or drag to view more buttons</p>
 
     <div class="other-indexes">
         <strong>Other Useful Indexes:</strong>
@@ -5083,6 +5198,30 @@
                 <span class="toggle-slider"></span>
             </label>
         </div>
+
+        <div class="toggle-switch">
+            <label>Marquee Animation <span class="beta-tag">Beta</span></label>
+            <label>
+                <input type="checkbox" id="marqueeToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="toggle-switch">
+            <label>High Contrast Mode</label>
+            <label>
+                <input type="checkbox" id="highContrastToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="toggle-switch">
+            <label>Hide Donation Notice</label>
+            <label>
+                <input type="checkbox" id="hideDonationNoticeToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
     </div>
 
     <!-- Behavior Settings -->
@@ -5106,6 +5245,7 @@
             <button class="settings-btn-action" id="importSettings">Import</button>
         </div>
         <input type="file" id="importFile" accept=".json" style="display: none;">
+        <button class="settings-btn-action" id="clearPuzzleExemption">Clear Puzzle Exemption</button>
         <button class="settings-btn-action danger" id="clearData">Clear All Data</button>
     </div>
 
