@@ -1113,7 +1113,7 @@
             background: var(--bg-card-hover);
             border-color: var(--accent-primary);
             color: var(--text-primary);
-            transform: translateY(-2px) rotate(360deg);
+            transform: translateY(-2px);
         }
 
         /* Settings Panel */
@@ -1664,6 +1664,8 @@
             backdrop-filter: blur(8px);
             position: relative;
             cursor: grab;
+            touch-action: pan-y;
+            user-select: none;
         }
 
         .main-nav-track {
@@ -1672,10 +1674,6 @@
             width: max-content;
             animation: marquee 25s linear infinite;
             will-change: transform;
-        }
-
-        .main-nav:hover .main-nav-track {
-            animation-play-state: paused;
         }
 
         @keyframes marquee {
@@ -1695,6 +1693,8 @@
             border-radius: 12px;
             padding: 10px;
             cursor: grab;
+            touch-action: pan-y;
+            user-select: none;
         }
 
         .footer-nav-track {
@@ -1703,10 +1703,6 @@
             width: max-content;
             animation: marquee 20s linear infinite;
             will-change: transform;
-        }
-
-        .footer-nav:hover .footer-nav-track {
-            animation-play-state: paused;
         }
 
         .footer-nav a {
@@ -1720,7 +1716,6 @@
 
         .footer-nav a:hover {
             color: var(--text-primary);
-            transform: rotate(360deg);
         }
         .main-nav a {
             color: var(--text-secondary);
@@ -1739,11 +1734,10 @@
             background: var(--accent-gradient);
             color: #fff;
             border-color: transparent;
-            transform: rotate(360deg);
             box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
         }
         .main-nav a:active {
-            transform: scale(0.96) rotate(360deg);
+            transform: scale(0.96);
         }
 
         /* Compact Mode */
@@ -5668,6 +5662,7 @@
             let startX = 0;
             let startTranslate = 0;
             let dx = 0;
+            let pointerId = null;
 
             track.addEventListener('click', (e) => {
                 if (track.dataset.dragged === 'true') {
@@ -5677,11 +5672,36 @@
                 }
             });
 
+            const endDrag = () => {
+                if (!dragging) return;
+                dragging = false;
+                if (pointerId !== null && container.releasePointerCapture) {
+                    try { container.releasePointerCapture(pointerId); } catch (e) {}
+                }
+                container.style.cursor = '';
+                if (Math.abs(dx) > 5) track.dataset.dragged = 'true';
+
+                const currentX = getTrackX(track);
+                const W = track.scrollWidth / 2;
+                if (W > 0) {
+                    const T = parseFloat(window.getComputedStyle(track).animationDuration) || defaultDuration;
+                    const progress = ((-currentX % W) + W) % W;
+                    track.style.transform = '';
+                    track.style.animationPlayState = 'running';
+                    track.style.animationDelay = `-${(progress / W) * T}s`;
+                }
+            };
+
             container.addEventListener('pointerdown', (e) => {
                 dragging = true;
+                pointerId = e.pointerId;
+                if (container.setPointerCapture) {
+                    try { container.setPointerCapture(pointerId); } catch (e) {}
+                }
                 container.style.cursor = 'grabbing';
                 track.style.animationPlayState = 'paused';
                 track.dataset.dragged = 'false';
+                dx = 0;
                 startX = e.clientX;
                 startTranslate = getTrackX(track);
                 track.style.transform = `translateX(${startTranslate}px)`;
@@ -5692,24 +5712,10 @@
                 e.preventDefault();
                 dx = e.clientX - startX;
                 track.style.transform = `translateX(${startTranslate + dx}px)`;
-            });
+            }, { passive: false });
 
-            container.addEventListener('pointerup', () => {
-                if (!dragging) return;
-                dragging = false;
-                container.style.cursor = '';
-                if (Math.abs(dx) > 5) track.dataset.dragged = 'true';
-
-                const currentX = getTrackX(track);
-                const W = track.scrollWidth / 2;
-                if (W > 0) {
-                    const T = parseFloat(window.getComputedStyle(track).animationDuration) || defaultDuration;
-                    const progress = ((-currentX % W) + W) % W;
-                    track.style.transform = '';
-                    track.style.animationPlayState = '';
-                    track.style.animationDelay = `-${(progress / W) * T}s`;
-                }
-            });
+            container.addEventListener('pointerup', endDrag);
+            container.addEventListener('pointercancel', endDrag);
         }
 
         document.querySelectorAll('.main-nav, .footer-nav').forEach(container => {
