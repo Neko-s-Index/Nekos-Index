@@ -1678,7 +1678,7 @@
 
         @keyframes marquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(calc(var(--marquee-offset, 50%) * -1)); }
         }
 
         .footer-nav {
@@ -2183,6 +2183,12 @@
             .app-modal-links {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Reduce Motion */
+        body.reduce-motion * {
+            animation: none !important;
+            transition: none !important;
         }
 
     </style>
@@ -2845,6 +2851,17 @@
                 if (this.checked && !document.querySelector('.archive-link')) {
                     addArchiveLinks();
                 }
+            });
+
+            // Reduce Motion setting
+            const reduceMotionKey = 'nekoIndexReduceMotion';
+            const reduceMotionToggle = document.getElementById('reduceMotionToggle');
+            const savedReduceMotion = localStorage.getItem(reduceMotionKey) === 'true';
+            reduceMotionToggle.checked = savedReduceMotion;
+            if (savedReduceMotion) document.body.classList.add('reduce-motion');
+            reduceMotionToggle.addEventListener('change', function() {
+                localStorage.setItem(reduceMotionKey, this.checked);
+                document.body.classList.toggle('reduce-motion', this.checked);
             });
 
             // Export Settings
@@ -5022,6 +5039,14 @@
                 <span class="toggle-slider"></span>
             </label>
         </div>
+
+        <div class="toggle-switch">
+            <label>Reduce Motion</label>
+            <label>
+                <input type="checkbox" id="reduceMotionToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
     </div>
 
     <!-- Behavior Settings -->
@@ -5655,8 +5680,20 @@
             track.className = trackClass;
             const children = Array.from(container.children);
             children.forEach(child => track.appendChild(child));
+
+            const spacer = document.createElement('div');
+            spacer.className = trackClass + '-spacer';
+            spacer.style.cssText = 'width: 40px; flex: 0 0 40px;';
+            track.appendChild(spacer);
+
             children.forEach(child => track.appendChild(child.cloneNode(true)));
             container.appendChild(track);
+
+            const firstClone = track.children[children.length + 1];
+            if (firstClone) {
+                const offset = firstClone.getBoundingClientRect().left - track.getBoundingClientRect().left;
+                track.style.setProperty('--marquee-offset', `${offset}px`);
+            }
 
             let dragging = false;
             let startX = 0;
@@ -5681,8 +5718,10 @@
                 container.style.cursor = '';
                 if (Math.abs(dx) > 5) track.dataset.dragged = 'true';
 
+                if (document.body.classList.contains('reduce-motion')) return;
+
                 const currentX = getTrackX(track);
-                const W = track.scrollWidth / 2;
+                const W = parseFloat(track.style.getPropertyValue('--marquee-offset')) || track.scrollWidth / 2;
                 if (W > 0) {
                     const T = parseFloat(window.getComputedStyle(track).animationDuration) || defaultDuration;
                     const progress = ((-currentX % W) + W) % W;
