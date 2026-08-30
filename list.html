@@ -2228,22 +2228,42 @@
             animation-play-state: paused !important;
         }
 
-        .marquee-hint {
+        .marquee-note {
             display: none;
             text-align: center;
-            font-size: 12px;
-            color: var(--text-muted);
             margin: 8px 0 0;
         }
 
-        body.reduce-motion .marquee-hint {
+        body.reduce-motion .marquee-note {
             display: block;
         }
 
         @media (max-width: 768px) {
-            .marquee-hint {
+            .marquee-note {
                 display: block;
             }
+        }
+
+        .marquee-note-btn {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-muted);
+            font-size: 11px;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .marquee-note-btn::-webkit-details-marker {
+            display: none;
+        }
+
+        .marquee-note-text {
+            margin: 6px 0 0;
+            font-size: 12px;
+            color: var(--text-muted);
         }
 
     </style>
@@ -3647,7 +3667,10 @@
         <a href="sitemap.html">Sitemap</a>
         <a href="donations.html">Donate</a>
     </nav>
-    <p class="marquee-hint">Scroll or drag to view more buttons</p>
+    <details class="marquee-note">
+        <summary class="marquee-note-btn">Mobile note</summary>
+        <p class="marquee-note-text">For mobile users: scroll or drag to view more buttons</p>
+    </details>
 </header>
 
 <!-- Theme Toggle -->
@@ -5086,7 +5109,10 @@
         <a href="donations.html">Donate</a>
         <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 13px;">Dev</a>
     </div>
-    <p class="marquee-hint">Scroll or drag to view more buttons</p>
+    <details class="marquee-note">
+        <summary class="marquee-note-btn">Mobile note</summary>
+        <p class="marquee-note-text">For mobile users: scroll or drag to view more buttons</p>
+    </details>
 
     <div class="other-indexes">
         <strong>Other Useful Indexes:</strong>
@@ -5875,8 +5901,13 @@
                 container.style.gap = '14px';
                 container.style.cursor = 'default';
                 container.dataset.marquee = 'false';
+                const note = container.nextElementSibling;
+                if (note && note.classList.contains('marquee-note')) note.style.display = 'none';
                 return;
             }
+
+            const note = container.nextElementSibling;
+            if (note && note.classList.contains('marquee-note')) note.style.display = '';
 
             const track = document.createElement('div');
             track.className = trackClass;
