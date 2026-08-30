@@ -1699,7 +1699,7 @@
 
         .footer-nav-track {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             width: max-content;
             animation: marquee 20s linear infinite;
             will-change: transform;
@@ -1707,7 +1707,12 @@
 
         .footer-nav a {
             color: var(--text-secondary);
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 13px;
+            font-weight: 500;
             text-decoration: none;
             white-space: nowrap;
             flex-shrink: 0;
@@ -1715,7 +1720,10 @@
         }
 
         .footer-nav a:hover {
-            color: var(--text-primary);
+            background: var(--accent-gradient);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
         }
         .main-nav a {
             color: var(--text-secondary);
@@ -4919,13 +4927,13 @@
     </p>
 
     <div class="footer-nav">
-        <a href="index.html" style="color: var(--text-secondary); font-size: 13px;">Home</a>
-        <a href="disclaimer.html" style="color: var(--text-secondary); font-size: 13px;">Disclaimer</a>
-        <a href="dmca.html" style="color: var(--text-secondary); font-size: 13px;">DMCA</a>
-        <a href="privacy.html" style="color: var(--text-secondary); font-size: 13px;">Privacy</a>
-        <a href="notes.html" style="color: var(--text-secondary); font-size: 13px;">Notes</a>
-        <a href="socials.html" style="color: var(--text-secondary); font-size: 13px;">Socials</a>
-        <a href="donations.html" style="color: var(--text-secondary); font-size: 13px;">Donate</a>
+        <a href="index.html">Home</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="dmca.html">DMCA</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="notes.html">Notes</a>
+        <a href="socials.html">Socials</a>
+        <a href="donations.html">Donate</a>
         <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 13px;">Dev</a>
     </div>
 
