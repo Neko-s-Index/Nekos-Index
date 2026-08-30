@@ -3806,6 +3806,13 @@
         <p class="favorites-notice">This personal list is saved in your browser. Clearing page data will delete it.</p>
     </div>
 
+    <!-- My Lists Advert -->
+    <div class="favorites-section" id="myListsAd" style="margin-bottom: 12px;">
+        <p class="favorites-notice" style="margin: 0;">
+            Want to add your own apps, resources, or categories? Use <a href="mylist-maker.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: underline;">My List Maker</a> or go to Settings → My Lists.
+        </p>
+    </div>
+
     <!-- My Lists Section -->
     <div class="favorites-section" id="myListsSection" style="display: none;">
         <h3>My Lists</h3>
@@ -5387,6 +5394,8 @@
             <button class="settings-btn-action" id="addCategoryBtn">Add Category</button>
             <button class="settings-btn-action" id="addAppBtn">Add App/Resource</button>
             <button class="settings-btn-action" id="importMyListBtn">Import My List</button>
+            <button class="settings-btn-action" id="exportMyListBtn">Export My Lists</button>
+            <a class="settings-btn-action" href="mylist-maker.html" target="_blank" rel="noopener noreferrer" style="text-align: center; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Open My List Maker</a>
         </div>
     </div>
 
@@ -6327,6 +6336,16 @@
                     return false;
                 }
             });
+        });
+
+        document.getElementById('exportMyListBtn').addEventListener('click', () => {
+            const blob = new Blob([JSON.stringify(myLists, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'my-neko-lists.json';
+            a.click();
+            URL.revokeObjectURL(url);
         });
 
         renderMyLists();
