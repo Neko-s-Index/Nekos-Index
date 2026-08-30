@@ -2891,7 +2891,7 @@
             
             compactModeToggle.addEventListener('change', function() {
                 localStorage.setItem(compactModeKey, this.checked);
-                document.body.classList.toggle('compact-mode');
+                document.body.classList.toggle('compact-mode', this.checked);
             });
 
             // App Layout setting
