@@ -255,6 +255,11 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
         }
 
+        body.layout-grid .category-content ul {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
         body.layout-list .category-content ul {
             display: block;
         }
@@ -266,21 +271,22 @@
         }
 
         body.layout-compact .category-content ul {
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 6px;
         }
 
         body.layout-compact .category-content li {
-            padding: 10px 12px;
+            padding: 8px 10px;
+            border-radius: 10px;
         }
 
         body.layout-compact .category-content a {
-            font-size: 13px;
+            font-size: 12px;
         }
 
         body.layout-compact .category-content .tag {
-            padding: 2px 6px;
-            font-size: 10px;
+            padding: 2px 5px;
+            font-size: 9px;
         }
 
         a {
@@ -2381,24 +2387,48 @@
             const themeIcon = themeToggle.querySelector('.theme-icon');
             const themeText = themeToggle.querySelector('.theme-text');
             const themeKey = 'nekoIndexTheme';
+            const themeSelect = document.getElementById('themeSelect');
 
-            // Load saved theme or respect OS preference
-            const savedTheme = localStorage.getItem(themeKey);
-            const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-            const isLight = savedTheme === 'light' || (!savedTheme && prefersLight);
-            if (isLight) {
-                document.body.classList.add('light-mode');
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light';
+            function getSystemIsLight() {
+                return window.matchMedia('(prefers-color-scheme: light)').matches;
             }
 
+            function applyTheme(mode) {
+                const isLight = mode === 'light' || (mode === 'system' && getSystemIsLight());
+                document.body.classList.toggle('light-mode', isLight);
+
+                if (mode === 'system') {
+                    localStorage.removeItem(themeKey);
+                    themeIcon.textContent = '🌓';
+                    themeText.textContent = 'System';
+                } else if (mode === 'light') {
+                    localStorage.setItem(themeKey, 'light');
+                    themeIcon.textContent = '☀️';
+                    themeText.textContent = 'Light';
+                } else {
+                    localStorage.setItem(themeKey, 'dark');
+                    themeIcon.textContent = '🌙';
+                    themeText.textContent = 'Dark';
+                }
+
+                if (themeSelect) themeSelect.value = mode;
+            }
+
+            const savedTheme = localStorage.getItem(themeKey);
+            const initialMode = savedTheme || 'system';
+            applyTheme(initialMode);
+
             themeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('light-mode');
-                const isLight = document.body.classList.contains('light-mode');
-                themeIcon.textContent = isLight ? '☀️' : '🌙';
-                themeText.textContent = isLight ? 'Light' : 'Dark';
-                localStorage.setItem(themeKey, isLight ? 'light' : 'dark');
+                const current = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+                const next = current === 'light' ? 'dark' : 'light';
+                applyTheme(next);
             });
+
+            if (themeSelect) {
+                themeSelect.addEventListener('change', function() {
+                    applyTheme(this.value);
+                });
+            }
 
             // ==================== DROPDOWN FUNCTIONALITY ====================
             const categoryHeaders = document.querySelectorAll('.category-header');
@@ -2897,7 +2927,7 @@
             // App Layout setting
             const layoutKey = 'nekoIndexLayout';
             const layoutSelect = document.getElementById('layoutSelect');
-            const savedLayout = localStorage.getItem(layoutKey) || 'compact';
+            const savedLayout = localStorage.getItem(layoutKey) || 'grid';
 
             layoutSelect.value = savedLayout;
             document.body.classList.add(`layout-${savedLayout}`);
@@ -5198,6 +5228,15 @@
                 <input type="checkbox" id="compactModeToggle">
                 <span class="toggle-slider"></span>
             </label>
+        </div>
+
+        <div class="setting-row">
+            <label for="themeSelect">Theme</label>
+            <select class="settings-select" id="themeSelect">
+                <option value="system">System</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select>
         </div>
 
         <div class="setting-row">
