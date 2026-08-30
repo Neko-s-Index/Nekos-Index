@@ -1090,9 +1090,27 @@
         /* Social Share Buttons */
         .social-share {
             display: flex;
-            gap: 10px;
-            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            background: rgba(20, 20, 22, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px;
             margin-top: 20px;
+        }
+
+        .share-track {
+            display: flex;
+            gap: 10px;
+            width: max-content;
+            animation: marquee 15s linear infinite;
+            will-change: transform;
+        }
+
+        .social-share:hover .share-track {
+            animation-play-state: paused;
         }
 
         .share-btn {
@@ -1653,10 +1671,8 @@
         .main-nav {
             margin-top: 10px;
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
+            align-items: center;
+            overflow: hidden;
             width: 100%;
             max-width: 100%;
             background: rgba(20, 20, 22, 0.75);
@@ -1664,6 +1680,24 @@
             border-radius: 24px;
             padding: 8px;
             backdrop-filter: blur(8px);
+            position: relative;
+        }
+
+        .main-nav-track {
+            display: flex;
+            gap: 8px;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+            will-change: transform;
+        }
+
+        .main-nav:hover .main-nav-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .main-nav a {
             color: var(--text-secondary);
@@ -5587,6 +5621,18 @@
                     openAppModal(li);
                 }
             }
+        });
+
+        // Circular marquee for nav and share buttons
+        document.querySelectorAll('.main-nav, .social-share').forEach(container => {
+            if (container.querySelector('.main-nav-track, .share-track')) return;
+            const trackClass = container.classList.contains('main-nav') ? 'main-nav-track' : 'share-track';
+            const track = document.createElement('div');
+            track.className = trackClass;
+            const children = Array.from(container.children);
+            children.forEach(child => track.appendChild(child));
+            children.forEach(child => track.appendChild(child.cloneNode(true)));
+            container.appendChild(track);
         });
     })();
 </script>
