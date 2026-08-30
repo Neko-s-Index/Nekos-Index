@@ -5867,6 +5867,17 @@
 
         function wrapMarquee(container, trackClass, defaultDuration) {
             if (container.querySelector('.' + trackClass)) return;
+
+            // If all buttons fit in the available width, show them centered and skip the marquee
+            if (container.scrollWidth <= container.clientWidth) {
+                container.style.flexWrap = 'wrap';
+                container.style.justifyContent = 'center';
+                container.style.gap = '14px';
+                container.style.cursor = 'default';
+                container.dataset.marquee = 'false';
+                return;
+            }
+
             const track = document.createElement('div');
             track.className = trackClass;
             const children = Array.from(container.children);
