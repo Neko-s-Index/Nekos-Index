@@ -3063,6 +3063,8 @@
                 const websiteTitleMap = new Map();
                 const githubUrlMap = new Map();
                 const githubTitleMap = new Map();
+                const downloadUrlMap = new Map();
+                const downloadTitleMap = new Map();
                 try {
                     const res = await fetch('data/descriptions.json');
                     if (res.ok) {
@@ -3095,10 +3097,16 @@
                         if (entry.url) urlMap.set(normalizeDescUrl(entry.url), desc);
                         if (entry.title) titleMap.set(entry.title, desc);
                     }
-                    const socials = entry.socials;
-                    if (Array.isArray(socials) && socials.length > 0) {
-                        if (entry.url) socialsUrlMap.set(normalizeDescUrl(entry.url), socials);
-                        if (entry.title) socialsTitleMap.set(entry.title, socials);
+                    const socials = Array.isArray(entry.socials) ? entry.socials : [];
+                    const extraSocials = [];
+                    const addSocial = (u) => { if (u) extraSocials.push({ url: u }); };
+                    if (entry.reddit) addSocial(entry.reddit);
+                    if (entry.discord) addSocial(entry.discord);
+                    if (entry.telegram) addSocial(entry.telegram);
+                    const allSocials = socials.concat(extraSocials);
+                    if (allSocials.length > 0) {
+                        if (entry.url) socialsUrlMap.set(normalizeDescUrl(entry.url), allSocials);
+                        if (entry.title) socialsTitleMap.set(entry.title, allSocials);
                     }
                     const website = entry.website;
                     if (website) {
@@ -3109,6 +3117,11 @@
                     if (github) {
                         if (entry.url) githubUrlMap.set(normalizeDescUrl(entry.url), github);
                         if (entry.title) githubTitleMap.set(entry.title, github);
+                    }
+                    const download = entry.download;
+                    if (download) {
+                        if (entry.url) downloadUrlMap.set(normalizeDescUrl(entry.url), download);
+                        if (entry.title) downloadTitleMap.set(entry.title, download);
                     }
                 }
 
@@ -3155,6 +3168,22 @@
                     if (!github) return null;
                     try {
                         const u = new URL(github);
+                        if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+                        return u.toString();
+                    } catch (e) {
+                        return null;
+                    }
+                }
+
+                function getLocalDownload(link) {
+                    const url = link.href;
+                    const title = link.textContent.trim();
+                    const normalized = normalizeDescUrl(url);
+                    const download = downloadUrlMap.has(normalized) ? downloadUrlMap.get(normalized) :
+                        (downloadTitleMap.has(title) ? downloadTitleMap.get(title) : null);
+                    if (!download) return null;
+                    try {
+                        const u = new URL(download);
                         if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
                         return u.toString();
                     } catch (e) {
@@ -3295,6 +3324,8 @@
                     if (localHomepage) li.dataset.homepage = localHomepage;
                     const localGitHub = getLocalGitHub(link);
                     if (localGitHub) li.dataset.github = localGitHub;
+                    const localDownload = getLocalDownload(link);
+                    if (localDownload) li.dataset.download = localDownload;
                     const existing = li.querySelector('.item-desc');
                     if (existing && existing.textContent.trim()) continue;
                     try {
@@ -5187,8 +5218,11 @@
             container.innerHTML = '';
             const div = document.createElement('div');
             div.className = 'social-links';
+            const seen = new Set();
             for (const social of socials) {
                 try {
+                    if (!social.url || seen.has(social.url)) continue;
+                    seen.add(social.url);
                     const a = document.createElement('a');
                     a.className = 'social-link ' + (social.type || 'generic');
                     a.href = social.url;
@@ -5222,7 +5256,6 @@
             btn.textContent = 'Verify';
             btn.addEventListener('click', () => {
                 if (parseInt(input.value, 10) === expected) {
-                    sessionStorage.setItem('nekoIndexSocialUnlocked', 'true');
                     renderSocials(container, socials);
                 } else {
                     puzzle.textContent = `Try again: What is ${a} + ${b}?`;
@@ -5236,6 +5269,58 @@
             container.appendChild(puzzle);
             container.appendChild(input);
             container.appendChild(btn);
+        }
+
+        function openArchivePicker(title, url) {
+            const overlay = document.createElement('div');
+            overlay.className = 'app-modal show';
+            overlay.id = 'archivePicker';
+
+            const content = document.createElement('div');
+            content.className = 'app-modal-content';
+
+            const header = document.createElement('div');
+            header.className = 'app-modal-header';
+            const heading = document.createElement('h3');
+            heading.className = 'app-modal-title';
+            heading.textContent = 'Choose an archive';
+            const close = document.createElement('button');
+            close.className = 'app-modal-close';
+            close.setAttribute('aria-label', 'Close');
+            close.innerHTML = '&times;';
+            close.addEventListener('click', () => overlay.remove());
+            header.appendChild(heading);
+            header.appendChild(close);
+
+            const links = document.createElement('div');
+            links.className = 'app-modal-links';
+            const options = [
+                { label: 'archive.org', href: `https://archive.org/search?query=${encodeURIComponent(title)}` },
+                { label: 'Wayback Machine', href: `https://web.archive.org/web/*/${encodeURIComponent(url)}` },
+                { label: 'archive.today', href: `https://archive.today/?run=1&url=${encodeURIComponent(url)}` }
+            ];
+            for (const opt of options) {
+                const a = document.createElement('a');
+                a.href = opt.href;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.className = 'app-modal-link';
+                a.textContent = opt.label;
+                a.addEventListener('click', () => setTimeout(() => overlay.remove(), 100));
+                links.appendChild(a);
+            }
+
+            content.appendChild(header);
+            const note = document.createElement('p');
+            note.className = 'app-modal-desc';
+            note.textContent = 'If you need an older version of this resource, pick an archive below to search for snapshots.';
+            content.appendChild(note);
+            content.appendChild(links);
+            overlay.appendChild(content);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) overlay.remove();
+            });
+            document.body.appendChild(overlay);
         }
 
         function openAppModal(li) {
@@ -5270,9 +5355,6 @@
             } catch (e) {}
             if (socialsData.length === 0) {
                 modalSocials.style.display = 'none';
-            } else if (sessionStorage.getItem('nekoIndexSocialUnlocked') === 'true') {
-                modalSocials.style.display = '';
-                renderSocials(modalSocials, socialsData);
             } else {
                 modalSocials.style.display = '';
                 renderSocialPuzzle(modalSocials, socialsData);
@@ -5298,6 +5380,16 @@
                 modalLinks.appendChild(websiteLink);
             }
 
+            if (li.dataset.download && li.dataset.download !== link.href && li.dataset.download !== li.dataset.homepage) {
+                const downloadLink = document.createElement('a');
+                downloadLink.href = li.dataset.download;
+                downloadLink.target = '_blank';
+                downloadLink.rel = 'noopener noreferrer';
+                downloadLink.className = 'app-modal-link';
+                downloadLink.textContent = 'Download';
+                modalLinks.appendChild(downloadLink);
+            }
+
             if (li.dataset.github && li.dataset.github !== link.href && li.dataset.github !== li.dataset.homepage) {
                 const githubLink = document.createElement('a');
                 githubLink.href = li.dataset.github;
@@ -5309,41 +5401,43 @@
             }
 
             if (localStorage.getItem('nekoIndexShowArchives') !== 'false' && title) {
-                const archiveLink = document.createElement('a');
-                archiveLink.href = `https://archive.org/search?query=${encodeURIComponent(title)}`;
-                archiveLink.target = '_blank';
-                archiveLink.rel = 'noopener noreferrer';
-                archiveLink.className = 'app-modal-link';
-                archiveLink.textContent = 'Archive';
-                modalLinks.appendChild(archiveLink);
+                const archiveUrl = li.dataset.homepage || link.href;
+                const archiveBtn = document.createElement('button');
+                archiveBtn.className = 'app-modal-link';
+                archiveBtn.textContent = 'Archive';
+                archiveBtn.addEventListener('click', () => openArchivePicker(title, archiveUrl));
+                modalLinks.appendChild(archiveBtn);
             }
 
-            try {
-                const url = new URL(link.href);
-                if (url.hostname.toLowerCase() === 'github.com') {
-                    const parts = url.pathname.split('/').filter(Boolean);
-                    if (parts.length >= 2) {
-                        const [owner, repo] = parts;
-                        const repoBase = `https://github.com/${owner}/${repo}`;
+            const githubSources = new Set([link.href, li.dataset.github].filter(Boolean));
+            for (const gh of githubSources) {
+                try {
+                    const url = new URL(gh);
+                    if (url.hostname.toLowerCase() === 'github.com') {
+                        const parts = url.pathname.split('/').filter(Boolean);
+                        if (parts.length >= 2) {
+                            const [owner, repo] = parts;
+                            const repoBase = `https://github.com/${owner}/${repo}`;
 
-                        const releases = document.createElement('a');
-                        releases.href = `${repoBase}/releases`;
-                        releases.target = '_blank';
-                        releases.rel = 'noopener noreferrer';
-                        releases.className = 'app-modal-link';
-                        releases.textContent = 'Releases';
-                        modalLinks.appendChild(releases);
+                            const releases = document.createElement('a');
+                            releases.href = `${repoBase}/releases`;
+                            releases.target = '_blank';
+                            releases.rel = 'noopener noreferrer';
+                            releases.className = 'app-modal-link';
+                            releases.textContent = 'Releases';
+                            modalLinks.appendChild(releases);
 
-                        const issues = document.createElement('a');
-                        issues.href = `${repoBase}/issues`;
-                        issues.target = '_blank';
-                        issues.rel = 'noopener noreferrer';
-                        issues.className = 'app-modal-link';
-                        issues.textContent = 'Issues';
-                        modalLinks.appendChild(issues);
+                            const issues = document.createElement('a');
+                            issues.href = `${repoBase}/issues`;
+                            issues.target = '_blank';
+                            issues.rel = 'noopener noreferrer';
+                            issues.className = 'app-modal-link';
+                            issues.textContent = 'Issues';
+                            modalLinks.appendChild(issues);
+                        }
                     }
-                }
-            } catch (e) {}
+                } catch (e) {}
+            }
 
             const copyBtn = document.createElement('button');
             copyBtn.className = 'app-modal-link';
