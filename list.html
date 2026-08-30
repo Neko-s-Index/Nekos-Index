@@ -5237,6 +5237,7 @@
     <button class="settings-close" id="settingsClose" aria-label="Close settings">&times;</button>
     <h3>Settings</h3>
     <p class="settings-note">Some things may work better on PC, and some may work better on mobile. Most settings are still available on both.</p>
+    <p class="settings-note">Some settings are mobile-specific and may not do anything on PC.</p>
 
     <!-- Display Settings -->
     <div class="settings-group">
@@ -5278,9 +5279,9 @@
         <div class="setting-row">
             <label for="layoutSelect">App Layout</label>
             <select class="settings-select" id="layoutSelect">
-                <option value="grid">Grid</option>
-                <option value="list">List</option>
-                <option value="compact">Compact Grid</option>
+                <option value="grid">Grid (may not work properly on mobile)</option>
+                <option value="list">List (Recommended)</option>
+                <option value="compact">Compact Grid (may not work properly on mobile)</option>
             </select>
         </div>
 
