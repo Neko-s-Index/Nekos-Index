@@ -3061,6 +3061,8 @@
                 const socialsTitleMap = new Map();
                 const websiteUrlMap = new Map();
                 const websiteTitleMap = new Map();
+                const githubUrlMap = new Map();
+                const githubTitleMap = new Map();
                 try {
                     const res = await fetch('data/descriptions.json');
                     if (res.ok) {
@@ -3103,6 +3105,11 @@
                         if (entry.url) websiteUrlMap.set(normalizeDescUrl(entry.url), website);
                         if (entry.title) websiteTitleMap.set(entry.title, website);
                     }
+                    const github = entry.github;
+                    if (github) {
+                        if (entry.url) githubUrlMap.set(normalizeDescUrl(entry.url), github);
+                        if (entry.title) githubTitleMap.set(entry.title, github);
+                    }
                 }
 
                 function getLocalDescription(link) {
@@ -3132,6 +3139,22 @@
                     if (!website) return null;
                     try {
                         const u = new URL(website);
+                        if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+                        return u.toString();
+                    } catch (e) {
+                        return null;
+                    }
+                }
+
+                function getLocalGitHub(link) {
+                    const url = link.href;
+                    const title = link.textContent.trim();
+                    const normalized = normalizeDescUrl(url);
+                    const github = githubUrlMap.has(normalized) ? githubUrlMap.get(normalized) :
+                        (githubTitleMap.has(title) ? githubTitleMap.get(title) : null);
+                    if (!github) return null;
+                    try {
+                        const u = new URL(github);
                         if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
                         return u.toString();
                     } catch (e) {
@@ -3198,7 +3221,7 @@
                         } catch (e) {}
                     });
 
-                    let budget = 20;
+                    let budget = 60;
                     document.querySelectorAll('.category li a').forEach(link => {
                         if (budget <= 0) return;
                         try {
@@ -3270,6 +3293,8 @@
                     if (!li) continue;
                     const localHomepage = getLocalHomepage(link);
                     if (localHomepage) li.dataset.homepage = localHomepage;
+                    const localGitHub = getLocalGitHub(link);
+                    if (localGitHub) li.dataset.github = localGitHub;
                     const existing = li.querySelector('.item-desc');
                     if (existing && existing.textContent.trim()) continue;
                     try {
@@ -3284,7 +3309,7 @@
                     catch (e) { return false; }
                 });
 
-                let budget = 40;
+                let budget = 60;
                 const batch = [];
                 for (const link of githubLinks) {
                     if (budget <= 0) break;
@@ -5273,19 +5298,24 @@
                 modalLinks.appendChild(websiteLink);
             }
 
-            if (localStorage.getItem('nekoIndexShowArchives') !== 'false' && link.href) {
-                try {
-                    const url = new URL(link.href);
-                    if (url.protocol === 'http:' || url.protocol === 'https:') {
-                        const archiveLink = document.createElement('a');
-                        archiveLink.href = `https://web.archive.org/web/*/${encodeURIComponent(link.href)}`;
-                        archiveLink.target = '_blank';
-                        archiveLink.rel = 'noopener noreferrer';
-                        archiveLink.className = 'app-modal-link';
-                        archiveLink.textContent = 'Archive';
-                        modalLinks.appendChild(archiveLink);
-                    }
-                } catch (e) {}
+            if (li.dataset.github && li.dataset.github !== link.href && li.dataset.github !== li.dataset.homepage) {
+                const githubLink = document.createElement('a');
+                githubLink.href = li.dataset.github;
+                githubLink.target = '_blank';
+                githubLink.rel = 'noopener noreferrer';
+                githubLink.className = 'app-modal-link';
+                githubLink.textContent = 'GitHub';
+                modalLinks.appendChild(githubLink);
+            }
+
+            if (localStorage.getItem('nekoIndexShowArchives') !== 'false' && title) {
+                const archiveLink = document.createElement('a');
+                archiveLink.href = `https://archive.org/search?query=${encodeURIComponent(title)}`;
+                archiveLink.target = '_blank';
+                archiveLink.rel = 'noopener noreferrer';
+                archiveLink.className = 'app-modal-link';
+                archiveLink.textContent = 'Archive';
+                modalLinks.appendChild(archiveLink);
             }
 
             try {
