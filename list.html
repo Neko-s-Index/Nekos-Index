@@ -1233,6 +1233,16 @@
             box-shadow: 0 6px 18px rgba(239, 68, 68, 0.3);
         }
 
+        .my-lists-group .settings-btn-row {
+            gap: 8px;
+        }
+
+        .my-lists-group .settings-btn-action {
+            padding: 8px 12px;
+            font-size: 13px;
+            border-radius: 8px;
+        }
+
         .settings-close {
             position: absolute;
             top: 22px;
@@ -5375,6 +5385,9 @@
     <!-- Data Management -->
     <div class="settings-group">
         <label>Data</label>
+        <p style="font-size: 13px; color: var(--text-secondary); margin: 10px 0;">
+            This section is for the Neko Index app settings only (theme, layout, favorites, my lists, etc.).
+        </p>
         <div class="settings-btn-row">
             <button class="settings-btn-action" id="exportSettings">Export</button>
             <button class="settings-btn-action" id="importSettings">Import</button>
@@ -5385,7 +5398,7 @@
     </div>
 
     <!-- My Lists -->
-    <div class="settings-group">
+    <div class="settings-group my-lists-group">
         <label>My Lists</label>
         <p style="font-size: 13px; color: var(--text-secondary); margin: 10px 0;">
             Personal apps, resources, categories, and lists are saved only in your browser and are only visible to you. To share or contribute, please contact the project owner or use the social links.
