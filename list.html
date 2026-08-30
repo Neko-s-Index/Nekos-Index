@@ -1433,6 +1433,19 @@
             vertical-align: middle;
         }
 
+        .recommended-tag {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 5px;
+            background: var(--accent-gradient);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+
         .setting-row {
             display: flex;
             align-items: center;
@@ -3685,6 +3698,7 @@
 <div class="beta-notice">
     🚧 This site is currently in <strong>beta / development</strong>.  
     Some features may not work correctly, and not all sources are listed yet.
+    If you notice any issues, please get in contact and let me know.
 </div>
 
 <header>
@@ -5135,6 +5149,9 @@
     <p class="footer-notice" style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);">
         All resources listed are third-party. If you find this index useful, please consider <a href="donations.html" style="color: var(--text-primary); text-decoration: underline;">donating</a>.
     </p>
+    <p class="contact-note" style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);">
+        Notice any issues or missing sources? Please get in contact and let me know.
+    </p>
 
     <div class="footer-nav">
         <a href="index.html">Home</a>
@@ -5223,7 +5240,7 @@
         </div>
 
         <div class="toggle-switch">
-            <label>Compact Mode</label>
+            <label>Compact Mode <span class="recommended-tag">Recommended</span></label>
             <label>
                 <input type="checkbox" id="compactModeToggle">
                 <span class="toggle-slider"></span>
@@ -5249,7 +5266,7 @@
         </div>
 
         <div class="toggle-switch">
-            <label>Show App Descriptions</label>
+            <label>Show App Descriptions <span class="recommended-tag">Recommended</span></label>
             <label>
                 <input type="checkbox" id="showDescriptionsToggle">
                 <span class="toggle-slider"></span>
@@ -5257,7 +5274,7 @@
         </div>
 
         <div class="toggle-switch">
-            <label>Show Review Badges</label>
+            <label>Show Review Badges <span class="recommended-tag">Recommended</span></label>
             <label>
                 <input type="checkbox" id="showBadgesToggle">
                 <span class="toggle-slider"></span>
@@ -5265,7 +5282,7 @@
         </div>
 
         <div class="toggle-switch">
-            <label>Show Archive Links</label>
+            <label>Show Archive Links <span class="recommended-tag">Recommended</span></label>
             <label>
                 <input type="checkbox" id="showArchivesToggle">
                 <span class="toggle-slider"></span>
@@ -5273,7 +5290,7 @@
         </div>
 
         <div class="toggle-switch">
-            <label>Reduce Motion <span class="beta-tag">Beta</span></label>
+            <label>Reduce Motion <span class="recommended-tag">Recommended</span> <span class="beta-tag">Beta</span></label>
             <label>
                 <input type="checkbox" id="reduceMotionToggle">
                 <span class="toggle-slider"></span>
@@ -5310,7 +5327,7 @@
         <label>Behavior</label>
 
         <div class="toggle-switch">
-            <label>Auto-collapse Categories</label>
+            <label>Auto-collapse Categories <span class="recommended-tag">Recommended</span></label>
             <label>
                 <input type="checkbox" id="autoCollapseToggle">
                 <span class="toggle-slider"></span>
@@ -5333,6 +5350,9 @@
     <!-- Help -->
     <div class="settings-group">
         <label>Help</label>
+        <p style="font-size: 13px; color: var(--text-secondary); margin: 10px 0;">
+            If you run into any issues, please get in contact and let me know.
+        </p>
         <div class="settings-btn-row">
             <button class="settings-btn-action" id="showShortcuts">Shortcuts</button>
             <button class="settings-btn-action" id="openGuideFromSettings">Guide</button>
@@ -5864,7 +5884,7 @@
                 } catch (e) {}
             }
 
-            const shareUrl = `list.html?open=${encodeURIComponent(title)}`;
+            const shareUrl = new URL(`?open=${encodeURIComponent(title)}`, window.location.href).href;
             const copyBtn = document.createElement('button');
             copyBtn.className = 'app-modal-link';
             copyBtn.textContent = 'Copy URL';
@@ -6062,7 +6082,9 @@
             wrapMarquee(container, isMain ? 'main-nav-track' : 'footer-nav-track', 25);
         });
 
-        openFromUrl();
+        if (listGate.classList.contains('hidden')) {
+            openFromUrl();
+        }
     })();
 </script>
 
