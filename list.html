@@ -2240,13 +2240,24 @@
             });
 
         // Main functionality
+        function recordPuzzleSolved() {
+            const key = 'nekos_puzzle_count';
+            let count = parseInt(localStorage.getItem(key), 10) || 0;
+            count++;
+            localStorage.setItem(key, count);
+            if (count >= 3) {
+                localStorage.setItem('nekos_puzzle_exempt', 'true');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             // ==================== VERIFICATION GATE ====================
             const listGate = document.getElementById('listGate');
             const gateStatus = document.getElementById('gateStatus');
             const gateAction = document.getElementById('gateAction');
 
-            if (localStorage.getItem('nekos_verified') === 'true') {
+            if (localStorage.getItem('nekos_verified') === 'true' ||
+                localStorage.getItem('nekos_puzzle_exempt') === 'true') {
                 listGate.classList.add('hidden');
             } else {
                 const num1 = Math.floor(Math.random() * 8) + 2;
@@ -2283,6 +2294,7 @@
 
                 btn.addEventListener('click', () => {
                     if (btn.disabled) return;
+                    recordPuzzleSolved();
                     localStorage.setItem('nekos_verified', 'true');
                     listGate.classList.add('hidden');
                 });
@@ -3497,6 +3509,7 @@
         <a href="privacy-settings.html">Privacy Settings</a>
         <a href="notes.html">Notes</a>
         <a href="socials.html">Socials</a>
+        <a href="sitemap.html">Sitemap</a>
         <a href="donations.html">Donate</a>
     </nav>
 </header>
@@ -3661,7 +3674,7 @@
             <li><a href="https://github.com/jellyfin/jellyfin-media-player" rel="noopener noreferrer" target="_blank">Jellyfin Media Player</a><span class="tag">Desktop</span></li>
             <li><a href="https://github.com/jellyfin/jellyfin-androidtv" rel="noopener noreferrer" target="_blank">Jellyfin Android TV</a><span class="tag">Android TV</span></li>
             <li><a href="https://github.com/jellyfin/jellyfin-android" rel="noopener noreferrer" target="_blank">Findroid / Jellyfin Android</a><span class="tag">Android</span></li>
-            <li data-puzzle="true" data-github="https://github.com/HDO-PRO/HDO-Pro"><a href="https://hdopro.netlify.app/" rel="noopener noreferrer" target="_blank">HDO Pro</a><span class="tag">Streaming</span><span class="item-desc">An open-source streaming app for movies, shows, and anime.</span></li>
+            <li data-puzzle="true" data-private="true" data-github="https://github.com/HDO-PRO/HDO-Pro"><a href="https://hdopro.netlify.app/" rel="noopener noreferrer" target="_blank">HDO Pro</a><span class="tag">Private</span><span class="item-desc">An open-source streaming app for movies, shows, and anime. Note: archives may not be available because this resource is private.</span></li>
         </ul>
         </div>
     </div>
@@ -4933,6 +4946,7 @@
         <a href="privacy.html">Privacy</a>
         <a href="notes.html">Notes</a>
         <a href="socials.html">Socials</a>
+        <a href="sitemap.html">Sitemap</a>
         <a href="donations.html">Donate</a>
         <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 13px;">Dev</a>
     </div>
@@ -5431,6 +5445,11 @@
         }
 
         function openPuzzleModal(onVerify) {
+            if (localStorage.getItem('nekos_puzzle_exempt') === 'true') {
+                onVerify();
+                return;
+            }
+
             const overlay = document.createElement('div');
             overlay.className = 'app-modal show';
             overlay.id = 'puzzleModal';
@@ -5471,6 +5490,7 @@
             btn.textContent = 'Verify';
             btn.addEventListener('click', () => {
                 if (parseInt(input.value, 10) === expected) {
+                    recordPuzzleSolved();
                     overlay.remove();
                     onVerify();
                 } else {
@@ -5708,12 +5728,14 @@
             let startTranslate = 0;
             let dx = 0;
             let pointerId = null;
+            let downTarget = null;
 
             track.addEventListener('click', (e) => {
-                if (track.dataset.dragged === 'true') {
+                if (track.dataset.dragged === 'true' || (downTarget && e.target !== downTarget)) {
                     e.preventDefault();
                     e.stopPropagation();
                     track.dataset.dragged = 'false';
+                    downTarget = null;
                 }
             });
 
@@ -5742,6 +5764,7 @@
             container.addEventListener('pointerdown', (e) => {
                 dragging = true;
                 pointerId = e.pointerId;
+                downTarget = e.target;
                 if (container.setPointerCapture) {
                     try { container.setPointerCapture(pointerId); } catch (e) {}
                 }

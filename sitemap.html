@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Neko's Index - Sitemap</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-primary: #0a0a0b;
+        --bg-secondary: #141416;
+        --bg-card: #1c1c1f;
+        --bg-card-hover: #27272a;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1aa;
+        --text-muted: #71717a;
+        --accent-primary: #3b82f6;
+        --accent-secondary: #8b5cf6;
+        --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        --border-color: #27272a;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--bg-primary);
+        background-image:
+            radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.15), transparent 45%),
+            radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.12), transparent 40%);
+        color: var(--text-primary);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.6;
+    }
+
+    .center {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 48px 36px;
+        max-width: 640px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin: 0 0 12px 0;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    p {
+        color: var(--text-secondary);
+        margin: 0 0 32px 0;
+    }
+
+    .main-nav {
+        margin: 28px 0 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 640px;
+        padding: 0 20px;
+    }
+
+    .main-nav a {
+        color: var(--text-primary);
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        padding: 10px 18px;
+        border-radius: 30px;
+        white-space: nowrap;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-nav a:hover {
+        background: var(--accent-gradient);
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+    }
+
+    .sitemap-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+    .sitemap-list li {
+        margin: 10px 0;
+    }
+
+    .sitemap-list a {
+        display: block;
+        padding: 12px 18px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .sitemap-list a:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--accent-primary);
+    }
+
+    .sitemap-list span {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 2px;
+    }
+
+    footer {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 13px;
+    }
+
+    footer a {
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: var(--text-primary);
+    }
+
+    .sitemap-gate {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 10, 11, 0.92);
+        backdrop-filter: blur(8px);
+    }
+
+    .sitemap-gate.hidden {
+        display: none;
+    }
+
+    .sitemap-gate .gate-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 40px 32px;
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    }
+
+    .sitemap-gate h2 {
+        margin: 0 0 12px 0;
+        font-size: 1.5rem;
+    }
+
+    .sitemap-gate p {
+        color: var(--text-secondary);
+        margin: 0 0 20px 0;
+    }
+
+    .sitemap-gate input {
+        width: 100%;
+        padding: 12px 16px;
+        margin-bottom: 16px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        color: var(--text-primary);
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .sitemap-gate input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+    }
+
+    .sitemap-gate button {
+        width: 100%;
+        padding: 12px 16px;
+        background: var(--accent-gradient);
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .sitemap-gate button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .sitemap-gate .status {
+        margin-top: 12px;
+        font-size: 13px;
+        color: var(--text-muted);
+    }
+</style>
+</head>
+<body>
+    <div class="sitemap-gate" id="sitemapGate">
+        <div class="gate-card">
+            <h2>Verify</h2>
+            <p id="gateStatus">Complete the puzzle below to view the sitemap.</p>
+            <p id="gatePrompt" style="font-weight: 700; color: var(--text-primary);"></p>
+            <input type="number" id="gateInput" placeholder="Answer" autocomplete="off">
+            <button id="gateBtn" disabled>Continue</button>
+            <p class="status">Puzzles are shared across the site. Solve 3 and you won't need to solve them anymore.</p>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="list.html">Index</a>
+        <a href="guides.html">Guides</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="dmca.html">DMCA</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="privacy-settings.html">Privacy Settings</a>
+        <a href="notes.html">Notes</a>
+        <a href="socials.html">Socials</a>
+        <a href="donations.html">Donate</a>
+    </nav>
+
+    <div class="center">
+        <div class="card">
+            <h1>Sitemap</h1>
+            <p>All the pages available on Neko's Index.</p>
+            <ul class="sitemap-list">
+                <li><a href="index.html">Home <span>The gate / landing page</span></a></li>
+                <li><a href="list.html">Index <span>Full directory of resources and apps</span></a></li>
+                <li><a href="guides.html">Guides <span>Tips and walkthroughs</span></a></li>
+                <li><a href="notes.html">Notes <span>Release notes and updates</span></a></li>
+                <li><a href="privacy.html">Privacy <span>Privacy policy</span></a></li>
+                <li><a href="privacy-settings.html">Privacy Settings <span>Manage privacy choices</span></a></li>
+                <li><a href="disclaimer.html">Disclaimer <span>Usage disclaimer</span></a></li>
+                <li><a href="dmca.html">DMCA <span>DMCA information</span></a></li>
+                <li><a href="socials.html">Socials <span>Community and social links</span></a></li>
+                <li><a href="donations.html">Donate <span>Support the project</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Neko's Index. <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer">Dev</a></p>
+    </footer>
+
+    <script>
+        (function() {
+            function recordPuzzleSolved() {
+                const key = 'nekos_puzzle_count';
+                let count = parseInt(localStorage.getItem(key), 10) || 0;
+                count++;
+                localStorage.setItem(key, count);
+                if (count >= 3) {
+                    localStorage.setItem('nekos_puzzle_exempt', 'true');
+                }
+            }
+
+            const gate = document.getElementById('sitemapGate');
+            if (localStorage.getItem('nekos_puzzle_exempt') === 'true' ||
+                localStorage.getItem('nekos_verified') === 'true') {
+                gate.classList.add('hidden');
+                return;
+            }
+
+            const a = Math.floor(Math.random() * 9) + 1;
+            const b = Math.floor(Math.random() * 9) + 1;
+            const expected = a + b;
+
+            document.getElementById('gatePrompt').textContent = `What is ${a} + ${b}?`;
+
+            const input = document.getElementById('gateInput');
+            const btn = document.getElementById('gateBtn');
+            const status = document.getElementById('gateStatus');
+
+            input.addEventListener('input', () => {
+                if (parseInt(input.value, 10) === expected) {
+                    btn.disabled = false;
+                    status.textContent = 'Puzzle solved. Click continue.';
+                } else {
+                    btn.disabled = true;
+                    status.textContent = 'Complete the puzzle below to view the sitemap.';
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !btn.disabled) btn.click();
+            });
+
+            btn.addEventListener('click', () => {
+                if (btn.disabled) return;
+                recordPuzzleSolved();
+                gate.classList.add('hidden');
+            });
+        })();
+    </script>
+</body>
+</html>
