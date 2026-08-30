@@ -5278,12 +5278,13 @@
 
         <div class="setting-row">
             <label for="layoutSelect">App Layout</label>
-            <select class="settings-select" id="layoutSelect">
-                <option value="grid">Grid (may not work properly on mobile)</option>
+            <select class="settings-select" id="layoutSelect" style="width: 100%; min-width: 0;">
+                <option value="grid">Grid</option>
                 <option value="list">List (Recommended)</option>
-                <option value="compact">Compact Grid (may not work properly on mobile)</option>
+                <option value="compact">Compact Grid</option>
             </select>
         </div>
+        <p class="settings-note" style="margin: 4px 0 12px;">Grid and Compact Grid may not work properly on mobile.</p>
 
         <div class="toggle-switch">
             <label>Show App Descriptions <span class="recommended-tag">Recommended</span></label>
