@@ -1667,6 +1667,7 @@
             margin-top: 10px;
             display: flex;
             align-items: center;
+            gap: 14px;
             overflow: hidden;
             width: 100%;
             max-width: 100%;
@@ -1697,6 +1698,7 @@
         .footer-nav {
             display: flex;
             align-items: center;
+            gap: 14px;
             overflow: hidden;
             width: 100%;
             max-width: 100%;
@@ -5904,7 +5906,6 @@
             if (container.scrollWidth <= container.clientWidth) {
                 container.style.flexWrap = 'wrap';
                 container.style.justifyContent = 'center';
-                container.style.gap = '14px';
                 container.style.cursor = 'default';
                 container.dataset.marquee = 'false';
                 const note = container.nextElementSibling;
