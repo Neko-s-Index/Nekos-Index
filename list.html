@@ -1651,6 +1651,11 @@
                 border-radius: 18px;
                 max-width: 100%;
                 justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
             }
 
             .main-nav a {
@@ -1672,7 +1677,7 @@
             margin-top: 10px;
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             justify-content: flex-start;
             gap: 8px;
             width: 100%;
@@ -1681,7 +1686,14 @@
             border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
             backdrop-filter: blur(8px);
+        }
+
+        .main-nav::-webkit-scrollbar {
+            display: none;
         }
         .main-nav a {
             color: var(--text-secondary);
