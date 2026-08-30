@@ -1090,27 +1090,9 @@
         /* Social Share Buttons */
         .social-share {
             display: flex;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-            max-width: 100%;
-            background: rgba(20, 20, 22, 0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        .share-track {
-            display: flex;
             gap: 10px;
-            width: max-content;
-            animation: marquee 15s linear infinite;
-            will-change: transform;
-        }
-
-        .social-share:hover .share-track {
-            animation-play-state: paused;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .share-btn {
@@ -1681,6 +1663,7 @@
             padding: 8px;
             backdrop-filter: blur(8px);
             position: relative;
+            cursor: grab;
         }
 
         .main-nav-track {
@@ -1698,6 +1681,46 @@
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        .footer-nav {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            margin: 20px 0;
+            background: rgba(20, 20, 22, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px;
+            cursor: grab;
+        }
+
+        .footer-nav-track {
+            display: flex;
+            gap: 12px;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+            will-change: transform;
+        }
+
+        .footer-nav:hover .footer-nav-track {
+            animation-play-state: paused;
+        }
+
+        .footer-nav a {
+            color: var(--text-secondary);
+            font-size: 13px;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .footer-nav a:hover {
+            color: var(--text-primary);
+            transform: rotate(360deg);
         }
         .main-nav a {
             color: var(--text-secondary);
@@ -4884,7 +4907,7 @@
         All resources listed are third-party. If you find this index useful, please consider <a href="donations.html" style="color: var(--text-primary); text-decoration: underline;">donating</a>.
     </p>
 
-    <div style="margin: 20px 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+    <div class="footer-nav">
         <a href="index.html" style="color: var(--text-secondary); font-size: 13px;">Home</a>
         <a href="disclaimer.html" style="color: var(--text-secondary); font-size: 13px;">Disclaimer</a>
         <a href="dmca.html" style="color: var(--text-secondary); font-size: 13px;">DMCA</a>
@@ -5623,16 +5646,75 @@
             }
         });
 
-        // Circular marquee for nav and share buttons
-        document.querySelectorAll('.main-nav, .social-share').forEach(container => {
-            if (container.querySelector('.main-nav-track, .share-track')) return;
-            const trackClass = container.classList.contains('main-nav') ? 'main-nav-track' : 'share-track';
+        // Circular marquee for nav and footer buttons
+        function getTrackX(track) {
+            const style = window.getComputedStyle(track).transform;
+            if (style === 'none') return 0;
+            const m = style.match(/matrix\(([^)]+)\)/);
+            if (!m) return 0;
+            return parseFloat(m[1].split(',')[4].trim());
+        }
+
+        function wrapMarquee(container, trackClass, defaultDuration) {
+            if (container.querySelector('.' + trackClass)) return;
             const track = document.createElement('div');
             track.className = trackClass;
             const children = Array.from(container.children);
             children.forEach(child => track.appendChild(child));
             children.forEach(child => track.appendChild(child.cloneNode(true)));
             container.appendChild(track);
+
+            let dragging = false;
+            let startX = 0;
+            let startTranslate = 0;
+            let dx = 0;
+
+            track.addEventListener('click', (e) => {
+                if (track.dataset.dragged === 'true') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    track.dataset.dragged = 'false';
+                }
+            });
+
+            container.addEventListener('pointerdown', (e) => {
+                dragging = true;
+                container.style.cursor = 'grabbing';
+                track.style.animationPlayState = 'paused';
+                track.dataset.dragged = 'false';
+                startX = e.clientX;
+                startTranslate = getTrackX(track);
+                track.style.transform = `translateX(${startTranslate}px)`;
+            });
+
+            container.addEventListener('pointermove', (e) => {
+                if (!dragging) return;
+                e.preventDefault();
+                dx = e.clientX - startX;
+                track.style.transform = `translateX(${startTranslate + dx}px)`;
+            });
+
+            container.addEventListener('pointerup', () => {
+                if (!dragging) return;
+                dragging = false;
+                container.style.cursor = '';
+                if (Math.abs(dx) > 5) track.dataset.dragged = 'true';
+
+                const currentX = getTrackX(track);
+                const W = track.scrollWidth / 2;
+                if (W > 0) {
+                    const T = parseFloat(window.getComputedStyle(track).animationDuration) || defaultDuration;
+                    const progress = ((-currentX % W) + W) % W;
+                    track.style.transform = '';
+                    track.style.animationPlayState = '';
+                    track.style.animationDelay = `-${(progress / W) * T}s`;
+                }
+            });
+        }
+
+        document.querySelectorAll('.main-nav, .footer-nav').forEach(container => {
+            const isMain = container.classList.contains('main-nav');
+            wrapMarquee(container, isMain ? 'main-nav-track' : 'footer-nav-track', isMain ? 25 : 20);
         });
     })();
 </script>
