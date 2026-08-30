@@ -1146,11 +1146,18 @@
         }
 
         .settings-panel h3 {
-            margin: 0 0 24px 0;
+            margin: 0 0 12px 0;
             padding-right: 50px;
             color: var(--text-primary);
             font-size: 1.5rem;
             font-weight: 700;
+        }
+
+        .settings-note {
+            margin: 0 0 20px 0;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
         }
 
         .settings-group {
@@ -2237,6 +2244,10 @@
         body.reduce-motion * {
             animation: none !important;
             transition: none !important;
+        }
+
+        body.reduce-motion .site-logo {
+            animation: float 4s ease-in-out infinite !important;
         }
 
         /* High Contrast */
@@ -5218,6 +5229,7 @@
 <div class="settings-panel" id="settingsPanel">
     <button class="settings-close" id="settingsClose" aria-label="Close settings">&times;</button>
     <h3>Settings</h3>
+    <p class="settings-note">Some settings are mobile-specific and may not do anything on PC.</p>
 
     <!-- Display Settings -->
     <div class="settings-group">
