@@ -2521,9 +2521,9 @@
 
             const categoryFilters = {
                 'all': [],
-                'streaming': ['Open Source Streaming Apps', 'Premium Streaming Services', 'Free Streaming Services'],
-                'anime': ['Open Source Anime & Manga Apps', 'Anime & Manga Databases'],
-                'manga': ['Manga & Novel Reading'],
+                'streaming': ['Open Source Streaming Apps', 'Premium Streaming Services', 'Free Streaming Services', 'Free Movie Streaming Sites'],
+                'anime': ['Open Source Anime & Manga Apps', 'Anime & Manga Databases', 'Free Anime Streaming Sites', 'Additional Anime & Manga Apps'],
+                'manga': ['Manga & Novel Reading', 'Free Manga Reading Sites'],
                 'tools': ['Media Players & Converters', 'Development & Productivity Tools', 'Audio Tagging Tools', 'Open Source Utilities & Browsers'],
                 'download': ['Download Managers & Torrent Clients', 'Usenet & NZB Tools', 'Archives & Mirrors'],
                 'android': ['Open Source Android Apps'],
@@ -3442,6 +3442,7 @@
         <a href="privacy.html">Privacy</a>
         <a href="privacy-settings.html">Privacy Settings</a>
         <a href="notes.html">Notes</a>
+        <a href="donations.html">Donate</a>
     </nav>
 </header>
 
@@ -3929,6 +3930,30 @@
             <li><a href="https://mangafox.la/" rel="noopener noreferrer" target="_blank">Manga Fox</a><span class="tag">Classic</span></li>
             <li><a href="https://everythingmoe.com/s/mangago" rel="noopener noreferrer" target="_blank">Mangago</a><span class="tag">Index</span></li>
             <li><a href="https://everythingmoe.com/s/allmanga" rel="noopener noreferrer" target="_blank">MKissa Manga</a><span class="tag">Index</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Free Movie Streaming Sites</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://tubitv.com" rel="noopener noreferrer" target="_blank">Tubi</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://www.crackle.com" rel="noopener noreferrer" target="_blank">Crackle</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://pluto.tv" rel="noopener noreferrer" target="_blank">Pluto TV</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://www.amazon.com/freevee" rel="noopener noreferrer" target="_blank">Freevee</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://www.peacocktv.com" rel="noopener noreferrer" target="_blank">Peacock</a><span class="tag">Free Tier</span></li>
+            <li><a href="https://www.vudu.com" rel="noopener noreferrer" target="_blank">Vudu</a><span class="tag">Free with Ads</span></li>
+            <li><a href="https://www.plex.tv" rel="noopener noreferrer" target="_blank">Plex</a><span class="tag">Free with Ads</span></li>
+            <li><a href="https://therokuchannel.roku.com" rel="noopener noreferrer" target="_blank">The Roku Channel</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://www.youtube.com/movies" rel="noopener noreferrer" target="_blank">YouTube Movies &amp; Shows</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://www.xumo.tv" rel="noopener noreferrer" target="_blank">Xumo Play</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://popcornflix.com" rel="noopener noreferrer" target="_blank">Popcornflix</a><span class="tag">Ad-Supported</span></li>
+            <li><a href="https://www.kanopy.com" rel="noopener noreferrer" target="_blank">Kanopy</a><span class="tag">Library</span></li>
+            <li><a href="https://www.hoopladigital.com" rel="noopener noreferrer" target="_blank">Hoopla</a><span class="tag">Library</span></li>
         </ul>
         </div>
     </div>
@@ -4841,6 +4866,9 @@
 
 <footer>
     <p>&copy; 2026 Neko's Index. All Rights Reserved.</p>
+    <p style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);">
+        All resources listed are third-party. If you find this index useful, please consider <a href="donations.html" style="color: var(--text-primary); text-decoration: underline;">donating</a>.
+    </p>
 
     <div style="margin: 20px 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="index.html" style="color: var(--text-secondary); font-size: 13px;">Home</a>
@@ -4848,6 +4876,7 @@
         <a href="dmca.html" style="color: var(--text-secondary); font-size: 13px;">DMCA</a>
         <a href="privacy.html" style="color: var(--text-secondary); font-size: 13px;">Privacy</a>
         <a href="notes.html" style="color: var(--text-secondary); font-size: 13px;">Notes</a>
+        <a href="donations.html" style="color: var(--text-secondary); font-size: 13px;">Donate</a>
     </div>
 
     <div class="other-indexes">
@@ -5294,26 +5323,39 @@
 
             const links = document.createElement('div');
             links.className = 'app-modal-links';
-            const options = [
-                { label: 'archive.org', href: `https://archive.org/search?query=${encodeURIComponent(title)}` },
-                { label: 'Wayback Machine', href: `https://web.archive.org/web/*/${encodeURIComponent(url)}` },
-                { label: 'archive.today', href: `https://archive.today/?run=1&url=${encodeURIComponent(url)}` }
-            ];
-            for (const opt of options) {
+            const seen = new Set();
+            const addOption = (label, href) => {
+                let hostname = '';
+                try { hostname = new URL(href).hostname.toLowerCase().replace(/^www\./, ''); } catch (e) { return; }
+                if (seen.has(hostname)) return;
+                seen.add(hostname);
                 const a = document.createElement('a');
-                a.href = opt.href;
+                a.href = href;
                 a.target = '_blank';
                 a.rel = 'noopener noreferrer';
                 a.className = 'app-modal-link';
-                a.textContent = opt.label;
+                a.textContent = label;
                 a.addEventListener('click', () => setTimeout(() => overlay.remove(), 100));
                 links.appendChild(a);
+            };
+
+            addOption('archive.org', `https://archive.org/search?query=${encodeURIComponent(title)}`);
+            addOption('Wayback Machine', `https://web.archive.org/web/*/${encodeURIComponent(url)}`);
+            addOption('archive.today', `https://archive.today/?run=1&url=${encodeURIComponent(url)}`);
+
+            const archiveCategory = Array.from(document.querySelectorAll('.category-header span')).find(span => span.textContent.includes('Archives & Mirrors'))?.closest('.category');
+            if (archiveCategory) {
+                archiveCategory.querySelectorAll('.category-content li a').forEach(archive => {
+                    try {
+                        addOption(archive.textContent.trim(), archive.href);
+                    } catch (e) {}
+                });
             }
 
             content.appendChild(header);
             const note = document.createElement('p');
             note.className = 'app-modal-desc';
-            note.textContent = 'If you need an older version of this resource, pick an archive below to search for snapshots.';
+            note.textContent = 'If you need an older version or mirror of this resource, pick an archive below to search or browse.';
             content.appendChild(note);
             content.appendChild(links);
             overlay.appendChild(content);
