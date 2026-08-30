@@ -1701,10 +1701,11 @@
             width: 100%;
             max-width: 100%;
             margin: 20px 0;
-            background: rgba(20, 20, 22, 0.5);
+            background: rgba(20, 20, 22, 0.75);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 10px;
+            border-radius: 24px;
+            padding: 8px;
+            backdrop-filter: blur(8px);
             cursor: grab;
             touch-action: pan-y;
             user-select: none;
@@ -1738,6 +1739,11 @@
             border-color: transparent;
             box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
         }
+
+        .footer-nav a:active {
+            transform: scale(0.96);
+        }
+
         .main-nav a {
             color: var(--text-secondary);
             background: transparent;
@@ -5107,7 +5113,7 @@
         <a href="socials.html">Socials</a>
         <a href="sitemap.html">Sitemap</a>
         <a href="donations.html">Donate</a>
-        <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 13px;">Dev</a>
+        <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer">Dev</a>
     </div>
     <details class="marquee-note">
         <summary class="marquee-note-btn">Mobile note</summary>
