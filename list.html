@@ -1646,20 +1646,23 @@
             }
 
             .main-nav {
+                display: block;
                 padding: 8px;
-                gap: 8px;
                 border-radius: 18px;
                 max-width: 100%;
-                justify-content: flex-start;
-                flex-wrap: nowrap;
+                white-space: nowrap;
                 overflow-x: auto;
                 overflow-y: hidden;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
+                font-size: 0;
             }
 
             .main-nav a {
-                padding: 8px 14px;
+                display: inline-block;
+                vertical-align: middle;
+                padding: 8px 12px;
+                margin-right: 6px;
                 font-size: 13px;
                 font-weight: 600;
                 border-radius: 20px;
@@ -1667,7 +1670,10 @@
                 border: 1px solid var(--border-color);
                 color: var(--text-primary);
                 white-space: nowrap;
-                flex-shrink: 0;
+            }
+
+            .main-nav a:last-child {
+                margin-right: 0;
             }
 
             .page-links-label {
@@ -2962,14 +2968,6 @@
             // ==================== SOCIAL SHARE ====================
             const currentUrl = encodeURIComponent(window.location.href);
             const currentTitle = encodeURIComponent('Neko\'s Index - Your go-to resource for movies, shows, and anime');
-
-            document.getElementById('shareTwitter').addEventListener('click', function() {
-                window.open(`https://twitter.com/intent/tweet?text=${currentTitle}&url=${currentUrl}`, '_blank');
-            });
-
-            document.getElementById('shareReddit').addEventListener('click', function() {
-                window.open(`https://www.reddit.com/submit?url=${currentUrl}&title=${currentTitle}`, '_blank');
-            });
 
             document.getElementById('shareCopy').addEventListener('click', function() {
                 navigator.clipboard.writeText(window.location.href).then(() => {
@@ -4935,8 +4933,7 @@
 
     <!-- Social Share Buttons -->
     <div class="social-share">
-        <button class="share-btn" id="shareTwitter">🐦 Twitter</button>
-        <button class="share-btn" id="shareReddit">📱 Reddit</button>
+        <a href="socials.html" class="share-btn">🌐 Socials</a>
         <button class="share-btn" id="shareCopy">📋 Copy Link</button>
     </div>
 </footer>
