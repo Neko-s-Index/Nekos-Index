@@ -1414,6 +1414,19 @@
             transform: translateX(20px);
         }
 
+        .beta-tag {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 2px 6px;
+            background: var(--accent-gradient);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+
         .setting-row {
             display: flex;
             align-items: center;
@@ -1701,7 +1714,7 @@
             display: flex;
             gap: 14px;
             width: max-content;
-            animation: marquee 20s linear infinite;
+            animation: marquee 25s linear infinite;
             will-change: transform;
         }
 
@@ -2297,6 +2310,7 @@
                     recordPuzzleSolved();
                     localStorage.setItem('nekos_verified', 'true');
                     listGate.classList.add('hidden');
+                    openFromUrl();
                 });
             }
 
@@ -2876,9 +2890,9 @@
             // Reduce Motion setting
             const reduceMotionKey = 'nekoIndexReduceMotion';
             const reduceMotionToggle = document.getElementById('reduceMotionToggle');
-            const savedReduceMotion = localStorage.getItem(reduceMotionKey) === 'true';
+            const savedReduceMotion = localStorage.getItem(reduceMotionKey) !== 'false';
             reduceMotionToggle.checked = savedReduceMotion;
-            if (savedReduceMotion) document.body.classList.add('reduce-motion');
+            document.body.classList.toggle('reduce-motion', savedReduceMotion);
             reduceMotionToggle.addEventListener('change', function() {
                 localStorage.setItem(reduceMotionKey, this.checked);
                 document.body.classList.toggle('reduce-motion', this.checked);
@@ -5063,7 +5077,7 @@
         </div>
 
         <div class="toggle-switch">
-            <label>Reduce Motion</label>
+            <label>Reduce Motion <span class="beta-tag">Beta</span></label>
             <label>
                 <input type="checkbox" id="reduceMotionToggle">
                 <span class="toggle-slider"></span>
@@ -5629,12 +5643,13 @@
                 } catch (e) {}
             }
 
+            const shareUrl = `list.html?open=${encodeURIComponent(title)}`;
             const copyBtn = document.createElement('button');
             copyBtn.className = 'app-modal-link';
             copyBtn.textContent = 'Copy URL';
             copyBtn.addEventListener('click', () => {
                 if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(link.href).then(() => {
+                    navigator.clipboard.writeText(shareUrl).then(() => {
                         copyBtn.textContent = 'Copied!';
                         setTimeout(() => copyBtn.textContent = 'Copy URL', 1500);
                     }).catch(() => {
@@ -5646,7 +5661,7 @@
 
                 function fallbackCopy() {
                     const textArea = document.createElement('textarea');
-                    textArea.value = link.href;
+                    textArea.value = shareUrl;
                     textArea.style.position = 'fixed';
                     textArea.style.left = '-9999px';
                     document.body.appendChild(textArea);
@@ -5727,7 +5742,6 @@
             let startX = 0;
             let startTranslate = 0;
             let dx = 0;
-            let pointerId = null;
             let downTarget = null;
 
             track.addEventListener('click', (e) => {
@@ -5742,9 +5756,6 @@
             const endDrag = () => {
                 if (!dragging) return;
                 dragging = false;
-                if (pointerId !== null && container.releasePointerCapture) {
-                    try { container.releasePointerCapture(pointerId); } catch (e) {}
-                }
                 container.style.cursor = '';
                 if (Math.abs(dx) > 5) track.dataset.dragged = 'true';
 
@@ -5763,11 +5774,7 @@
 
             container.addEventListener('pointerdown', (e) => {
                 dragging = true;
-                pointerId = e.pointerId;
                 downTarget = e.target;
-                if (container.setPointerCapture) {
-                    try { container.setPointerCapture(pointerId); } catch (e) {}
-                }
                 container.style.cursor = 'grabbing';
                 track.style.animationPlayState = 'paused';
                 track.dataset.dragged = 'false';
@@ -5775,23 +5782,51 @@
                 startX = e.clientX;
                 startTranslate = getTrackX(track);
                 track.style.transform = `translateX(${startTranslate}px)`;
+
+                const move = (ev) => {
+                    if (!dragging) return;
+                    ev.preventDefault();
+                    dx = ev.clientX - startX;
+                    track.style.transform = `translateX(${startTranslate + dx}px)`;
+                };
+
+                const up = (ev) => {
+                    document.removeEventListener('pointermove', move, { passive: false });
+                    document.removeEventListener('pointerup', up);
+                    document.removeEventListener('pointercancel', up);
+                    endDrag();
+                };
+
+                document.addEventListener('pointermove', move, { passive: false });
+                document.addEventListener('pointerup', up);
+                document.addEventListener('pointercancel', up);
             });
+        }
 
-            container.addEventListener('pointermove', (e) => {
-                if (!dragging) return;
-                e.preventDefault();
-                dx = e.clientX - startX;
-                track.style.transform = `translateX(${startTranslate + dx}px)`;
-            }, { passive: false });
-
-            container.addEventListener('pointerup', endDrag);
-            container.addEventListener('pointercancel', endDrag);
+        function openFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const openTitle = params.get('open');
+            if (!openTitle) return;
+            const lis = document.querySelectorAll('.category li');
+            for (const li of lis) {
+                const a = li.querySelector('a');
+                if (a && a.textContent.trim() === openTitle) {
+                    if (li.dataset.puzzle === 'true') {
+                        openPuzzleModal(() => openAppModal(li));
+                    } else {
+                        openAppModal(li);
+                    }
+                    break;
+                }
+            }
         }
 
         document.querySelectorAll('.main-nav, .footer-nav').forEach(container => {
             const isMain = container.classList.contains('main-nav');
-            wrapMarquee(container, isMain ? 'main-nav-track' : 'footer-nav-track', isMain ? 25 : 20);
+            wrapMarquee(container, isMain ? 'main-nav-track' : 'footer-nav-track', 25);
         });
+
+        openFromUrl();
     })();
 </script>
 
