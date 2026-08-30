@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neko's Index — My Lists</title>
+    <title>Neko Index — My Lists</title>
     <style>
         :root {
             --bg-primary: #0b0c0f;
@@ -46,28 +46,28 @@
         }
 
         .container {
-            max-width: 720px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         h1 {
             font-size: 1.75rem;
-            margin-bottom: 8px;
             text-align: center;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             text-align: center;
             color: var(--text-secondary);
-            margin-bottom: 24px;
             font-size: 14px;
+            margin-bottom: 20px;
         }
 
         .notice {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 12px 16px;
+            padding: 14px 16px;
             margin-bottom: 20px;
             font-size: 13px;
             color: var(--text-secondary);
@@ -82,8 +82,24 @@
         }
 
         .card h2 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            background: var(--accent-gradient);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 13px;
+            line-height: 26px;
+            text-align: center;
+            font-weight: 700;
         }
 
         label {
@@ -106,7 +122,7 @@
 
         textarea {
             resize: vertical;
-            min-height: 80px;
+            min-height: 70px;
         }
 
         .btn-row {
@@ -137,51 +153,73 @@
             background: #dc2626;
         }
 
-        .category-list {
+        .list {
             list-style: none;
-            margin: 12px 0;
+            margin-top: 14px;
         }
 
-        .category-list li {
+        .list li {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 14px;
+            padding: 12px 14px;
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             margin-bottom: 8px;
+            gap: 10px;
         }
 
-        .category-list li.active {
-            border-color: var(--accent-primary);
-            background: var(--bg-card-hover);
+        .list li > div {
+            min-width: 0;
         }
 
-        .item-list {
-            list-style: none;
-            margin-top: 12px;
+        .list li .title {
+            font-weight: 600;
+            color: var(--text-primary);
+            word-break: break-word;
         }
 
-        .item-list li {
+        .list li .meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+            word-break: break-word;
+        }
+
+        .list li .actions {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 12px;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 6px;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .list li .actions button {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+
+        .type-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            background: var(--accent-gradient);
+            color: #fff;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .empty {
+            color: var(--text-muted);
             font-size: 13px;
+            font-style: italic;
+            padding: 8px 0;
         }
 
         .small {
             font-size: 12px;
             color: var(--text-muted);
-        }
-
-        .hidden {
-            display: none;
         }
 
         .theme-toggle {
@@ -208,65 +246,122 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .back-link {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .status {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
     <div class="container">
-        <h1>Neko's Index — My Lists</h1>
-        <p class="subtitle">Create and manage your own categories, apps, resources, and custom lists for Neko's Index.</p>
+        <h1>Neko Index — My Lists</h1>
+        <p class="subtitle">Create and manage your own categories, apps, resources, sources, and custom lists.</p>
 
         <div class="notice">
-            Personal lists are saved to your browser's storage and are only visible to you. To share or contribute, please contact the project owner or use the social links.
+            Personal lists are saved to your browser and are only visible to you. To share or contribute, please contact the project owner or use the social links.
         </div>
 
         <div class="card">
-            <h2>1. Add Categories</h2>
+            <h2><span class="step">1</span> Add a Category</h2>
             <label for="categoryName">Category name</label>
-            <input type="text" id="categoryName" placeholder="e.g. My Android Apps">
+            <input type="text" id="categoryName" placeholder="e.g. My Favorite Anime Apps">
             <div class="btn-row">
                 <button id="addCategoryBtn">Add Category</button>
             </div>
-            <ul class="category-list" id="categoryList"></ul>
-        </div>
-
-        <div class="card" id="itemsCard" style="display: none;">
-            <h2>2. Add Items to <span id="activeCategoryName"></span></h2>
-            <label for="itemTitle">Title</label>
-            <input type="text" id="itemTitle" placeholder="App name">
-            <label for="itemUrl">URL</label>
-            <input type="url" id="itemUrl" placeholder="https://example.com">
-            <label for="itemTag">Tag (optional)</label>
-            <input type="text" id="itemTag" placeholder="Tool">
-            <label for="itemDesc">Description (optional)</label>
-            <textarea id="itemDesc" placeholder="Short description"></textarea>
-            <div class="btn-row">
-                <button id="addItemBtn">Add Item</button>
-            </div>
-            <ul class="item-list" id="itemList"></ul>
+            <ul class="list" id="categoryList"></ul>
         </div>
 
         <div class="card">
-            <h2>3. Save or Export</h2>
-            <p class="small" style="margin-bottom: 12px;"><strong>Save</strong> stores the list in Neko's Index on this browser. <strong>Export JSON</strong> downloads a file you can keep. <strong>Import JSON</strong> lets you edit an existing saved or exported list.</p>
-            <div class="btn-row">
-                <button id="saveToIndexBtn">Save</button>
-                <button class="secondary" id="downloadJsonBtn">Export JSON</button>
-                <button class="secondary" id="loadJsonBtn">Import JSON</button>
-                <input type="file" id="loadFileInput" accept=".json,.txt" style="display: none;">
+            <h2><span class="step">2</span> Add an App, Resource, Source, or List</h2>
+            <div class="grid-2">
+                <div>
+                    <label for="itemType">Type</label>
+                    <select id="itemType">
+                        <option value="App">App</option>
+                        <option value="Resource">Resource</option>
+                        <option value="Source">Source</option>
+                        <option value="List">List</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="itemCategory">Category</label>
+                    <select id="itemCategory"></select>
+                </div>
             </div>
-            <p class="small" id="statusText" style="margin-top: 10px;"></p>
+            <label for="itemTitle">Title</label>
+            <input type="text" id="itemTitle" placeholder="Name">
+            <label for="itemUrl">URL</label>
+            <input type="url" id="itemUrl" placeholder="https://example.com">
+            <label for="itemTag">Tag (optional)</label>
+            <input type="text" id="itemTag" placeholder="Open source, Windows, etc.">
+            <label for="itemDesc">Description (optional)</label>
+            <textarea id="itemDesc" placeholder="Short description"></textarea>
+            <div class="btn-row">
+                <button id="addItemBtn">Add to Category</button>
+            </div>
         </div>
 
-        <div style="text-align: center; margin: 24px 0;">
+        <div class="card">
+            <h2><span class="step">3</span> View Your Added Items</h2>
+            <div class="btn-row">
+                <button class="secondary" id="viewByCategoryBtn">View by Category</button>
+                <button class="secondary" id="viewAllBtn">View All</button>
+            </div>
+            <div id="viewContainer"></div>
+        </div>
+
+        <div class="card">
+            <h2><span class="step">4</span> Save or Export</h2>
+            <p class="small" style="margin-bottom: 12px;">
+                <strong>Save</strong> stores everything in Neko's Index on this browser. <strong>Export JSON</strong> downloads a file. <strong>Import JSON</strong> loads an existing saved or exported file.
+            </p>
+            <div class="btn-row">
+                <button id="saveBtn">Save</button>
+                <button class="secondary" id="exportBtn">Export JSON</button>
+                <button class="secondary" id="importBtn">Import JSON</button>
+                <input type="file" id="importFile" accept=".json,.txt" style="display: none;">
+            </div>
+            <p class="status" id="statusText"></p>
+        </div>
+
+        <div class="back-link">
             <a href="list.html">&larr; Back to Neko's Index</a>
         </div>
     </div>
 
     <script>
         const myListsKey = 'nekoIndexMyLists';
-        let data = JSON.parse(localStorage.getItem(myListsKey) || '{"categories": []}');
-        let activeCategoryIndex = -1;
+        let data = { categories: [] };
+
+        try {
+            const saved = localStorage.getItem(myListsKey);
+            if (saved) data = JSON.parse(saved);
+            if (!data.categories) data.categories = [];
+        } catch (e) {
+            data = { categories: [] };
+        }
+
+        let viewMode = 'category';
 
         const themeKey = 'nekoIndexTheme';
         const themeToggle = document.getElementById('themeToggle');
@@ -287,68 +382,9 @@
             localStorage.setItem(myListsKey, JSON.stringify(data));
         }
 
-        function renderCategories() {
-            const list = document.getElementById('categoryList');
-            list.innerHTML = '';
-            data.categories.forEach((cat, i) => {
-                const li = document.createElement('li');
-                if (i === activeCategoryIndex) li.classList.add('active');
-                li.innerHTML = `
-                    <span>${escapeHtml(cat.name)} (${cat.items.length})</span>
-                    <button class="secondary" data-index="${i}" style="padding: 6px 10px; font-size: 12px;">Select</button>
-                    <button class="danger" data-delete="${i}" style="padding: 6px 10px; font-size: 12px; margin-left: 6px;">Delete</button>
-                `;
-                list.appendChild(li);
-            });
-
-            list.querySelectorAll('button[data-index]').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    activeCategoryIndex = parseInt(btn.dataset.index);
-                    renderCategories();
-                    renderItems();
-                });
-            });
-
-            list.querySelectorAll('button[data-delete]').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const i = parseInt(btn.dataset.delete);
-                    data.categories.splice(i, 1);
-                    if (activeCategoryIndex === i) activeCategoryIndex = -1;
-                    if (activeCategoryIndex > i) activeCategoryIndex--;
-                    save();
-                    renderCategories();
-                    renderItems();
-                });
-            });
-        }
-
-        function renderItems() {
-            const card = document.getElementById('itemsCard');
-            const list = document.getElementById('itemList');
-            if (activeCategoryIndex < 0 || !data.categories[activeCategoryIndex]) {
-                card.style.display = 'none';
-                return;
-            }
-            card.style.display = 'block';
-            document.getElementById('activeCategoryName').textContent = data.categories[activeCategoryIndex].name;
-            list.innerHTML = '';
-            data.categories[activeCategoryIndex].items.forEach((item, i) => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <span>${escapeHtml(item.title)} <span class="small">— ${escapeHtml(item.url)}</span></span>
-                    <button class="danger" data-remove="${i}" style="padding: 6px 10px; font-size: 12px;">Remove</button>
-                `;
-                list.appendChild(li);
-            });
-
-            list.querySelectorAll('button[data-remove]').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    data.categories[activeCategoryIndex].items.splice(parseInt(btn.dataset.remove), 1);
-                    save();
-                    renderCategories();
-                    renderItems();
-                });
-            });
+        function setStatus(text) {
+            document.getElementById('statusText').textContent = text;
+            setTimeout(() => { document.getElementById('statusText').textContent = ''; }, 5000);
         }
 
         function escapeHtml(str) {
@@ -356,6 +392,132 @@
             div.textContent = String(str || '');
             return div.innerHTML;
         }
+
+        function renderCategories() {
+            const list = document.getElementById('categoryList');
+            const select = document.getElementById('itemCategory');
+            list.innerHTML = '';
+            select.innerHTML = '';
+
+            if (!data.categories.length) {
+                list.innerHTML = '<li class="empty">No categories yet. Create one above.</li>';
+                select.innerHTML = '<option disabled selected>No categories yet</option>';
+                return;
+            }
+
+            data.categories.forEach((cat, i) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div style="min-width:0;">
+                        <div class="title">${escapeHtml(cat.name)}</div>
+                        <div class="meta">${cat.items ? cat.items.length : 0} items</div>
+                    </div>
+                    <div class="actions">
+                        <button class="secondary" data-delete-cat="${i}">Delete</button>
+                    </div>
+                `;
+                list.appendChild(li);
+
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = cat.name;
+                select.appendChild(opt);
+            });
+
+            list.querySelectorAll('button[data-delete-cat]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const i = parseInt(btn.dataset.deleteCat);
+                    data.categories.splice(i, 1);
+                    save();
+                    renderCategories();
+                    renderView();
+                });
+            });
+        }
+
+        function renderView() {
+            const container = document.getElementById('viewContainer');
+            container.innerHTML = '';
+
+            if (!data.categories.length) {
+                container.innerHTML = '<p class="empty">No categories or items yet.</p>';
+                return;
+            }
+
+            if (viewMode === 'all') {
+                const ul = document.createElement('ul');
+                ul.className = 'list';
+                let hasAny = false;
+                data.categories.forEach((cat, catIndex) => {
+                    (cat.items || []).forEach((item, itemIndex) => {
+                        hasAny = true;
+                        ul.appendChild(makeItemLi(item, catIndex, itemIndex, cat.name));
+                    });
+                });
+                if (!hasAny) {
+                    container.innerHTML = '<p class="empty">No items yet.</p>';
+                    return;
+                }
+                container.appendChild(ul);
+            } else {
+                data.categories.forEach((cat, catIndex) => {
+                    const div = document.createElement('div');
+                    div.style.marginBottom = '16px';
+                    const h3 = document.createElement('h3');
+                    h3.textContent = cat.name;
+                    h3.style.fontSize = '1rem';
+                    h3.style.marginBottom = '8px';
+                    h3.style.color = 'var(--text-primary)';
+                    div.appendChild(h3);
+
+                    const ul = document.createElement('ul');
+                    ul.className = 'list';
+                    if (cat.items && cat.items.length) {
+                        cat.items.forEach((item, itemIndex) => {
+                            ul.appendChild(makeItemLi(item, catIndex, itemIndex));
+                        });
+                    } else {
+                        ul.innerHTML = '<li class="empty">No items in this category yet.</li>';
+                    }
+                    div.appendChild(ul);
+                    container.appendChild(div);
+                });
+            }
+        }
+
+        function makeItemLi(item, catIndex, itemIndex, categoryName) {
+            const li = document.createElement('li');
+            const cat = data.categories[catIndex];
+            const displayType = escapeHtml(item.type || 'Resource');
+            const meta = [];
+            if (item.tag) meta.push(escapeHtml(item.tag));
+            if (item.desc) meta.push(escapeHtml(item.desc));
+            if (categoryName) meta.push(`in ${escapeHtml(categoryName)}`);
+            li.innerHTML = `
+                <div style="display: flex; align-items: flex-start; gap: 8px; min-width: 0;">
+                    <span class="type-tag">${displayType}</span>
+                    <div style="min-width: 0;">
+                        <a class="title" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
+                        <div class="meta">${meta.join(' • ')}</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="danger" data-remove-cat="${catIndex}" data-remove-item="${itemIndex}">Remove</button>
+                </div>
+            `;
+            return li;
+        }
+
+        document.getElementById('viewContainer').addEventListener('click', e => {
+            const btn = e.target.closest('button[data-remove-cat]');
+            if (!btn) return;
+            const cat = parseInt(btn.dataset.removeCat);
+            const item = parseInt(btn.dataset.removeItem);
+            data.categories[cat].items.splice(item, 1);
+            save();
+            renderCategories();
+            renderView();
+        });
 
         document.getElementById('addCategoryBtn').addEventListener('click', () => {
             const name = document.getElementById('categoryName').value.trim();
@@ -367,40 +529,56 @@
             data.categories.push({ name, items: [] });
             save();
             document.getElementById('categoryName').value = '';
-            activeCategoryIndex = data.categories.length - 1;
             renderCategories();
-            renderItems();
+            renderView();
+            setStatus('Category added.');
         });
 
         document.getElementById('addItemBtn').addEventListener('click', () => {
-            if (activeCategoryIndex < 0) return;
+            const select = document.getElementById('itemCategory');
+            const catIndex = parseInt(select.value);
+            const type = document.getElementById('itemType').value;
             const title = document.getElementById('itemTitle').value.trim();
             const url = document.getElementById('itemUrl').value.trim();
             const tag = document.getElementById('itemTag').value.trim();
             const desc = document.getElementById('itemDesc').value.trim();
-            if (!title || !url) return alert('Title and URL are required.');
-            data.categories[activeCategoryIndex].items.push({ title, url, tag, desc });
+
+            if (isNaN(catIndex) || !data.categories[catIndex]) {
+                alert('Create a category first.');
+                return;
+            }
+            if (!title || !url) {
+                alert('Title and URL are required.');
+                return;
+            }
+
+            data.categories[catIndex].items.push({ type, title, url, tag, desc });
             save();
             document.getElementById('itemTitle').value = '';
             document.getElementById('itemUrl').value = '';
             document.getElementById('itemTag').value = '';
             document.getElementById('itemDesc').value = '';
             renderCategories();
-            renderItems();
+            renderView();
+            setStatus('Item added.');
         });
 
-        function setStatus(text) {
-            const el = document.getElementById('statusText');
-            el.textContent = text;
-            setTimeout(() => { el.textContent = ''; }, 5000);
-        }
+        document.getElementById('viewByCategoryBtn').addEventListener('click', () => {
+            viewMode = 'category';
+            renderView();
+        });
 
-        document.getElementById('saveToIndexBtn').addEventListener('click', () => {
+        document.getElementById('viewAllBtn').addEventListener('click', () => {
+            viewMode = 'all';
+            renderView();
+        });
+
+        document.getElementById('saveBtn').addEventListener('click', () => {
             save();
-            setStatus('Saved to Neko's Index. Open list.html to see it.');
+            setStatus('Saved to Neko\'s Index. Open list.html to see it.');
         });
 
-        document.getElementById('downloadJsonBtn').addEventListener('click', () => {
+        document.getElementById('exportBtn').addEventListener('click', () => {
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -408,14 +586,14 @@
             a.download = 'my-neko-lists.json';
             a.click();
             URL.revokeObjectURL(url);
-            setStatus('JSON downloaded.');
+            setStatus('JSON exported.');
         });
 
-        document.getElementById('loadJsonBtn').addEventListener('click', () => {
-            document.getElementById('loadFileInput').click();
+        document.getElementById('importBtn').addEventListener('click', () => {
+            document.getElementById('importFile').click();
         });
 
-        document.getElementById('loadFileInput').addEventListener('change', e => {
+        document.getElementById('importFile').addEventListener('change', e => {
             const file = e.target.files[0];
             if (!file) return;
             const reader = new FileReader();
@@ -427,13 +605,12 @@
                     } else if (Array.isArray(parsed)) {
                         data = { categories: parsed };
                     } else {
-                        return alert('Invalid JSON format.');
+                        return alert('Invalid JSON format. Expected {categories:[...]} or an array of categories.');
                     }
-                    activeCategoryIndex = data.categories.length ? 0 : -1;
                     save();
                     renderCategories();
-                    renderItems();
-                    setStatus('JSON loaded.');
+                    renderView();
+                    setStatus('Imported.');
                 } catch (err) {
                     alert('Could not parse file.');
                 }
@@ -442,7 +619,7 @@
         });
 
         renderCategories();
-        renderItems();
+        renderView();
     </script>
 </body>
 </html>

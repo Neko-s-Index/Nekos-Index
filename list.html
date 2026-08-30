@@ -6201,9 +6201,10 @@
                 if (cat.items && cat.items.length) {
                     cat.items.forEach((item, itemIndex) => {
                         const li = document.createElement('li');
+                        const itemTag = item.tag || item.type || 'Custom';
                         li.innerHTML = `
                             <a href="${escapeHtml(item.url)}" rel="noopener noreferrer" target="_blank">${escapeHtml(item.title)}</a>
-                            <span class="tag">${escapeHtml(item.tag || 'Custom')}</span>
+                            <span class="tag">${escapeHtml(itemTag)}</span>
                             <button class="favorite-btn" data-cat="${catIndex}" data-item="${itemIndex}" aria-label="Remove">×</button>
                         `;
                         ul.appendChild(li);
