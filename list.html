@@ -3117,7 +3117,8 @@
                     reduceMotion: localStorage.getItem(reduceMotionKey),
                     marquee: localStorage.getItem(marqueeKey),
                     highContrast: localStorage.getItem(highContrastKey),
-                    hideDonationNotice: localStorage.getItem(hideDonationNoticeKey)
+                    hideDonationNotice: localStorage.getItem(hideDonationNoticeKey),
+                    myLists: localStorage.getItem(myListsKey)
                 };
                 const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
                 const url = URL.createObjectURL(blob);
@@ -3155,6 +3156,7 @@
                             if (settings.marquee) localStorage.setItem(marqueeKey, settings.marquee);
                             if (settings.highContrast) localStorage.setItem(highContrastKey, settings.highContrast);
                             if (settings.hideDonationNotice) localStorage.setItem(hideDonationNoticeKey, settings.hideDonationNotice);
+                            if (settings.myLists) localStorage.setItem(myListsKey, settings.myLists);
                             alert('Settings imported successfully! Please refresh the page.');
                         } catch (err) {
                             alert('Invalid settings file.');
@@ -3802,6 +3804,13 @@
         <h3>My List</h3>
         <ul class="favorites-list" id="favoritesList"></ul>
         <p class="favorites-notice">This personal list is saved in your browser. Clearing page data will delete it.</p>
+    </div>
+
+    <!-- My Lists Section -->
+    <div class="favorites-section" id="myListsSection" style="display: none;">
+        <h3>My Lists</h3>
+        <div id="myListsContainer"></div>
+        <p class="favorites-notice" style="margin-top: 12px;">Your personal apps, resources, categories, and lists are only visible to you. To share or contribute, please contact the project owner or use the social links.</p>
     </div>
 
     <!-- Statistics Counter -->
@@ -5368,6 +5377,19 @@
         <button class="settings-btn-action danger" id="clearData">Clear All Data</button>
     </div>
 
+    <!-- My Lists -->
+    <div class="settings-group">
+        <label>My Lists</label>
+        <p style="font-size: 13px; color: var(--text-secondary); margin: 10px 0;">
+            Personal apps, resources, categories, and lists are saved only in your browser and are only visible to you. To share or contribute, please contact the project owner or use the social links.
+        </p>
+        <div class="settings-btn-row">
+            <button class="settings-btn-action" id="addCategoryBtn">Add Category</button>
+            <button class="settings-btn-action" id="addAppBtn">Add App/Resource</button>
+            <button class="settings-btn-action" id="importMyListBtn">Import My List</button>
+        </div>
+    </div>
+
     <!-- Help -->
     <div class="settings-group">
         <label>Help</label>
@@ -5408,6 +5430,14 @@
             <li>Press <strong>Random App</strong> to jump to a random entry.</li>
             <li>Click any resource to open its official page in a new tab.</li>
             <li>Use the <strong>Archive</strong> link for a Wayback Machine fallback.</li>
+        </ul>
+
+        <h4>My Lists</h4>
+        <ul>
+            <li>Open <strong>Settings</strong> and go to <strong>My Lists</strong> to add custom categories and apps/resources.</li>
+            <li>Use the <strong>My List Maker</strong> page (<a href="mylist-maker.html" target="_blank">here</a>) to build a list in a form and import it automatically.</li>
+            <li>Custom lists are saved in your browser and are only visible to you.</li>
+            <li>To share or contribute, contact the project owner or use the social links.</li>
         </ul>
 
         <h4>Keyboard &amp; Mouse Shortcuts</h4>
@@ -6111,6 +6141,195 @@
         if (listGate.classList.contains('hidden')) {
             openFromUrl();
         }
+
+        // ==================== MY LISTS ====================
+        const myListsKey = 'nekoIndexMyLists';
+        const myLists = JSON.parse(localStorage.getItem(myListsKey) || '{"categories":[]}');
+
+        function saveMyLists() {
+            localStorage.setItem(myListsKey, JSON.stringify(myLists));
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = String(str || '');
+            return div.innerHTML;
+        }
+
+        function renderMyLists() {
+            const container = document.getElementById('myListsContainer');
+            const section = document.getElementById('myListsSection');
+            container.innerHTML = '';
+            if (!myLists.categories || !myLists.categories.length) {
+                section.style.display = 'none';
+                return;
+            }
+            section.style.display = 'block';
+
+            myLists.categories.forEach((cat, catIndex) => {
+                const category = document.createElement('div');
+                category.className = 'category';
+                const header = document.createElement('div');
+                header.className = 'category-header';
+                header.innerHTML = `<span>${escapeHtml(cat.name)}</span><span class="toggle-icon">▼</span>`;
+                const content = document.createElement('div');
+                content.className = 'category-content';
+                const ul = document.createElement('ul');
+
+                if (cat.items && cat.items.length) {
+                    cat.items.forEach((item, itemIndex) => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <a href="${escapeHtml(item.url)}" rel="noopener noreferrer" target="_blank">${escapeHtml(item.title)}</a>
+                            <span class="tag">${escapeHtml(item.tag || 'Custom')}</span>
+                            <button class="favorite-btn" data-cat="${catIndex}" data-item="${itemIndex}" aria-label="Remove">×</button>
+                        `;
+                        ul.appendChild(li);
+                    });
+                } else {
+                    ul.innerHTML = '<li style="color: var(--text-muted);">No items yet.</li>';
+                }
+
+                content.appendChild(ul);
+                category.appendChild(header);
+                category.appendChild(content);
+                container.appendChild(category);
+            });
+
+            container.querySelectorAll('.category-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    header.classList.toggle('collapsed');
+                    header.nextElementSibling.classList.toggle('collapsed');
+                });
+            });
+
+            container.querySelectorAll('.favorite-btn').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const cat = parseInt(btn.dataset.cat);
+                    const item = parseInt(btn.dataset.item);
+                    myLists.categories[cat].items.splice(item, 1);
+                    if (!myLists.categories[cat].items.length && myLists.categories.length > 1) {
+                        myLists.categories.splice(cat, 1);
+                    }
+                    saveMyLists();
+                    renderMyLists();
+                });
+            });
+        }
+
+        function showMyModal(title, html, onSave) {
+            const overlay = document.createElement('div');
+            overlay.className = 'app-modal';
+            overlay.innerHTML = `
+                <div class="app-modal-content" style="max-width: 420px;">
+                    <button class="app-modal-close" aria-label="Close">&times;</button>
+                    <h2 class="app-modal-title">${escapeHtml(title)}</h2>
+                    <div class="app-modal-body" style="margin: 16px 0;">${html}</div>
+                    <div class="app-modal-links" style="justify-content: flex-end;">
+                        <button class="app-modal-link save">Save</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            requestAnimationFrame(() => overlay.classList.add('show'));
+
+            const close = () => overlay.remove();
+            overlay.querySelector('.app-modal-close').addEventListener('click', close);
+            overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+            overlay.querySelector('.save').addEventListener('click', () => {
+                if (onSave(overlay) !== false) close();
+            });
+        }
+
+        document.getElementById('addCategoryBtn').addEventListener('click', () => {
+            showMyModal('Add Category', `
+                <label style="display:block; margin-bottom:8px; color: var(--text-secondary); font-size: 13px;">Category name</label>
+                <input type="text" class="my-list-input" id="myCategoryName" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary);" placeholder="e.g. My Android Apps">
+            `, () => {
+                const name = document.getElementById('myCategoryName').value.trim();
+                if (!name) return false;
+                if (!myLists.categories) myLists.categories = [];
+                if (myLists.categories.some(c => c.name.toLowerCase() === name.toLowerCase())) {
+                    alert('Category already exists.');
+                    return false;
+                }
+                myLists.categories.push({ name, items: [] });
+                saveMyLists();
+                renderMyLists();
+            });
+        });
+
+        document.getElementById('addAppBtn').addEventListener('click', () => {
+            const categoryOptions = (myLists.categories || []).map((c, i) => `<option value="${i}">${escapeHtml(c.name)}</option>`).join('') || '<option value="" disabled>No categories yet</option>';
+            showMyModal('Add App / Resource', `
+                <label style="display:block; margin: 12px 0 6px; color: var(--text-secondary); font-size: 13px;">Title</label>
+                <input type="text" class="my-list-input" id="myAppTitle" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary);" placeholder="App name">
+                <label style="display:block; margin: 12px 0 6px; color: var(--text-secondary); font-size: 13px;">URL</label>
+                <input type="url" class="my-list-input" id="myAppUrl" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary);" placeholder="https://example.com">
+                <label style="display:block; margin: 12px 0 6px; color: var(--text-secondary); font-size: 13px;">Category</label>
+                <select class="my-list-input" id="myAppCategory" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary);">${categoryOptions}</select>
+                <label style="display:block; margin: 12px 0 6px; color: var(--text-secondary); font-size: 13px;">Tag (optional)</label>
+                <input type="text" class="my-list-input" id="myAppTag" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary);" placeholder="Tool">
+                <label style="display:block; margin: 12px 0 6px; color: var(--text-secondary); font-size: 13px;">Description (optional)</label>
+                <input type="text" class="my-list-input" id="myAppDesc" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary);" placeholder="Short description">
+            `, () => {
+                const title = document.getElementById('myAppTitle').value.trim();
+                const url = document.getElementById('myAppUrl').value.trim();
+                const catIndex = parseInt(document.getElementById('myAppCategory').value);
+                const tag = document.getElementById('myAppTag').value.trim();
+                const desc = document.getElementById('myAppDesc').value.trim();
+                if (!title || !url) return false;
+                if (isNaN(catIndex)) { alert('Create a category first.'); return false; }
+                if (!myLists.categories[catIndex]) return false;
+                myLists.categories[catIndex].items.push({ title, url, tag, desc });
+                saveMyLists();
+                renderMyLists();
+            });
+        });
+
+        document.getElementById('importMyListBtn').addEventListener('click', () => {
+            showMyModal('Import My List', `
+                <p style="font-size:13px; color: var(--text-secondary); margin-bottom:12px;">Upload a JSON file or paste JSON text. Format: <code>{"categories":[{"name":"...","items":[{"title":"...","url":"...","tag":"...","desc":"..."}]}]}</code></p>
+                <input type="file" id="myImportFile" accept=".json,.txt" style="display:block; margin-bottom:12px; color: var(--text-primary);">
+                <textarea id="myImportText" rows="6" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary);" placeholder='Paste JSON or text here'></textarea>
+            `, () => {
+                const file = document.getElementById('myImportFile').files[0];
+                const text = document.getElementById('myImportText').value.trim();
+
+                const finish = raw => {
+                    if (!raw) return;
+                    try {
+                        const data = JSON.parse(raw);
+                        if (data.categories && Array.isArray(data.categories)) {
+                            myLists.categories = myLists.categories.concat(data.categories);
+                        } else if (Array.isArray(data)) {
+                            myLists.categories = myLists.categories.concat(data);
+                        } else {
+                            alert('Invalid JSON format.');
+                            return;
+                        }
+                        saveMyLists();
+                        renderMyLists();
+                    } catch (e) {
+                        alert('Could not parse JSON: ' + e.message);
+                    }
+                };
+
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = e => finish(e.target.result);
+                    reader.readAsText(file);
+                } else if (text) {
+                    finish(text);
+                } else {
+                    return false;
+                }
+            });
+        });
+
+        renderMyLists();
     })();
 </script>
 
