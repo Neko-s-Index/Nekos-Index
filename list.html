@@ -3045,22 +3045,6 @@
             // ==================== ARCHIVE FALLBACK LINKS ====================
             function addArchiveLinks() {
                 if (localStorage.getItem('nekoIndexShowArchives') === 'false') return;
-                document.querySelectorAll('.category li > a').forEach(link => {
-                    try {
-                        if (link.parentElement.querySelector('.archive-link')) return;
-                        const url = new URL(link.href);
-                        if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
-
-                        const archive = document.createElement('a');
-                        archive.className = 'archive-link';
-                        archive.href = `https://web.archive.org/web/*/${encodeURIComponent(link.href)}`;
-                        archive.target = '_blank';
-                        archive.rel = 'noopener noreferrer';
-                        archive.title = 'View archived copy or search snapshots';
-                        archive.textContent = 'Archive';
-                        link.parentElement.appendChild(archive);
-                    } catch (e) {}
-                });
             }
             addArchiveLinks();
 
@@ -5236,7 +5220,6 @@
             const title = link.textContent.trim();
             const tagEl = li.querySelector('.tag');
             const descEl = li.querySelector('.item-desc');
-            const archiveEl = li.querySelector('.archive-link');
             const badgeEls = li.querySelectorAll('.repo-badge');
 
             modalTitle.textContent = title;
@@ -5290,14 +5273,19 @@
                 modalLinks.appendChild(websiteLink);
             }
 
-            if (archiveEl) {
-                const archiveLink = document.createElement('a');
-                archiveLink.href = archiveEl.href;
-                archiveLink.target = '_blank';
-                archiveLink.rel = 'noopener noreferrer';
-                archiveLink.className = 'app-modal-link';
-                archiveLink.textContent = 'Archive';
-                modalLinks.appendChild(archiveLink);
+            if (localStorage.getItem('nekoIndexShowArchives') !== 'false' && link.href) {
+                try {
+                    const url = new URL(link.href);
+                    if (url.protocol === 'http:' || url.protocol === 'https:') {
+                        const archiveLink = document.createElement('a');
+                        archiveLink.href = `https://web.archive.org/web/*/${encodeURIComponent(link.href)}`;
+                        archiveLink.target = '_blank';
+                        archiveLink.rel = 'noopener noreferrer';
+                        archiveLink.className = 'app-modal-link';
+                        archiveLink.textContent = 'Archive';
+                        modalLinks.appendChild(archiveLink);
+                    }
+                } catch (e) {}
             }
 
             try {
