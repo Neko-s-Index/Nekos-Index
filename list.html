@@ -2936,32 +2936,40 @@
             document.body.classList.toggle('marquee-paused', !savedMarquee);
 
             function resolveMotionMarquee() {
-                if (reduceMotionToggle.checked && marqueeToggle.checked) {
-                    // Reduce Motion wins: turn off Marquee
-                    marqueeToggle.checked = false;
-                    localStorage.setItem(marqueeKey, 'false');
-                    document.body.classList.add('marquee-paused');
+                // Keep Marquee and Reduce Motion exactly opposite so buttons animate when Reduce is off
+                const expectedMarquee = !reduceMotionToggle.checked;
+                if (marqueeToggle.checked !== expectedMarquee) {
+                    marqueeToggle.checked = expectedMarquee;
+                    localStorage.setItem(marqueeKey, expectedMarquee ? 'true' : 'false');
+                    document.body.classList.toggle('marquee-paused', !expectedMarquee);
                 }
             }
 
             reduceMotionToggle.addEventListener('change', function() {
                 localStorage.setItem(reduceMotionKey, this.checked);
                 document.body.classList.toggle('reduce-motion', this.checked);
-                if (this.checked && marqueeToggle.checked) {
+                if (this.checked) {
                     marqueeToggle.checked = false;
                     localStorage.setItem(marqueeKey, 'false');
                     document.body.classList.add('marquee-paused');
+                } else {
+                    marqueeToggle.checked = true;
+                    localStorage.setItem(marqueeKey, 'true');
+                    document.body.classList.remove('marquee-paused');
                 }
             });
 
             marqueeToggle.addEventListener('change', function() {
                 localStorage.setItem(marqueeKey, this.checked);
                 document.body.classList.toggle('marquee-paused', !this.checked);
-                if (this.checked && reduceMotionToggle.checked) {
-                    // Marquee needs motion: turn off Reduce Motion
+                if (this.checked) {
                     reduceMotionToggle.checked = false;
                     localStorage.setItem(reduceMotionKey, 'false');
                     document.body.classList.remove('reduce-motion');
+                } else {
+                    reduceMotionToggle.checked = true;
+                    localStorage.setItem(reduceMotionKey, 'true');
+                    document.body.classList.add('reduce-motion');
                 }
             });
 
