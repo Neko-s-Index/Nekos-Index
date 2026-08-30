@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Support Neko’s Index</title>
+<title>Neko’s Index — Socials (Coming Soon)</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,7 +121,7 @@
         box-shadow: 0 0 10px #facc15;
     }
 
-    .donate-grid {
+    .socials-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
@@ -129,7 +129,7 @@
         animation: fadeIn 0.6s 0.35s both;
     }
 
-    .donate-btn {
+    .social-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -149,7 +149,7 @@
         overflow: hidden;
     }
 
-    .donate-btn::after {
+    .social-btn::after {
         content: '';
         position: absolute;
         top: -50%;
@@ -161,25 +161,25 @@
         transition: transform 0.6s;
     }
 
-    .donate-btn:hover {
+    .social-btn:hover {
         transform: translateY(-4px) scale(1.02);
         border-color: transparent;
         box-shadow: 0 12px 35px rgba(59, 130, 246, 0.35);
     }
 
-    .donate-btn:hover::after {
+    .social-btn:hover::after {
         transform: rotate(25deg) translateX(100%);
     }
 
-    .kofi:hover {
-        background: linear-gradient(135deg, #ff5e5b 0%, #ff7b79 100%);
+    .discord:hover {
+        background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
     }
 
-    .patreon:hover {
-        background: linear-gradient(135deg, #ff424d 0%, #ff5861 100%);
+    .telegram:hover {
+        background: linear-gradient(135deg, #0088cc 0%, #0077b5 100%);
     }
 
-    .donate-icon {
+    .social-icon {
         font-size: 1.8rem;
     }
 
@@ -285,7 +285,7 @@
             width: 90px;
             height: 90px;
         }
-        .donate-grid {
+        .socials-grid {
             grid-template-columns: 1fr;
         }
     }
@@ -299,9 +299,9 @@
 <div class="center">
     <div class="card">
         <img src="logo.svg" alt="Neko's Index" class="logo">
-        <h1>Support Neko’s Index</h1>
+        <h1>Join the Community (Coming Soon)</h1>
         <p class="description">
-            This index is a community resource. If you find it useful, consider supporting its upkeep with a small donation.
+            Real Discord and Telegram invite links will be added here soon.
         </p>
 
         <div class="coming-soon">
@@ -309,19 +309,19 @@
             Coming soon — replace the example links below
         </div>
 
-        <div class="donate-grid">
-            <a href="https://ko-fi.com/example" rel="noopener noreferrer" target="_blank" class="donate-btn kofi">
-                <span class="donate-icon">☕</span>
-                <span>Buy me a coffee on Ko-fi</span>
+        <div class="socials-grid">
+            <a href="https://discord.gg/example" rel="noopener noreferrer" target="_blank" class="social-btn discord">
+                <span class="social-icon">💬</span>
+                <span>Join our Discord</span>
             </a>
-            <a href="https://patreon.com/example" rel="noopener noreferrer" target="_blank" class="donate-btn patreon">
-                <span class="donate-icon">♥</span>
-                <span>Support on Patreon</span>
+            <a href="https://t.me/example" rel="noopener noreferrer" target="_blank" class="social-btn telegram">
+                <span class="social-icon">✈</span>
+                <span>Join our Telegram</span>
             </a>
         </div>
 
         <p class="note">
-            The buttons above use placeholder /example URLs. Update them in <code>donations.html</code> with your real Ko-fi and Patreon links before going live.
+            The buttons above use placeholder /example URLs. Update them in <code>socials.html</code> with your real invite links before going live.
         </p>
 
         <nav class="main-nav">
@@ -329,6 +329,7 @@
             <a href="list.html">Index</a>
             <a href="guides.html">Guides</a>
             <a href="notes.html">Notes</a>
+            <a href="donations.html">Donate</a>
         </nav>
     </div>
 </div>
@@ -336,7 +337,7 @@
 <footer>
     <p>&copy; 2026 Neko’s Index. All Rights Reserved.</p>
     <p style="margin-top: 10px; font-size: 13px; color: var(--text-secondary);">
-        Neko’s Index is a community project. Your support helps keep this resource free and up to date.
+        Neko’s Index is a community project. If you find it useful, please consider <a href="donations.html">donating</a>.
     </p>
 </footer>
 
