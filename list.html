@@ -1604,7 +1604,7 @@
         }
 
         body.show-descriptions .item-desc {
-            display: -webkit-box;
+            display: -webkit-box !important;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 4;
             line-clamp: 4;
@@ -1626,7 +1626,7 @@
 
         body.layout-compact.show-descriptions .item-desc,
         body.layout-list.show-descriptions .item-desc {
-            display: -webkit-box;
+            display: -webkit-box !important;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
             line-clamp: 3;
@@ -2958,7 +2958,7 @@
             // App Layout setting
             const layoutKey = 'nekoIndexLayout';
             const layoutSelect = document.getElementById('layoutSelect');
-            const savedLayout = localStorage.getItem(layoutKey) || 'grid';
+            const savedLayout = localStorage.getItem(layoutKey) || 'list';
 
             layoutSelect.value = savedLayout;
             document.body.classList.add(`layout-${savedLayout}`);
@@ -5236,7 +5236,7 @@
 <div class="settings-panel" id="settingsPanel">
     <button class="settings-close" id="settingsClose" aria-label="Close settings">&times;</button>
     <h3>Settings</h3>
-    <p class="settings-note">Some settings are mobile-specific and may not do anything on PC.</p>
+    <p class="settings-note">Some things may work better on PC, and some may work better on mobile. Most settings are still available on both.</p>
 
     <!-- Display Settings -->
     <div class="settings-group">
@@ -5992,7 +5992,12 @@
             }
 
             const note = container.nextElementSibling;
-            if (note && note.classList.contains('marquee-note')) note.style.display = '';
+            if (note && note.classList.contains('marquee-note')) {
+                note.style.display = '';
+                setTimeout(() => {
+                    if (!note.open) note.open = true;
+                }, 30000);
+            }
 
             const track = document.createElement('div');
             track.className = trackClass;
