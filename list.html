@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neko's Index</title>
-    <meta name="description" content="Your go-to resource for movies, shows, and anime - Open source streaming apps, media tools, and more">
+    <meta name="description" content="A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.">
+    <meta property="og:title" content="Neko's Index">
+    <meta property="og:description" content="A curated directory of open-source apps, privacy tools, streaming utilities, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nekosindex.com/list.html">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#3b82f6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3255,7 +3260,7 @@
 
             // ==================== SOCIAL SHARE ====================
             const currentUrl = encodeURIComponent(window.location.href);
-            const currentTitle = encodeURIComponent('Neko\'s Index - Your go-to resource for movies, shows, and anime');
+            const currentTitle = encodeURIComponent('Neko\'s Index - A curated directory of open-source apps, privacy tools, and more');
 
             document.getElementById('shareCopy').addEventListener('click', function() {
                 navigator.clipboard.writeText(window.location.href).then(() => {
@@ -3734,7 +3739,7 @@
 <header>
     <img src="logo.svg" alt="Neko's Index" class="site-logo">
     <h1>Neko's Index</h1>
-    <p>Your go-to resource for movies, shows, and anime</p>
+    <p class="description">A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.</p>
     <p class="page-links-label">Check out pages</p>
     <nav class="main-nav">
         <a href="index.html">Home</a>
@@ -5304,6 +5309,177 @@
             <li><a href="https://dolphin-emu.org" rel="noopener noreferrer" target="_blank">Dolphin Emulator</a><span class="tag">Wii / GameCube</span></li>
             <li><a href="https://pcsx2.net" rel="noopener noreferrer" target="_blank">PCSX2</a><span class="tag">PS2</span></li>
             <li><a href="https://rpcs3.net" rel="noopener noreferrer" target="_blank">RPCS3</a><span class="tag">PS3</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Ad &amp; Tracking Blockers</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://ublockorigin.com" rel="noopener noreferrer" target="_blank">uBlock Origin</a><span class="tag">Browser</span></li>
+            <li><a href="https://adguard.com" rel="noopener noreferrer" target="_blank">AdGuard</a><span class="tag">Cross-platform</span></li>
+            <li><a href="https://pi-hole.net" rel="noopener noreferrer" target="_blank">Pi-hole</a><span class="tag">Network</span></li>
+            <li><a href="https://github.com/gorhill/uBlock" rel="noopener noreferrer" target="_blank">uBlock Origin (GitHub)</a><span class="tag">Source</span></li>
+            <li><a href="https://blokada.org" rel="noopener noreferrer" target="_blank">Blokada</a><span class="tag">Android / iOS</span></li>
+            <li><a href="https://nextdns.io" rel="noopener noreferrer" target="_blank">NextDNS</a><span class="tag">DNS</span></li>
+            <li><a href="https://www.ghostery.com" rel="noopener noreferrer" target="_blank">Ghostery</a><span class="tag">Privacy</span></li>
+            <li><a href="https://privacybadger.org" rel="noopener noreferrer" target="_blank">Privacy Badger</a><span class="tag">Browser</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Password Managers</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://bitwarden.com" rel="noopener noreferrer" target="_blank">Bitwarden</a><span class="tag">Open Source</span></li>
+            <li><a href="https://keepassxc.org" rel="noopener noreferrer" target="_blank">KeePassXC</a><span class="tag">Desktop</span></li>
+            <li><a href="https://keepass.info" rel="noopener noreferrer" target="_blank">KeePass</a><span class="tag">Windows</span></li>
+            <li><a href="https://github.com/bitwarden" rel="noopener noreferrer" target="_blank">Bitwarden (GitHub)</a><span class="tag">Source</span></li>
+            <li><a href="https://proton.me/pass" rel="noopener noreferrer" target="_blank">Proton Pass</a><span class="tag">Privacy</span></li>
+            <li><a href="https://vaultwarden.discourse.group" rel="noopener noreferrer" target="_blank">Vaultwarden</a><span class="tag">Self-hosted</span></li>
+            <li><a href="https://www.passwordstore.org" rel="noopener noreferrer" target="_blank">pass</a><span class="tag">CLI</span></li>
+            <li><a href="https://lesspass.com" rel="noopener noreferrer" target="_blank">LessPass</a><span class="tag">Stateless</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Web Browsers</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://www.mozilla.org/firefox" rel="noopener noreferrer" target="_blank">Firefox</a><span class="tag">Desktop / Mobile</span></li>
+            <li><a href="https://brave.com" rel="noopener noreferrer" target="_blank">Brave</a><span class="tag">Chromium</span></li>
+            <li><a href="https://mullvad.net/en/browser" rel="noopener noreferrer" target="_blank">Mullvad Browser</a><span class="tag">Privacy</span></li>
+            <li><a href="https://www.torproject.org" rel="noopener noreferrer" target="_blank">Tor Browser</a><span class="tag">Anonymity</span></li>
+            <li><a href="https://librewolf.net" rel="noopener noreferrer" target="_blank">LibreWolf</a><span class="tag">Firefox Fork</span></li>
+            <li><a href="https://floorp.app" rel="noopener noreferrer" target="_blank">Floorp</a><span class="tag">Firefox Fork</span></li>
+            <li><a href="https://waterfox.net" rel="noopener noreferrer" target="_blank">Waterfox</a><span class="tag">Firefox Fork</span></li>
+            <li><a href="https://www.bromite.org" rel="noopener noreferrer" target="_blank">Bromite</a><span class="tag">Android</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Cloud Storage &amp; Sync</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://nextcloud.com" rel="noopener noreferrer" target="_blank">Nextcloud</a><span class="tag">Self-hosted</span></li>
+            <li><a href="https://syncthing.net" rel="noopener noreferrer" target="_blank">Syncthing</a><span class="tag">P2P Sync</span></li>
+            <li><a href="https://mega.nz" rel="noopener noreferrer" target="_blank">Mega</a><span class="tag">Encrypted</span></li>
+            <li><a href="https://www.pcloud.com" rel="noopener noreferrer" target="_blank">pCloud</a><span class="tag">Cloud</span></li>
+            <li><a href="https://filen.io" rel="noopener noreferrer" target="_blank">Filen</a><span class="tag">Encrypted</span></li>
+            <li><a href="https://cryptomator.org" rel="noopener noreferrer" target="_blank">Cryptomator</a><span class="tag">Encryption</span></li>
+            <li><a href="https://rclone.org" rel="noopener noreferrer" target="_blank">rclone</a><span class="tag">CLI Sync</span></li>
+            <li><a href="https://spacedrive.com" rel="noopener noreferrer" target="_blank">Spacedrive</a><span class="tag">File Manager</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Note-taking &amp; Productivity</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://joplinapp.org" rel="noopener noreferrer" target="_blank">Joplin</a><span class="tag">Open Source</span></li>
+            <li><a href="https://obsidian.md" rel="noopener noreferrer" target="_blank">Obsidian</a><span class="tag">Markdown</span></li>
+            <li><a href="https://standardnotes.com" rel="noopener noreferrer" target="_blank">Standard Notes</a><span class="tag">Encrypted</span></li>
+            <li><a href="https://simplenote.com" rel="noopener noreferrer" target="_blank">Simplenote</a><span class="tag">Simple</span></li>
+            <li><a href="https://logseq.com" rel="noopener noreferrer" target="_blank">Logseq</a><span class="tag">PKM</span></li>
+            <li><a href="https://www.notion.so" rel="noopener noreferrer" target="_blank">Notion</a><span class="tag">Freemium</span></li>
+            <li><a href="https://trilium.cc" rel="noopener noreferrer" target="_blank">Trilium</a><span class="tag">Hierarchical</span></li>
+            <li><a href="https://zettlr.com" rel="noopener noreferrer" target="_blank">Zettlr</a><span class="tag">Markdown</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>2FA &amp; Security Tools</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://getaegis.app" rel="noopener noreferrer" target="_blank">Aegis</a><span class="tag">Android</span></li>
+            <li><a href="https://2fas.com" rel="noopener noreferrer" target="_blank">2FAS</a><span class="tag">Mobile</span></li>
+            <li><a href="https://ente.io/auth" rel="noopener noreferrer" target="_blank">Ente Auth</a><span class="tag">Encrypted</span></li>
+            <li><a href="https://yubico.com" rel="noopener noreferrer" target="_blank">Yubico</a><span class="tag">Hardware</span></li>
+            <li><a href="https://github.com/beemdevelopment/Aegis" rel="noopener noreferrer" target="_blank">Aegis (GitHub)</a><span class="tag">Source</span></li>
+            <li><a href="https://authy.com" rel="noopener noreferrer" target="_blank">Authy</a><span class="tag">Cross-platform</span></li>
+            <li><a href="https://gnome- authenticator" rel="noopener noreferrer" target="_blank">GNOME Authenticator</a><span class="tag">Linux</span></li>
+            <li><a href="https://keepassium.com" rel="noopener noreferrer" target="_blank">Keepassium</a><span class="tag">iOS</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>AI Tools &amp; Assistants</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://ollama.com" rel="noopener noreferrer" target="_blank">Ollama</a><span class="tag">Local LLMs</span></li>
+            <li><a href="https://lmstudio.ai" rel="noopener noreferrer" target="_blank">LM Studio</a><span class="tag">Local LLMs</span></li>
+            <li><a href="https://github.com/paul-gauthier/aider" rel="noopener noreferrer" target="_blank">Aider</a><span class="tag">Coding</span></li>
+            <li><a href="https://github.com/continuedev/continue" rel="noopener noreferrer" target="_blank">Continue</a><span class="tag">VS Code</span></li>
+            <li><a href="https://huggingface.co" rel="noopener noreferrer" target="_blank">Hugging Face</a><span class="tag">Models</span></li>
+            <li><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" rel="noopener noreferrer" target="_blank">Stable Diffusion WebUI</a><span class="tag">Image Gen</span></li>
+            <li><a href="https://comfyui.org" rel="noopener noreferrer" target="_blank">ComfyUI</a><span class="tag">Workflows</span></li>
+            <li><a href="https://koboldai.net" rel="noopener noreferrer" target="_blank">KoboldAI</a><span class="tag">Text Gen</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Linux Distros</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://getfedora.org" rel="noopener noreferrer" target="_blank">Fedora</a><span class="tag">Desktop</span></li>
+            <li><a href="https://linuxmint.com" rel="noopener noreferrer" target="_blank">Linux Mint</a><span class="tag">Beginner</span></li>
+            <li><a href="https://pop.system76.com" rel="noopener noreferrer" target="_blank">Pop!_OS</a><span class="tag">Gaming / Work</span></li>
+            <li><a href="https://archlinux.org" rel="noopener noreferrer" target="_blank">Arch Linux</a><span class="tag">Advanced</span></li>
+            <li><a href="https://www.debian.org" rel="noopener noreferrer" target="_blank">Debian</a><span class="tag">Stable</span></li>
+            <li><a href="https://ubuntu.com" rel="noopener noreferrer" target="_blank">Ubuntu</a><span class="tag">Popular</span></li>
+            <li><a href="https://nobara-project.org" rel="noopener noreferrer" target="_blank">Nobara</a><span class="tag">Gaming</span></li>
+            <li><a href="https://nixos.org" rel="noopener noreferrer" target="_blank">NixOS</a><span class="tag">Declarative</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header">
+            <span>Gaming Stores &amp; Launchers</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://store.steampowered.com" rel="noopener noreferrer" target="_blank">Steam</a><span class="tag">Store</span></li>
+            <li><a href="https://www.gog.com" rel="noopener noreferrer" target="_blank">GOG</a><span class="tag">DRM-free</span></li>
+            <li><a href="https://itch.io" rel="noopener noreferrer" target="_blank">itch.io</a><span class="tag">Indie</span></li>
+            <li><a href="https://www.epicgames.com/store" rel="noopener noreferrer" target="_blank">Epic Games Store</a><span class="tag">Store</span></li>
+            <li><a href="https://www.humblebundle.com" rel="noopener noreferrer" target="_blank">Humble Bundle</a><span class="tag">Deals</span></li>
+            <li><a href="https://www.nexusmods.com" rel="noopener noreferrer" target="_blank">Nexus Mods</a><span class="tag">Mods</span></li>
+            <li><a href="https://flathub.org" rel="noopener noreferrer" target="_blank">Flathub</a><span class="tag">Linux Apps</span></li>
+            <li><a href="https://wiki.archlinux.org/title/List_of_games" rel="noopener noreferrer" target="_blank">Arch Wiki Games</a><span class="tag">Wiki</span></li>
         </ul>
         </div>
     </div>
