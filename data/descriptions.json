@@ -3873,5 +3873,30 @@
         "url":  "https://github.com",
         "title":  "GitHub Releases",
         "description":  "GitHub Releases is a Source Code Archives \u0026 Mirrors app or resource."
+    },
+    {
+        "url":  "https://github.com/rebelonion/Dantotsu",
+        "title":  "Dantotsu",
+        "description":  "Dantotsu is an open source Android app for anime and manga tracking and streaming through extensions."
+    },
+    {
+        "url":  "https://github.com/aayush2622/Dartotsu",
+        "title":  "Dartotsu",
+        "description":  "Dartotsu is a multiplatform Flutter rewrite of Dantotsu for anime and manga tracking."
+    },
+    {
+        "url":  "https://github.com/Shebyyy/Dantotsu-Alpha",
+        "title":  "Dantotsu Alpha",
+        "description":  "Dantotsu Alpha provides automated alpha builds of the Dantotsu app."
+    },
+    {
+        "url":  "https://dantotsu-app-updater.vercel.app/",
+        "title":  "Dantotsu Updater",
+        "description":  "Dantotsu Updater is a web resource for getting the latest version of the Dantotsu app."
+    },
+    {
+        "url":  "https://github.com/MarshMeadow/dantotsu-updater-web",
+        "title":  "Dantotsu Updater (Source)",
+        "description":  "Dantotsu Updater source code on GitHub."
     }
 ]
