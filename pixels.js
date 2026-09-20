@@ -1,4 +1,11 @@
 (() => {
+    // Respect reduced-motion preferences: OS-level setting or the site's own
+    // Reduce Motion toggle (body.reduce-motion / localStorage flag).
+    const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let reduceMotion = reduceMotionQuery.matches ||
+        (document.body && document.body.classList.contains('reduce-motion')) ||
+        localStorage.getItem('nekoIndexReduceMotion') === 'true';
+
     // ---- Scanline overlay for retro CRT look ----
     const scanlines = document.createElement('div');
     scanlines.setAttribute('aria-hidden', 'true');
@@ -319,6 +326,7 @@
     }
 
     // ---- Main loop ----
+    let rafId = null;
     function loop() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -360,11 +368,37 @@
             }
         }
 
+        ctx.globalAlpha = 1;
         drawCat();
         drawExtraCats();
 
-        requestAnimationFrame(loop);
+        rafId = requestAnimationFrame(loop);
     }
+
+    function start() {
+        if (rafId === null && !reduceMotion) rafId = requestAnimationFrame(loop);
+    }
+
+    function stop() {
+        if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function refreshMotionState() {
+        reduceMotion = reduceMotionQuery.matches ||
+            (document.body && document.body.classList.contains('reduce-motion')) ||
+            localStorage.getItem('nekoIndexReduceMotion') === 'true';
+        scanlines.style.display = reduceMotion ? 'none' : '';
+        canvas.style.display = reduceMotion ? 'none' : '';
+        if (reduceMotion) stop(); else start();
+    }
+
+    new MutationObserver(refreshMotionState)
+        .observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    reduceMotionQuery.addEventListener('change', refreshMotionState);
 
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
@@ -372,5 +406,5 @@
         initExtraCats();
     });
 
-    loop();
+    refreshMotionState();
 })();

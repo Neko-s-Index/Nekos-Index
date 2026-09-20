@@ -8,8 +8,11 @@
     <meta property="og:title" content="Neko's Index">
     <meta property="og:description" content="A curated directory of open-source apps, privacy tools, streaming utilities, and more.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nekosindex.com/list.html">
+    <meta property="og:url" content="https://neko-s-index.github.io/Nekos-Index/list.html">
+    <meta property="og:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
+    <link rel="canonical" href="https://neko-s-index.github.io/Nekos-Index/list.html">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
     <meta name="theme-color" content="#3b82f6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +20,6 @@
 
     <style>
         * {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
             box-sizing: border-box;
         }
 
@@ -63,6 +62,21 @@
         .ip-warning span {
             color: #fbbf24;
             font-weight: 600;
+        }
+
+        .ip-reveal-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e7ff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            padding: 2px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-left: 6px;
+        }
+
+        .ip-reveal-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .beta-notice {
@@ -326,6 +340,32 @@
             overflow: hidden;
             text-overflow: ellipsis;
             text-overflow: ellipsis;
+        }
+
+        .cat-count {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 2px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .new-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e 0%, #06b6d4 100%);
+            color: #04110a;
+            padding: 2px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+            vertical-align: middle;
         }
 
         .social-links {
@@ -2329,42 +2369,24 @@
     </style>
 
     <script>
-        // Basic source-protection deterrents
-        document.addEventListener('contextmenu', e => e.preventDefault());
-
-        ['copy', 'cut', 'paste', 'dragstart'].forEach(evt =>
-            document.addEventListener(evt, e => e.preventDefault())
-        );
-
-        document.addEventListener('keydown', e => {
-            // Block common dev-tools / view-source / print shortcuts
-            if (e.key === 'F12') return e.preventDefault();
-            if (e.ctrlKey && e.shiftKey && ['i','j','c','k','u'].includes(e.key.toLowerCase())) return e.preventDefault();
-            if (e.ctrlKey && ['u','p'].includes(e.key.toLowerCase()) && !e.shiftKey) return e.preventDefault();
-        });
-
-        document.addEventListener("dragstart", e => e.preventDefault());
-
-        document.addEventListener("keydown", function (e) {
-            if (
-                e.key === "F12" ||
-                (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
-                (e.ctrlKey && e.key === "U") ||
-                (e.ctrlKey && e.key === "C")
-            ) {
-                e.preventDefault();
-            }
-        });
-
-        fetch("https://api.ipify.org?format=json")
-            .then(res => res.json())
-            .then(data => {
-                const masked = data.ip.replace(/\d+$/, "xxx");
-                document.getElementById("user-ip").textContent = masked;
-            })
-            .catch(() => {
-                document.getElementById("user-ip").textContent = "Unavailable";
+        // IP display is opt-in so visitors don't ping a third-party API on load.
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("show-ip").addEventListener("click", function () {
+                const target = document.getElementById("user-ip");
+                this.disabled = true;
+                this.textContent = "Checking...";
+                fetch("https://api.ipify.org?format=json")
+                    .then(res => res.json())
+                    .then(data => {
+                        target.textContent = data.ip.replace(/\d+$/, "xxx");
+                        this.style.display = "none";
+                    })
+                    .catch(() => {
+                        target.textContent = "Unavailable";
+                        this.style.display = "none";
+                    });
             });
+        });
 
         // Main functionality
         function recordPuzzleSolved() {
@@ -2387,8 +2409,8 @@
                 localStorage.getItem('nekos_puzzle_exempt') === 'true') {
                 listGate.classList.add('hidden');
             } else {
-                const num1 = Math.floor(Math.random() * 8) + 2;
-                const num2 = Math.floor(Math.random() * 8) + 2;
+                const num1 = Math.floor(Math.random() * 4) + 1;
+                const num2 = Math.floor(Math.random() * 4) + 1;
                 const answer = num1 + num2;
 
                 const prompt = document.createElement('p');
@@ -2640,8 +2662,8 @@
             function openShare() {
                 shareQuery.value = searchInput.value.trim();
                 updateShareLink();
-                const a = Math.floor(Math.random() * 9) + 1;
-                const b = Math.floor(Math.random() * 9) + 1;
+                const a = Math.floor(Math.random() * 4) + 1;
+                const b = Math.floor(Math.random() * 4) + 1;
                 shareExpected = a + b;
                 sharePuzzleText = `What is ${a} + ${b}?`;
                 sharePuzzle.textContent = sharePuzzleText;
@@ -2745,8 +2767,11 @@
                 'pc': ['Open Source PC / Desktop Apps'],
                 'ios': ['iOS — Browsers', 'iOS — Privacy & Security', 'iOS — Messaging & Social', 'iOS — Productivity & Notes', 'iOS — Media, Reading & Entertainment', 'iOS — Maps & Utilities'],
                 'ai': ['Open Source AI & Chatbots', 'AI Coding & Dev Assistants'],
-                'gaming': ['Open Source Gaming'],
-                'privacy': ['Privacy & Security Tools', 'Recommended VPNs & DNS Services']
+                'gaming': ['Open Source Gaming', 'Gaming Stores & Launchers', 'Game Mods & ROM Hacking'],
+                'privacy': ['Privacy & Security Tools', 'Recommended VPNs & DNS Services'],
+                'modding': ['Console Modding', 'Game Mods & ROM Hacking', 'Homebrew', 'ROM Hacking & Fan Translation'],
+                'retro': ['Emulators', 'Retro Handhelds', 'Retro Online & Preservation', 'Retro & Modding Communities'],
+                'community': ['Forums & Communities', 'Retro & Modding Communities', 'ROM Hacking & Fan Translation']
             };
 
             filterBtns.forEach(btn => {
@@ -2836,6 +2861,24 @@
             
             totalApps.textContent = allItems.length;
             totalCategories.textContent = categories.length;
+
+            // ==================== CATEGORY COUNTS & NEW BADGES ====================
+            document.querySelectorAll('.category').forEach(category => {
+                const header = category.querySelector('.category-header');
+                const titleSpan = header ? header.querySelector('span') : null;
+                if (!titleSpan || titleSpan.querySelector('.cat-count')) return;
+                const count = category.querySelectorAll('li').length;
+                const countEl = document.createElement('span');
+                countEl.className = 'cat-count';
+                countEl.textContent = count;
+                titleSpan.appendChild(countEl);
+                if (category.hasAttribute('data-new')) {
+                    const badge = document.createElement('span');
+                    badge.className = 'new-badge';
+                    badge.textContent = 'NEW';
+                    titleSpan.appendChild(badge);
+                }
+            });
 
             // ==================== BACK TO TOP ====================
             const backToTop = document.getElementById('backToTop');
@@ -3556,64 +3599,6 @@
                             if (local) storeSocials(li, local);
                         } catch (e) {}
                     });
-
-                    let budget = 60;
-                    document.querySelectorAll('.category li a').forEach(link => {
-                        if (budget <= 0) return;
-                        try {
-                            const li = link.closest('li');
-                            if (!li) return;
-                            const u = new URL(link.href);
-                            if (u.hostname.toLowerCase() !== 'github.com') return;
-                            const parts = u.pathname.split('/').filter(Boolean);
-                            if (parts.length < 2) return;
-                            const [owner, repo] = parts;
-                            const cacheKey = `nekoIndexSocials:${owner}/${repo}`;
-                            const cached = localStorage.getItem(cacheKey);
-                            if (cached) {
-                                try {
-                                    storeSocials(li, JSON.parse(cached));
-                                } catch (e) {}
-                                return;
-                            }
-                            budget--;
-                            fetch(`https://api.github.com/repos/${owner}/${repo}/readme`)
-                                .then(res => res.ok ? res.json() : null)
-                                .then(data => {
-                                    if (!data || !data.content) return;
-                                    const text = atob(data.content.replace(/\s/g, ''));
-                                    const socials = [];
-                                    const seen = new Set();
-                                    for (const token of text.split(/\s+/)) {
-                                        const pieces = token.split('http');
-                                        for (let i = 1; i < pieces.length; i++) {
-                                            const part = pieces[i];
-                                            if (!part.startsWith('://') && !part.startsWith('s://')) continue;
-                                            let c = 'http' + part;
-                                            while (c.length > 10) {
-                                                try {
-                                                    const parsed = new URL(c);
-                                                    if ((parsed.protocol === 'http:' || parsed.protocol === 'https:') && !seen.has(parsed.toString())) {
-                                                        const type = getSocialType(parsed.toString());
-                                                        if (type) {
-                                                            seen.add(parsed.toString());
-                                                            socials.push({ url: parsed.toString() });
-                                                            break;
-                                                        }
-                                                    }
-                                                } catch (e) {}
-                                                c = c.slice(0, -1);
-                                            }
-                                        }
-                                    }
-                                    try {
-                                        localStorage.setItem(cacheKey, JSON.stringify(socials));
-                                    } catch (e) {}
-                                    if (socials.length) storeSocials(li, socials);
-                                })
-                                .catch(() => {});
-                        } catch (e) {}
-                    });
                 }
                 addSocialLinks();
 
@@ -3642,59 +3627,21 @@
                     if (localDesc) setDescription(link, localDesc);
                 }
 
-                const githubLinks = allLinks.filter(link => {
-                    try { return new URL(link.href).hostname.toLowerCase() === 'github.com'; }
-                    catch (e) { return false; }
-                });
-
-                let budget = 60;
-                const batch = [];
-                for (const link of githubLinks) {
-                    if (budget <= 0) break;
+                // GitHub links without a local description get a generic label.
+                // Real descriptions are filled in offline by the metadata CI job
+                // (data/descriptions.json) so visitors never hit the GitHub API.
+                for (const link of allLinks) {
                     const li = link.closest('li');
                     if (!li) continue;
                     const existing = li.querySelector('.item-desc');
                     if (existing && existing.textContent.trim()) continue;
                     try {
                         const url = new URL(link.href);
+                        if (url.hostname.toLowerCase() !== 'github.com') continue;
                         const parts = url.pathname.split('/').filter(Boolean);
                         if (parts.length < 2) continue;
                         const [owner, repo] = parts;
-                        const key = `nekoIndexDesc:${owner}/${repo}`;
-                        const cached = localStorage.getItem(key);
-                        if (cached) {
-                            setDescription(link, cached);
-                            continue;
-                        }
-                        batch.push({ link, owner, repo, key });
-                        budget--;
-                    } catch (e) {}
-                }
-
-                for (const { link, owner, repo, key } of batch) {
-                    try {
-                        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
-                        let desc = null;
-                        if (res.ok) {
-                            const data = await res.json();
-                            desc = data.description || null;
-                            if (data.homepage) {
-                                try {
-                                    const h = new URL(data.homepage);
-                                    if (h.protocol === 'http:' || h.protocol === 'https:') {
-                                        const li = link.closest('li');
-                                        if (li) li.dataset.homepage = data.homepage;
-                                    }
-                                } catch (e) {}
-                            }
-                        }
-                        if (!desc) {
-                            desc = getLocalDescription(link);
-                        }
-                        if (!desc) {
-                            desc = `${owner}/${repo} on GitHub`;
-                        }
-                        localStorage.setItem(key, desc);
+                        const desc = getLocalDescription(link) || `${owner}/${repo} on GitHub`;
                         setDescription(link, desc);
                     } catch (e) {}
                 }
@@ -3726,7 +3673,7 @@
 
 <div class="ip-warning">
     ⚠️ Your public IP address is visible to websites you visit.<br>
-    Detected IP: <span id="user-ip">Loading...</span><br>
+    Detected IP: <span id="user-ip">Hidden</span> <button id="show-ip" class="ip-reveal-btn" type="button">Show my IP</button><br>
     For better privacy, consider using a VPN (such as Mullvad or Proton VPN) to hide your public IP. You can also use a trusted encrypted DNS service like Cloudflare 1.1.1.1 or Quad9 to help protect your DNS queries.
 </div>
 
@@ -3741,23 +3688,27 @@
     <h1>Neko's Index</h1>
     <p class="description">A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.</p>
     <p class="page-links-label">Check out pages</p>
-    <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="list.html">Index</a>
-        <a href="guides.html">Guides</a>
-        <a href="disclaimer.html">Disclaimer</a>
-        <a href="dmca.html">DMCA</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="privacy-settings.html">Privacy Settings</a>
-        <a href="notes.html">Notes</a>
-        <a href="socials.html">Socials</a>
-        <a href="sitemap.html">Sitemap</a>
-        <a href="donations.html">Donate</a>
-    </nav>
+    <nav class="main-nav" data-autonav></nav>
     <details class="marquee-note">
         <summary class="marquee-note-btn">Mobile note</summary>
         <p class="marquee-note-text">For mobile users: scroll or drag to view more buttons</p>
     </details>
+    <noscript>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="list.html">Index</a>
+        <a href="guides.html">Guides</a>
+        <a href="mylists.html">My Lists</a>
+        <a href="notes.html">Notes</a>
+        <a href="socials.html">Socials</a>
+        <a href="sitemap.html">Sitemap</a>
+        <a href="privacy-settings.html">Privacy Settings</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="dmca.html">DMCA</a>
+        <a href="donations.html">Donate</a>
+    </nav>
+    </noscript>
 </header>
 
 <!-- Theme Toggle -->
@@ -3810,6 +3761,9 @@
         <button class="filter-btn" data-filter="ai">AI</button>
         <button class="filter-btn" data-filter="gaming">Gaming</button>
         <button class="filter-btn" data-filter="privacy">Privacy</button>
+        <button class="filter-btn" data-filter="modding">Modding</button>
+        <button class="filter-btn" data-filter="retro">Retro</button>
+        <button class="filter-btn" data-filter="community">Community</button>
     </div>
 
     <p class="hidden" id="noResults" style="text-align: center; color: var(--text-muted); margin: 20px 0;">No results found.</p>
@@ -5488,6 +5442,260 @@
         </ul>
         </div>
     </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>Console Modding &amp; Homebrew Guides</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://wii.hacks.guide" rel="noopener noreferrer" target="_blank">Wii Hacks Guide</a><span class="tag">Wii</span></li>
+            <li><a href="https://3ds.hacks.guide" rel="noopener noreferrer" target="_blank">3DS Hacks Guide</a><span class="tag">3DS</span></li>
+            <li><a href="https://dsi.cfw.guide" rel="noopener noreferrer" target="_blank">DSi CFW Guide</a><span class="tag">DSi</span></li>
+            <li><a href="https://wiiu.hacks.guide" rel="noopener noreferrer" target="_blank">Wii U Hacks Guide</a><span class="tag">Wii U</span></li>
+            <li><a href="https://switch.hacks.guide" rel="noopener noreferrer" target="_blank">Switch Hacks Guide</a><span class="tag">Switch</span></li>
+            <li><a href="https://vita.hacks.guide" rel="noopener noreferrer" target="_blank">Vita Hacks Guide</a><span class="tag">PS Vita</span></li>
+            <li><a href="https://psp.hacks.guide" rel="noopener noreferrer" target="_blank">PSP Hacks Guide</a><span class="tag">PSP</span></li>
+            <li><a href="https://www.consolemods.org" rel="noopener noreferrer" target="_blank">ConsoleMods</a><span class="tag">Multi-console</span></li>
+            <li><a href="https://letterbomb.please.hackmii.com" rel="noopener noreferrer" target="_blank">LetterBomb</a><span class="tag">Wii Exploit</span></li>
+            <li><a href="https://github.com/LumaTeam/Luma3DS" rel="noopener noreferrer" target="_blank">Luma3DS</a><span class="tag">3DS CFW</span></li>
+            <li><a href="https://github.com/Atmosphere-NX/Atmosphere" rel="noopener noreferrer" target="_blank">Atmosphère</a><span class="tag">Switch CFW</span></li>
+            <li><a href="https://github.com/CTCaer/hekate" rel="noopener noreferrer" target="_blank">Hekate</a><span class="tag">Switch Bootloader</span></li>
+            <li><a href="https://github.com/TheOfficialFloW/HENkaku" rel="noopener noreferrer" target="_blank">HENkaku</a><span class="tag">Vita Exploit</span></li>
+            <li><a href="https://github.com/TheOfficialFloW/h-encore-2" rel="noopener noreferrer" target="_blank">h-encore²</a><span class="tag">Vita Exploit</span></li>
+            <li><a href="https://github.com/PS3Xploit/PS3HEN" rel="noopener noreferrer" target="_blank">PS3HEN</a><span class="tag">PS3 HEN</span></li>
+            <li><a href="https://github.com/aldostools/webMAN-MOD" rel="noopener noreferrer" target="_blank">webMAN MOD</a><span class="tag">PS3</span></li>
+            <li><a href="https://github.com/ps2homebrew/FreeMcBoot" rel="noopener noreferrer" target="_blank">FreeMCBoot</a><span class="tag">PS2</span></li>
+            <li><a href="https://github.com/ps2homebrew/Open-PS2-Loader" rel="noopener noreferrer" target="_blank">Open PS2 Loader</a><span class="tag">PS2</span></li>
+            <li><a href="https://github.com/Rocky5/Xbox-Softmodding-Tool" rel="noopener noreferrer" target="_blank">Xbox Softmodding Tool</a><span class="tag">OG Xbox</span></li>
+            <li><a href="https://github.com/emukidid/swiss-gc" rel="noopener noreferrer" target="_blank">Swiss</a><span class="tag">GameCube</span></li>
+            <li><a href="https://github.com/webhdx/PicoBoot" rel="noopener noreferrer" target="_blank">PicoBoot</a><span class="tag">GameCube</span></li>
+            <li><a href="https://github.com/GoldHEN/GoldHEN" rel="noopener noreferrer" target="_blank">GoldHEN</a><span class="tag">PS4</span></li>
+            <li><a href="https://github.com/DS-Homebrew/TWiLightMenu" rel="noopener noreferrer" target="_blank">TWiLight Menu++</a><span class="tag">DS / DSi</span></li>
+        </ul>
+        <p>
+            Modding your own console for homebrew and backups is generally legal, but downloading games you don't own is not. Follow the linked guides carefully and only dump your own discs/cartridges.
+        </p>
+        </div>
+    </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>Homebrew Stores &amp; Console Wikis</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://www.fortheusers.org" rel="noopener noreferrer" target="_blank">Homebrew App Store</a><span class="tag">Switch / Wii U</span></li>
+            <li><a href="https://oscwii.org" rel="noopener noreferrer" target="_blank">Open Shop Channel</a><span class="tag">Wii</span></li>
+            <li><a href="https://db.universal-team.net" rel="noopener noreferrer" target="_blank">Universal-DB</a><span class="tag">DS / 3DS</span></li>
+            <li><a href="https://github.com/Universal-Team/Universal-Updater" rel="noopener noreferrer" target="_blank">Universal-Updater</a><span class="tag">3DS</span></li>
+            <li><a href="https://vitadb.rinnegatamante.it" rel="noopener noreferrer" target="_blank">VitaDB</a><span class="tag">PS Vita</span></li>
+            <li><a href="https://www.brewology.com" rel="noopener noreferrer" target="_blank">Brewology</a><span class="tag">PSP / PS3 / Vita</span></li>
+            <li><a href="https://wiibrew.org" rel="noopener noreferrer" target="_blank">WiiBrew</a><span class="tag">Wiki</span></li>
+            <li><a href="https://switchbrew.org" rel="noopener noreferrer" target="_blank">SwitchBrew</a><span class="tag">Wiki</span></li>
+            <li><a href="https://www.3dbrew.org" rel="noopener noreferrer" target="_blank">3DBrew</a><span class="tag">Wiki</span></li>
+            <li><a href="https://www.psdevwiki.com" rel="noopener noreferrer" target="_blank">PSDevWiki</a><span class="tag">Wiki</span></li>
+            <li><a href="https://www.gamebrew.org" rel="noopener noreferrer" target="_blank">GameBrew</a><span class="tag">Wiki</span></li>
+            <li><a href="https://emulation.gametechwiki.com" rel="noopener noreferrer" target="_blank">Emulation General Wiki</a><span class="tag">Wiki</span></li>
+            <li><a href="https://flashcarts.net" rel="noopener noreferrer" target="_blank">Flashcarts.net</a><span class="tag">Flashcart Info</span></li>
+            <li><a href="https://wiki.gbatemp.net" rel="noopener noreferrer" target="_blank">WikiTemp</a><span class="tag">Wiki</span></li>
+            <li><a href="https://dl.openhandhelds.org" rel="noopener noreferrer" target="_blank">openHandhelds Archive</a><span class="tag">GP32 / Pandora</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>Emulators &amp; Retro Gaming</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://www.ppsspp.org" rel="noopener noreferrer" target="_blank">PPSSPP</a><span class="tag">PSP</span></li>
+            <li><a href="https://mgba.io" rel="noopener noreferrer" target="_blank">mGBA</a><span class="tag">GBA</span></li>
+            <li><a href="https://melonds.kuribo64.net" rel="noopener noreferrer" target="_blank">melonDS</a><span class="tag">DS</span></li>
+            <li><a href="http://desmume.org" rel="noopener noreferrer" target="_blank">DeSmuMe</a><span class="tag">DS</span></li>
+            <li><a href="https://github.com/stenzek/duckstation" rel="noopener noreferrer" target="_blank">DuckStation</a><span class="tag">PS1</span></li>
+            <li><a href="https://mednafen.github.io" rel="noopener noreferrer" target="_blank">Mednafen</a><span class="tag">Multi-system</span></li>
+            <li><a href="https://ares-emu.net" rel="noopener noreferrer" target="_blank">Ares</a><span class="tag">Multi-system</span></li>
+            <li><a href="https://cemu.info" rel="noopener noreferrer" target="_blank">Cemu</a><span class="tag">Wii U</span></li>
+            <li><a href="https://azahar-emu.org" rel="noopener noreferrer" target="_blank">Azahar</a><span class="tag">3DS</span></li>
+            <li><a href="https://ryubing.org" rel="noopener noreferrer" target="_blank">Ryubing (Ryujinx fork)</a><span class="tag">Switch</span></li>
+            <li><a href="https://xenia.jp" rel="noopener noreferrer" target="_blank">Xenia</a><span class="tag">Xbox 360</span></li>
+            <li><a href="https://xemu.app" rel="noopener noreferrer" target="_blank">xemu</a><span class="tag">OG Xbox</span></li>
+            <li><a href="https://cxbx-reloaded.co.uk" rel="noopener noreferrer" target="_blank">Cxbx-Reloaded</a><span class="tag">OG Xbox</span></li>
+            <li><a href="https://vita3k.org" rel="noopener noreferrer" target="_blank">Vita3K</a><span class="tag">PS Vita</span></li>
+            <li><a href="https://shadps4.net" rel="noopener noreferrer" target="_blank">shadPS4</a><span class="tag">PS4</span></li>
+            <li><a href="https://github.com/flyinghead/flycast" rel="noopener noreferrer" target="_blank">Flycast</a><span class="tag">Dreamcast</span></li>
+            <li><a href="https://redream.io" rel="noopener noreferrer" target="_blank">Redream</a><span class="tag">Dreamcast</span></li>
+            <li><a href="https://www.snes9x.com" rel="noopener noreferrer" target="_blank">Snes9x</a><span class="tag">SNES</span></li>
+            <li><a href="https://github.com/bsnes-emu/bsnes" rel="noopener noreferrer" target="_blank">bsnes</a><span class="tag">SNES</span></li>
+            <li><a href="https://www.mesen.ca" rel="noopener noreferrer" target="_blank">Mesen</a><span class="tag">NES / SNES / GB</span></li>
+            <li><a href="https://sameboy.github.io" rel="noopener noreferrer" target="_blank">SameBoy</a><span class="tag">GB / GBC</span></li>
+            <li><a href="https://github.com/visualboyadvance-m/visualboyadvance-m" rel="noopener noreferrer" target="_blank">VisualBoyAdvance-M</a><span class="tag">GBA</span></li>
+            <li><a href="https://github.com/Rosalie241/RMG" rel="noopener noreferrer" target="_blank">RMG</a><span class="tag">N64</span></li>
+            <li><a href="https://www.pj64-emu.com" rel="noopener noreferrer" target="_blank">Project64</a><span class="tag">N64</span></li>
+            <li><a href="https://openemu.org" rel="noopener noreferrer" target="_blank">OpenEmu</a><span class="tag">macOS</span></li>
+            <li><a href="https://www.scummvm.org" rel="noopener noreferrer" target="_blank">ScummVM</a><span class="tag">Adventure</span></li>
+            <li><a href="https://dosbox-x.com" rel="noopener noreferrer" target="_blank">DOSBox-X</a><span class="tag">DOS</span></li>
+            <li><a href="https://www.aethersx2.com" rel="noopener noreferrer" target="_blank">AetherSX2</a><span class="tag">Android PS2</span></li>
+            <li><a href="https://github.com/Trixarian/NetherSX2-patch" rel="noopener noreferrer" target="_blank">NetherSX2 Patch</a><span class="tag">Android PS2</span></li>
+            <li><a href="https://github.com/brunodev85/winlator" rel="noopener noreferrer" target="_blank">Winlator</a><span class="tag">Windows on Android</span></li>
+            <li><a href="https://github.com/streetpea/chiaki-ng" rel="noopener noreferrer" target="_blank">chiaki-ng</a><span class="tag">PS Remote Play</span></li>
+            <li><a href="https://github.com/TapiocaFox/Daijishou" rel="noopener noreferrer" target="_blank">Daijishō</a><span class="tag">Android Frontend</span></li>
+            <li><a href="https://es-de.org" rel="noopener noreferrer" target="_blank">ES-DE</a><span class="tag">Frontend</span></li>
+            <li><a href="https://www.retrobat.org" rel="noopener noreferrer" target="_blank">RetroBat</a><span class="tag">Frontend</span></li>
+            <li><a href="https://retropie.org.uk" rel="noopener noreferrer" target="_blank">RetroPie</a><span class="tag">Raspberry Pi</span></li>
+            <li><a href="https://batocera.org" rel="noopener noreferrer" target="_blank">Batocera</a><span class="tag">Linux Distro</span></li>
+            <li><a href="https://www.recalbox.com" rel="noopener noreferrer" target="_blank">Recalbox</a><span class="tag">Linux Distro</span></li>
+            <li><a href="https://www.lakka.tv" rel="noopener noreferrer" target="_blank">Lakka</a><span class="tag">Linux Distro</span></li>
+            <li><a href="https://github.com/MiSTer-devel/Main_MiSTer" rel="noopener noreferrer" target="_blank">MiSTer</a><span class="tag">FPGA</span></li>
+            <li><a href="https://retroachievements.org" rel="noopener noreferrer" target="_blank">RetroAchievements</a><span class="tag">Achievements</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>Retro Handhelds &amp; Custom Firmware</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://muos.dev" rel="noopener noreferrer" target="_blank">muOS</a><span class="tag">RG35XX / TrimUI</span></li>
+            <li><a href="https://github.com/OnionUI/Onion" rel="noopener noreferrer" target="_blank">Onion OS</a><span class="tag">Miyoo Mini</span></li>
+            <li><a href="https://knulli.org" rel="noopener noreferrer" target="_blank">Knulli</a><span class="tag">Anbernic</span></li>
+            <li><a href="https://rocknix.org" rel="noopener noreferrer" target="_blank">ROCKNIX</a><span class="tag">Handhelds</span></li>
+            <li><a href="https://github.com/christianhaitian/arkos" rel="noopener noreferrer" target="_blank">ArkOS</a><span class="tag">Handhelds</span></li>
+            <li><a href="https://amberelec.org" rel="noopener noreferrer" target="_blank">AmberELEC</a><span class="tag">RG351</span></li>
+            <li><a href="https://github.com/EmuELEC/EmuELEC" rel="noopener noreferrer" target="_blank">EmuELEC</a><span class="tag">Amlogic Boxes</span></li>
+            <li><a href="https://www.emudeck.com" rel="noopener noreferrer" target="_blank">EmuDeck</a><span class="tag">Steam Deck</span></li>
+            <li><a href="https://github.com/SteamDeckHomebrew/decky-loader" rel="noopener noreferrer" target="_blank">Decky Loader</a><span class="tag">Steam Deck</span></li>
+            <li><a href="https://github.com/CryoByte33/steam-deck-utilities" rel="noopener noreferrer" target="_blank">CryoUtilities</a><span class="tag">Steam Deck</span></li>
+            <li><a href="https://github.com/GloriousEggroll/proton-ge-custom" rel="noopener noreferrer" target="_blank">Proton GE</a><span class="tag">Steam Deck / Linux</span></li>
+            <li><a href="https://retrogamecorps.com" rel="noopener noreferrer" target="_blank">Retro Game Corps</a><span class="tag">Guides</span></li>
+            <li><a href="https://retrohandhelds.gg" rel="noopener noreferrer" target="_blank">Retro Handhelds</a><span class="tag">Community</span></li>
+            <li><a href="https://anbernic.com" rel="noopener noreferrer" target="_blank">Anbernic</a><span class="tag">Devices</span></li>
+            <li><a href="https://www.goretroid.com" rel="noopener noreferrer" target="_blank">Retroid</a><span class="tag">Devices</span></li>
+            <li><a href="https://www.dragonbox.de" rel="noopener noreferrer" target="_blank">DragonBox</a><span class="tag">Pyra / Pandora</span></li>
+            <li><a href="https://pyra-handheld.com" rel="noopener noreferrer" target="_blank">Pyra / Pandora Boards</a><span class="tag">Community</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>Retro Online &amp; Game Preservation</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://wiimmfi.de" rel="noopener noreferrer" target="_blank">Wiimmfi</a><span class="tag">Wii / DS Online</span></li>
+            <li><a href="https://pretendo.network" rel="noopener noreferrer" target="_blank">Pretendo Network</a><span class="tag">Wii U / 3DS Online</span></li>
+            <li><a href="https://insignia.live" rel="noopener noreferrer" target="_blank">Insignia</a><span class="tag">OG Xbox Live</span></li>
+            <li><a href="https://www.teamxlink.co.uk" rel="noopener noreferrer" target="_blank">XLink Kai</a><span class="tag">LAN Tunneling</span></li>
+            <li><a href="https://dreamcastlive.net" rel="noopener noreferrer" target="_blank">Dreamcast Live</a><span class="tag">Dreamcast Online</span></li>
+            <li><a href="https://wiilink24.com" rel="noopener noreferrer" target="_blank">WiiLink</a><span class="tag">Wii Channels</span></li>
+            <li><a href="https://sylverant.net" rel="noopener noreferrer" target="_blank">Sylverant</a><span class="tag">PSO Server</span></li>
+            <li><a href="https://hiddenpalace.org" rel="noopener noreferrer" target="_blank">Hidden Palace</a><span class="tag">Prototypes</span></li>
+            <li><a href="https://tcrf.net" rel="noopener noreferrer" target="_blank">The Cutting Room Floor</a><span class="tag">Unused Content</span></li>
+            <li><a href="http://redump.org" rel="noopener noreferrer" target="_blank">Redump</a><span class="tag">Disc Preservation</span></li>
+            <li><a href="https://no-intro.org" rel="noopener noreferrer" target="_blank">No-Intro</a><span class="tag">DATs</span></li>
+            <li><a href="https://www.tosecdev.org" rel="noopener noreferrer" target="_blank">TOSEC</a><span class="tag">Preservation</span></li>
+            <li><a href="https://archive.org/details/consolelivingroom" rel="noopener noreferrer" target="_blank">Console Living Room</a><span class="tag">In-browser Emulation</span></li>
+            <li><a href="https://github.com/rommapp/romm" rel="noopener noreferrer" target="_blank">RomM</a><span class="tag">ROM Manager</span></li>
+            <li><a href="https://playnite.link" rel="noopener noreferrer" target="_blank">Playnite</a><span class="tag">Library Manager</span></li>
+            <li><a href="https://www.hardcoregaming101.net" rel="noopener noreferrer" target="_blank">Hardcore Gaming 101</a><span class="tag">Game History</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>Game Mods &amp; ROM Hacking Tools</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://gamebanana.com" rel="noopener noreferrer" target="_blank">GameBanana</a><span class="tag">Mods</span></li>
+            <li><a href="https://www.moddb.com" rel="noopener noreferrer" target="_blank">ModDB</a><span class="tag">PC Mods</span></li>
+            <li><a href="https://thunderstore.io" rel="noopener noreferrer" target="_blank">Thunderstore</a><span class="tag">PC Mods</span></li>
+            <li><a href="https://github.com/ModOrganizer2/modorganizer" rel="noopener noreferrer" target="_blank">Mod Organizer 2</a><span class="tag">Mod Manager</span></li>
+            <li><a href="https://www.marcrobledo.com/RomPatcher.js" rel="noopener noreferrer" target="_blank">RomPatcher.js</a><span class="tag">Web Patcher</span></li>
+            <li><a href="https://github.com/Alcaro/Flips" rel="noopener noreferrer" target="_blank">Floating IPS</a><span class="tag">IPS / BPS Patcher</span></li>
+            <li><a href="https://fusoya.eludevisibility.org/lips/" rel="noopener noreferrer" target="_blank">Lunar IPS</a><span class="tag">IPS Patcher</span></li>
+            <li><a href="https://github.com/jmacd/xdelta" rel="noopener noreferrer" target="_blank">xdelta</a><span class="tag">Delta Patches</span></li>
+            <li><a href="https://github.com/Ajarmar/universal-pokemon-randomizer-zx" rel="noopener noreferrer" target="_blank">Universal Pokémon Randomizer ZX</a><span class="tag">Randomizer</span></li>
+            <li><a href="https://github.com/kwsch/PKHeX" rel="noopener noreferrer" target="_blank">PKHeX</a><span class="tag">Pokémon Save Editor</span></li>
+            <li><a href="https://github.com/J-D-K/JKSV" rel="noopener noreferrer" target="_blank">JKSV</a><span class="tag">Switch Saves</span></li>
+            <li><a href="https://github.com/J-D-K/JKSM" rel="noopener noreferrer" target="_blank">JKSM</a><span class="tag">3DS Saves</span></li>
+            <li><a href="https://github.com/BernardoGiordano/Checkpoint" rel="noopener noreferrer" target="_blank">Checkpoint</a><span class="tag">3DS / Switch Saves</span></li>
+            <li><a href="https://github.com/d0k3/GodMode9" rel="noopener noreferrer" target="_blank">GodMode9</a><span class="tag">3DS Tool</span></li>
+            <li><a href="https://github.com/Steveice10/FBI" rel="noopener noreferrer" target="_blank">FBI</a><span class="tag">3DS CIA Installer</span></li>
+            <li><a href="https://github.com/SkyTemple" rel="noopener noreferrer" target="_blank">SkyTemple</a><span class="tag">PMD Hacking</span></li>
+            <li><a href="https://github.com/pleonex/tinke" rel="noopener noreferrer" target="_blank">Tinke</a><span class="tag">NDS ROM Editor</span></li>
+            <li><a href="https://gamehacking.org" rel="noopener noreferrer" target="_blank">GameHacking.org</a><span class="tag">Cheat Codes</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>ROM Hacking &amp; Fan Translation Hubs</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://www.romhacking.net" rel="noopener noreferrer" target="_blank">Romhacking.net</a><span class="tag">Hub</span></li>
+            <li><a href="https://datacrystal.romhacking.net" rel="noopener noreferrer" target="_blank">Data Crystal</a><span class="tag">Wiki</span></li>
+            <li><a href="https://www.smwcentral.net" rel="noopener noreferrer" target="_blank">SMW Central</a><span class="tag">Super Mario World</span></li>
+            <li><a href="https://metroidconstruction.com" rel="noopener noreferrer" target="_blank">Metroid Construction</a><span class="tag">Metroid</span></li>
+            <li><a href="https://sonicretro.org" rel="noopener noreferrer" target="_blank">Sonic Retro</a><span class="tag">Sonic</span></li>
+            <li><a href="https://www.pokecommunity.com" rel="noopener noreferrer" target="_blank">PokéCommunity</a><span class="tag">Pokémon</span></li>
+            <li><a href="https://projectpokemon.org" rel="noopener noreferrer" target="_blank">Project Pokémon</a><span class="tag">Pokémon</span></li>
+            <li><a href="https://forums.qhimm.com" rel="noopener noreferrer" target="_blank">Qhimm Forums</a><span class="tag">FF7 / FF8</span></li>
+            <li><a href="https://www.zeldix.net" rel="noopener noreferrer" target="_blank">Zeldix</a><span class="tag">Zelda</span></li>
+            <li><a href="https://feuniverse.us" rel="noopener noreferrer" target="_blank">Fire Emblem Universe</a><span class="tag">Fire Emblem</span></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="category" data-new>
+        <div class="category-header">
+            <span>Retro &amp; Modding Communities</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="category-content">
+        <ul>
+            <li><a href="https://gbatemp.net" rel="noopener noreferrer" target="_blank">GBAtemp</a><span class="tag">Forum</span></li>
+            <li><a href="https://www.psx-place.com" rel="noopener noreferrer" target="_blank">PSX-Place</a><span class="tag">Forum</span></li>
+            <li><a href="https://www.gc-forever.com" rel="noopener noreferrer" target="_blank">GC-Forever</a><span class="tag">GameCube / Wii</span></li>
+            <li><a href="https://www.ogxbox.com" rel="noopener noreferrer" target="_blank">OG-Xbox</a><span class="tag">OG Xbox</span></li>
+            <li><a href="https://segaxtreme.net" rel="noopener noreferrer" target="_blank">SegaXtreme</a><span class="tag">Sega</span></li>
+            <li><a href="https://spritesmind.net" rel="noopener noreferrer" target="_blank">SpritesMind</a><span class="tag">Genesis Dev</span></li>
+            <li><a href="https://www.dreamcast-talk.com" rel="noopener noreferrer" target="_blank">Dreamcast-Talk</a><span class="tag">Dreamcast</span></li>
+            <li><a href="https://www.elotrolado.net" rel="noopener noreferrer" target="_blank">Elotrolado</a><span class="tag">Spanish Scene</span></li>
+            <li><a href="https://www.racketboy.com" rel="noopener noreferrer" target="_blank">racketboy</a><span class="tag">Retro Blog / Forum</span></li>
+            <li><a href="https://www.reddit.com/r/WiiHacks" rel="noopener noreferrer" target="_blank">r/WiiHacks</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/3dshacks" rel="noopener noreferrer" target="_blank">r/3dshacks</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/SwitchHacks" rel="noopener noreferrer" target="_blank">r/SwitchHacks</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/vitahacks" rel="noopener noreferrer" target="_blank">r/vitahacks</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/ps3homebrew" rel="noopener noreferrer" target="_blank">r/ps3homebrew</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/psphacks" rel="noopener noreferrer" target="_blank">r/psphacks</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/originalxbox" rel="noopener noreferrer" target="_blank">r/originalxbox</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/360hacks" rel="noopener noreferrer" target="_blank">r/360hacks</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/emulation" rel="noopener noreferrer" target="_blank">r/emulation</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/EmulationOnAndroid" rel="noopener noreferrer" target="_blank">r/EmulationOnAndroid</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/SBCGaming" rel="noopener noreferrer" target="_blank">r/SBCGaming</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/SteamDeck" rel="noopener noreferrer" target="_blank">r/SteamDeck</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/retrogaming" rel="noopener noreferrer" target="_blank">r/retrogaming</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/Gameboy" rel="noopener noreferrer" target="_blank">r/Gameboy</a><span class="tag">Subreddit</span></li>
+            <li><a href="https://www.reddit.com/r/romhacking" rel="noopener noreferrer" target="_blank">r/romhacking</a><span class="tag">Subreddit</span></li>
+        </ul>
+        </div>
+    </div>
 </div>
 
 <footer>
@@ -5508,6 +5716,7 @@
         <a href="socials.html">Socials</a>
         <a href="sitemap.html">Sitemap</a>
         <a href="donations.html">Donate</a>
+        <a href="https://github.com/MarshMeadow/Nekos-Index/issues/new/choose" target="_blank" rel="noopener noreferrer">Suggest a Resource</a>
         <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer">Dev</a>
     </div>
     <details class="marquee-note">
@@ -5871,7 +6080,8 @@
     </div>
 </div>
 
-<script src="pixels.js"></script>
+<script src="site-nav.js" defer></script>
+<script src="pixels.js" defer></script>
 <script>
     (function() {
         const OI_KEY = 'nekos_other_indexes_verified';
@@ -5887,8 +6097,8 @@
             return;
         }
 
-        const n1 = Math.floor(Math.random() * 8) + 2;
-        const n2 = Math.floor(Math.random() * 8) + 2;
+        const n1 = Math.floor(Math.random() * 4) + 1;
+        const n2 = Math.floor(Math.random() * 4) + 1;
         const answer = n1 + n2;
         question.textContent = `What is ${n1} + ${n2}?`;
 
@@ -5979,8 +6189,8 @@
             title.textContent = 'Solve to view social links:';
             const puzzle = document.createElement('p');
             puzzle.style.fontWeight = '700';
-            const a = Math.floor(Math.random() * 9) + 1;
-            const b = Math.floor(Math.random() * 9) + 1;
+            const a = Math.floor(Math.random() * 4) + 1;
+            const b = Math.floor(Math.random() * 4) + 1;
             const expected = a + b;
             puzzle.textContent = `What is ${a} + ${b}?`;
             const input = document.createElement('input');
@@ -6103,8 +6313,8 @@
             const prompt = document.createElement('p');
             prompt.className = 'app-modal-desc';
 
-            const a = Math.floor(Math.random() * 9) + 1;
-            const b = Math.floor(Math.random() * 9) + 1;
+            const a = Math.floor(Math.random() * 4) + 1;
+            const b = Math.floor(Math.random() * 4) + 1;
             const expected = a + b;
             prompt.textContent = `What is ${a} + ${b}?`;
 
@@ -6457,9 +6667,12 @@
             }
         }
 
-        document.querySelectorAll('.main-nav, .footer-nav').forEach(container => {
-            const isMain = container.classList.contains('main-nav');
-            wrapMarquee(container, isMain ? 'main-nav-track' : 'footer-nav-track', 25);
+        // Defer so nav links injected by site-nav.js (deferred script) exist first
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.main-nav, .footer-nav').forEach(container => {
+                const isMain = container.classList.contains('main-nav');
+                wrapMarquee(container, isMain ? 'main-nav-track' : 'footer-nav-track', 25);
+            });
         });
 
         if (listGate.classList.contains('hidden')) {

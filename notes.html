@@ -8,8 +8,12 @@
 <meta property="og:title" content="Notes - Neko's Index">
 <meta property="og:description" content="Notes, about, and changelog for Neko's Index.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://nekosindex.com/notes.html">
+<meta property="og:url" content="https://neko-s-index.github.io/Nekos-Index/notes.html">
+<meta property="og:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
+<link rel="canonical" href="https://neko-s-index.github.io/Nekos-Index/notes.html">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
+<meta name="theme-color" content="#3b82f6">
 <style>
     body {
         margin: 0;
@@ -97,21 +101,30 @@
     }
 </style>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
 <header>
     <img src="logo.svg" alt="Neko's Index" class="site-logo">
     <h1>Notes & About</h1>
-    <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="list.html">Index</a>
-        <a href="guides.html">Guides</a>
-        <a href="disclaimer.html">Disclaimer</a>
-        <a href="dmca.html">DMCA</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="privacy-settings.html">Privacy Settings</a>
-    </nav>
+<nav class="main-nav" data-autonav></nav>
+<noscript>
+<nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="list.html">Index</a>
+    <a href="guides.html">Guides</a>
+    <a href="mylists.html">My Lists</a>
+    <a href="notes.html">Notes</a>
+    <a href="socials.html">Socials</a>
+    <a href="sitemap.html">Sitemap</a>
+    <a href="privacy-settings.html">Privacy Settings</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="dmca.html">DMCA</a>
+    <a href="donations.html">Donate</a>
+</nav>
+</noscript>
 </header>
 
 <div class="container">
@@ -131,13 +144,14 @@
         <li>Click the <strong>Guide</strong> button for a quick overview of features and shortcuts.</li>
         <li>Click any category header to expand or collapse it.</li>
         <li>Use the search bar to filter apps by name or tag.</li>
-        <li>Use filter buttons to quickly show Android, PC, iOS, AI, gaming, privacy, tools, or downloads.</li>
+        <li>Use filter buttons to quickly show Android, PC, iOS, AI, gaming, privacy, tools, downloads, modding, retro, or communities.</li>
         <li>Click the star on any item to add it to your Favorites.</li>
         <li>Toggle light/dark mode and open Settings for more options.</li>
     </ul>
 
     <h2>Changelog</h2>
     <ul>
+        <li><strong>2026-09-19</strong> — Added console modding, homebrew, emulation, retro handheld, ROM hacking, and community categories with 100+ new resources. Shared site navigation via site-nav.js. PWA icons and social-card meta added; sitemap updated. Pixel animation now respects Reduce Motion.</li>
         <li><strong>2026-08-30</strong> — Added My Lists: create custom categories, apps, resources, sources, and lists with save, export, and import. Added the My Lists Maker page. Added a Theme setting, App Layout (List/Grid/Compact), Reduce Motion, Marquee Animation, High Contrast, and other settings. Improved mobile layout and text wrapping. Added share URLs for apps and a local contact/feedback notice.</li>
         <li><strong>2026-08-27</strong> — Added a Guide side panel to the list page; expanded iOS, Android, PC, and Gaming resources; and combined the Safety, Verification, and Online Safety guide sections.</li>
         <li><strong>2026-08-27</strong> — Expanded open-source categories: Android, PC, iOS, AI, gaming, utilities, video players, VPN/DNS, torrenting, and app stores. Added filter buttons, tag-aware search, category scrolling, no-results message, and GitHub star badges.</li>
@@ -158,18 +172,6 @@
     <a href="privacy.html">Privacy</a>
 </footer>
 
-<script>
-    document.body.style.userSelect = 'none';
-    document.body.style.webkitUserSelect = 'none';
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    ['copy', 'cut', 'paste', 'dragstart'].forEach(evt =>
-        document.addEventListener(evt, e => e.preventDefault())
-    );
-    document.addEventListener('keydown', e => {
-        if (e.key === 'F12') return e.preventDefault();
-        if (e.ctrlKey && e.shiftKey && ['i','j','c','k','u'].includes(e.key.toLowerCase())) return e.preventDefault();
-        if (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()) && !e.shiftKey) return e.preventDefault();
-    });
-</script>
+<script src="site-nav.js" defer></script>
 </body>
 </html>

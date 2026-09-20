@@ -4,13 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Neko Index Gate</title>
+<title>Neko's Index — open-source apps, privacy tools & more</title>
 <meta name="description" content="A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.">
 <meta property="og:title" content="Neko's Index">
 <meta property="og:description" content="A curated directory of open-source apps, privacy tools, streaming utilities, and more.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://nekosindex.com">
+<meta property="og:url" content="https://neko-s-index.github.io/Nekos-Index/">
+<meta property="og:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
+<link rel="canonical" href="https://neko-s-index.github.io/Nekos-Index/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
 <meta name="theme-color" content="#3b82f6">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,8 +52,6 @@
             radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.12), transparent 40%);
         color: var(--text-primary);
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        user-select: none;
-        -webkit-user-select: none;
         line-height: 1.6;
     }
 
@@ -277,18 +278,23 @@
             This is an open-source project. View the code, report issues, or contribute on <a href="https://github.com/MarshMeadow/Nekos-Index" rel="noopener noreferrer" target="_blank">GitHub</a>.
         </p>
         <p id="status" class="terminal">Checking verification...</p>
+        <nav class="main-nav" data-autonav></nav>
+        <noscript>
         <nav class="main-nav">
             <a href="index.html">Home</a>
             <a href="list.html">Index</a>
             <a href="guides.html">Guides</a>
-            <a href="disclaimer.html">Disclaimer</a>
-            <a href="dmca.html">DMCA</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="privacy-settings.html">Privacy Settings</a>
+            <a href="mylists.html">My Lists</a>
             <a href="notes.html">Notes</a>
             <a href="socials.html">Socials</a>
+            <a href="sitemap.html">Sitemap</a>
+            <a href="privacy-settings.html">Privacy Settings</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="dmca.html">DMCA</a>
             <a href="donations.html">Donate</a>
         </nav>
+        </noscript>
         <div id="action"></div>
     </div>
 </div>
@@ -331,8 +337,8 @@ const action = document.getElementById("action");
 status.textContent = "Complete the puzzle below to continue.";
 
 // Basic math puzzle
-const num1 = Math.floor(Math.random() * 8) + 2;
-const num2 = Math.floor(Math.random() * 8) + 2;
+const num1 = Math.floor(Math.random() * 4) + 1;
+const num2 = Math.floor(Math.random() * 4) + 1;
 const answer = num1 + num2;
 
 const question = document.createElement("p");
@@ -392,51 +398,19 @@ btn.onclick = () => {
 
 action.appendChild(btn);
 
-// Blur out and disable the list-page links on this gate
-document.querySelectorAll('a[href="list.html"]').forEach(link => {
-    link.style.pointerEvents = "none";
-    link.style.filter = "blur(1.5px) grayscale(100%)";
-    link.style.opacity = "0.45";
-    link.style.cursor = "not-allowed";
-});
-
-/* -------------------------
-   DISABLE RIGHT CLICK
---------------------------*/
-document.addEventListener("contextmenu", e => e.preventDefault());
-
-/* -------------------------
-   BLOCK DEVTOOLS SHORTCUTS
---------------------------*/
-document.addEventListener("keydown", function (e) {
-    // F12
-    if (e.key === "F12") e.preventDefault();
-
-    // Ctrl+Shift+I / J / C
-    if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) {
-        e.preventDefault();
-    }
-
-    // Ctrl+U (view source)
-    if (e.ctrlKey && e.key === "u") {
-        e.preventDefault();
-    }
-});
-</script>
-
-<script>
-    document.body.style.userSelect = 'none';
-    document.body.style.webkitUserSelect = 'none';
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    ['copy', 'cut', 'paste', 'dragstart'].forEach(evt =>
-        document.addEventListener(evt, e => e.preventDefault())
-    );
-    document.addEventListener('keydown', e => {
-        if (e.key === 'F12') return e.preventDefault();
-        if (e.ctrlKey && e.shiftKey && ['i','j','c','k','u'].includes(e.key.toLowerCase())) return e.preventDefault();
-        if (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()) && !e.shiftKey) return e.preventDefault();
+// Blur out and disable the list-page links on this gate.
+// Runs on DOMContentLoaded so links injected by site-nav.js are included.
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href="list.html"]').forEach(link => {
+        link.style.pointerEvents = "none";
+        link.style.filter = "blur(1.5px) grayscale(100%)";
+        link.style.opacity = "0.45";
+        link.style.cursor = "not-allowed";
     });
+});
 </script>
-<script src="pixels.js"></script>
+
+<script src="site-nav.js" defer></script>
+<script src="pixels.js" defer></script>
 </body>
 </html>

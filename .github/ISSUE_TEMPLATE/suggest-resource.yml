@@ -1,0 +1,55 @@
+name: Suggest a resource
+description: Suggest an app, tool, site, or community for the index
+title: "[Resource]: "
+labels: ["suggestion"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      description: Name of the app, tool, site, or community
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Link to the official site or repository
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Best-fit category (a new one can be suggested)
+      options:
+        - Open Source Android Apps
+        - Open Source PC / Desktop Apps
+        - Open Source iOS Apps
+        - Console Modding & Homebrew
+        - Emulators & Retro Gaming
+        - Privacy & Security Tools
+        - VPNs & DNS
+        - Streaming & Media
+        - Anime & Manga
+        - Downloads & Archives
+        - Communities
+        - Other / new category
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Why should it be listed?
+      description: Short description and what makes it useful or trustworthy
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: The link points to an official source (not a re-upload or mirror of unknown origin)
+          required: true
+        - label: The resource is legal to link to (informational, tools, homebrew, open-source)
+          required: true

@@ -2,8 +2,9 @@
     "name": "Neko's Index",
     "short_name": "NekosIndex",
     "description": "A curated directory of open-source apps, privacy tools, streaming utilities, and more.",
-    "start_url": "index.html",
-    "scope": "/",
+    "id": "./",
+    "start_url": "./index.html",
+    "scope": "./",
     "display": "standalone",
     "background_color": "#0a0a0b",
     "theme_color": "#3b82f6",
@@ -11,10 +12,40 @@
     "lang": "en",
     "icons": [
         {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
             "src": "logo.svg",
             "sizes": "any",
             "type": "image/svg+xml",
-            "purpose": "any maskable"
+            "purpose": "any"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Browse the Index",
+            "url": "./list.html",
+            "description": "Open the full resource directory"
+        },
+        {
+            "name": "Guides",
+            "url": "./guides.html",
+            "description": "Setup guides for PC, Android, iOS and more"
         }
     ]
 }

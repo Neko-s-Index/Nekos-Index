@@ -1,0 +1,54 @@
+name: Check site links
+
+on:
+  schedule:
+    - cron: "0 7 * * 3"   # weekly, Wednesdays 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check links
+        run: node .github/scripts/check-links.mjs
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: link-report.*
+      - name: Open issue on failures
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('link-report.json')) return;
+            const report = JSON.parse(fs.readFileSync('link-report.json', 'utf8'));
+            const title = 'Link check report (automated)';
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'link-check', per_page: 5
+            });
+            const existing = issues.find(i => i.title === title);
+            if (report.failed.length === 0) {
+              if (existing) await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existing.number, state: 'closed',
+                body: existing.body + '\n\nAll links healthy as of latest run. Closing.'
+              });
+              return;
+            }
+            const body = fs.readFileSync('link-report.md', 'utf8').slice(0, 60000);
+            if (existing) {
+              await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, body, labels: ['link-check'] });
+            }

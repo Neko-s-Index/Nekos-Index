@@ -3898,5 +3898,810 @@
         "url":  "https://github.com/MarshMeadow/dantotsu-updater-web",
         "title":  "Dantotsu Updater (Source)",
         "description":  "Dantotsu Updater source code on GitHub."
+    },
+    {
+        "url":  "https://wii.hacks.guide",
+        "title":  "Wii Hacks Guide",
+        "description":  "Step-by-step guide for modding the Nintendo Wii (Homebrew Channel, BootMii, cIOS)."
+    },
+    {
+        "url":  "https://3ds.hacks.guide",
+        "title":  "3DS Hacks Guide",
+        "description":  "Complete guide for installing Luma3DS custom firmware on any Nintendo 3DS."
+    },
+    {
+        "url":  "https://dsi.cfw.guide",
+        "title":  "DSi CFW Guide",
+        "description":  "Guide for installing custom firmware on the Nintendo DSi."
+    },
+    {
+        "url":  "https://wiiu.hacks.guide",
+        "title":  "Wii U Hacks Guide",
+        "description":  "Guide for modding the Wii U with Aroma or Tiramisu custom firmware."
+    },
+    {
+        "url":  "https://switch.hacks.guide",
+        "title":  "Switch Hacks Guide",
+        "description":  "Guide for hacking the Nintendo Switch and installing Atmosphère CFW."
+    },
+    {
+        "url":  "https://vita.hacks.guide",
+        "title":  "Vita Hacks Guide",
+        "description":  "Guide for modding the PS Vita with HENkaku and Enso."
+    },
+    {
+        "url":  "https://psp.hacks.guide",
+        "title":  "PSP Hacks Guide",
+        "description":  "Guide for installing custom firmware on the PlayStation Portable."
+    },
+    {
+        "url":  "https://www.consolemods.org",
+        "title":  "ConsoleMods",
+        "description":  "Community wiki of modding guides covering many classic consoles."
+    },
+    {
+        "url":  "https://letterbomb.please.hackmii.com",
+        "title":  "LetterBomb",
+        "description":  "Wii exploit that installs the Homebrew Channel via the message board."
+    },
+    {
+        "url":  "https://github.com/LumaTeam/Luma3DS",
+        "title":  "Luma3DS",
+        "description":  "The standard custom firmware for Nintendo 3DS."
+    },
+    {
+        "url":  "https://github.com/Atmosphere-NX/Atmosphere",
+        "title":  "Atmosphère",
+        "description":  "The most widely used custom firmware for the Nintendo Switch."
+    },
+    {
+        "url":  "https://github.com/CTCaer/hekate",
+        "title":  "Hekate",
+        "description":  "Bootloader and payload manager for the Nintendo Switch."
+    },
+    {
+        "url":  "https://github.com/TheOfficialFloW/HENkaku",
+        "title":  "HENkaku",
+        "description":  "Homebrew enabler exploit for the PS Vita."
+    },
+    {
+        "url":  "https://github.com/TheOfficialFloW/h-encore-2",
+        "title":  "h-encore²",
+        "description":  "Exploit used to install HENkaku on later Vita firmware versions."
+    },
+    {
+        "url":  "https://github.com/PS3Xploit/PS3HEN",
+        "title":  "PS3HEN",
+        "description":  "Homebrew enabler for all PS3 models on modern firmware."
+    },
+    {
+        "url":  "https://github.com/aldostools/webMAN-MOD",
+        "title":  "webMAN MOD",
+        "description":  "Feature-rich plugin and backup manager for PS3 with CFW or HEN."
+    },
+    {
+        "url":  "https://github.com/ps2homebrew/FreeMcBoot",
+        "title":  "FreeMCBoot",
+        "description":  "Exploit installed to a PS2 memory card to run homebrew."
+    },
+    {
+        "url":  "https://github.com/ps2homebrew/Open-PS2-Loader",
+        "title":  "Open PS2 Loader",
+        "description":  "Open-source loader for playing PS2 games from USB, HDD, or SMB share."
+    },
+    {
+        "url":  "https://github.com/Rocky5/Xbox-Softmodding-Tool",
+        "title":  "Xbox Softmodding Tool",
+        "description":  "All-in-one softmodding utility for the original Xbox."
+    },
+    {
+        "url":  "https://github.com/emukidid/swiss-gc",
+        "title":  "Swiss",
+        "description":  "Swiss army knife homebrew for GameCube — file browser and backup loader."
+    },
+    {
+        "url":  "https://github.com/webhdx/PicoBoot",
+        "title":  "PicoBoot",
+        "description":  "RP2040-based IPL replacement modchip firmware for the GameCube."
+    },
+    {
+        "url":  "https://github.com/GoldHEN/GoldHEN",
+        "title":  "GoldHEN",
+        "description":  "Homebrew enabler for the PlayStation 4."
+    },
+    {
+        "url":  "https://github.com/DS-Homebrew/TWiLightMenu",
+        "title":  "TWiLight Menu++",
+        "description":  "DSi Menu replacement that runs DS and retro games on DSi, 3DS, and flashcarts."
+    },
+    {
+        "url":  "https://www.fortheusers.org",
+        "title":  "Homebrew App Store",
+        "description":  "Homebrew App Store for Wii U, Switch, and 3DS homebrew."
+    },
+    {
+        "url":  "https://oscwii.org",
+        "title":  "Open Shop Channel",
+        "description":  "Community-run successor to the Wii Homebrew Browser."
+    },
+    {
+        "url":  "https://db.universal-team.net",
+        "title":  "Universal-DB",
+        "description":  "Database of DS and 3DS homebrew used by Universal-Updater."
+    },
+    {
+        "url":  "https://github.com/Universal-Team/Universal-Updater",
+        "title":  "Universal-Updater",
+        "description":  "On-console homebrew app store for the 3DS."
+    },
+    {
+        "url":  "https://vitadb.rinnegatamante.it",
+        "title":  "VitaDB",
+        "description":  "Database of PS Vita homebrew, plugins, and ports."
+    },
+    {
+        "url":  "https://www.brewology.com",
+        "title":  "Brewology",
+        "description":  "Downloads and scene news for PSP, PS3, and PS Vita homebrew."
+    },
+    {
+        "url":  "https://wiibrew.org",
+        "title":  "WiiBrew",
+        "description":  "Wiki documenting Wii homebrew, hardware, and exploits."
+    },
+    {
+        "url":  "https://switchbrew.org",
+        "title":  "SwitchBrew",
+        "description":  "Technical wiki for Nintendo Switch internals and homebrew."
+    },
+    {
+        "url":  "https://www.3dbrew.org",
+        "title":  "3DBrew",
+        "description":  "Technical wiki for Nintendo 3DS internals and homebrew."
+    },
+    {
+        "url":  "https://www.psdevwiki.com",
+        "title":  "PSDevWiki",
+        "description":  "Technical documentation wiki for PlayStation consoles."
+    },
+    {
+        "url":  "https://www.gamebrew.org",
+        "title":  "GameBrew",
+        "description":  "Wiki cataloging homebrew applications for many consoles."
+    },
+    {
+        "url":  "https://emulation.gametechwiki.com",
+        "title":  "Emulation General Wiki",
+        "description":  "Community wiki covering emulators and emulation accuracy."
+    },
+    {
+        "url":  "https://flashcarts.net",
+        "title":  "Flashcarts.net",
+        "description":  "Community database of flashcart info, kernels, and guides."
+    },
+    {
+        "url":  "https://wiki.gbatemp.net",
+        "title":  "WikiTemp",
+        "description":  "GBAtemp\u0027s wiki with flashcart and console guides."
+    },
+    {
+        "url":  "https://dl.openhandhelds.org",
+        "title":  "openHandhelds Archive",
+        "description":  "File archive for classic open handhelds like the GP32 and Pandora."
+    },
+    {
+        "url":  "https://www.ppsspp.org",
+        "title":  "PPSSPP",
+        "description":  "Fast, portable PSP emulator for PC and mobile."
+    },
+    {
+        "url":  "https://melonds.kuribo64.net",
+        "title":  "melonDS",
+        "description":  "Nintendo DS emulator with Wi-Fi support and good performance."
+    },
+    {
+        "url":  "http://desmume.org",
+        "title":  "DeSmuMe",
+        "description":  "Long-running Nintendo DS emulator."
+    },
+    {
+        "url":  "https://github.com/stenzek/duckstation",
+        "title":  "DuckStation",
+        "description":  "Accurate, feature-rich PlayStation 1 emulator."
+    },
+    {
+        "url":  "https://mednafen.github.io",
+        "title":  "Mednafen",
+        "description":  "Accurate multi-system emulator covering PS1, Saturn, PC Engine, and more."
+    },
+    {
+        "url":  "https://ares-emu.net",
+        "title":  "Ares",
+        "description":  "Multi-system emulator focused on accuracy; successor to higan."
+    },
+    {
+        "url":  "https://cemu.info",
+        "title":  "Cemu",
+        "description":  "Wii U emulator for PC."
+    },
+    {
+        "url":  "https://azahar-emu.org",
+        "title":  "Azahar",
+        "description":  "Nintendo 3DS emulator; continuation of Citra and Lime3DS."
+    },
+    {
+        "url":  "https://ryubing.org",
+        "title":  "Ryubing (Ryujinx fork)",
+        "description":  "Maintained community fork of the Ryujinx Switch emulator."
+    },
+    {
+        "url":  "https://xenia.jp",
+        "title":  "Xenia",
+        "description":  "Xbox 360 emulator for Windows and Linux."
+    },
+    {
+        "url":  "https://xemu.app",
+        "title":  "xemu",
+        "description":  "Original Xbox emulator for PC, macOS, and Linux."
+    },
+    {
+        "url":  "https://cxbx-reloaded.co.uk",
+        "title":  "Cxbx-Reloaded",
+        "description":  "Original Xbox emulator using high-level emulation."
+    },
+    {
+        "url":  "https://vita3k.org",
+        "title":  "Vita3K",
+        "description":  "Experimental PlayStation Vita emulator."
+    },
+    {
+        "url":  "https://shadps4.net",
+        "title":  "shadPS4",
+        "description":  "Early-stage PlayStation 4 emulator."
+    },
+    {
+        "url":  "https://github.com/flyinghead/flycast",
+        "title":  "Flycast",
+        "description":  "Dreamcast, Naomi, and Atomiswave emulator."
+    },
+    {
+        "url":  "https://redream.io",
+        "title":  "Redream",
+        "description":  "Easy-to-use Dreamcast emulator."
+    },
+    {
+        "url":  "https://www.snes9x.com",
+        "title":  "Snes9x",
+        "description":  "Portable Super Nintendo emulator."
+    },
+    {
+        "url":  "https://github.com/bsnes-emu/bsnes",
+        "title":  "bsnes",
+        "description":  "Accuracy-focused SNES emulator."
+    },
+    {
+        "url":  "https://www.mesen.ca",
+        "title":  "Mesen",
+        "description":  "High-accuracy NES, SNES, Game Boy, and PC Engine emulator."
+    },
+    {
+        "url":  "https://sameboy.github.io",
+        "title":  "SameBoy",
+        "description":  "Accurate Game Boy and Game Boy Color emulator."
+    },
+    {
+        "url":  "https://github.com/visualboyadvance-m/visualboyadvance-m",
+        "title":  "VisualBoyAdvance-M",
+        "description":  "Maintained continuation of the VisualBoyAdvance GBA emulator."
+    },
+    {
+        "url":  "https://github.com/Rosalie241/RMG",
+        "title":  "RMG",
+        "description":  "Rosalie\u0027s Mupen GUI — a modern Mupen64Plus-based N64 emulator."
+    },
+    {
+        "url":  "https://www.pj64-emu.com",
+        "title":  "Project64",
+        "description":  "Popular Nintendo 64 emulator for Windows and Android."
+    },
+    {
+        "url":  "https://openemu.org",
+        "title":  "OpenEmu",
+        "description":  "Polished multi-system emulator frontend for macOS."
+    },
+    {
+        "url":  "https://www.scummvm.org",
+        "title":  "ScummVM",
+        "description":  "Engine for playing classic point-and-click adventure games."
+    },
+    {
+        "url":  "https://dosbox-x.com",
+        "title":  "DOSBox-X",
+        "description":  "Expanded DOS emulator for DOS games and software."
+    },
+    {
+        "url":  "https://www.aethersx2.com",
+        "title":  "AetherSX2",
+        "description":  "PS2 emulator for Android (discontinued; see NetherSX2 patch)."
+    },
+    {
+        "url":  "https://github.com/Trixarian/NetherSX2-patch",
+        "title":  "NetherSX2 Patch",
+        "description":  "Community patch that fixes and improves AetherSX2."
+    },
+    {
+        "url":  "https://github.com/brunodev85/winlator",
+        "title":  "Winlator",
+        "description":  "Runs Windows apps and games on Android via Wine and Box64."
+    },
+    {
+        "url":  "https://github.com/streetpea/chiaki-ng",
+        "title":  "chiaki-ng",
+        "description":  "Open-source PS4/PS5 remote play client."
+    },
+    {
+        "url":  "https://github.com/TapiocaFox/Daijishou",
+        "title":  "Daijishō",
+        "description":  "Retro emulation frontend for Android."
+    },
+    {
+        "url":  "https://es-de.org",
+        "title":  "ES-DE",
+        "description":  "EmulationStation Desktop Edition frontend."
+    },
+    {
+        "url":  "https://www.retrobat.org",
+        "title":  "RetroBat",
+        "description":  "Windows retro-gaming distribution built on EmulationStation."
+    },
+    {
+        "url":  "https://retropie.org.uk",
+        "title":  "RetroPie",
+        "description":  "Retro gaming setup for Raspberry Pi and Debian systems."
+    },
+    {
+        "url":  "https://batocera.org",
+        "title":  "Batocera",
+        "description":  "Plug-and-play retro gaming Linux distribution."
+    },
+    {
+        "url":  "https://www.recalbox.com",
+        "title":  "Recalbox",
+        "description":  "Retro gaming OS for PC, Raspberry Pi, and handhelds."
+    },
+    {
+        "url":  "https://www.lakka.tv",
+        "title":  "Lakka",
+        "description":  "Lightweight Linux distro that turns devices into retro consoles."
+    },
+    {
+        "url":  "https://github.com/MiSTer-devel/Main_MiSTer",
+        "title":  "MiSTer",
+        "description":  "FPGA project for cycle-accurate retro hardware recreation."
+    },
+    {
+        "url":  "https://retroachievements.org",
+        "title":  "RetroAchievements",
+        "description":  "Adds achievements to retro games played in emulators."
+    },
+    {
+        "url":  "https://muos.dev",
+        "title":  "muOS",
+        "description":  "Custom firmware for Anbernic RG35XX and similar handhelds."
+    },
+    {
+        "url":  "https://github.com/OnionUI/Onion",
+        "title":  "Onion OS",
+        "description":  "Popular custom firmware for the Miyoo Mini."
+    },
+    {
+        "url":  "https://knulli.org",
+        "title":  "Knulli",
+        "description":  "Batocera-based custom firmware for retro handhelds."
+    },
+    {
+        "url":  "https://rocknix.org",
+        "title":  "ROCKNIX",
+        "description":  "Immutable Linux custom firmware for retro handhelds."
+    },
+    {
+        "url":  "https://github.com/christianhaitian/arkos",
+        "title":  "ArkOS",
+        "description":  "Custom firmware for RG351 and other retro handhelds."
+    },
+    {
+        "url":  "https://amberelec.org",
+        "title":  "AmberELEC",
+        "description":  "Custom firmware for RG351 devices."
+    },
+    {
+        "url":  "https://github.com/EmuELEC/EmuELEC",
+        "title":  "EmuELEC",
+        "description":  "Emulation distro for Amlogic TV boxes."
+    },
+    {
+        "url":  "https://www.emudeck.com",
+        "title":  "EmuDeck",
+        "description":  "One-click emulator setup for the Steam Deck."
+    },
+    {
+        "url":  "https://github.com/SteamDeckHomebrew/decky-loader",
+        "title":  "Decky Loader",
+        "description":  "Plugin loader for the Steam Deck."
+    },
+    {
+        "url":  "https://github.com/CryoByte33/steam-deck-utilities",
+        "title":  "CryoUtilities",
+        "description":  "Performance tweaks and utilities for the Steam Deck."
+    },
+    {
+        "url":  "https://github.com/GloriousEggroll/proton-ge-custom",
+        "title":  "Proton GE",
+        "description":  "Community build of Proton with extra fixes for games."
+    },
+    {
+        "url":  "https://retrogamecorps.com",
+        "title":  "Retro Game Corps",
+        "description":  "Guides, reviews, and settings for retro handhelds."
+    },
+    {
+        "url":  "https://retrohandhelds.gg",
+        "title":  "Retro Handhelds",
+        "description":  "News, reviews, and community for retro handhelds."
+    },
+    {
+        "url":  "https://anbernic.com",
+        "title":  "Anbernic",
+        "description":  "Maker of popular retro emulation handhelds."
+    },
+    {
+        "url":  "https://www.goretroid.com",
+        "title":  "Retroid",
+        "description":  "Maker of the Retroid Pocket handhelds."
+    },
+    {
+        "url":  "https://www.dragonbox.de",
+        "title":  "DragonBox",
+        "description":  "Home of the Pyra and Pandora open handhelds."
+    },
+    {
+        "url":  "https://pyra-handheld.com",
+        "title":  "Pyra / Pandora Boards",
+        "description":  "Community forums for the Pyra and Pandora handhelds."
+    },
+    {
+        "url":  "https://wiimmfi.de",
+        "title":  "Wiimmfi",
+        "description":  "Replacement online service for Wii and DS games."
+    },
+    {
+        "url":  "https://pretendo.network",
+        "title":  "Pretendo Network",
+        "description":  "Open-source recreation of Nintendo Network for Wii U and 3DS."
+    },
+    {
+        "url":  "https://insignia.live",
+        "title":  "Insignia",
+        "description":  "Community-run Xbox Live revival for the original Xbox."
+    },
+    {
+        "url":  "https://www.teamxlink.co.uk",
+        "title":  "XLink Kai",
+        "description":  "Tunnels LAN multiplayer over the internet for retro consoles."
+    },
+    {
+        "url":  "https://dreamcastlive.net",
+        "title":  "Dreamcast Live",
+        "description":  "Guides and tools for playing Dreamcast games online today."
+    },
+    {
+        "url":  "https://wiilink24.com",
+        "title":  "WiiLink",
+        "description":  "Revives discontinued Wii channels and services."
+    },
+    {
+        "url":  "https://sylverant.net",
+        "title":  "Sylverant",
+        "description":  "Open-source server for Phantasy Star Online."
+    },
+    {
+        "url":  "https://hiddenpalace.org",
+        "title":  "Hidden Palace",
+        "description":  "Archive of video game prototypes and development material."
+    },
+    {
+        "url":  "https://tcrf.net",
+        "title":  "The Cutting Room Floor",
+        "description":  "Wiki documenting unused content found in games."
+    },
+    {
+        "url":  "http://redump.org",
+        "title":  "Redump",
+        "description":  "Project preserving disc-based games with checksums."
+    },
+    {
+        "url":  "https://no-intro.org",
+        "title":  "No-Intro",
+        "description":  "Project cataloging cartridge-based games with verified dumps."
+    },
+    {
+        "url":  "https://www.tosecdev.org",
+        "title":  "TOSEC",
+        "description":  "The Old School Emulation Center preservation project."
+    },
+    {
+        "url":  "https://archive.org/details/consolelivingroom",
+        "title":  "Console Living Room",
+        "description":  "Internet Archive collection of consoles playable in the browser."
+    },
+    {
+        "url":  "https://github.com/rommapp/romm",
+        "title":  "RomM",
+        "description":  "Self-hosted web ROM manager with metadata scraping."
+    },
+    {
+        "url":  "https://www.hardcoregaming101.net",
+        "title":  "Hardcore Gaming 101",
+        "description":  "In-depth articles on retro and obscure games."
+    },
+    {
+        "url":  "https://gamebanana.com",
+        "title":  "GameBanana",
+        "description":  "Large modding community hosting mods for hundreds of games."
+    },
+    {
+        "url":  "https://www.moddb.com",
+        "title":  "ModDB",
+        "description":  "Modding community and file host for PC games."
+    },
+    {
+        "url":  "https://thunderstore.io",
+        "title":  "Thunderstore",
+        "description":  "Mod database and manager for games like Lethal Company."
+    },
+    {
+        "url":  "https://github.com/ModOrganizer2/modorganizer",
+        "title":  "Mod Organizer 2",
+        "description":  "Advanced mod manager for Bethesda and other PC games."
+    },
+    {
+        "url":  "https://www.marcrobledo.com/RomPatcher.js",
+        "title":  "RomPatcher.js",
+        "description":  "Browser-based patcher for IPS, BPS, xdelta and other formats."
+    },
+    {
+        "url":  "https://github.com/Alcaro/Flips",
+        "title":  "Floating IPS",
+        "description":  "Applies and creates IPS and BPS patches."
+    },
+    {
+        "url":  "https://fusoya.eludevisibility.org/lips/",
+        "title":  "Lunar IPS",
+        "description":  "Classic IPS patching tool for ROM hacks."
+    },
+    {
+        "url":  "https://github.com/jmacd/xdelta",
+        "title":  "xdelta",
+        "description":  "Binary diff tool commonly used for ROM patch distribution."
+    },
+    {
+        "url":  "https://github.com/Ajarmar/universal-pokemon-randomizer-zx",
+        "title":  "Universal Pokémon Randomizer ZX",
+        "description":  "Randomizes Pokémon games across generations."
+    },
+    {
+        "url":  "https://github.com/kwsch/PKHeX",
+        "title":  "PKHeX",
+        "description":  "Save editor for Pokémon games."
+    },
+    {
+        "url":  "https://github.com/J-D-K/JKSV",
+        "title":  "JKSV",
+        "description":  "Save manager for the Nintendo Switch."
+    },
+    {
+        "url":  "https://github.com/J-D-K/JKSM",
+        "title":  "JKSM",
+        "description":  "Save manager for the Nintendo 3DS."
+    },
+    {
+        "url":  "https://github.com/BernardoGiordano/Checkpoint",
+        "title":  "Checkpoint",
+        "description":  "Save and cheat manager for 3DS and Switch."
+    },
+    {
+        "url":  "https://github.com/d0k3/GodMode9",
+        "title":  "GodMode9",
+        "description":  "All-purpose file system tool for the 3DS."
+    },
+    {
+        "url":  "https://github.com/Steveice10/FBI",
+        "title":  "FBI",
+        "description":  "CIA title installer for the 3DS."
+    },
+    {
+        "url":  "https://github.com/SkyTemple",
+        "title":  "SkyTemple",
+        "description":  "Editor for Pokémon Mystery Dungeon games."
+    },
+    {
+        "url":  "https://github.com/pleonex/tinke",
+        "title":  "Tinke",
+        "description":  "Viewer and editor for Nintendo DS ROMs."
+    },
+    {
+        "url":  "https://gamehacking.org",
+        "title":  "GameHacking.org",
+        "description":  "Cheat code database and community for retro consoles."
+    },
+    {
+        "url":  "https://www.romhacking.net",
+        "title":  "Romhacking.net",
+        "description":  "The central hub for ROM hacks, translations, and utilities."
+    },
+    {
+        "url":  "https://datacrystal.romhacking.net",
+        "title":  "Data Crystal",
+        "description":  "Wiki documenting ROM structures for hacking."
+    },
+    {
+        "url":  "https://www.smwcentral.net",
+        "title":  "SMW Central",
+        "description":  "Super Mario World hacking community and tools."
+    },
+    {
+        "url":  "https://metroidconstruction.com",
+        "title":  "Metroid Construction",
+        "description":  "Metroid ROM hacking community."
+    },
+    {
+        "url":  "https://sonicretro.org",
+        "title":  "Sonic Retro",
+        "description":  "Sonic the Hedgehog research and hacking community."
+    },
+    {
+        "url":  "https://www.pokecommunity.com",
+        "title":  "PokéCommunity",
+        "description":  "Pokémon community with a large ROM hacking section."
+    },
+    {
+        "url":  "https://projectpokemon.org",
+        "title":  "Project Pokémon",
+        "description":  "Pokémon research, saves, and modding community."
+    },
+    {
+        "url":  "https://forums.qhimm.com",
+        "title":  "Qhimm Forums",
+        "description":  "Modding community for Final Fantasy VII and VIII on PC."
+    },
+    {
+        "url":  "https://www.zeldix.net",
+        "title":  "Zeldix",
+        "description":  "Zelda: A Link to the Past ROM hacking community."
+    },
+    {
+        "url":  "https://feuniverse.us",
+        "title":  "Fire Emblem Universe",
+        "description":  "Fire Emblem ROM hacking community and resources."
+    },
+    {
+        "url":  "https://gbatemp.net",
+        "title":  "GBAtemp",
+        "description":  "The largest console modding and homebrew forum."
+    },
+    {
+        "url":  "https://www.psx-place.com",
+        "title":  "PSX-Place",
+        "description":  "PlayStation homebrew and scene forums."
+    },
+    {
+        "url":  "https://www.gc-forever.com",
+        "title":  "GC-Forever",
+        "description":  "GameCube and Wii homebrew forums."
+    },
+    {
+        "url":  "https://www.ogxbox.com",
+        "title":  "OG-Xbox",
+        "description":  "Original Xbox community forums."
+    },
+    {
+        "url":  "https://segaxtreme.net",
+        "title":  "SegaXtreme",
+        "description":  "Sega development and modding forums."
+    },
+    {
+        "url":  "https://spritesmind.net",
+        "title":  "SpritesMind",
+        "description":  "Mega Drive / Genesis development forums."
+    },
+    {
+        "url":  "https://www.dreamcast-talk.com",
+        "title":  "Dreamcast-Talk",
+        "description":  "Dreamcast community forums."
+    },
+    {
+        "url":  "https://www.elotrolado.net",
+        "title":  "Elotrolado",
+        "description":  "Spanish-language console scene forums."
+    },
+    {
+        "url":  "https://www.racketboy.com",
+        "title":  "racketboy",
+        "description":  "Retro gaming blog, podcast, and forums."
+    },
+    {
+        "url":  "https://www.reddit.com/r/WiiHacks",
+        "title":  "r/WiiHacks",
+        "description":  "Subreddit for Wii modding and homebrew."
+    },
+    {
+        "url":  "https://www.reddit.com/r/3dshacks",
+        "title":  "r/3dshacks",
+        "description":  "Subreddit for 3DS modding and homebrew."
+    },
+    {
+        "url":  "https://www.reddit.com/r/SwitchHacks",
+        "title":  "r/SwitchHacks",
+        "description":  "Subreddit for Switch modding and homebrew."
+    },
+    {
+        "url":  "https://www.reddit.com/r/vitahacks",
+        "title":  "r/vitahacks",
+        "description":  "Subreddit for PS Vita modding and homebrew."
+    },
+    {
+        "url":  "https://www.reddit.com/r/ps3homebrew",
+        "title":  "r/ps3homebrew",
+        "description":  "Subreddit for PS3 homebrew and modding."
+    },
+    {
+        "url":  "https://www.reddit.com/r/psphacks",
+        "title":  "r/psphacks",
+        "description":  "Subreddit for PSP modding and homebrew."
+    },
+    {
+        "url":  "https://www.reddit.com/r/originalxbox",
+        "title":  "r/originalxbox",
+        "description":  "Subreddit for the original Xbox."
+    },
+    {
+        "url":  "https://www.reddit.com/r/360hacks",
+        "title":  "r/360hacks",
+        "description":  "Subreddit for Xbox 360 modding."
+    },
+    {
+        "url":  "https://www.reddit.com/r/emulation",
+        "title":  "r/emulation",
+        "description":  "Subreddit for emulation news and discussion."
+    },
+    {
+        "url":  "https://www.reddit.com/r/EmulationOnAndroid",
+        "title":  "r/EmulationOnAndroid",
+        "description":  "Subreddit for emulation on Android devices."
+    },
+    {
+        "url":  "https://www.reddit.com/r/SBCGaming",
+        "title":  "r/SBCGaming",
+        "description":  "Subreddit for retro handhelds and single-board gaming."
+    },
+    {
+        "url":  "https://www.reddit.com/r/SteamDeck",
+        "title":  "r/SteamDeck",
+        "description":  "Subreddit for the Steam Deck."
+    },
+    {
+        "url":  "https://www.reddit.com/r/retrogaming",
+        "title":  "r/retrogaming",
+        "description":  "Subreddit for retro gaming."
+    },
+    {
+        "url":  "https://www.reddit.com/r/Gameboy",
+        "title":  "r/Gameboy",
+        "description":  "Subreddit for Game Boy collecting and modding."
+    },
+    {
+        "url":  "https://www.reddit.com/r/romhacking",
+        "title":  "r/romhacking",
+        "description":  "Subreddit for ROM hacking discussion."
     }
 ]

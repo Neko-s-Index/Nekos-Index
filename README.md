@@ -36,10 +36,10 @@ Neko's Index is a static resource directory inspired by community indexes like E
 - App layout switcher: Grid, List, or Compact Grid
 - Settings panel with import/export, compact mode, auto-collapse, and warning toggles
 - Live popularity badges for GitHub, GitLab, Codeberg, SourceForge, and Flathub links
-- Interactive pixel cat and falling particle animation
-- Cross-site menu bar and footer navigation
+- Interactive pixel cat and falling particle animation (respects Reduce Motion)
+- Shared site navigation via `site-nav.js`
 - Mobile and desktop responsive design
-- PWA manifest for installable app support
+- PWA manifest with PNG icons and app shortcuts
 - Archive fallback links for each resource via the Wayback Machine
 - 404 page with an index search
 - `robots.txt` and `sitemap.xml` for search engines
@@ -48,6 +48,10 @@ Neko's Index is a static resource directory inspired by community indexes like E
 - DuckDuckGo search button on the list page
 - Verification gate for the "Other Useful Indexes" footer
 - Privacy Settings guide page with brand-specific recommendations
+- Per-category item counts and NEW badges
+- Opt-in IP check (no third-party calls on page load)
+- Offline resource metadata in `data/descriptions.json`, refreshed weekly by CI
+- Weekly automated dead-link check that reports via a GitHub issue
 
 ## Categories
 
@@ -65,6 +69,14 @@ Neko's Index is a static resource directory inspired by community indexes like E
 - Development & Productivity Tools
 - Open Source App Stores & Repositories
 - Archives & Mirrors
+- Console Modding & Homebrew Guides
+- Homebrew Stores & Console Wikis
+- Emulators & Retro Gaming
+- Retro Handhelds & Custom Firmware
+- Retro Online & Game Preservation
+- Game Mods & ROM Hacking Tools
+- ROM Hacking & Fan Translation Hubs
+- Retro & Modding Communities
 - And more
 
 ## Safety

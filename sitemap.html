@@ -8,8 +8,12 @@
 <meta property="og:title" content="Sitemap - Neko's Index">
 <meta property="og:description" content="Sitemap and page directory for Neko's Index.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://nekosindex.com/sitemap.html">
+<meta property="og:url" content="https://neko-s-index.github.io/Nekos-Index/sitemap.html">
+<meta property="og:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
+<link rel="canonical" href="https://neko-s-index.github.io/Nekos-Index/sitemap.html">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
+<meta name="theme-color" content="#3b82f6">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,6 +246,8 @@
         color: var(--text-muted);
     }
 </style>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="sitemap-gate" id="sitemapGate">
@@ -255,18 +261,23 @@
         </div>
     </div>
 
-    <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="list.html">Index</a>
-        <a href="guides.html">Guides</a>
-        <a href="disclaimer.html">Disclaimer</a>
-        <a href="dmca.html">DMCA</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="privacy-settings.html">Privacy Settings</a>
-        <a href="notes.html">Notes</a>
-        <a href="socials.html">Socials</a>
-        <a href="donations.html">Donate</a>
-    </nav>
+<nav class="main-nav" data-autonav></nav>
+<noscript>
+<nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="list.html">Index</a>
+    <a href="guides.html">Guides</a>
+    <a href="mylists.html">My Lists</a>
+    <a href="notes.html">Notes</a>
+    <a href="socials.html">Socials</a>
+    <a href="sitemap.html">Sitemap</a>
+    <a href="privacy-settings.html">Privacy Settings</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="dmca.html">DMCA</a>
+    <a href="donations.html">Donate</a>
+</nav>
+</noscript>
 
     <div class="center">
         <div class="card">
@@ -283,6 +294,7 @@
                 <li><a href="disclaimer.html">Disclaimer <span>Usage disclaimer</span></a></li>
                 <li><a href="dmca.html">DMCA <span>DMCA information</span></a></li>
                 <li><a href="socials.html">Socials <span>Community and social links</span></a></li>
+                <li><a href="sitemap.html">Sitemap <span>Page directory</span></a></li>
                 <li><a href="donations.html">Donate <span>Support the project</span></a></li>
             </ul>
         </div>
@@ -311,8 +323,8 @@
                 return;
             }
 
-            const a = Math.floor(Math.random() * 9) + 1;
-            const b = Math.floor(Math.random() * 9) + 1;
+            const a = Math.floor(Math.random() * 4) + 1;
+            const b = Math.floor(Math.random() * 4) + 1;
             const expected = a + b;
 
             document.getElementById('gatePrompt').textContent = `What is ${a} + ${b}?`;
@@ -342,5 +354,6 @@
             });
         })();
     </script>
+    <script src="site-nav.js" defer></script>
 </body>
 </html>
