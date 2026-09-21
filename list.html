@@ -1280,12 +1280,26 @@
 
         .my-lists-group .settings-btn-row {
             gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .my-lists-group .settings-btn-row .settings-btn-action {
+            flex: 1 1 calc(50% - 4px);
+            min-width: 120px;
+            text-align: center;
+            line-height: 1.3;
         }
 
         .my-lists-group .settings-btn-action {
             padding: 8px 12px;
             font-size: 13px;
             border-radius: 8px;
+        }
+
+        @media (max-width: 380px) {
+            .my-lists-group .settings-btn-row .settings-btn-action {
+                flex: 1 1 100%;
+            }
         }
 
         .settings-close {
