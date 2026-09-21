@@ -337,8 +337,8 @@ const action = document.getElementById("action");
 status.textContent = "Complete the puzzle below to continue.";
 
 // Basic math puzzle
-const num1 = Math.floor(Math.random() * 4) + 1;
-const num2 = Math.floor(Math.random() * 4) + 1;
+const num1 = Math.floor(Math.random() * 3) + 1;
+const num2 = Math.floor(Math.random() * 3) + 1;
 const answer = num1 + num2;
 
 const question = document.createElement("p");
@@ -352,6 +352,7 @@ action.appendChild(question);
 const input = document.createElement("input");
 input.type = "number";
 input.inputMode = "numeric";
+input.pattern = "[0-9]*";
 input.placeholder = "answer";
 input.autocomplete = "off";
 input.style.padding = "14px 18px";
@@ -396,7 +397,12 @@ btn.onclick = () => {
     setTimeout(() => location.replace(TARGET), 100);
 };
 
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") btn.click();
+});
+
 action.appendChild(btn);
+input.focus();
 
 // Blur out and disable the list-page links on this gate.
 // Runs on DOMContentLoaded so links injected by site-nav.js are included.

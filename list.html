@@ -2409,8 +2409,8 @@
                 localStorage.getItem('nekos_puzzle_exempt') === 'true') {
                 listGate.classList.add('hidden');
             } else {
-                const num1 = Math.floor(Math.random() * 4) + 1;
-                const num2 = Math.floor(Math.random() * 4) + 1;
+                const num1 = Math.floor(Math.random() * 3) + 1;
+                const num2 = Math.floor(Math.random() * 3) + 1;
                 const answer = num1 + num2;
 
                 const prompt = document.createElement('p');
@@ -2420,6 +2420,8 @@
 
                 const input = document.createElement('input');
                 input.type = 'number';
+                input.inputMode = 'numeric';
+                input.pattern = '[0-9]*';
                 input.className = 'gate-input';
                 input.placeholder = 'answer';
                 input.autocomplete = 'off';
@@ -2441,6 +2443,10 @@
                     }
                 });
 
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') btn.click();
+                });
+
                 btn.addEventListener('click', () => {
                     if (btn.disabled) return;
                     recordPuzzleSolved();
@@ -2448,6 +2454,8 @@
                     listGate.classList.add('hidden');
                     openFromUrl();
                 });
+
+                input.focus();
             }
 
             // ==================== THEME TOGGLE ====================
@@ -2662,8 +2670,8 @@
             function openShare() {
                 shareQuery.value = searchInput.value.trim();
                 updateShareLink();
-                const a = Math.floor(Math.random() * 4) + 1;
-                const b = Math.floor(Math.random() * 4) + 1;
+                const a = Math.floor(Math.random() * 3) + 1;
+                const b = Math.floor(Math.random() * 3) + 1;
                 shareExpected = a + b;
                 sharePuzzleText = `What is ${a} + ${b}?`;
                 sharePuzzle.textContent = sharePuzzleText;
@@ -2693,6 +2701,10 @@
                     sharePuzzle.textContent = 'Try again: ' + sharePuzzleText;
                     shareAnswer.value = '';
                 }
+            });
+
+            shareAnswer.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') shareVerify.click();
             });
 
             shareCopy.addEventListener('click', () => {
@@ -3319,12 +3331,29 @@
             const acceptButton = document.getElementById('acceptDisclaimer');
             const disclaimerKey = 'nekoIndexDisclaimerAccepted';
 
+            // ==================== DMCA MODAL ====================
+            const dmcaModal = document.getElementById('dmcaModal');
+            const acceptDMCAButton = document.getElementById('acceptDMCA');
+            const dmcaDontShowAgain = document.getElementById('dmcaDontShowAgain');
+            const hideDMCANoticeToggle = document.getElementById('hideDMCANoticeToggle');
+            const dmcaHideKey = 'nekoIndexHideDMCANotice';
+
+            function maybeShowDMCAModal() {
+                if (localStorage.getItem(dmcaHideKey) !== 'true') {
+                    dmcaModal.classList.add('show');
+                }
+            }
+
             // Check if user has already accepted the disclaimer
             if (!localStorage.getItem(disclaimerKey)) {
                 // Show modal with a slight delay for better UX
                 setTimeout(() => {
                     disclaimerModal.classList.add('show');
                 }, 500);
+            } else {
+                // Disclaimer already accepted, so the DMCA notice can show right away
+                // (it shows on every visit unless the user opts out).
+                setTimeout(maybeShowDMCAModal, 500);
             }
 
             // Handle accept button click
@@ -3332,7 +3361,23 @@
                 disclaimerModal.classList.remove('show');
                 // Store that user has accepted the disclaimer
                 localStorage.setItem(disclaimerKey, 'true');
+                setTimeout(maybeShowDMCAModal, 300);
             });
+
+            acceptDMCAButton.addEventListener('click', function() {
+                dmcaModal.classList.remove('show');
+                if (dmcaDontShowAgain.checked) {
+                    localStorage.setItem(dmcaHideKey, 'true');
+                    if (hideDMCANoticeToggle) hideDMCANoticeToggle.checked = true;
+                }
+            });
+
+            if (hideDMCANoticeToggle) {
+                hideDMCANoticeToggle.checked = localStorage.getItem(dmcaHideKey) === 'true';
+                hideDMCANoticeToggle.addEventListener('change', function() {
+                    localStorage.setItem(dmcaHideKey, this.checked);
+                });
+            }
 
             // ==================== POPULARITY BADGES ====================
             function addRepoBadges() {
@@ -5760,7 +5805,7 @@
         <strong>Other Useful Indexes:</strong>
         <div class="other-indexes-gate" id="otherIndexesGate">
             <span id="otherIndexesQuestion"></span>
-            <input type="number" id="otherIndexesInput" placeholder="answer" autocomplete="off">
+            <input type="number" id="otherIndexesInput" placeholder="answer" autocomplete="off" inputmode="numeric" pattern="[0-9]*">
             <button id="otherIndexesBtn" disabled>Show Indexes</button>
         </div>
         <ul id="otherIndexesList" style="display: none;">
@@ -5907,6 +5952,14 @@
             <label>Hide Donation Notice</label>
             <label>
                 <input type="checkbox" id="hideDonationNoticeToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="toggle-switch">
+            <label>Hide DMCA Notice on Visit</label>
+            <label>
+                <input type="checkbox" id="hideDMCANoticeToggle">
                 <span class="toggle-slider"></span>
             </label>
         </div>
@@ -6098,6 +6151,28 @@
     </div>
 </div>
 
+<!-- DMCA Modal -->
+<div class="disclaimer-modal" id="dmcaModal">
+    <div class="disclaimer-content">
+        <h2>DMCA Notice</h2>
+        <p><strong>Please read before continuing:</strong></p>
+        <ul>
+            <li>Neko's Index does not host, store, or distribute any copyrighted material</li>
+            <li>This site only indexes publicly available links, open-source projects, and third-party resources</li>
+            <li>If you believe your copyrighted work is linked here, please contact that third-party website directly</li>
+            <li>We do not control external site content and cannot remove material from it</li>
+        </ul>
+        <p>
+            See the full <a href="dmca.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: underline;">DMCA Policy</a> for takedown notice details.
+        </p>
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; cursor: pointer;">
+            <input type="checkbox" id="dmcaDontShowAgain" style="width: auto; margin: 0;">
+            Don't show this again
+        </label>
+        <button class="disclaimer-button" id="acceptDMCA">I Understand</button>
+    </div>
+</div>
+
 <!-- List Gate -->
 <div class="list-gate" id="listGate">
     <div class="list-gate-content">
@@ -6129,10 +6204,12 @@
             return;
         }
 
-        const n1 = Math.floor(Math.random() * 4) + 1;
-        const n2 = Math.floor(Math.random() * 4) + 1;
+        const n1 = Math.floor(Math.random() * 3) + 1;
+        const n2 = Math.floor(Math.random() * 3) + 1;
         const answer = n1 + n2;
         question.textContent = `What is ${n1} + ${n2}?`;
+        input.inputMode = 'numeric';
+        input.pattern = '[0-9]*';
 
         input.addEventListener('input', function() {
             if (parseInt(input.value) === answer) {
@@ -6140,6 +6217,10 @@
             } else {
                 btn.disabled = true;
             }
+        });
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') btn.click();
         });
 
         btn.addEventListener('click', function() {
@@ -6158,7 +6239,7 @@
         <p>Share the current search or an app name.</p>
         <input type="text" class="search-input" id="shareQuery" placeholder="Search or app name..." style="width:100%; margin-bottom:10px;">
         <p id="sharePuzzle" style="margin:10px 0; font-weight:700;"></p>
-        <input type="text" class="search-input" id="shareAnswer" placeholder="Puzzle answer" style="width:100%; margin-bottom:10px;">
+        <input type="number" inputmode="numeric" pattern="[0-9]*" class="search-input" id="shareAnswer" placeholder="Puzzle answer" style="width:100%; margin-bottom:10px;">
         <button class="disclaimer-button" id="shareVerify">Verify</button>
         <input type="password" id="shareLink" readonly value="" style="margin:10px 0;" disabled>
         <div style="display:flex; gap:10px;">
@@ -6221,12 +6302,14 @@
             title.textContent = 'Solve to view social links:';
             const puzzle = document.createElement('p');
             puzzle.style.fontWeight = '700';
-            const a = Math.floor(Math.random() * 4) + 1;
-            const b = Math.floor(Math.random() * 4) + 1;
+            const a = Math.floor(Math.random() * 3) + 1;
+            const b = Math.floor(Math.random() * 3) + 1;
             const expected = a + b;
             puzzle.textContent = `What is ${a} + ${b}?`;
             const input = document.createElement('input');
-            input.type = 'text';
+            input.type = 'number';
+            input.inputMode = 'numeric';
+            input.pattern = '[0-9]*';
             input.className = 'search-input';
             input.placeholder = 'Answer';
             input.style.cssText = 'width:100%; margin-bottom:10px;';
@@ -6345,13 +6428,15 @@
             const prompt = document.createElement('p');
             prompt.className = 'app-modal-desc';
 
-            const a = Math.floor(Math.random() * 4) + 1;
-            const b = Math.floor(Math.random() * 4) + 1;
+            const a = Math.floor(Math.random() * 3) + 1;
+            const b = Math.floor(Math.random() * 3) + 1;
             const expected = a + b;
             prompt.textContent = `What is ${a} + ${b}?`;
 
             const input = document.createElement('input');
             input.type = 'number';
+            input.inputMode = 'numeric';
+            input.pattern = '[0-9]*';
             input.className = 'search-input';
             input.placeholder = 'Answer';
             input.style.cssText = 'width:100%; margin-bottom:10px;';

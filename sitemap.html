@@ -255,7 +255,7 @@
             <h2>Verify</h2>
             <p id="gateStatus">Complete the puzzle below to view the sitemap.</p>
             <p id="gatePrompt" style="font-weight: 700; color: var(--text-primary);"></p>
-            <input type="number" id="gateInput" placeholder="Answer" autocomplete="off">
+            <input type="number" id="gateInput" placeholder="Answer" autocomplete="off" inputmode="numeric" pattern="[0-9]*">
             <button id="gateBtn" disabled>Continue</button>
             <p class="status">Puzzles are shared across the site. Solve 3 and you won't need to solve them anymore.</p>
         </div>
@@ -323,8 +323,8 @@
                 return;
             }
 
-            const a = Math.floor(Math.random() * 4) + 1;
-            const b = Math.floor(Math.random() * 4) + 1;
+            const a = Math.floor(Math.random() * 3) + 1;
+            const b = Math.floor(Math.random() * 3) + 1;
             const expected = a + b;
 
             document.getElementById('gatePrompt').textContent = `What is ${a} + ${b}?`;
@@ -352,6 +352,8 @@
                 recordPuzzleSolved();
                 gate.classList.add('hidden');
             });
+
+            input.focus();
         })();
     </script>
     <script src="site-nav.js" defer></script>
