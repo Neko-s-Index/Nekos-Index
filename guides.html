@@ -180,7 +180,7 @@
 
 <header>
     <img src="logo.svg" alt="Neko's Index" class="site-logo">
-    <h1>Guides & How-To</h1>
+    <h1 data-i18n="guides.title">Guides & How-To</h1>
 <nav class="main-nav" data-autonav></nav>
 <noscript>
 <nav class="main-nav">
@@ -201,12 +201,19 @@
 </noscript>
 </header>
 
-<div class="notice">Please read — these guides can help you use the index safely and effectively.</div>
+<div class="notice" data-i18n="guides.notice">Please read — these guides can help you use the index safely and effectively.</div>
 
 <div class="container">
-    <p>
+    <p data-i18n="guides.intro">
         These guides are meant to help you get started with open-source apps and tools listed on the main index. They are for informational purposes only.
     </p>
+
+    <div class="guide-card">
+        <h3 data-i18n="guides.about.title">About Neko's Index</h3>
+        <p data-i18n="guides.about.body">
+            Neko's Index is a free, community-curated directory of open-source apps, privacy tools, streaming utilities, emulation resources, and more. It does not host any files or copyrighted content — it only links to third-party projects and services. The goal is to make it easy to discover safe, open-source, and privacy-respecting software for PC, Android, iOS, and the web, all in one place.
+        </p>
+    </div>
 
     <div class="guide-card">
         <h3>Safety, Verification &amp; Online Safety</h3>
@@ -337,6 +344,7 @@
     <a href="notes.html">Notes</a>
 </footer>
 
+<script src="i18n.js" defer></script>
 <script src="site-nav.js" defer></script>
 </body>
 </html>

@@ -2423,53 +2423,21 @@
                 localStorage.getItem('nekos_puzzle_exempt') === 'true') {
                 listGate.classList.add('hidden');
             } else {
-                const num1 = Math.floor(Math.random() * 3) + 1;
-                const num2 = Math.floor(Math.random() * 3) + 1;
-                const answer = num1 + num2;
-
-                const prompt = document.createElement('p');
-                prompt.className = 'gate-prompt';
-                prompt.textContent = `What is ${num1} + ${num2}?`;
-                gateAction.appendChild(prompt);
-
-                const input = document.createElement('input');
-                input.type = 'number';
-                input.inputMode = 'numeric';
-                input.pattern = '[0-9]*';
-                input.className = 'gate-input';
-                input.placeholder = 'answer';
-                input.autocomplete = 'off';
-                gateAction.appendChild(input);
+                gateStatus.textContent = 'Click below to continue.';
 
                 const btn = document.createElement('button');
                 btn.className = 'gate-btn';
-                btn.textContent = 'Verify & Continue';
-                btn.disabled = true;
+                btn.textContent = window.NekoI18n ? window.NekoI18n.t('gate.continueBtn') : 'I Understand & Continue';
                 gateAction.appendChild(btn);
 
-                input.addEventListener('input', () => {
-                    if (parseInt(input.value) === answer) {
-                        btn.disabled = false;
-                        gateStatus.textContent = 'Puzzle solved. Click below to continue.';
-                    } else {
-                        btn.disabled = true;
-                        gateStatus.textContent = 'Complete the puzzle below to continue.';
-                    }
-                });
-
-                input.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') btn.click();
-                });
-
                 btn.addEventListener('click', () => {
-                    if (btn.disabled) return;
                     recordPuzzleSolved();
                     localStorage.setItem('nekos_verified', 'true');
                     listGate.classList.add('hidden');
                     openFromUrl();
                 });
 
-                input.focus();
+                btn.focus();
             }
 
             // ==================== THEME TOGGLE ====================
@@ -2667,13 +2635,10 @@
             const shareModal = document.getElementById('shareModal');
             const shareQuery = document.getElementById('shareQuery');
             const sharePuzzle = document.getElementById('sharePuzzle');
-            const shareAnswer = document.getElementById('shareAnswer');
             const shareVerify = document.getElementById('shareVerify');
             const shareLink = document.getElementById('shareLink');
             const shareCopy = document.getElementById('shareModalCopy');
             const shareClose = document.getElementById('shareClose');
-            let shareExpected = 0;
-            let sharePuzzleText = '';
 
             function updateShareLink() {
                 const q = shareQuery.value.trim();
@@ -2684,17 +2649,11 @@
             function openShare() {
                 shareQuery.value = searchInput.value.trim();
                 updateShareLink();
-                const a = Math.floor(Math.random() * 3) + 1;
-                const b = Math.floor(Math.random() * 3) + 1;
-                shareExpected = a + b;
-                sharePuzzleText = `What is ${a} + ${b}?`;
-                sharePuzzle.textContent = sharePuzzleText;
-                shareAnswer.value = '';
+                sharePuzzle.textContent = 'Click Reveal to view the link.';
                 shareLink.setAttribute('type', 'password');
                 shareLink.disabled = true;
                 shareCopy.disabled = true;
                 shareModal.classList.add('show');
-                shareAnswer.focus();
             }
 
             function closeShare() {
@@ -2706,19 +2665,10 @@
             shareQuery.addEventListener('input', updateShareLink);
 
             shareVerify.addEventListener('click', () => {
-                if (parseInt(shareAnswer.value, 10) === shareExpected) {
-                    shareLink.setAttribute('type', 'text');
-                    shareLink.disabled = false;
-                    shareCopy.disabled = false;
-                    sharePuzzle.textContent = 'Correct! You can copy the link now.';
-                } else {
-                    sharePuzzle.textContent = 'Try again: ' + sharePuzzleText;
-                    shareAnswer.value = '';
-                }
-            });
-
-            shareAnswer.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') shareVerify.click();
+                shareLink.setAttribute('type', 'text');
+                shareLink.disabled = false;
+                shareCopy.disabled = false;
+                sharePuzzle.textContent = 'Link revealed. You can copy it now.';
             });
 
             shareCopy.addEventListener('click', () => {
@@ -3180,7 +3130,7 @@
                 localStorage.removeItem('nekos_verified');
                 localStorage.removeItem('nekos_puzzle_exempt');
                 localStorage.removeItem('nekos_puzzle_count');
-                alert('Puzzle verification cleared. You will be asked to solve puzzles again.');
+                alert('Verification cleared. You will be asked to verify again.');
                 location.reload();
             });
 
@@ -3745,12 +3695,12 @@
 <header>
     <img src="logo.svg" alt="Neko's Index" class="site-logo">
     <h1>Neko's Index</h1>
-    <p class="description">A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.</p>
-    <p class="page-links-label">Check out pages</p>
+    <p class="description" data-i18n="list.tagline">A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.</p>
+    <p class="page-links-label" data-i18n="list.checkOutPages">Check out pages</p>
     <nav class="main-nav" data-autonav></nav>
     <details class="marquee-note">
-        <summary class="marquee-note-btn">Mobile note</summary>
-        <p class="marquee-note-text">For mobile users: scroll or drag to view more buttons</p>
+        <summary class="marquee-note-btn" data-i18n="common.mobileNoteSummary">Mobile note</summary>
+        <p class="marquee-note-text" data-i18n="footer.mobileNote">For mobile users: scroll or drag to view more buttons</p>
     </details>
     <noscript>
     <nav class="main-nav">
@@ -3778,55 +3728,55 @@
 </button>
 
 <!-- Settings Button -->
-<button class="settings-btn" id="settingsBtn">Settings</button>
+<button class="settings-btn" id="settingsBtn" data-i18n="common.settings">Settings</button>
 
 <!-- Guide Button -->
-<button class="guide-btn" id="guideBtn">Guide</button>
+<button class="guide-btn" id="guideBtn" data-i18n="common.guide">Guide</button>
 
 <div class="container">
-    <h2>Categories</h2>
+    <h2 data-i18n="list.categoriesHeading">Categories</h2>
 
     <!-- Search Bar -->
     <div class="search-container">
         <div class="search-input-wrapper">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" id="searchInput" placeholder="Search apps, tools, and services...">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search apps, tools, and services..." data-i18n-placeholder="list.searchPlaceholder">
             <button class="search-clear" id="searchClear">✕</button>
         </div>
         <div class="search-actions">
-            <button class="search-action" id="randomApp" title="Pick a random app (R)">Random App</button>
-            <button class="search-action" id="shareSearch">Share</button>
+            <button class="search-action" id="randomApp" title="Pick a random app (R)" data-i18n="list.randomApp">Random App</button>
+            <button class="search-action" id="shareSearch" data-i18n="list.share">Share</button>
         </div>
     </div>
 
-    <p class="search-note">
+    <p class="search-note" data-i18n="list.searchNote">
         Some apps fit more than one category. If you don't see what you need, try another filter or search by name.
     </p>
 
-    <button class="search-ddg" id="searchDuckDuckGo">Search on DuckDuckGo</button>
+    <button class="search-ddg" id="searchDuckDuckGo" data-i18n="list.searchDDG">Search on DuckDuckGo</button>
 
-    <p class="filter-bar-label">Check out these categories</p>
+    <p class="filter-bar-label" data-i18n="list.checkOutCategories">Check out these categories</p>
 
     <!-- Category Filter -->
     <div class="category-filter" id="categoryFilter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="streaming">Streaming</button>
-        <button class="filter-btn" data-filter="anime">Anime</button>
-        <button class="filter-btn" data-filter="manga">Manga</button>
-        <button class="filter-btn" data-filter="tools">Tools</button>
-        <button class="filter-btn" data-filter="download">Downloads</button>
-        <button class="filter-btn" data-filter="android">Android</button>
-        <button class="filter-btn" data-filter="pc">PC</button>
-        <button class="filter-btn" data-filter="ios">iOS</button>
-        <button class="filter-btn" data-filter="ai">AI</button>
-        <button class="filter-btn" data-filter="gaming">Gaming</button>
-        <button class="filter-btn" data-filter="privacy">Privacy</button>
-        <button class="filter-btn" data-filter="modding">Modding</button>
-        <button class="filter-btn" data-filter="retro">Retro</button>
-        <button class="filter-btn" data-filter="community">Community</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">All</button>
+        <button class="filter-btn" data-filter="streaming" data-i18n="filter.streaming">Streaming</button>
+        <button class="filter-btn" data-filter="anime" data-i18n="filter.anime">Anime</button>
+        <button class="filter-btn" data-filter="manga" data-i18n="filter.manga">Manga</button>
+        <button class="filter-btn" data-filter="tools" data-i18n="filter.tools">Tools</button>
+        <button class="filter-btn" data-filter="download" data-i18n="filter.download">Downloads</button>
+        <button class="filter-btn" data-filter="android" data-i18n="filter.android">Android</button>
+        <button class="filter-btn" data-filter="pc" data-i18n="filter.pc">PC</button>
+        <button class="filter-btn" data-filter="ios" data-i18n="filter.ios">iOS</button>
+        <button class="filter-btn" data-filter="ai" data-i18n="filter.ai">AI</button>
+        <button class="filter-btn" data-filter="gaming" data-i18n="filter.gaming">Gaming</button>
+        <button class="filter-btn" data-filter="privacy" data-i18n="filter.privacy">Privacy</button>
+        <button class="filter-btn" data-filter="modding" data-i18n="filter.modding">Modding</button>
+        <button class="filter-btn" data-filter="retro" data-i18n="filter.retro">Retro</button>
+        <button class="filter-btn" data-filter="community" data-i18n="filter.community">Community</button>
     </div>
 
-    <p class="hidden" id="noResults" style="text-align: center; color: var(--text-muted); margin: 20px 0;">No results found.</p>
+    <p class="hidden" id="noResults" style="text-align: center; color: var(--text-muted); margin: 20px 0;" data-i18n="list.noResults">No results found.</p>
 
     <!-- My List Section -->
     <div class="favorites-section" id="favoritesSection">
@@ -5795,7 +5745,7 @@
     <p class="footer-notice" style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);">
         All resources listed are third-party. If you find this index useful, please consider <a href="donations.html" style="color: var(--text-primary); text-decoration: underline;">donating</a>.
     </p>
-    <p class="contact-note" style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);">
+    <p class="contact-note" style="margin: 12px 0 0; font-size: 13px; color: var(--text-secondary);" data-i18n="footer.contactNote">
         Notice any issues or missing sources? Please get in contact and let me know.
     </p>
 
@@ -5812,16 +5762,14 @@
         <a href="https://marshmeadow.netlify.app/" target="_blank" rel="noopener noreferrer">Dev</a>
     </div>
     <details class="marquee-note">
-        <summary class="marquee-note-btn">Mobile note</summary>
-        <p class="marquee-note-text">For mobile users: scroll or drag to view more buttons</p>
+        <summary class="marquee-note-btn" data-i18n="common.mobileNoteSummary">Mobile note</summary>
+        <p class="marquee-note-text" data-i18n="footer.mobileNote">For mobile users: scroll or drag to view more buttons</p>
     </details>
 
     <div class="other-indexes">
-        <strong>Other Useful Indexes:</strong>
+        <strong data-i18n="footer.otherIndexes">Other Useful Indexes:</strong>
         <div class="other-indexes-gate" id="otherIndexesGate">
-            <span id="otherIndexesQuestion"></span>
-            <input type="number" id="otherIndexesInput" placeholder="answer" autocomplete="off" inputmode="numeric" pattern="[0-9]*">
-            <button id="otherIndexesBtn" disabled>Show Indexes</button>
+            <button id="otherIndexesBtn" disabled data-i18n="footer.showIndexes">Show Indexes</button>
         </div>
         <ul id="otherIndexesList" style="display: none;">
             <li><a href="https://theindex.moe" rel="noopener noreferrer" target="_blank">theindex.moe</a></li>
@@ -5864,9 +5812,18 @@
 <!-- Settings Panel -->
 <div class="settings-panel" id="settingsPanel">
     <button class="settings-close" id="settingsClose" aria-label="Close settings">&times;</button>
-    <h3>Settings</h3>
+    <h3 data-i18n="common.settings">Settings</h3>
     <p class="settings-note">Some things may work better on PC, and some may work better on mobile. Most settings are still available on both.</p>
     <p class="settings-note">Some settings are mobile-specific and may not do anything on PC.</p>
+
+    <!-- Language Settings -->
+    <div class="settings-group">
+        <label data-i18n="common.language">Language</label>
+        <div class="setting-row">
+            <label for="langSelect" data-i18n="common.language">Language</label>
+            <select class="settings-select neko-lang-select" id="langSelect" style="width: 100%; min-width: 0;"></select>
+        </div>
+    </div>
 
     <!-- Display Settings -->
     <div class="settings-group">
@@ -6004,7 +5961,7 @@
             <button class="settings-btn-action" id="importSettings">Import</button>
         </div>
         <input type="file" id="importFile" accept=".json" style="display: none;">
-        <button class="settings-btn-action" id="clearPuzzleExemption">Clear Puzzle Exemption</button>
+        <button class="settings-btn-action" id="clearPuzzleExemption">Reset Verification Prompts</button>
         <button class="settings-btn-action danger" id="clearData">Clear All Data</button>
     </div>
 
@@ -6191,8 +6148,8 @@
 <!-- List Gate -->
 <div class="list-gate" id="listGate">
     <div class="list-gate-content">
-        <h2>Verify to Continue</h2>
-        <p class="gate-status" id="gateStatus">Complete the puzzle below to continue.</p>
+        <h2 data-i18n="gate.title">Verify to Continue</h2>
+        <p class="gate-status" id="gateStatus" data-i18n="gate.clickContinue">Click below to continue.</p>
 
         <div class="dmca-box">
             <p><strong>DMCA &amp; Legal Notice:</strong> Neko&apos;s Index is an informational guide only. We do not host, distribute, or facilitate access to copyrighted material. All links go to third-party services. If you believe content on a linked site infringes your copyright, please contact that site directly. By continuing, you acknowledge that you use these resources at your own risk and in compliance with your local laws.</p>
@@ -6202,6 +6159,7 @@
     </div>
 </div>
 
+<script src="i18n.js" defer></script>
 <script src="site-nav.js" defer></script>
 <script src="pixels.js" defer></script>
 <script>
@@ -6209,8 +6167,6 @@
         const OI_KEY = 'nekos_other_indexes_verified';
         const gate = document.getElementById('otherIndexesGate');
         const list = document.getElementById('otherIndexesList');
-        const question = document.getElementById('otherIndexesQuestion');
-        const input = document.getElementById('otherIndexesInput');
         const btn = document.getElementById('otherIndexesBtn');
 
         if (localStorage.getItem(OI_KEY) === 'true') {
@@ -6219,27 +6175,9 @@
             return;
         }
 
-        const n1 = Math.floor(Math.random() * 3) + 1;
-        const n2 = Math.floor(Math.random() * 3) + 1;
-        const answer = n1 + n2;
-        question.textContent = `What is ${n1} + ${n2}?`;
-        input.inputMode = 'numeric';
-        input.pattern = '[0-9]*';
-
-        input.addEventListener('input', function() {
-            if (parseInt(input.value) === answer) {
-                btn.disabled = false;
-            } else {
-                btn.disabled = true;
-            }
-        });
-
-        input.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') btn.click();
-        });
+        btn.disabled = false;
 
         btn.addEventListener('click', function() {
-            if (btn.disabled) return;
             localStorage.setItem(OI_KEY, 'true');
             list.style.display = '';
             gate.style.display = 'none';
@@ -6254,8 +6192,7 @@
         <p>Share the current search or an app name.</p>
         <input type="text" class="search-input" id="shareQuery" placeholder="Search or app name..." style="width:100%; margin-bottom:10px;">
         <p id="sharePuzzle" style="margin:10px 0; font-weight:700;"></p>
-        <input type="number" inputmode="numeric" pattern="[0-9]*" class="search-input" id="shareAnswer" placeholder="Puzzle answer" style="width:100%; margin-bottom:10px;">
-        <button class="disclaimer-button" id="shareVerify">Verify</button>
+        <button class="disclaimer-button" id="shareVerify">Reveal Link</button>
         <input type="password" id="shareLink" readonly value="" style="margin:10px 0;" disabled>
         <div style="display:flex; gap:10px;">
             <button class="disclaimer-button" id="shareModalCopy" disabled style="width:auto; flex:1;">Copy Link</button>
@@ -6314,38 +6251,15 @@
         function renderSocialPuzzle(container, socials) {
             container.innerHTML = '';
             const title = document.createElement('p');
-            title.textContent = 'Solve to view social links:';
-            const puzzle = document.createElement('p');
-            puzzle.style.fontWeight = '700';
-            const a = Math.floor(Math.random() * 3) + 1;
-            const b = Math.floor(Math.random() * 3) + 1;
-            const expected = a + b;
-            puzzle.textContent = `What is ${a} + ${b}?`;
-            const input = document.createElement('input');
-            input.type = 'number';
-            input.inputMode = 'numeric';
-            input.pattern = '[0-9]*';
-            input.className = 'search-input';
-            input.placeholder = 'Answer';
-            input.style.cssText = 'width:100%; margin-bottom:10px;';
+            title.textContent = 'Click below to view social links:';
             const btn = document.createElement('button');
             btn.className = 'app-modal-link';
             btn.style.width = '100%';
-            btn.textContent = 'Verify';
+            btn.textContent = 'Reveal Links';
             btn.addEventListener('click', () => {
-                if (parseInt(input.value, 10) === expected) {
-                    renderSocials(container, socials);
-                } else {
-                    puzzle.textContent = `Try again: What is ${a} + ${b}?`;
-                    input.value = '';
-                }
-            });
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') btn.click();
+                renderSocials(container, socials);
             });
             container.appendChild(title);
-            container.appendChild(puzzle);
-            container.appendChild(input);
             container.appendChild(btn);
         }
 
@@ -6442,41 +6356,20 @@
 
             const prompt = document.createElement('p');
             prompt.className = 'app-modal-desc';
-
-            const a = Math.floor(Math.random() * 3) + 1;
-            const b = Math.floor(Math.random() * 3) + 1;
-            const expected = a + b;
-            prompt.textContent = `What is ${a} + ${b}?`;
-
-            const input = document.createElement('input');
-            input.type = 'number';
-            input.inputMode = 'numeric';
-            input.pattern = '[0-9]*';
-            input.className = 'search-input';
-            input.placeholder = 'Answer';
-            input.style.cssText = 'width:100%; margin-bottom:10px;';
+            prompt.textContent = 'Click below to continue.';
 
             const btn = document.createElement('button');
             btn.className = 'app-modal-link';
             btn.style.width = '100%';
-            btn.textContent = 'Verify';
+            btn.textContent = 'Continue';
             btn.addEventListener('click', () => {
-                if (parseInt(input.value, 10) === expected) {
-                    recordPuzzleSolved();
-                    overlay.remove();
-                    onVerify();
-                } else {
-                    prompt.textContent = `Try again: What is ${a} + ${b}?`;
-                    input.value = '';
-                }
-            });
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') btn.click();
+                recordPuzzleSolved();
+                overlay.remove();
+                onVerify();
             });
 
             content.appendChild(header);
             content.appendChild(prompt);
-            content.appendChild(input);
             content.appendChild(btn);
             overlay.appendChild(content);
             overlay.addEventListener('click', (e) => {
