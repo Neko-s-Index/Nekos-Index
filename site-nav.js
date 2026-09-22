@@ -16,6 +16,7 @@
         ['disclaimer.html', 'Disclaimer'],
         ['dmca.html', 'DMCA'],
         ['donations.html', 'Donate'],
+        ['adult.html', '18+'],
     ];
 
     const current = location.pathname.split('/').pop() || 'index.html';

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /adult.html
 
 Sitemap: https://neko-s-index.github.io/Nekos-Index/sitemap.xml

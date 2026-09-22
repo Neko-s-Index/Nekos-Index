@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18+ Resources - Neko's Index</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3b82f6">
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', Arial, sans-serif;
+        background: #0a0a0b;
+        color: #ddd;
+        line-height: 1.7;
+    }
+    header {
+        background: #141416;
+        padding: 40px 20px;
+        text-align: center;
+        border-bottom: 1px solid #27272a;
+    }
+    h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: #fff;
+    }
+    header p {
+        color: #a1a1aa;
+        margin: 8px 0 0;
+    }
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 30px;
+    }
+    .notice {
+        background: rgba(245, 158, 11, 0.15);
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        color: #fbbf24;
+        padding: 12px 20px;
+        border-radius: 12px;
+        margin: 20px auto;
+        max-width: 1040px;
+        text-align: center;
+        font-weight: 500;
+    }
+    .category {
+        background: #141416;
+        border: 1px solid #27272a;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+    .category h2 {
+        margin: 0 0 6px 0;
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    .category .cat-desc {
+        color: #a1a1aa;
+        font-size: 13px;
+        margin: 0 0 18px 0;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 12px;
+    }
+    li {
+        background: #1f1f23;
+        border: 1px solid #27272a;
+        border-radius: 10px;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    li:hover {
+        border-color: #3b82f6;
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    li:hover a {
+        color: #3b82f6;
+    }
+    .tag {
+        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 6px;
+        white-space: nowrap;
+    }
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: #666;
+        font-size: 13px;
+    }
+    footer a {
+        color: #3b82f6;
+    }
+
+    /* 18+ gate */
+    .age-gate {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: 20px;
+    }
+    .age-gate.hidden {
+        display: none;
+    }
+    .age-gate-box {
+        background: #141416;
+        border: 1px solid #27272a;
+        border-radius: 14px;
+        padding: 32px;
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+    .age-gate-box h2 {
+        margin: 0 0 12px 0;
+        color: #fff;
+        font-size: 1.4rem;
+    }
+    .age-gate-box p {
+        color: #a1a1aa;
+        font-size: 14px;
+        margin: 0 0 20px 0;
+    }
+    .age-gate-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .age-gate-actions button {
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1px solid #27272a;
+    }
+    #ageGateYes {
+        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        color: #fff;
+        border-color: transparent;
+    }
+    #ageGateNo {
+        background: #1c1c1f;
+        color: #ddd;
+    }
+    #pageContent.hidden {
+        display: none;
+    }
+</style>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+<body>
+
+<!-- 18+ Age Verification Gate -->
+<div class="age-gate" id="ageGate">
+    <div class="age-gate-box">
+        <h2>18+ Content Warning</h2>
+        <p>
+            This page links to third-party websites, apps, and services that contain sexually explicit adult content, including VR and hentai/anime (18+) material.
+            You must be 18 years of age or older (or the age of majority in your jurisdiction) to continue.
+        </p>
+        <div class="age-gate-actions">
+            <button id="ageGateYes">I am 18 or older — Enter</button>
+            <button id="ageGateNo">I am under 18 — Leave</button>
+        </div>
+    </div>
+</div>
+
+<div id="pageContent" class="hidden">
+    <header>
+        <h1>18+ Resources</h1>
+        <p>Adult websites, apps, VR porn, and hentai/anime (18+) — third-party links only.</p>
+    </header>
+
+    <div class="notice">This page is unlisted, not linked from the main site navigation, and excluded from search engines. All links are to third-party services not affiliated with Neko's Index.</div>
+
+    <div class="container">
+
+        <div class="category">
+            <h2>Porn Websites</h2>
+            <p class="cat-desc">Mainstream adult video sites. All require you to be 18+ to view content.</p>
+            <ul>
+                <li><a href="https://www.pornhub.com" rel="noopener noreferrer nofollow" target="_blank">Pornhub</a><span class="tag">Video</span></li>
+                <li><a href="https://www.xvideos.com" rel="noopener noreferrer nofollow" target="_blank">xVideos</a><span class="tag">Video</span></li>
+                <li><a href="https://xhamster.com" rel="noopener noreferrer nofollow" target="_blank">xHamster</a><span class="tag">Video</span></li>
+                <li><a href="https://www.youporn.com" rel="noopener noreferrer nofollow" target="_blank">YouPorn</a><span class="tag">Video</span></li>
+                <li><a href="https://spankbang.com" rel="noopener noreferrer nofollow" target="_blank">SpankBang</a><span class="tag">Video</span></li>
+                <li><a href="https://www.eporner.com" rel="noopener noreferrer nofollow" target="_blank">Eporner</a><span class="tag">Video</span></li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <h2>Porn Apps &amp; Platforms</h2>
+            <p class="cat-desc">Official apps and creator platforms. Age verification is required by each service.</p>
+            <ul>
+                <li><a href="https://onlyfans.com" rel="noopener noreferrer nofollow" target="_blank">OnlyFans</a><span class="tag">Creator</span></li>
+                <li><a href="https://fansly.com" rel="noopener noreferrer nofollow" target="_blank">Fansly</a><span class="tag">Creator</span></li>
+                <li><a href="https://www.livejasmin.com" rel="noopener noreferrer nofollow" target="_blank">LiveJasmin</a><span class="tag">Cam</span></li>
+                <li><a href="https://chaturbate.com" rel="noopener noreferrer nofollow" target="_blank">Chaturbate</a><span class="tag">Cam</span></li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <h2>VR Porn</h2>
+            <p class="cat-desc">Virtual reality adult content, often requiring a headset app or browser plugin.</p>
+            <ul>
+                <li><a href="https://www.sexlikereal.com" rel="noopener noreferrer nofollow" target="_blank">SexLikeReal (SLR)</a><span class="tag">VR</span></li>
+                <li><a href="https://www.vrbangers.com" rel="noopener noreferrer nofollow" target="_blank">VRBangers</a><span class="tag">VR</span></li>
+                <li><a href="https://badoinkvr.com" rel="noopener noreferrer nofollow" target="_blank">BaDoinkVR</a><span class="tag">VR</span></li>
+                <li><a href="https://povr.com" rel="noopener noreferrer nofollow" target="_blank">POVR</a><span class="tag">VR</span></li>
+                <li><a href="https://vrporn.com" rel="noopener noreferrer nofollow" target="_blank">VRPorn.com</a><span class="tag">VR Directory</span></li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <h2>Hentai / Anime (18+)</h2>
+            <p class="cat-desc">Fictional/animated adult content. Depicts fictional characters only — always confirm a site's own age policy before use.</p>
+            <ul>
+                <li><a href="https://nhentai.net" rel="noopener noreferrer nofollow" target="_blank">nhentai</a><span class="tag">Doujin</span></li>
+                <li><a href="https://e-hentai.org" rel="noopener noreferrer nofollow" target="_blank">E-Hentai</a><span class="tag">Doujin</span></li>
+                <li><a href="https://hanime.tv" rel="noopener noreferrer nofollow" target="_blank">Hanime.tv</a><span class="tag">Video</span></li>
+                <li><a href="https://www.fakku.net" rel="noopener noreferrer nofollow" target="_blank">FAKKU</a><span class="tag">Doujin</span></li>
+                <li><a href="https://hentaihaven.xxx" rel="noopener noreferrer nofollow" target="_blank">HentaiHaven</a><span class="tag">Video</span></li>
+            </ul>
+        </div>
+
+        <div class="notice" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.4); color: #f87171;">
+            <strong>Important:</strong> Neko's Index does not host, produce, or control any of the content above. All sites are independently operated third parties responsible for their own age verification, legality, and content moderation. Use at your own risk and in accordance with the laws of your jurisdiction.
+        </div>
+
+        <p style="text-align:center; margin-top: 20px;"><a href="index.html" style="color:#3b82f6;">Back to Neko's Index Home</a></p>
+    </div>
+
+    <footer>
+        &copy; 2026 Neko's Index. This unlisted page is excluded from search engines and site navigation.
+        <br><a href="disclaimer.html">Disclaimer</a> | <a href="dmca.html">DMCA</a>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        const KEY = 'nekos_adult_age_verified';
+        const gate = document.getElementById('ageGate');
+        const content = document.getElementById('pageContent');
+        const yes = document.getElementById('ageGateYes');
+        const no = document.getElementById('ageGateNo');
+
+        if (sessionStorage.getItem(KEY) === 'true') {
+            gate.classList.add('hidden');
+            content.classList.remove('hidden');
+        }
+
+        yes.addEventListener('click', function() {
+            sessionStorage.setItem(KEY, 'true');
+            gate.classList.add('hidden');
+            content.classList.remove('hidden');
+        });
+
+        no.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    })();
+</script>
+</body>
+</html>
