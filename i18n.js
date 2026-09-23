@@ -67,6 +67,7 @@
             'adult.enter': 'I am 18 or older — Enter',
             'adult.leave': 'I am under 18 — Leave',
             'adult.revealBtn': 'Click to Reveal Links',
+            'adult.revealNote': 'Resource links are blurred until revealed.',
         },
         es: {
             'nav.home': 'Inicio', 'nav.index': 'Índice', 'nav.guides': 'Guías', 'nav.mylists': 'Mis Listas',
@@ -117,6 +118,7 @@
             'adult.enter': 'Tengo 18 años o más — Entrar',
             'adult.leave': 'Soy menor de 18 — Salir',
             'adult.revealBtn': 'Haz Clic para Revelar Enlaces',
+            'adult.revealNote': 'Los enlaces de recursos están difuminados hasta que se revelen.',
         },
         fr: {
             'nav.home': 'Accueil', 'nav.index': 'Index', 'nav.guides': 'Guides', 'nav.mylists': 'Mes Listes',
@@ -167,6 +169,7 @@
             'adult.enter': 'J\u2019ai 18 ans ou plus — Entrer',
             'adult.leave': 'J\u2019ai moins de 18 ans — Quitter',
             'adult.revealBtn': 'Cliquez pour Révéler les Liens',
+            'adult.revealNote': 'Les liens des ressources sont flous jusqu\u2019à ce qu\u2019ils soient révélés.',
         },
         de: {
             'nav.home': 'Startseite', 'nav.index': 'Index', 'nav.guides': 'Anleitungen', 'nav.mylists': 'Meine Listen',
@@ -217,6 +220,7 @@
             'adult.enter': 'Ich bin 18 oder älter — Eintreten',
             'adult.leave': 'Ich bin unter 18 — Verlassen',
             'adult.revealBtn': 'Klicken, um Links Anzuzeigen',
+            'adult.revealNote': 'Ressourcen-Links sind unscharf, bis sie angezeigt werden.',
         },
         pt: {
             'nav.home': 'Início', 'nav.index': 'Índice', 'nav.guides': 'Guias', 'nav.mylists': 'Minhas Listas',
@@ -267,6 +271,7 @@
             'adult.enter': 'Tenho 18 anos ou mais — Entrar',
             'adult.leave': 'Tenho menos de 18 anos — Saír',
             'adult.revealBtn': 'Clique para Revelar os Links',
+            'adult.revealNote': 'Os links dos recursos ficam borrados até serem revelados.',
         },
         ja: {
             'nav.home': 'ホーム', 'nav.index': 'インデックス', 'nav.guides': 'ガイド', 'nav.mylists': 'マイリスト',
@@ -317,6 +322,7 @@
             'adult.enter': '18歳以上です — 入る',
             'adult.leave': '18歳未満です — 離れる',
             'adult.revealBtn': 'クリックしてリンクを表示',
+            'adult.revealNote': 'リソースへのリンクは表示するまでぼかされています。',
         },
         zh: {
             'nav.home': '首页', 'nav.index': '索引', 'nav.guides': '指南', 'nav.mylists': '我的列表',
@@ -367,6 +373,7 @@
             'adult.enter': '我已满18岁 — 进入',
             'adult.leave': '我未满18岁 — 离开',
             'adult.revealBtn': '点击显示链接',
+            'adult.revealNote': '资源链接在显示之前会被模糊处理。',
         },
         hi: {
             'nav.home': 'होम', 'nav.index': 'इंडेक्स', 'nav.guides': 'गाइड्स', 'nav.mylists': 'मेरी सूचियाँ',
@@ -417,6 +424,7 @@
             'adult.enter': 'मैं 18 वर्ष या उससे अधिक का हूँ — प्रवेश करें',
             'adult.leave': 'मैं 18 वर्ष से कम का हूँ — छोड़ें',
             'adult.revealBtn': 'लिंक देखने के लिए क्लिक करें',
+            'adult.revealNote': 'रिसोर्स लिंक तब तक धुंधले रहेंगे जब तक आप उन्हें प्रकट नहीं करते।',
         },
     };
 

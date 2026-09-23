@@ -203,36 +203,55 @@
         display: none;
     }
 
-    /* Reveal-links step */
-    .links-wrapper {
-        position: relative;
-    }
-    .links-wrapper.links-hidden .category {
-        filter: blur(10px);
-        pointer-events: none;
-        user-select: none;
-    }
-    .reveal-overlay {
-        position: absolute;
-        inset: 0;
+    /* Reveal-links step: only the resource links/buttons blur, everything else (titles, descriptions) stays readable */
+    .reveal-bar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 5;
+        gap: 12px;
+        background: rgba(20, 20, 22, 0.97);
+        border: 1px solid #27272a;
+        border-radius: 12px;
+        padding: 14px 20px;
+        margin-bottom: 24px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        flex-wrap: wrap;
+        text-align: center;
     }
-    .reveal-overlay.hidden {
+    .reveal-bar.hidden {
         display: none;
     }
-    .reveal-overlay button {
-        padding: 14px 26px;
-        border-radius: 10px;
-        font-size: 15px;
+    .reveal-bar span {
+        color: #a1a1aa;
+        font-size: 13px;
+    }
+    .reveal-bar button {
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 14px;
         font-weight: 600;
         cursor: pointer;
         border: 1px solid transparent;
         background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         color: #fff;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .reveal-bar button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(59, 130, 246, 0.45);
+    }
+    .links-wrapper.links-hidden li {
+        filter: blur(6px);
+        pointer-events: none;
+        user-select: none;
+    }
+    li {
+        transition: filter 0.3s ease;
     }
 </style>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
@@ -280,10 +299,12 @@
 
     <div class="container">
 
+    <div class="reveal-bar" id="revealBar">
+        <span data-i18n="adult.revealNote">Resource links are blurred until revealed.</span>
+        <button id="revealBtn" data-i18n="adult.revealBtn">Click to Reveal Links</button>
+    </div>
+
     <div class="links-wrapper links-hidden" id="linksWrapper">
-        <div class="reveal-overlay" id="revealOverlay">
-            <button id="revealBtn" data-i18n="adult.revealBtn">Click to Reveal Links</button>
-        </div>
 
         <div class="category">
             <h2>Open Source &amp; Self-Hosted Tools</h2>
@@ -291,54 +312,66 @@
             <ul>
                 <li><a href="https://github.com/stashapp/stash" rel="noopener noreferrer nofollow" target="_blank">Stash</a><span class="tag">Open Source · Free</span></li>
                 <li><a href="https://github.com/Whisparr/Whisparr" rel="noopener noreferrer nofollow" target="_blank">Whisparr</a><span class="tag">Open Source · Free</span></li>
-                <li><a href="https://github.com/DoTheEvo/Stash" rel="noopener noreferrer nofollow" target="_blank">Stash-Box</a><span class="tag">Open Source · Free</span></li>
+                <li><a href="https://github.com/stashapp/stash-box" rel="noopener noreferrer nofollow" target="_blank">Stash-Box</a><span class="tag">Open Source · Free</span></li>
+                <li><a href="https://github.com/Kareadita/Kavita" rel="noopener noreferrer nofollow" target="_blank">Kavita</a><span class="tag">Open Source · Free</span></li>
+                <li><a href="https://github.com/gotson/komga" rel="noopener noreferrer nofollow" target="_blank">Komga</a><span class="tag">Open Source · Free</span></li>
             </ul>
         </div>
 
         <div class="category">
-            <h2>Porn Websites</h2>
-            <p class="cat-desc">Mainstream adult video sites. All require you to be 18+ to view content.</p>
+            <h2>Streaming &amp; Tube Sites</h2>
+            <p class="cat-desc">Large, well-established mainstream adult video sites with mobile-friendly sites/apps. All require you to be 18+ to view content.</p>
             <ul>
                 <li><a href="https://www.pornhub.com" rel="noopener noreferrer nofollow" target="_blank">Pornhub</a><span class="tag">Free · Premium Tier</span></li>
                 <li><a href="https://www.xvideos.com" rel="noopener noreferrer nofollow" target="_blank">xVideos</a><span class="tag">Free</span></li>
                 <li><a href="https://xhamster.com" rel="noopener noreferrer nofollow" target="_blank">xHamster</a><span class="tag">Free · Premium Tier</span></li>
                 <li><a href="https://www.youporn.com" rel="noopener noreferrer nofollow" target="_blank">YouPorn</a><span class="tag">Free · Premium Tier</span></li>
+                <li><a href="https://www.redtube.com" rel="noopener noreferrer nofollow" target="_blank">RedTube</a><span class="tag">Free</span></li>
                 <li><a href="https://spankbang.com" rel="noopener noreferrer nofollow" target="_blank">SpankBang</a><span class="tag">Free</span></li>
                 <li><a href="https://www.eporner.com" rel="noopener noreferrer nofollow" target="_blank">Eporner</a><span class="tag">Free</span></li>
+                <li><a href="https://www.beeg.com" rel="noopener noreferrer nofollow" target="_blank">Beeg</a><span class="tag">Free</span></li>
+                <li><a href="https://www.txxx.com" rel="noopener noreferrer nofollow" target="_blank">TXXX</a><span class="tag">Free</span></li>
             </ul>
         </div>
 
         <div class="category">
-            <h2>Porn Apps &amp; Platforms</h2>
-            <p class="cat-desc">Official apps and creator platforms. Age verification is required by each service.</p>
+            <h2>Cam &amp; Creator Platforms</h2>
+            <p class="cat-desc">Official apps and creator platforms where performers are paid directly. Age verification is required by each service.</p>
             <ul>
                 <li><a href="https://onlyfans.com" rel="noopener noreferrer nofollow" target="_blank">OnlyFans</a><span class="tag">Subscription</span></li>
                 <li><a href="https://fansly.com" rel="noopener noreferrer nofollow" target="_blank">Fansly</a><span class="tag">Subscription</span></li>
+                <li><a href="https://www.manyvids.com" rel="noopener noreferrer nofollow" target="_blank">ManyVids</a><span class="tag">Pay-per-video</span></li>
                 <li><a href="https://www.livejasmin.com" rel="noopener noreferrer nofollow" target="_blank">LiveJasmin</a><span class="tag">Free · Pay-per-use</span></li>
                 <li><a href="https://chaturbate.com" rel="noopener noreferrer nofollow" target="_blank">Chaturbate</a><span class="tag">Free · Tips</span></li>
+                <li><a href="https://stripchat.com" rel="noopener noreferrer nofollow" target="_blank">Stripchat</a><span class="tag">Free · Tips</span></li>
+                <li><a href="https://myfreecams.com" rel="noopener noreferrer nofollow" target="_blank">MyFreeCams</a><span class="tag">Free · Tips</span></li>
             </ul>
         </div>
 
         <div class="category">
-            <h2>VR Porn</h2>
-            <p class="cat-desc">Virtual reality adult content, often requiring a headset app or browser plugin.</p>
+            <h2>VR Porn — Websites &amp; Apps</h2>
+            <p class="cat-desc">Virtual reality adult content. Most offer a dedicated headset app (Quest/PICO) alongside the website.</p>
             <ul>
-                <li><a href="https://www.sexlikereal.com" rel="noopener noreferrer nofollow" target="_blank">SexLikeReal (SLR)</a><span class="tag">Freemium</span></li>
-                <li><a href="https://www.vrbangers.com" rel="noopener noreferrer nofollow" target="_blank">VRBangers</a><span class="tag">Subscription</span></li>
-                <li><a href="https://badoinkvr.com" rel="noopener noreferrer nofollow" target="_blank">BaDoinkVR</a><span class="tag">Subscription</span></li>
-                <li><a href="https://povr.com" rel="noopener noreferrer nofollow" target="_blank">POVR</a><span class="tag">Freemium</span></li>
+                <li><a href="https://www.sexlikereal.com" rel="noopener noreferrer nofollow" target="_blank">SexLikeReal (SLR)</a><span class="tag">Freemium · App</span></li>
+                <li><a href="https://www.vrbangers.com" rel="noopener noreferrer nofollow" target="_blank">VRBangers</a><span class="tag">Subscription · App</span></li>
+                <li><a href="https://badoinkvr.com" rel="noopener noreferrer nofollow" target="_blank">BaDoinkVR</a><span class="tag">Subscription · App</span></li>
+                <li><a href="https://povr.com" rel="noopener noreferrer nofollow" target="_blank">POVR</a><span class="tag">Freemium · App</span></li>
+                <li><a href="https://www.wankzvr.com" rel="noopener noreferrer nofollow" target="_blank">WankzVR</a><span class="tag">Subscription</span></li>
                 <li><a href="https://vrporn.com" rel="noopener noreferrer nofollow" target="_blank">VRPorn.com</a><span class="tag">Free Directory</span></li>
+                <li><a href="https://virtualrealporn.com" rel="noopener noreferrer nofollow" target="_blank">VirtualRealPorn</a><span class="tag">Freemium</span></li>
             </ul>
         </div>
 
         <div class="category">
             <h2>Hentai / Anime (18+)</h2>
-            <p class="cat-desc">Fictional/animated adult content. Depicts fictional characters only — always confirm a site's own age policy before use.</p>
+            <p class="cat-desc">Fictional/animated adult content. Depicts fictional characters only — always confirm a site's own age policy before use. Official/paid sources pay artists directly.</p>
             <ul>
                 <li><a href="https://nhentai.net" rel="noopener noreferrer nofollow" target="_blank">nhentai</a><span class="tag">Free</span></li>
                 <li><a href="https://e-hentai.org" rel="noopener noreferrer nofollow" target="_blank">E-Hentai</a><span class="tag">Free</span></li>
                 <li><a href="https://hanime.tv" rel="noopener noreferrer nofollow" target="_blank">Hanime.tv</a><span class="tag">Free · Premium Tier</span></li>
-                <li><a href="https://www.fakku.net" rel="noopener noreferrer nofollow" target="_blank">FAKKU</a><span class="tag">Free · Subscription</span></li>
+                <li><a href="https://www.fakku.net" rel="noopener noreferrer nofollow" target="_blank">FAKKU</a><span class="tag">Official · Subscription</span></li>
+                <li><a href="https://irodoricomics.com" rel="noopener noreferrer nofollow" target="_blank">Irodori Comics</a><span class="tag">Official · Pay-per-title</span></li>
+                <li><a href="https://www.hentai-foundry.com" rel="noopener noreferrer nofollow" target="_blank">Hentai Foundry</a><span class="tag">Free · Artist Community</span></li>
                 <li><a href="https://hentaihaven.xxx" rel="noopener noreferrer nofollow" target="_blank">HentaiHaven</a><span class="tag">Free</span></li>
             </ul>
         </div>
@@ -371,7 +404,7 @@
         const no = document.getElementById('ageGateNo');
 
         const wrapper = document.getElementById('linksWrapper');
-        const overlay = document.getElementById('revealOverlay');
+        const revealBar = document.getElementById('revealBar');
         const revealBtn = document.getElementById('revealBtn');
 
         function unlockAge() {
@@ -381,7 +414,7 @@
 
         function unlockLinks() {
             wrapper.classList.remove('links-hidden');
-            overlay.classList.add('hidden');
+            revealBar.classList.add('hidden');
         }
 
         if (sessionStorage.getItem(AGE_KEY) === 'true') {
