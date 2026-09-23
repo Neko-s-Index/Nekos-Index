@@ -515,6 +515,7 @@
     }
 
     function injectFloatingSwitcher() {
+        if (window.NEKO_SKIP_FLOATING_LANG) return;
         if (document.getElementById('nekoLangSwitcher')) return;
         ensureSwitcherStyles();
         const wrap = document.createElement('div');

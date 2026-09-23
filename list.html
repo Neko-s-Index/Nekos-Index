@@ -887,9 +887,6 @@
 
         /* Theme Toggle */
         .theme-toggle {
-            position: fixed;
-            top: 16px;
-            right: 16px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 10px;
@@ -897,13 +894,12 @@
             cursor: pointer;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             color: var(--text-primary);
             font-size: 13px;
             font-weight: 500;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
 
         .theme-toggle:hover {
@@ -925,9 +921,6 @@
 
         /* Settings Button */
         .settings-btn {
-            position: fixed;
-            top: 16px;
-            right: 140px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 10px;
@@ -937,8 +930,6 @@
             font-size: 13px;
             font-weight: 500;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
 
         .settings-btn:hover {
@@ -947,6 +938,98 @@
             border-color: transparent;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+        }
+
+        /* Menu Hub: consolidates Theme, Guide, Settings, and Language into one button */
+        .menu-hub {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 1001;
+        }
+
+        .menu-hub-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px 14px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 18px;
+            line-height: 1;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .menu-hub-btn:hover,
+        .menu-hub.open .menu-hub-btn {
+            background: var(--accent-primary);
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+        }
+
+        .menu-hub-panel {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 210px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px) scale(0.96);
+            transform-origin: top right;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+
+        .menu-hub.open .menu-hub-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .menu-hub-panel .theme-toggle,
+        .menu-hub-panel .guide-btn,
+        .menu-hub-panel .settings-btn {
+            width: 100%;
+        }
+
+        .menu-hub-lang {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-top: 6px;
+            margin-top: 2px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .menu-hub-lang-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-hub-lang select {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        body.reduce-motion .menu-hub-panel {
+            transition: none;
         }
 
         /* Favorites */
@@ -1330,9 +1413,6 @@
 
         /* Guide Button */
         .guide-btn {
-            position: fixed;
-            top: 16px;
-            left: 16px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 10px;
@@ -1342,8 +1422,6 @@
             font-size: 13px;
             font-weight: 500;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
 
         .guide-btn:hover {
@@ -1717,18 +1795,25 @@
 
         /* Mobile Responsive Fixes */
         @media (max-width: 768px) {
-            .theme-toggle {
+            .menu-hub {
                 top: auto;
                 bottom: 16px;
                 right: 16px;
+            }
+
+            .menu-hub-btn {
                 padding: 10px 14px;
             }
 
-            .settings-btn {
+            .menu-hub-panel {
                 top: auto;
-                bottom: 16px;
-                right: 120px;
-                padding: 10px 14px;
+                bottom: calc(100% + 10px);
+                transform-origin: bottom right;
+                transform: translateY(8px) scale(0.96);
+            }
+
+            .menu-hub.open .menu-hub-panel {
+                transform: translateY(0) scale(1);
             }
 
             .back-to-top {
@@ -1741,13 +1826,6 @@
                 max-width: 100%;
                 border-radius: 0;
                 padding: 24px;
-            }
-
-            .guide-btn {
-                top: auto;
-                bottom: 16px;
-                left: 16px;
-                padding: 10px 14px;
             }
 
             .guide-panel {
@@ -1869,6 +1947,93 @@
         }
         .main-nav a:active {
             transform: scale(0.96);
+        }
+
+        /* Nav Layout / Style / Alignment settings */
+        body.nav-align-left .main-nav[data-marquee="false"],
+        body.nav-align-left .footer-nav[data-marquee="false"] {
+            justify-content: flex-start !important;
+        }
+
+        body.nav-align-right .main-nav[data-marquee="false"],
+        body.nav-align-right .footer-nav[data-marquee="false"] {
+            justify-content: flex-end !important;
+        }
+
+        body.nav-align-center .main-nav[data-marquee="false"],
+        body.nav-align-center .footer-nav[data-marquee="false"] {
+            justify-content: center !important;
+        }
+
+        body.nav-style-minimal .main-nav a,
+        body.nav-style-minimal .footer-nav a {
+            background: transparent;
+            border-color: transparent;
+            border-radius: 0;
+            padding: 8px 6px;
+            position: relative;
+            box-shadow: none !important;
+        }
+
+        body.nav-style-minimal .main-nav a::after,
+        body.nav-style-minimal .footer-nav a::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            right: 6px;
+            bottom: 2px;
+            height: 2px;
+            background: var(--accent-primary);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s ease;
+        }
+
+        body.nav-style-minimal .main-nav a:hover,
+        body.nav-style-minimal .footer-nav a:hover {
+            background: transparent;
+            color: var(--accent-primary);
+            transform: none;
+            box-shadow: none !important;
+        }
+
+        body.nav-style-minimal .main-nav a:hover::after,
+        body.nav-style-minimal .footer-nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        body.nav-style-compact .main-nav,
+        body.nav-style-compact .footer-nav {
+            gap: 6px;
+            padding: 6px;
+        }
+
+        body.nav-style-compact .main-nav-track,
+        body.nav-style-compact .footer-nav-track {
+            gap: 6px;
+        }
+
+        body.nav-style-compact .main-nav a,
+        body.nav-style-compact .footer-nav a {
+            padding: 5px 10px;
+            font-size: 11px;
+        }
+
+        /* Sticky top nav bar */
+        body.nav-sticky-top header .main-nav {
+            position: sticky;
+            top: 10px;
+            z-index: 600;
+            animation: navStickyIn 0.4s ease;
+        }
+
+        @keyframes navStickyIn {
+            from { opacity: 0.5; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body.reduce-motion.nav-sticky-top header .main-nav {
+            animation: none;
         }
 
         /* Compact Mode */
@@ -3125,6 +3290,72 @@
                 }
             });
 
+            // ==================== NAV BAR SETTINGS (Top & Bottom) ====================
+            const navLayoutKey = 'nekoIndexNavLayout';
+            const navStyleKey = 'nekoIndexNavStyle';
+            const navAlignKey = 'nekoIndexNavAlign';
+            const navStickyKey = 'nekoIndexNavSticky';
+
+            const navLayoutSelect = document.getElementById('navLayoutSelect');
+            const navStyleSelect = document.getElementById('navStyleSelect');
+            const navAlignSelect = document.getElementById('navAlignSelect');
+            const navStickyToggle = document.getElementById('navStickyToggle');
+
+            navLayoutSelect.value = localStorage.getItem(navLayoutKey) || 'auto';
+            navStyleSelect.value = localStorage.getItem(navStyleKey) || 'pill';
+            navAlignSelect.value = localStorage.getItem(navAlignKey) || 'center';
+            navStickyToggle.checked = localStorage.getItem(navStickyKey) === 'true';
+
+            navLayoutSelect.addEventListener('change', function() {
+                localStorage.setItem(navLayoutKey, this.value);
+                applyNavLayoutSetting();
+            });
+
+            navStyleSelect.addEventListener('change', function() {
+                localStorage.setItem(navStyleKey, this.value);
+                applyNavStyleSetting();
+            });
+
+            navAlignSelect.addEventListener('change', function() {
+                localStorage.setItem(navAlignKey, this.value);
+                applyNavAlignSetting();
+            });
+
+            navStickyToggle.addEventListener('change', function() {
+                localStorage.setItem(navStickyKey, this.checked);
+                applyNavStickySetting();
+            });
+
+            // ==================== MENU HUB (Theme / Guide / Settings / Language) ====================
+            const menuHub = document.getElementById('menuHub');
+            const menuHubBtn = document.getElementById('menuHubBtn');
+
+            function closeMenuHub() {
+                menuHub.classList.remove('open');
+                menuHubBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            menuHubBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = menuHub.classList.toggle('open');
+                menuHubBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (menuHub.classList.contains('open') && !menuHub.contains(e.target)) {
+                    closeMenuHub();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenuHub();
+            });
+
+            ['themeToggle', 'guideBtn', 'settingsBtn'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('click', closeMenuHub);
+            });
+
             // Clear Puzzle Exemption
             document.getElementById('clearPuzzleExemption').addEventListener('click', function() {
                 localStorage.removeItem('nekos_verified');
@@ -3152,6 +3383,10 @@
                     marquee: localStorage.getItem(marqueeKey),
                     highContrast: localStorage.getItem(highContrastKey),
                     hideDonationNotice: localStorage.getItem(hideDonationNoticeKey),
+                    navLayout: localStorage.getItem(navLayoutKey),
+                    navStyle: localStorage.getItem(navStyleKey),
+                    navAlign: localStorage.getItem(navAlignKey),
+                    navSticky: localStorage.getItem(navStickyKey),
                     myLists: localStorage.getItem(myListsKey)
                 };
                 const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
@@ -3190,6 +3425,10 @@
                             if (settings.marquee) localStorage.setItem(marqueeKey, settings.marquee);
                             if (settings.highContrast) localStorage.setItem(highContrastKey, settings.highContrast);
                             if (settings.hideDonationNotice) localStorage.setItem(hideDonationNoticeKey, settings.hideDonationNotice);
+                            if (settings.navLayout) localStorage.setItem(navLayoutKey, settings.navLayout);
+                            if (settings.navStyle) localStorage.setItem(navStyleKey, settings.navStyle);
+                            if (settings.navAlign) localStorage.setItem(navAlignKey, settings.navAlign);
+                            if (settings.navSticky) localStorage.setItem(navStickyKey, settings.navSticky);
                             if (settings.myLists) localStorage.setItem(myListsKey, settings.myLists);
                             alert('Settings imported successfully! Please refresh the page.');
                         } catch (err) {
@@ -3671,17 +3910,22 @@
     </noscript>
 </header>
 
-<!-- Theme Toggle -->
-<button class="theme-toggle" id="themeToggle">
-    <span class="theme-icon">🌙</span>
-    <span class="theme-text">Dark</span>
-</button>
-
-<!-- Settings Button -->
-<button class="settings-btn" id="settingsBtn" data-i18n="common.settings">Settings</button>
-
-<!-- Guide Button -->
-<button class="guide-btn" id="guideBtn" data-i18n="common.guide">Guide</button>
+<!-- Menu Hub: Theme, Guide, Settings, and Language, all in one place -->
+<div class="menu-hub" id="menuHub">
+    <button class="menu-hub-btn" id="menuHubBtn" aria-haspopup="true" aria-expanded="false" aria-label="Menu">☰</button>
+    <div class="menu-hub-panel" id="menuHubPanel">
+        <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text">Dark</span>
+        </button>
+        <button class="guide-btn" id="guideBtn" data-i18n="common.guide">Guide</button>
+        <button class="settings-btn" id="settingsBtn" data-i18n="common.settings">Settings</button>
+        <div class="menu-hub-lang">
+            <label class="menu-hub-lang-label" data-i18n="common.language">Language</label>
+            <select class="neko-lang-select" aria-label="Language"></select>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <h2 data-i18n="list.categoriesHeading">Categories</h2>
@@ -5876,6 +6120,46 @@
         </div>
     </div>
 
+    <!-- Navigation Bar Settings -->
+    <div class="settings-group">
+        <label>Navigation Bars (Top &amp; Bottom)</label>
+
+        <div class="setting-row">
+            <label for="navLayoutSelect">Nav Layout</label>
+            <select class="settings-select" id="navLayoutSelect" style="width: 100%; min-width: 0;">
+                <option value="auto">Auto (scroll on small screens)</option>
+                <option value="wrapped">Always Wrapped (no scrolling)</option>
+            </select>
+        </div>
+
+        <div class="setting-row">
+            <label for="navStyleSelect">Nav Style</label>
+            <select class="settings-select" id="navStyleSelect" style="width: 100%; min-width: 0;">
+                <option value="pill">Pill Buttons</option>
+                <option value="minimal">Minimal (underline)</option>
+                <option value="compact">Compact</option>
+            </select>
+        </div>
+
+        <div class="setting-row">
+            <label for="navAlignSelect">Nav Alignment</label>
+            <select class="settings-select" id="navAlignSelect" style="width: 100%; min-width: 0;">
+                <option value="center">Center</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+            </select>
+        </div>
+        <p class="settings-note" style="margin: 4px 0 12px;">Alignment only applies when a nav bar isn't scrolling (Wrapped layout, or Auto on a wide screen).</p>
+
+        <div class="toggle-switch">
+            <label>Sticky Top Nav</label>
+            <label>
+                <input type="checkbox" id="navStickyToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+
     <!-- Behavior Settings -->
     <div class="settings-group">
         <label>Behavior</label>
@@ -6064,6 +6348,7 @@
     </div>
 </div>
 
+<script>window.NEKO_SKIP_FLOATING_LANG = true;</script>
 <script src="i18n.js" defer></script>
 <script src="site-nav.js" defer></script>
 <script src="pixels.js" defer></script>
@@ -6464,6 +6749,78 @@
             }
         });
 
+        // ==================== NAV LAYOUT / STYLE / ALIGN SETTINGS ====================
+        function getNavAlignClass() {
+            const v = localStorage.getItem('nekoIndexNavAlign') || 'center';
+            return ['left', 'center', 'right'].includes(v) ? v : 'center';
+        }
+
+        function unwrapNavMarquee(container, trackClass) {
+            const track = container.querySelector('.' + trackClass);
+            if (track) {
+                const spacer = track.querySelector('.' + trackClass + '-spacer');
+                const originals = [];
+                for (const child of Array.from(track.children)) {
+                    if (child === spacer) break;
+                    originals.push(child);
+                }
+                originals.forEach(o => container.appendChild(o));
+                track.remove();
+            }
+            container.style.flexWrap = 'wrap';
+            container.style.cursor = 'default';
+            container.dataset.marquee = 'false';
+            const note = container.nextElementSibling;
+            if (note && note.classList.contains('marquee-note')) note.style.display = 'none';
+        }
+
+        function rewrapNavMarquee(container, trackClass) {
+            container.style.flexWrap = '';
+            container.style.cursor = '';
+            delete container.dataset.marquee;
+            const note = container.nextElementSibling;
+            if (note && note.classList.contains('marquee-note')) note.style.display = '';
+            wrapMarquee(container, trackClass, 25);
+        }
+
+        function applyNavLayoutSetting() {
+            const forced = localStorage.getItem('nekoIndexNavLayout') === 'wrapped';
+            document.querySelectorAll('.main-nav, .footer-nav').forEach(container => {
+                const isMain = container.classList.contains('main-nav');
+                const trackClass = isMain ? 'main-nav-track' : 'footer-nav-track';
+                if (forced) {
+                    unwrapNavMarquee(container, trackClass);
+                } else if (container.dataset.forcedWrap === 'true') {
+                    rewrapNavMarquee(container, trackClass);
+                }
+                container.dataset.forcedWrap = forced ? 'true' : 'false';
+            });
+        }
+
+        function applyNavStyleSetting() {
+            const style = localStorage.getItem('nekoIndexNavStyle') || 'pill';
+            document.body.classList.remove('nav-style-minimal', 'nav-style-compact');
+            if (style === 'minimal') document.body.classList.add('nav-style-minimal');
+            else if (style === 'compact') document.body.classList.add('nav-style-compact');
+        }
+
+        function applyNavAlignSetting() {
+            document.body.classList.remove('nav-align-left', 'nav-align-center', 'nav-align-right');
+            document.body.classList.add('nav-align-' + getNavAlignClass());
+        }
+
+        function applyNavStickySetting() {
+            const sticky = localStorage.getItem('nekoIndexNavSticky') === 'true';
+            document.body.classList.toggle('nav-sticky-top', sticky);
+        }
+
+        function applyAllNavSettings() {
+            applyNavLayoutSetting();
+            applyNavStyleSetting();
+            applyNavAlignSetting();
+            applyNavStickySetting();
+        }
+
         // Circular marquee for nav and footer buttons
         function getTrackX(track) {
             const style = window.getComputedStyle(track).transform;
@@ -6603,6 +6960,21 @@
                 const isMain = container.classList.contains('main-nav');
                 wrapMarquee(container, isMain ? 'main-nav-track' : 'footer-nav-track', 25);
             });
+            applyAllNavSettings();
+        });
+
+        // Re-evaluate the "Auto" nav layout on resize (e.g. rotating a tablet, resizing a window)
+        let navResizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(navResizeTimeout);
+            navResizeTimeout = setTimeout(() => {
+                if (localStorage.getItem('nekoIndexNavLayout') === 'wrapped') return;
+                document.querySelectorAll('.main-nav, .footer-nav').forEach(container => {
+                    const isMain = container.classList.contains('main-nav');
+                    const trackClass = isMain ? 'main-nav-track' : 'footer-nav-track';
+                    rewrapNavMarquee(container, trackClass);
+                });
+            }, 200);
         });
 
         if (listGate.classList.contains('hidden')) {
