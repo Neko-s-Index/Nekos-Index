@@ -1,6 +1,6 @@
 # Neko's Index
 
-> A curated directory of open-source apps, privacy tools, streaming utilities, and more.
+> Open-source apps and privacy tools, hand-picked and organized so you can actually find what you need.
 
 **Live sites:**
 

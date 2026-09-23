@@ -1,7 +1,7 @@
 {
     "name": "Neko's Index",
     "short_name": "NekosIndex",
-    "description": "A curated directory of open-source apps, privacy tools, streaming utilities, and more.",
+    "description": "Open-source apps and privacy tools, hand-picked and organized so you can actually find what you need.",
     "id": "./",
     "start_url": "./index.html",
     "scope": "./",

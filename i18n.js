@@ -29,7 +29,7 @@
             'common.backToTop': 'Back to Top', 'common.continue': 'Continue', 'common.verify': 'Verify',
             'common.mobileNoteSummary': 'Mobile note',
 
-            'list.tagline': 'A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.',
+            'list.tagline': 'A hand-picked list of open-source apps and privacy tools that actually work. Search by name or tag, star the ones you like, and check the guides if you\u2019re not sure where to start.',
             'list.checkOutPages': 'Check out pages',
             'list.categoriesHeading': 'Categories',
             'list.searchPlaceholder': 'Search apps, tools, and services...',
@@ -51,7 +51,7 @@
             'footer.showIndexes': 'Show Indexes',
             'footer.mobileNote': 'For mobile users: scroll or drag to view more buttons',
 
-            'gate.title': 'Verify to Continue',
+            'gate.title': 'Welcome to Neko\u2019s Index',
             'gate.clickContinue': 'Click below to continue.',
             'gate.continueBtn': 'I Understand & Continue',
 
@@ -59,7 +59,7 @@
             'guides.notice': 'Please read — these guides can help you use the index safely and effectively.',
             'guides.intro': 'These guides are meant to help you get started with open-source apps and tools listed on the main index. They are for informational purposes only.',
             'guides.about.title': 'About Neko\u2019s Index',
-            'guides.about.body': 'Neko\u2019s Index is a free, community-curated directory of open-source apps, privacy tools, streaming utilities, emulation resources, and more. It does not host any files or copyrighted content \u2014 it only links to third-party projects and services. The goal is to make it easy to discover safe, open-source, and privacy-respecting software for PC, Android, iOS, and the web, all in one place.',
+            'guides.about.body': 'Neko\u2019s Index started as a personal list of open-source apps and privacy tools worth using, and it grew from there. It\u2019s free, and it\u2019s just links \u2014 nothing is hosted here. The point is to make it a little easier to find software that respects your privacy and doesn\u2019t lock you in, whether you\u2019re on PC, Android, iOS, or just browsing.',
 
             'adult.title': '18+ Resources',
             'adult.tagline': 'Adult websites, apps, VR porn, and hentai/anime (18+) — third-party links only.',
@@ -80,7 +80,7 @@
             'common.backToTop': 'Volver Arriba', 'common.continue': 'Continuar', 'common.verify': 'Verificar',
             'common.mobileNoteSummary': 'Nota para móviles',
 
-            'list.tagline': 'Un directorio curado de apps de código abierto, herramientas de privacidad, utilidades de streaming y más. Explora categorías, busca por etiquetas, guarda tus favoritos y consulta las guías para PC, Android, iOS y la web.',
+            'list.tagline': 'Una lista de apps de código abierto y herramientas de privacidad que realmente funcionan. Busca por nombre o etiqueta, marca tus favoritas y consulta las guías si no sabes por dónde empezar.',
             'list.checkOutPages': 'Explora estas páginas',
             'list.categoriesHeading': 'Categorías',
             'list.searchPlaceholder': 'Buscar apps, herramientas y servicios...',
@@ -102,7 +102,7 @@
             'footer.showIndexes': 'Mostrar Índices',
             'footer.mobileNote': 'Usuarios de móvil: desliza o arrastra para ver más botones',
 
-            'gate.title': 'Verificar para Continuar',
+            'gate.title': 'Bienvenido a Neko\u2019s Index',
             'gate.clickContinue': 'Haz clic abajo para continuar.',
             'gate.continueBtn': 'Entiendo y Continúo',
 
@@ -110,7 +110,7 @@
             'guides.notice': 'Por favor lee esto — estas guías te ayudan a usar el índice de forma segura y eficaz.',
             'guides.intro': 'Estas guías están pensadas para ayudarte a empezar con las apps y herramientas de código abierto listadas en el índice principal. Son solo con fines informativos.',
             'guides.about.title': 'Sobre Neko\u2019s Index',
-            'guides.about.body': 'Neko\u2019s Index es un directorio gratuito y curado por la comunidad de apps de código abierto, herramientas de privacidad, utilidades de streaming, recursos de emulación y más. No aloja archivos ni contenido con derechos de autor: solo enlaza a proyectos y servicios de terceros. El objetivo es facilitar el descubrimiento de software seguro, de código abierto y respetuoso con la privacidad para PC, Android, iOS y la web, todo en un solo lugar.',
+            'guides.about.body': 'Neko\u2019s Index empezó como una lista personal de apps de código abierto y herramientas de privacidad que valían la pena, y creció a partir de ahí. Es gratis, y son solo enlaces: aquí no se aloja nada. La idea es facilitar un poco encontrar software que respete tu privacidad y no te encierre, ya sea en PC, Android, iOS o desde el navegador.',
 
             'adult.title': 'Recursos 18+',
             'adult.tagline': 'Sitios, apps, VR porno y hentai/anime (18+) para adultos — solo enlaces de terceros.',
@@ -131,7 +131,7 @@
             'common.backToTop': 'Haut de Page', 'common.continue': 'Continuer', 'common.verify': 'Vérifier',
             'common.mobileNoteSummary': 'Note mobile',
 
-            'list.tagline': 'Un répertoire d\u2019applications open-source, d\u2019outils de confidentialité, d\u2019utilitaires de streaming et plus encore. Parcourez les catégories, recherchez par tag, enregistrez vos favoris et consultez les guides pour PC, Android, iOS et le web.',
+            'list.tagline': 'Une liste d\u2019applications open-source et d\u2019outils de confidentialité qui fonctionnent vraiment. Recherchez par nom ou par tag, mettez vos favoris de côté, et consultez les guides si vous ne savez pas par où commencer.',
             'list.checkOutPages': 'Découvrez ces pages',
             'list.categoriesHeading': 'Catégories',
             'list.searchPlaceholder': 'Rechercher des apps, outils et services...',
@@ -153,7 +153,7 @@
             'footer.showIndexes': 'Afficher les Index',
             'footer.mobileNote': 'Utilisateurs mobiles : faites défiler ou glissez pour voir plus de boutons',
 
-            'gate.title': 'Vérifier pour Continuer',
+            'gate.title': 'Bienvenue sur Neko\u2019s Index',
             'gate.clickContinue': 'Cliquez ci-dessous pour continuer.',
             'gate.continueBtn': 'Je Comprends et Continue',
 
@@ -161,7 +161,7 @@
             'guides.notice': 'Merci de lire ceci — ces guides vous aident à utiliser l\u2019index en toute sécurité et efficacement.',
             'guides.intro': 'Ces guides visent à vous aider à démarrer avec les applications et outils open-source listés sur l\u2019index principal. Elles sont uniquement à titre informatif.',
             'guides.about.title': 'À propos de Neko\u2019s Index',
-            'guides.about.body': 'Neko\u2019s Index est un répertoire gratuit, géré par la communauté, d\u2019applications open-source, d\u2019outils de confidentialité, d\u2019utilitaires de streaming, de ressources d\u2019émulation et plus encore. Il n\u2019héberge aucun fichier ni contenu protégé par des droits d\u2019auteur : il ne fait que renvoyer vers des projets et services tiers. L\u2019objectif est de faciliter la découverte de logiciels sûrs, open-source et respectueux de la vie privée pour PC, Android, iOS et le web, tout au même endroit.',
+            'guides.about.body': 'Neko\u2019s Index a commencé comme une liste personnelle d\u2019applications open-source et d\u2019outils de confidentialité qui en valaient la peine, puis ça a grandi. C\u2019est gratuit, et ce ne sont que des liens \u2014 rien n\u2019est héberg\u00e9 ici. L\u2019idée, c\u2019est de faciliter un peu la découverte de logiciels qui respectent votre vie privée et ne vous enferment pas, que vous soyez sur PC, Android, iOS ou simplement en train de naviguer.',
 
             'adult.title': 'Ressources 18+',
             'adult.tagline': 'Sites, applications, VR porno et hentai/anime (18+) pour adultes — liens tiers uniquement.',
@@ -182,7 +182,7 @@
             'common.backToTop': 'Nach Oben', 'common.continue': 'Weiter', 'common.verify': 'Bestätigen',
             'common.mobileNoteSummary': 'Hinweis für Mobilgeräte',
 
-            'list.tagline': 'Ein kuratiertes Verzeichnis von Open-Source-Apps, Datenschutz-Tools, Streaming-Hilfsprogrammen und mehr. Durchsuche Kategorien, filtere nach Tags, speichere deine Favoriten und schau in die Anleitungen für PC, Android, iOS und das Web.',
+            'list.tagline': 'Eine handverlesene Liste von Open-Source-Apps und Datenschutz-Tools, die wirklich funktionieren. Suche nach Name oder Tag, markiere deine Favoriten und schau in die Anleitungen, wenn du nicht weißt, wo du anfangen sollst.',
             'list.checkOutPages': 'Diese Seiten ansehen',
             'list.categoriesHeading': 'Kategorien',
             'list.searchPlaceholder': 'Apps, Tools und Dienste suchen...',
@@ -204,7 +204,7 @@
             'footer.showIndexes': 'Indexe Anzeigen',
             'footer.mobileNote': 'Für Mobilgeräte: scrollen oder ziehen, um weitere Buttons zu sehen',
 
-            'gate.title': 'Bestätigen um Fortzufahren',
+            'gate.title': 'Willkommen bei Neko\u2019s Index',
             'gate.clickContinue': 'Klicke unten, um fortzufahren.',
             'gate.continueBtn': 'Verstanden & Weiter',
 
@@ -212,7 +212,7 @@
             'guides.notice': 'Bitte lesen — diese Anleitungen helfen dir, den Index sicher und effektiv zu nutzen.',
             'guides.intro': 'Diese Anleitungen sollen dir den Einstieg in die im Hauptindex aufgeführten Open-Source-Apps und Tools erleichtern. Sie dienen nur zu Informationszwecken.',
             'guides.about.title': 'Über Neko\u2019s Index',
-            'guides.about.body': 'Neko\u2019s Index ist ein kostenloses, von der Community kuratiertes Verzeichnis von Open-Source-Apps, Datenschutz-Tools, Streaming-Hilfsprogrammen, Emulations-Ressourcen und mehr. Es hostet keine Dateien oder urheberrechtlich geschützten Inhalte — es verlinkt nur auf Projekte und Dienste Dritter. Ziel ist es, sichere, Open-Source- und datenschutzfreundliche Software für PC, Android, iOS und das Web an einem zentralen Ort auffindbar zu machen.',
+            'guides.about.body': 'Neko\u2019s Index hat als persönliche Liste von Open-Source-Apps und Datenschutz-Tools angefangen, die es wert waren \u2014 und ist von dort aus gewachsen. Es ist kostenlos, und es sind nur Links: Hier wird nichts gehostet. Der Sinn ist, es ein bisschen leichter zu machen, Software zu finden, die deine Privatsphäre respektiert und dich nicht einsperrt \u2014 egal ob auf PC, Android, iOS oder einfach im Browser.',
 
             'adult.title': '18+ Ressourcen',
             'adult.tagline': 'Erwachsenen-Websites, Apps, VR-Porno und Hentai/Anime (18+) — nur Links zu Drittanbietern.',
@@ -233,7 +233,7 @@
             'common.backToTop': 'Voltar ao Topo', 'common.continue': 'Continuar', 'common.verify': 'Verificar',
             'common.mobileNoteSummary': 'Nota para celular',
 
-            'list.tagline': 'Um diretório selecionado de apps de código aberto, ferramentas de privacidade, utilitários de streaming e muito mais. Navegue por categorias, pesquise por tags, salve seus favoritos e confira os guias para PC, Android, iOS e a web.',
+            'list.tagline': 'Uma lista selecionada a dedo de apps de código aberto e ferramentas de privacidade que realmente funcionam. Pesquise por nome ou tag, marque seus favoritos e confira os guias se não souber por onde começar.',
             'list.checkOutPages': 'Confira estas páginas',
             'list.categoriesHeading': 'Categorias',
             'list.searchPlaceholder': 'Pesquisar apps, ferramentas e serviços...',
@@ -255,7 +255,7 @@
             'footer.showIndexes': 'Mostrar Índices',
             'footer.mobileNote': 'Usuários de celular: role ou arraste para ver mais botões',
 
-            'gate.title': 'Verificar para Continuar',
+            'gate.title': 'Bem-vindo ao Neko\u2019s Index',
             'gate.clickContinue': 'Clique abaixo para continuar.',
             'gate.continueBtn': 'Entendi e Quero Continuar',
 
@@ -263,7 +263,7 @@
             'guides.notice': 'Por favor, leia — estes guias ajudam você a usar o índice com segurança e eficácia.',
             'guides.intro': 'Estes guias servem para ajudar você a começar com os apps e ferramentas de código aberto listados no índice principal. São apenas para fins informativos.',
             'guides.about.title': 'Sobre o Neko\u2019s Index',
-            'guides.about.body': 'O Neko\u2019s Index é um diretório gratuito, mantido pela comunidade, de apps de código aberto, ferramentas de privacidade, utilitários de streaming, recursos de emulação e muito mais. Ele não hospeda arquivos ou conteúdo protegido por direitos autorais — apenas cria links para projetos e serviços de terceiros. O objetivo é facilitar a descoberta de softwares seguros, de código aberto e que respeitam a privacidade para PC, Android, iOS e a web, tudo em um só lugar.',
+            'guides.about.body': 'O Neko\u2019s Index começou como uma lista pessoal de apps de código aberto e ferramentas de privacidade que valiam a pena, e cresceu a partir daí. É gratuito, e são só links \u2014 nada é hospedado aqui. A ideia é facilitar um pouco encontrar softwares que respeitem sua privacidade e não te prendam a eles, seja no PC, Android, iOS ou direto no navegador.',
 
             'adult.title': 'Recursos 18+',
             'adult.tagline': 'Sites, apps, VR pornô e hentai/anime (18+) adultos — apenas links de terceiros.',
@@ -284,7 +284,7 @@
             'common.backToTop': 'トップへ戻る', 'common.continue': '続ける', 'common.verify': '確認',
             'common.mobileNoteSummary': 'モバイル向けの注記',
 
-            'list.tagline': 'オープンソースアプリ、プライバシーツール、ストリーミングユーティリティなどを厳選したディレクトリです。カテゴリを閲覧し、タグで検索し、お気に入りを保存し、PC・Android・iOS・Web向けのガイドをご確認ください。',
+            'list.tagline': '実際に使えるオープンソースアプリとプライバシーツールを厳選しました。名前やタグで検索して、気に入ったものをお気に入りに入れ、どこから始めればいいか分からないときはガイドをチェックしてください。',
             'list.checkOutPages': 'これらのページをチェック',
             'list.categoriesHeading': 'カテゴリ',
             'list.searchPlaceholder': 'アプリ、ツール、サービスを検索...',
@@ -306,7 +306,7 @@
             'footer.showIndexes': 'インデックスを表示',
             'footer.mobileNote': 'モバイルの方はスクロールまたはドラッグしてボタンを表示できます',
 
-            'gate.title': '続けるには確認してください',
+            'gate.title': "Neko's Indexへようこそ",
             'gate.clickContinue': '下のボタンをクリックして続けてください。',
             'gate.continueBtn': '理解しました・続ける',
 
@@ -314,7 +314,7 @@
             'guides.notice': 'このガイドはインデックスを安全かつ効果的に使うためのものです。',
             'guides.intro': 'これらのガイドは、メインインデックスに掲載されているオープンソースアプリやツールを使い始めるためのものです。情報提供のみを目的としています。',
             'guides.about.title': "Neko's Indexについて",
-            'guides.about.body': "Neko's Indexは、オープンソースアプリ、プライバシーツール、ストリーミングユーティリティ、エミュレーションリソースなどを集めた無料のコミュニティ主導型ディレクトリです。ファイルや著作権付きコンテンツは一切ホストしておらず、第三者のプロジェクトやサービスへのリンクのみを提供しています。目的は、PC・Android・iOS・Web向けの安全でオープンソースかつプライバシーに配慮したソフトウェアを、ひとつの場所で簡単に見つけられるようにすることです。",
+            'guides.about.body': "Neko's Indexは、もともと個人的に使っていたオープンソースアプリやプライバシーツールのリストから始まり、そこから少しずつ大きくなったものです。無料で、リンクを載せているだけ — ここには何もホストしていません。目的は、プライバシーを尊重し、縛られないソフトウェアを、PCでもAndroidでもiOSでも、ブラウザからでも見つけやすくすることです。",
 
             'adult.title': '18+ リソース',
             'adult.tagline': 'アダルトサイト、アプリ、VRポルノ、ヘンタイ/アニメ（18+）— 第三者リンクのみです。',
@@ -335,7 +335,7 @@
             'common.backToTop': '返回顶部', 'common.continue': '继续', 'common.verify': '验证',
             'common.mobileNoteSummary': '移动端提示',
 
-            'list.tagline': '精选的开源应用、隐私工具、流媒体实用程序等目录。浏览分类、按标签搜索、保存收藏，并查看适用于 PC、Android、iOS 和网页的指南。',
+            'list.tagline': '一份精心挑选、真正好用的开源应用和隐私工具列表。按名称或标签搜索，收藏喜欢的项目，如果不知道从哪里开始，可以看看指南。',
             'list.checkOutPages': '查看这些页面',
             'list.categoriesHeading': '分类',
             'list.searchPlaceholder': '搜索应用、工具和服务...',
@@ -357,7 +357,7 @@
             'footer.showIndexes': '显示索引',
             'footer.mobileNote': '移动端用户：滚动或拖动以查看更多按钮',
 
-            'gate.title': '请验证以继续',
+            'gate.title': "欢迎来到 Neko's Index",
             'gate.clickContinue': '点击下方按钮继续。',
             'gate.continueBtn': '我已了解并继续',
 
@@ -365,7 +365,7 @@
             'guides.notice': '请阅读 — 这些指南可以帮助您安全有效地使用本索引。',
             'guides.intro': '这些指南旨在帮助您开始使用主索引中列出的开源应用和工具，仅供参考。',
             'guides.about.title': '关于 Neko\u2019s Index',
-            'guides.about.body': "Neko's Index 是一个免费的、由社区维护的目录，收录开源应用、隐私工具、流媒体实用程序、模拟器资源等。它不托管任何文件或受版权保护的内容——仅链接到第三方项目和服务。其目标是让您可以在一个地方轻松发现适用于 PC、Android、iOS 和网页的安全、开源且尊重隐私的软件。",
+            'guides.about.body': "Neko's Index 最初只是一份个人整理的开源应用和隐私工具清单，后来慢慢扩展成了现在的样子。它是免费的，也只是一堆链接——这里不托管任何东西。目的很简单：让你更容易找到尊重隐私、不把你困住的软件，不管你用的是 PC、Android、iOS，还是直接在浏览器里看。",
 
             'adult.title': '18+ 资源',
             'adult.tagline': '成人网站、应用、VR 色情内容和成人向动漫/漫画（18+）— 仅为第三方链接。',
@@ -386,7 +386,7 @@
             'common.backToTop': 'ऊपर जाएं', 'common.continue': 'जारी रखें', 'common.verify': 'सत्यापित करें',
             'common.mobileNoteSummary': 'मोबाइल नोट',
 
-            'list.tagline': 'ओपन-सोर्स ऐप्स, प्राइवेसी टूल्स, स्ट्रीमिंग यूटिलिटीज़ और भी बहुत कुछ की एक क्यूरेटेड डायरेक्टरी। श्रेणियाँ ब्राउज़ करें, टैग से खोजें, अपने पसंदीदा सहेजें, और PC, Android, iOS और वेब के लिए गाइड देखें।',
+            'list.tagline': 'ऐसे ओपन-सोर्स ऐप्स और प्राइवेसी टूल्स की चुनी हुई लिस्ट जो वाकई काम करते हैं। नाम या टैग से खोजें, अपने पसंदीदा सेव करें, और अगर समझ न आए कि कहाँ से शुरू करें तो गाइड्स देख लें।',
             'list.checkOutPages': 'ये पेज देखें',
             'list.categoriesHeading': 'श्रेणियाँ',
             'list.searchPlaceholder': 'ऐप्स, टूल्स और सेवाएं खोजें...',
@@ -408,7 +408,7 @@
             'footer.showIndexes': 'इंडेक्स दिखाएं',
             'footer.mobileNote': 'मोबाइल यूज़र्स: अधिक बटन देखने के लिए स्क्रॉल या ड्रैग करें',
 
-            'gate.title': 'जारी रखने के लिए सत्यापित करें',
+            'gate.title': "Neko's Index में आपका स्वागत है",
             'gate.clickContinue': 'जारी रखने के लिए नीचे क्लिक करें।',
             'gate.continueBtn': 'मैं समझता/समझती हूँ और जारी रखता/रखती हूँ',
 
@@ -416,7 +416,7 @@
             'guides.notice': 'कृपया पढ़ें — ये गाइड्स आपको इंडेक्स को सुरक्षित और प्रभावी ढंग से उपयोग करने में मदद करते हैं।',
             'guides.intro': 'ये गाइड्स आपको मुख्य इंडेक्स में सूचीबद्ध ओपन-सोर्स ऐप्स और टूल्स के साथ शुरुआत करने में मदद करने के लिए हैं। ये केवल सूचनात्मक उद्देश्यों के लिए हैं।',
             'guides.about.title': "Neko's Index के बारे में",
-            'guides.about.body': "Neko's Index ओपन-सोर्स ऐप्स, प्राइवेसी टूल्स, स्ट्रीमिंग यूटिलिटीज़, एमुलेशन संसाधनों और भी बहुत कुछ की एक मुफ्त, समुदाय द्वारा क्यूरेट की गई डायरेक्टरी है। यह किसी भी फाइल या कॉपीराइट सामग्री को होस्ट नहीं करता — यह केवल थर्ड-पार्टी प्रोजेक्ट्स और सेवाओं से लिंक करता है। इसका लक्ष्य PC, Android, iOS और वेब के लिए सुरक्षित, ओपन-सोर्स और प्राइवेसी का सम्मान करने वाले सॉफ़्टवेयर को एक ही जगह पर खोजना आसान बनाना है।",
+            'guides.about.body': "Neko's Index की शुरुआत एक पर्सनल लिस्ट के तौर पर हुई थी — ऐसे ओपन-सोर्स ऐप्स और प्राइवेसी टूल्स जो इस्तेमाल करने लायक थे — और वहीं से यह बढ़ता गया। यह मुफ्त है, और सिर्फ लिंक्स हैं — यहाँ कुछ भी होस्ट नहीं किया जाता। मकसद बस यह है कि ऐसा सॉफ़्टवेयर ढूँढना थोड़ा आसान हो जाए जो आपकी प्राइवेसी का सम्मान करे और आपको बांधे नहीं — चाहे आप PC, Android, iOS पर हों या सीधे ब्राउज़र में।",
 
             'adult.title': '18+ संसाधन',
             'adult.tagline': 'एडल्ट वेबसाइट्स, ऐप्स, VR पोर्न, और हेंताई/एनीमे (18+) — केवल थर्ड-पार्टी लिंक।',

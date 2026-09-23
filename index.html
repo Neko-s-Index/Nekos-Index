@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Neko's Index — open-source apps, privacy tools & more</title>
-<meta name="description" content="A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.">
+<meta name="description" content="A hand-picked list of open-source apps and privacy tools that actually work. Search by name or tag, star the ones you like, and check the guides if you're not sure where to start.">
 <meta property="og:title" content="Neko's Index">
-<meta property="og:description" content="A curated directory of open-source apps, privacy tools, streaming utilities, and more.">
+<meta property="og:description" content="Open-source apps and privacy tools, hand-picked and organized so you can actually find what you need.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://neko-s-index.github.io/Nekos-Index/">
 <meta property="og:image" content="https://neko-s-index.github.io/Nekos-Index/og-image.png">
@@ -30,8 +30,8 @@
         --text-secondary: #a1a1aa;
         --text-muted: #71717a;
         --accent-primary: #3b82f6;
-        --accent-secondary: #8b5cf6;
-        --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        --accent-secondary: #f472b6;
+        --accent-gradient: linear-gradient(115deg, #3b82f6 0%, #f472b6 100%);
         --border-color: #27272a;
     }
 
@@ -98,13 +98,13 @@
     }
 
     button {
-        background: var(--accent-gradient);
+        background: var(--accent-primary);
         color: #fff;
         border: none;
         padding: 18px 46px;
         font-size: 1.1rem;
         font-weight: 600;
-        border-radius: 30px;
+        border-radius: 10px;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
@@ -190,7 +190,7 @@
         background: var(--bg-secondary);
         border: 1px solid var(--border-color);
         padding: 10px 18px;
-        border-radius: 30px;
+        border-radius: 10px;
         white-space: nowrap;
         font-size: 14px;
         font-weight: 500;
@@ -201,7 +201,7 @@
     }
 
     .main-nav a:hover {
-        background: var(--accent-gradient);
+        background: var(--accent-primary);
         border-color: transparent;
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
@@ -272,7 +272,7 @@
         <img src="logo.svg" alt="Neko's Index" class="logo">
         <h1>Welcome to Neko's Index</h1>
         <p class="description">
-            A curated directory of open-source apps, privacy tools, streaming utilities, and more. Browse categories, search by tags, save your favorites, and check the guides for PC, Android, iOS, and the web.
+            A hand-picked list of open-source apps and privacy tools that actually work. Search by name or tag, star the ones you like, and check the guides if you're not sure where to start.
         </p>
         <p class="description">
             This is an open-source project. View the code, report issues, or contribute on <a href="https://github.com/MarshMeadow/Nekos-Index" rel="noopener noreferrer" target="_blank">GitHub</a>.
@@ -318,14 +318,11 @@
 
     <strong>Disclaimer & DMCA</strong><br><br>
 
-    Important Legal Notice: Neko's Index is an informational guide only. We do not host, distribute, or facilitate access to copyrighted material.  
-    All links provided are to third-party websites and services over which we have no control.<br><br>
+    Quick heads up: this is just an index of links to other people's apps and sites. Nothing is hosted here, and we're not responsible for what's on the other end of a link — that's on the site or app itself.<br><br>
 
-    This website is for educational and informational purposes only. Users are responsible for ensuring their use of any linked services complies with applicable laws in their jurisdiction. We do not endorse piracy or copyright infringement.<br><br>
+    You're responsible for making sure anything you use here is legal in your area. See the full <a href="disclaimer.html">Disclaimer</a> and <a href="dmca.html">DMCA</a> pages for the details.<br><br>
 
-    DMCA Policy: If you believe your copyrighted work has been posted on a linked website, please contact that website directly. We are not responsible for the content of external sites.<br><br>
-
-    Information may change without notice.
+    Copyright complaint? Contact the linked site directly — we can't remove content we don't host.
 </footer>
 
 <script>
@@ -335,75 +332,26 @@ const KEY = "nekos_verified";
 const status = document.getElementById("status");
 const action = document.getElementById("action");
 
-status.textContent = "Complete the puzzle below to continue.";
-
-// Basic math puzzle
-const num1 = Math.floor(Math.random() * 3) + 1;
-const num2 = Math.floor(Math.random() * 3) + 1;
-const answer = num1 + num2;
-
-const question = document.createElement("p");
-question.className = "terminal";
-question.textContent = `What is ${num1} + ${num2}?`;
-const cursor = document.createElement("span");
-cursor.className = "cursor";
-question.appendChild(cursor);
-action.appendChild(question);
-
-const input = document.createElement("input");
-input.type = "number";
-input.inputMode = "numeric";
-input.pattern = "[0-9]*";
-input.placeholder = "answer";
-input.autocomplete = "off";
-input.style.padding = "14px 18px";
-input.style.borderRadius = "14px";
-input.style.border = "1px solid var(--border-color)";
-input.style.background = "var(--bg-secondary)";
-input.style.color = "var(--text-primary)";
-input.style.fontFamily = "'VT323', monospace";
-input.style.fontSize = "1.3rem";
-input.style.width = "100%";
-input.style.maxWidth = "180px";
-input.style.textAlign = "center";
-input.style.marginBottom = "20px";
-input.style.outline = "none";
-input.style.transition = "border-color 0.2s";
-action.appendChild(input);
+status.textContent = "Click below to continue.";
 
 const btn = document.createElement("button");
-btn.textContent = "Verify & Continue";
-btn.disabled = true;
-btn.style.opacity = "0.5";
-btn.style.cursor = "not-allowed";
-
-input.addEventListener("input", () => {
-    if (parseInt(input.value) === answer) {
-        btn.disabled = false;
-        btn.style.opacity = "1";
-        btn.style.cursor = "pointer";
-        status.textContent = "Puzzle solved. Click below to continue.";
-    } else {
-        btn.disabled = true;
-        btn.style.opacity = "0.5";
-        btn.style.cursor = "not-allowed";
-        status.textContent = "Complete the puzzle below to continue.";
-    }
-});
+btn.textContent = "Continue to the Index";
+btn.style.padding = "14px 24px";
+btn.style.borderRadius = "14px";
+btn.style.border = "1px solid var(--border-color)";
+btn.style.background = "var(--accent-primary)";
+btn.style.color = "#fff";
+btn.style.fontFamily = "'VT323', monospace";
+btn.style.fontSize = "1.2rem";
+btn.style.cursor = "pointer";
 
 btn.onclick = () => {
-    if (btn.disabled) return;
     localStorage.setItem(KEY, "true");
-    status.textContent = "Verified. Redirecting...";
+    status.textContent = "Redirecting...";
     setTimeout(() => location.replace(TARGET), 100);
 };
 
-input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") btn.click();
-});
-
 action.appendChild(btn);
-input.focus();
 
 // Blur out and disable the list-page links on this gate.
 // Runs on DOMContentLoaded so links injected by site-nav.js are included.
