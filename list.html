@@ -1594,6 +1594,93 @@
             vertical-align: middle;
         }
 
+        /* Theme Colors (Advanced) */
+        .theme-swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+            gap: 10px;
+        }
+
+        .neko-theme-swatch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px 6px;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .neko-theme-swatch:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .neko-theme-swatch.active {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+        }
+
+        .neko-theme-swatch .swatch-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .neko-theme-swatch:hover .swatch-circle {
+            transform: scale(1.12) rotate(8deg);
+        }
+
+        .neko-theme-swatch .swatch-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: center;
+            line-height: 1.25;
+        }
+
+        .theme-custom-row {
+            display: flex;
+            gap: 16px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .theme-custom-label {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .theme-custom-label input[type="color"] {
+            width: 52px;
+            height: 32px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: none;
+            cursor: pointer;
+            padding: 2px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .theme-custom-label input[type="color"]:hover {
+            transform: translateY(-1px);
+            border-color: var(--accent-primary);
+        }
+
         .recommended-tag {
             display: inline-block;
             margin-left: 6px;
@@ -3439,6 +3526,48 @@
                 }
             });
 
+            // Reset Settings to Default (appearance/behavior/nav only — keeps Favorites and My Lists)
+            document.getElementById('resetSettings').addEventListener('click', function() {
+                if (confirm('Reset all settings to their defaults? This will not affect your Favorites or My Lists.')) {
+                    [
+                        themeKey, collapsedStateKey, autoCollapseKey, hideIPWarningKey, hideBetaNoticeKey,
+                        compactModeKey, layoutKey, showDescriptionsKey, showBadgesKey, showArchivesKey,
+                        reduceMotionKey, marqueeKey, highContrastKey, hideDonationNoticeKey,
+                        navLayoutKey, navStyleKey, navAlignKey, navStickyKey
+                    ].forEach(key => localStorage.removeItem(key));
+                    if (window.NekoTheme) window.NekoTheme.resetToDefault();
+                    alert('Settings reset to default. The page will now reload.');
+                    location.reload();
+                }
+            });
+
+            // Theme Colors (Advanced) — render swatch grid & wire up custom color controls
+            if (window.NekoTheme) {
+                const swatchGrid = document.getElementById('themeSwatchGrid');
+                if (swatchGrid) {
+                    Object.keys(NekoTheme.PRESETS).forEach(function(key) {
+                        const preset = NekoTheme.PRESETS[key];
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'neko-theme-swatch';
+                        btn.dataset.theme = key;
+                        btn.innerHTML = '<span class="swatch-circle" style="background: linear-gradient(' + (preset.angle || 115) + 'deg, ' + preset.primary + ' 0%, ' + preset.secondary + ' 100%);"></span><span class="swatch-label">' + preset.name + '</span>';
+                        btn.addEventListener('click', function() {
+                            NekoTheme.setPreset(key);
+                        });
+                        swatchGrid.appendChild(btn);
+                    });
+                    NekoTheme.syncControls();
+                }
+
+                document.getElementById('themeCustomApply').addEventListener('click', function() {
+                    const primary = document.getElementById('themeCustomPrimary').value;
+                    const secondary = document.getElementById('themeCustomSecondary').value;
+                    const angle = parseInt(document.getElementById('themeCustomAngle').value, 10) || 115;
+                    NekoTheme.setCustom(primary, secondary, angle);
+                });
+            }
+
             // Clear Data
             document.getElementById('clearData').addEventListener('click', function() {
                 if (confirm('Are you sure you want to clear all data? This cannot be undone.')) {
@@ -3861,6 +3990,7 @@
 
         });
     </script>
+    <script src="theme.js"></script>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="manifest" href="manifest.json">
 </head>
@@ -6120,9 +6250,37 @@
         </div>
     </div>
 
+    <!-- Theme Colors (Advanced) -->
+    <div class="settings-group">
+        <label>Theme Colors <span class="beta-tag">Advanced</span></label>
+        <p class="settings-note" style="margin: 4px 0 12px;">Pick an accent color scheme, or set your own custom colors. Applies instantly across the whole site.</p>
+
+        <div class="theme-swatch-grid" id="themeSwatchGrid"></div>
+
+        <div class="setting-row" style="margin-top: 16px;">
+            <label>Custom Colors</label>
+        </div>
+        <div class="theme-custom-row">
+            <label class="theme-custom-label" for="themeCustomPrimary">
+                Primary
+                <input type="color" id="themeCustomPrimary" value="#3b82f6">
+            </label>
+            <label class="theme-custom-label" for="themeCustomSecondary">
+                Secondary
+                <input type="color" id="themeCustomSecondary" value="#f472b6">
+            </label>
+        </div>
+        <div class="setting-row">
+            <label for="themeCustomAngle">Gradient Angle</label>
+            <input type="range" id="themeCustomAngle" min="0" max="360" value="115" style="width: 100%;">
+        </div>
+        <button class="settings-btn-action" id="themeCustomApply" style="margin-top: 6px;">Use Custom Colors</button>
+    </div>
+
     <!-- Navigation Bar Settings -->
     <div class="settings-group">
-        <label>Navigation Bars (Top &amp; Bottom)</label>
+        <label>Navigation Bars (Top &amp; Bottom) <span class="beta-tag">Beta</span></label>
+        <p class="settings-note" style="margin: 4px 0 12px;">This feature is still in beta. We recommend leaving these on their defaults (Auto / Pill / Center / Sticky off) unless you run into a display issue.</p>
 
         <div class="setting-row">
             <label for="navLayoutSelect">Nav Layout</label>
@@ -6184,6 +6342,7 @@
             <button class="settings-btn-action" id="importSettings">Import</button>
         </div>
         <input type="file" id="importFile" accept=".json" style="display: none;">
+        <button class="settings-btn-action" id="resetSettings">Reset Settings to Default</button>
         <button class="settings-btn-action" id="clearPuzzleExemption">Reset Verification Prompts</button>
         <button class="settings-btn-action danger" id="clearData">Clear All Data</button>
     </div>
