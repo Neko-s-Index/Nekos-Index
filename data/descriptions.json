@@ -5663,5 +5663,10 @@
   {
     "url": "https://github.com/ibrahima313/awesome-piracy",
     "title": "Awesome Piracy"
+  },
+  {
+    "url": "https://github.com/Jackett/Jackett",
+    "title": "Jackett",
+    "description": "API Support for your favorite torrent trackers"
   }
 ]
