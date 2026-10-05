@@ -5668,5 +5668,693 @@
     "url": "https://github.com/Jackett/Jackett",
     "title": "Jackett",
     "description": "API Support for your favorite torrent trackers"
+  },
+  {
+    "url": "https://github.com/recloudstream/cs-repos",
+    "title": "Cloudstream Extensions",
+    "description": "Cloudstream plugin repositories",
+    "website": "https://rentry.org/cs3-repos"
+  },
+  {
+    "url": "https://github.com/null2264/yokai",
+    "title": "Yokai",
+    "description": "Free and open source manga reader for Android",
+    "socials": [
+      {
+        "url": "https://discord.gg/mihon",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/RockinChaos/Shiru",
+    "title": "Shiru",
+    "description": "A personal anime library manager for watching and tracking your collection in real time. Lightweight, powerful, and paws-itively fast. No waiting required!",
+    "website": "https://shiru.app"
+  },
+  {
+    "url": "https://github.com/Suwayomi/Tachidesk-Server",
+    "title": "Tachidesk",
+    "description": "A rewrite of Tachiyomi for the Desktop",
+    "socials": [
+      {
+        "url": "https://discord.gg/DDZdqZWaHA",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/xgi/houdoku",
+    "title": "Houdoku",
+    "description": "Manga reader and library manager for the desktop",
+    "website": "https://houdoku.org"
+  },
+  {
+    "url": "https://github.com/dazedcat19/FMD2",
+    "title": "FMD2",
+    "socials": [
+      {
+        "url": "https://discord.gg/cXKKgw3",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/manga-download/hakuneko",
+    "title": "Hakuneko",
+    "description": "Manga & Anime Downloader for Linux, Windows & MacOS",
+    "website": "https://hakuneko.download",
+    "socials": [
+      {
+        "url": "https://discord.gg/A5d3NDf",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/LagradOst/QuickNovel",
+    "title": "QuickNovel",
+    "description": "Android app for downloading novels",
+    "socials": [
+      {
+        "url": "https://discord.gg/5Hus6fM",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/tylergibbs2/Tsundoku",
+    "title": "Tsundoku",
+    "description": "Streamlined anime downloading, moving, and renaming.",
+    "socials": [
+      {
+        "url": "https://discord.gg/thxN858gXm",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/lncrawl/lightnovel-crawler",
+    "title": "LnCrawler",
+    "description": "Generate and download e-books from online sources.",
+    "website": "https://lncrawl.bitanon.dev/"
+  },
+  {
+    "url": "https://github.com/5rahim/seanime",
+    "title": "Seanime",
+    "description": "Open-source media server with a web interface and desktop app for anime and manga.",
+    "website": "https://seanime.app",
+    "socials": [
+      {
+        "url": "https://discord.gg/Aruz7wdAaf",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/RyanYuuki/AnymeX",
+    "title": "AnymeX",
+    "description": "An Open Source app for Tracking Multi Service (AL, MAL, SIMKL)",
+    "socials": [
+      {
+        "url": "https://discord.gg/GKVvSyXDUD",
+        "type": "discord",
+        "label": "Discord"
+      },
+      {
+        "url": "https://t.me/AnymeX_Discussion",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://www.reddit.com/r/AnymeX_/",
+        "type": "reddit",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://discord.gg/hDwQ3heJ8V",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/kodjodevf/mangayomi",
+    "title": "Mangayomi",
+    "description": "Free and open source application for reading manga, novels, and watching animes available on Android, iOS, macOS, Linux and Windows",
+    "socials": [
+      {
+        "url": "https://discord.com/invite/EjfBuYahsP",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/KolbyML/Manatan",
+    "title": "Manatan",
+    "description": "Seamless immersion language learning for anime, manga, novels on all platforms",
+    "website": "https://manatan.com/",
+    "socials": [
+      {
+        "url": "https://discord.gg/tDAtpPN8KK",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/Aleksoid1978/MPC-BE",
+    "title": "MPC-BE",
+    "description": "MPC-BE – универсальный проигрыватель аудио и видеофайлов для операционной системы Windows."
+  },
+  {
+    "url": "https://github.com/SickChill/SickChill",
+    "title": "SickChill",
+    "description": "Less rage, more chill.",
+    "website": "https://sickchill.github.io",
+    "socials": [
+      {
+        "url": "https://discord.gg/FXre9qkHwE",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/sct/overseerr",
+    "title": "Overseerr",
+    "description": "Request management and media discovery tool for the Plex ecosystem",
+    "website": "https://overseerr.dev",
+    "socials": [
+      {
+        "url": "https://discord.gg/overseerr",
+        "type": "discord",
+        "label": "Discord"
+      },
+      {
+        "url": "http://twitter.com/lunks/",
+        "type": "x",
+        "label": "X"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/Fallenbagel/jellyseerr",
+    "title": "Jellyseerr",
+    "description": "Open-source media request and discovery manager for Jellyfin, Plex, and Emby.",
+    "website": "https://docs.seerr.dev",
+    "socials": [
+      {
+        "url": "https://discord.gg/seerr",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/morpheus65535/bazarr",
+    "title": "Bazarr",
+    "description": "Bazarr is a companion application to Sonarr and Radarr. It manages and downloads subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.",
+    "website": "https://www.bazarr.media",
+    "socials": [
+      {
+        "url": "https://discord.gg/MH2e2eb",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/HaveAGitGat/Tdarr",
+    "title": "Tdarr",
+    "description": "Tdarr - Distributed transcode automation using FFmpeg/HandBrake + Audio/Video library analytics + video health checking (Windows, macOS, Linux & Docker)",
+    "socials": [
+      {
+        "url": "https://www.reddit.com/r/Tdarr/",
+        "type": "reddit",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://discord.gg/GF8X8cq",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/Prowlarr/Prowlarr",
+    "title": "Prowlarr (Source)",
+    "description": "Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps, supporting management of both Torrent Trackers and Usenet Indexers.",
+    "website": "https://prowlarr.com"
+  },
+  {
+    "url": "https://github.com/debridmediamanager/debrid-media-manager",
+    "title": "Debrid Media Manager",
+    "description": "Curate an inifinite media library",
+    "website": "https://debridmediamanager.com/",
+    "socials": [
+      {
+        "url": "https://www.reddit.com/r/debridmediamanager/",
+        "type": "reddit",
+        "label": "Reddit"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/gotson/komga",
+    "title": "Komga",
+    "description": "Media server for comics/mangas/BDs/magazines/eBooks with API, OPDS, Kobo Sync and KOReader Sync support",
+    "website": "https://komga.org",
+    "socials": [
+      {
+        "url": "https://discord.gg/TdRpkDu",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/MALSync/MALSync",
+    "title": "MAL-sync",
+    "description": "Integrates MyAnimeList/AniList/Kitsu/Simkl into various sites, with auto episode tracking.",
+    "website": "https://malsync.moe",
+    "socials": [
+      {
+        "url": "https://discord.com/invite/cTH4yaw",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/erengy/taiga",
+    "title": "Taiga",
+    "description": "A lightweight anime tracker for Windows",
+    "website": "https://taiga.moe",
+    "socials": [
+      {
+        "url": "https://discord.gg/yeGNktZ",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/Droid-ify/client",
+    "title": "Droid-ify",
+    "description": "Clutterfree F-Droid client, [mirror] https://codeberg.org/droidify/client",
+    "website": "https://droidify.app/"
+  },
+  {
+    "url": "https://github.com/bitwarden/f-droid",
+    "title": "Bitwarden",
+    "description": "Bitwarden F-Droid support."
+  },
+  {
+    "url": "https://github.com/moneytoo/Player",
+    "title": "Just Player",
+    "description": "▶ Simple and lightweight, yet polished and powerful Android video player based on ExoPlayer",
+    "website": "https://play.google.com/store/apps/details?id=com.brouken.player",
+    "socials": [
+      {
+        "url": "https://www.reddit.com/r/JustPlayer/",
+        "type": "reddit",
+        "label": "Reddit"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/anilbeesetti/nextplayer",
+    "title": "Next Player",
+    "description": "An Android native video player"
+  },
+  {
+    "url": "https://github.com/JunkFood02/Seal",
+    "title": "Seal",
+    "description": "🦭 Video/Audio Downloader for Android, based on yt-dlp",
+    "socials": [
+      {
+        "url": "https://t.me/seal_app",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://matrix.to/#/#seal-space:matrix.org",
+        "type": "matrix",
+        "label": "Matrix"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/limboemu/limbo",
+    "title": "Limbo PC Emulator",
+    "description": "Limbo is a QEMU-based emulator for Android. It currently supports x86, ARM, PowerPC, and Sparc emulation  for Intel x86 and ARM android devices. See wiki https://virtualmachinery.weebly.com for APK download and Instructions.",
+    "website": "https://virtualmachinery.weebly.com"
+  },
+  {
+    "url": "https://github.com/shad0wrider/BlackHole",
+    "title": "BlackHole",
+    "description": "The Original BlackHole Source Code by Ankit Sangwan (Sangwan5688)",
+    "socials": [
+      {
+        "url": "https://t.me/blackhole_official",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://t.me/joinchat/fHDC1AWnOhw0ZmI9",
+        "type": "telegram",
+        "label": "Telegram"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/Helium314/HeliBoard",
+    "title": "HeliBoard",
+    "description": "Customizable and privacy-conscious open-source keyboard",
+    "socials": [
+      {
+        "url": "https://www.reddit.com/r/HeliBoard",
+        "type": "reddit",
+        "label": "Reddit"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/mollyim/mollyim-android",
+    "title": "Molly",
+    "description": "Enhanced and security-focused fork of Signal.",
+    "socials": [
+      {
+        "url": "https://matrix.to/#/#mollyim:matrix.org",
+        "type": "matrix",
+        "label": "Matrix"
+      },
+      {
+        "url": "https://matrix.to/#/#mollyim-space:matrix.org",
+        "type": "matrix",
+        "label": "Matrix"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/open-keychain/open-keychain",
+    "title": "OpenKeychain",
+    "description": "OpenKeychain is an OpenPGP implementation for Android.",
+    "website": "https://www.openkeychain.org"
+  },
+  {
+    "url": "https://github.com/TeamAmaze/AmazeFileManager",
+    "title": "Amaze File Manager",
+    "description": "Material design file manager for Android",
+    "website": "https://teamamaze.xyz",
+    "socials": [
+      {
+        "url": "https://t.me/AmazeFileManager",
+        "type": "telegram",
+        "label": "Telegram"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/markusfisch/BinaryEye",
+    "title": "Binary Eye",
+    "description": "Yet another barcode scanner for Android",
+    "website": "https://play.google.com/store/apps/details?id=de.markusfisch.android.binaryeye"
+  },
+  {
+    "url": "https://github.com/RetroMusicPlayer/RetroMusicPlayer",
+    "title": "Retro Music Player",
+    "description": "Best Material You Design music player for Android",
+    "website": "https://retromusic.app",
+    "socials": [
+      {
+        "url": "https://twitter.com/retromusicapp",
+        "type": "x",
+        "label": "X"
+      },
+      {
+        "url": "https://telegram.me/Daksh777",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://twitter.com/0xDPJ",
+        "type": "x",
+        "label": "X"
+      },
+      {
+        "url": "https://telegram.me/retromusiclog",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://t.me/retromusicapp",
+        "type": "telegram",
+        "label": "Telegram"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/LemmyNet/jerboa",
+    "title": "Jerboa",
+    "description": "A native Android app for Lemmy",
+    "socials": [
+      {
+        "url": "https://matrix.to/#/#jerboa-dev:matrix.org",
+        "type": "matrix",
+        "label": "Matrix"
+      },
+      {
+        "url": "https://matrix.to/#/#lemmy:matrix.org",
+        "type": "matrix",
+        "label": "Matrix"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/organicmaps/organicmaps",
+    "title": "Organic Maps",
+    "description": "🍃 Organic Maps is a free Android & iOS offline maps app for more than 6M travelers, tourists, hikers, and cyclists. It uses crowd-sourced OpenStreetMap data and is developed with love by the community. No ads, no tracking, no data collection, no crapware. Please donate to support the development!",
+    "website": "https://organicmaps.app",
+    "socials": [
+      {
+        "url": "https://t.me/OrganicMapsApp",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://matrix.to/#/#organicmaps:matrix.org",
+        "type": "matrix",
+        "label": "Matrix"
+      },
+      {
+        "url": "https://t.me/OrganicMaps",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://t.me/OrganicMapsRu",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://t.me/OrganicMapsTR",
+        "type": "telegram",
+        "label": "Telegram"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/OpenTracksApp/OpenTracks",
+    "title": "OpenTracks",
+    "description": "Repository moved to: https://codeberg.org/OpenTracksApp/OpenTracks",
+    "website": "https://OpenTracksApp.com"
+  },
+  {
+    "url": "https://github.com/osmandapp/OsmAnd",
+    "title": "OsmAnd",
+    "description": "OsmAnd",
+    "website": "https://osmand.net"
+  },
+  {
+    "url": "https://github.com/celluloid-player/celluloid",
+    "title": "Celluloid",
+    "description": "A simple GTK+ frontend for mpv",
+    "website": "https://celluloid-player.github.io"
+  },
+  {
+    "url": "https://github.com/iina/iina",
+    "title": "IINA",
+    "description": "The modern video player for macOS.",
+    "website": "https://iina.io",
+    "socials": [
+      {
+        "url": "https://t.me/IINAUsers",
+        "type": "telegram",
+        "label": "Telegram"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/zen-browser/desktop",
+    "title": "Zen Browser",
+    "description": "Welcome to a calmer internet",
+    "website": "https://zen-browser.app"
+  },
+  {
+    "url": "https://github.com/Eloston/ungoogled-chromium",
+    "title": "Ungoogled Chromium",
+    "description": "Google Chromium, sans integration with Google"
+  },
+  {
+    "url": "https://github.com/simple-login/Simple-Login-iOS",
+    "title": "SimpleLogin",
+    "description": "iOS client for SimpleLogin",
+    "website": "https://apps.apple.com/us/app/simplelogin-anti-spam/id1494359858"
+  },
+  {
+    "url": "https://github.com/partout-io/passepartout",
+    "title": "Passepartout",
+    "description": "Your go-to app for VPN and privacy.",
+    "website": "https://partout.io/passepartout/",
+    "socials": [
+      {
+        "url": "https://twitter.com/keeshux",
+        "type": "x",
+        "label": "X"
+      },
+      {
+        "url": "https://www.reddit.com/r/passepartout",
+        "type": "reddit",
+        "label": "Reddit"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/danny-avila/LibreChat",
+    "title": "LibreChat",
+    "description": "Enhanced ChatGPT Clone: Features Agents, MCP, Skills, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active",
+    "website": "https://librechat.ai/",
+    "socials": [
+      {
+        "url": "https://www.youtube.com/@LibreChat",
+        "type": "youtube",
+        "label": "Youtube"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/open-webui/open-webui",
+    "title": "Open WebUI",
+    "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+    "website": "https://openwebui.com",
+    "socials": [
+      {
+        "url": "https://discord.gg/5rJgQTnV4s",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/divamgupta/diffusionbee-stable-diffusion-ui",
+    "title": "DiffusionBee",
+    "description": "Diffusion Bee is the easiest way to run Stable Diffusion locally on your M1 Mac. Comes with a one-click installer. No dependencies or technical knowledge needed.",
+    "website": "https://diffusionbee.com",
+    "socials": [
+      {
+        "url": "https://twitter.com/divamgupta",
+        "type": "x",
+        "label": "X"
+      },
+      {
+        "url": "https://discord.gg/t6rC5RaJQn",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/prem-research/app",
+    "title": "Prem",
+    "description": "Prem App it's your personal AI in your pocket",
+    "website": "https://prem.io",
+    "socials": [
+      {
+        "url": "https://twitter.com/premai_io",
+        "type": "x",
+        "label": "X"
+      },
+      {
+        "url": "https://discord.com/invite/kpKk6vYVAn",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/eden-emulator/mirror",
+    "title": "Eden",
+    "description": "Mirror of Eden. PRs welcome.",
+    "website": "https://git.eden-emu.dev/eden-emu/eden",
+    "socials": [
+      {
+        "url": "https://discord.gg/HstXbPch7X",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/henkaku/henkaku",
+    "title": "HENkaku",
+    "description": "Homebrew enabler for PS Vita"
+  },
+  {
+    "url": "https://github.com/israpps/FreeMcBoot-Installer",
+    "title": "FreeMCBoot",
+    "description": "Custom installers for Several versions of FreeMcBoot. A homebrew bootloader and launcher for PS2",
+    "website": "https://israpps.github.io/FreeMcBoot-Installer/"
+  },
+  {
+    "url": "https://github.com/Igglybuff/awesome-piracy",
+    "title": "Awesome Piracy",
+    "description": "A curated list of awesome warez and piracy links",
+    "socials": [
+      {
+        "url": "https://www.reddit.com/r/Piracy/comments/9nontk/awesome_piracy_a_curated_list_of_awesome_warez/",
+        "type": "reddit",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/VPN/comments/4iho8e/that_one_privacy_guys_guide_to_choosing_the_best/?st=iu9u47u7&sh=459a76f2",
+        "type": "reddit",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/VPN/wiki/index",
+        "type": "reddit",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/VPNTorrents",
+        "type": "reddit",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/privacy/",
+        "type": "reddit",
+        "label": "Reddit"
+      }
+    ]
   }
 ]
