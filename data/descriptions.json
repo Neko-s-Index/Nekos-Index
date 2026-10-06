@@ -5661,12 +5661,1108 @@
     "website": "https://n3k0s-index.netlify.app"
   },
   {
-    "url": "https://github.com/ibrahima313/awesome-piracy",
-    "title": "Awesome Piracy"
+    "url": "https://github.com/Igglybuff/awesome-piracy",
+    "title": "Awesome Piracy",
+    "description": "The original, long-running curated list of warez and piracy resources that most other \"awesome-piracy\" forks descend from."
   },
   {
     "url": "https://github.com/Jackett/Jackett",
     "title": "Jackett",
     "description": "API Support for your favorite torrent trackers"
+  },
+  {
+    "url": "https://watch.plex.tv",
+    "title": "Plex Free",
+    "description": "Plex's free ad-supported movie and TV streaming tier, no subscription required."
+  },
+  {
+    "url": "https://potplayer.tv",
+    "title": "PotPlayer",
+    "description": "A feature-rich, free media player for Windows with extensive codec and subtitle support."
+  },
+  {
+    "url": "https://anansi-project.github.io/docs/category/comicinfo",
+    "title": "ComicInfo",
+    "description": "Documentation for the ComicInfo.xml metadata standard used by comic/manga reader apps."
+  },
+  {
+    "url": "https://gitlab.gnome.org/GNOME/easytag",
+    "title": "EasyTag",
+    "description": "A GTK utility for viewing and editing audio file tags (ID3, FLAC, Ogg, and more)."
+  },
+  {
+    "url": "https://aniwave.to/",
+    "title": "AniWave",
+    "description": "A free anime streaming site with a large subbed/dubbed library."
+  },
+  {
+    "url": "https://hianime.to/",
+    "title": "HiAnime",
+    "description": "A popular free anime streaming site with sub and dub options."
+  },
+  {
+    "url": "https://animesuge.cz/",
+    "title": "AnimeSuge",
+    "description": "A free anime streaming site; domain rotates periodically due to takedowns."
+  },
+  {
+    "url": "https://mangapark.net/",
+    "title": "MangaPark",
+    "description": "A large aggregator site for reading manga online."
+  },
+  {
+    "url": "https://mangapill.com/",
+    "title": "MangaPill",
+    "description": "A simple, ad-light manga reading site."
+  },
+  {
+    "url": "https://mangabuddy.com/",
+    "title": "MangaBuddy",
+    "description": "A free manga reading site with a fast, clean reader."
+  },
+  {
+    "url": "https://www.amazon.com/freevee",
+    "title": "Freevee",
+    "description": "Amazon's free, ad-supported movie and TV streaming service."
+  },
+  {
+    "url": "https://www.vudu.com",
+    "title": "Vudu",
+    "description": "An ad-supported movie streaming and digital purchase/rental platform."
+  },
+  {
+    "url": "https://therokuchannel.roku.com",
+    "title": "The Roku Channel",
+    "description": "Roku's free, ad-supported streaming channel with movies, TV, and live channels."
+  },
+  {
+    "url": "https://www.youtube.com/movies",
+    "title": "YouTube Movies & Shows",
+    "description": "YouTube's section for renting, buying, or watching free ad-supported movies and shows."
+  },
+  {
+    "url": "https://www.xumo.tv",
+    "title": "Xumo Play",
+    "description": "A free ad-supported live TV and on-demand streaming service."
+  },
+  {
+    "url": "https://annas-archive.li",
+    "title": "Anna's Archive",
+    "description": "A shadow library search engine aggregating Library Genesis, Sci-Hub, Z-Library, and more."
+  },
+  {
+    "url": "https://www.goplay.be",
+    "title": "GoPlay",
+    "description": "The official streaming platform for Belgian broadcaster VTM/DPG Media."
+  },
+  {
+    "url": "https://dramacool.com.pa/",
+    "title": "DramaCool",
+    "description": "A free site for streaming Asian dramas and movies with subtitles."
+  },
+  {
+    "url": "https://viewasian.co/",
+    "title": "Viewasian",
+    "description": "A free Asian drama streaming index."
+  },
+  {
+    "url": "https://1337x.to",
+    "title": "1337x",
+    "description": "A long-running general-purpose torrent index covering movies, TV, games, and more."
+  },
+  {
+    "url": "https://thepiratebay.org",
+    "title": "The Pirate Bay",
+    "description": "One of the oldest and most well-known BitTorrent indexes."
+  },
+  {
+    "url": "https://torrentgalaxy.to",
+    "title": "TorrentGalaxy",
+    "description": "A torrent index and community that emerged from the RARBG/KAT era."
+  },
+  {
+    "url": "https://rutracker.org",
+    "title": "RuTracker",
+    "description": "A large Russian torrent tracker covering nearly every media category, registration required."
+  },
+  {
+    "url": "https://www.limetorrents.lol",
+    "title": "LimeTorrents",
+    "description": "A general-purpose torrent search engine and index."
+  },
+  {
+    "url": "https://yts.gg",
+    "title": "YTS",
+    "description": "A torrent site specializing in small, re-encoded movie releases."
+  },
+  {
+    "url": "https://eztv.re",
+    "title": "EZTV",
+    "description": "A torrent index focused specifically on TV show releases."
+  },
+  {
+    "url": "https://alldebrid.com",
+    "title": "AllDebrid",
+    "description": "A debrid service that unrestricts file-host links and converts torrents into direct downloads/streams."
+  },
+  {
+    "url": "https://www.premiumize.me",
+    "title": "Premiumize",
+    "description": "A premium debrid and cloud download service supporting torrents and hundreds of file hosts."
+  },
+  {
+    "url": "https://torbox.app",
+    "title": "TorBox",
+    "description": "A debrid service that caches torrents for instant streaming and downloading."
+  },
+  {
+    "url": "https://www.photoprism.app",
+    "title": "PhotoPrism",
+    "description": "A self-hosted photo management app with AI-powered tagging and search."
+  },
+  {
+    "url": "https://uptime.kuma.pet",
+    "title": "Uptime Kuma",
+    "description": "A self-hosted uptime monitoring tool with a clean dashboard and notifications."
+  },
+  {
+    "url": "https://www.portainer.io",
+    "title": "Portainer",
+    "description": "A web UI for managing Docker and Kubernetes containers."
+  },
+  {
+    "url": "https://nextcloud.com",
+    "title": "Nextcloud",
+    "description": "A self-hosted productivity suite for file storage, sync, calendar, and collaboration."
+  },
+  {
+    "url": "https://www.freshrss.org",
+    "title": "FreshRSS",
+    "description": "A lightweight, self-hosted RSS feed aggregator."
+  },
+  {
+    "url": "https://n8n.io",
+    "title": "n8n",
+    "description": "A self-hostable workflow automation tool for connecting apps and APIs."
+  },
+  {
+    "url": "https://healthchecks.io",
+    "title": "Healthchecks",
+    "description": "A cron job and scheduled task monitoring service with alerting."
+  },
+  {
+    "url": "https://everythingmoe.com/s/chiaki",
+    "title": "Chiaki",
+    "description": "An anime-related tool indexed via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/koharurs",
+    "title": "Koharu",
+    "description": "An anime-related tool indexed via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://ranobedb.org",
+    "title": "RanobeDB",
+    "description": "A database and tracker for light novels and web novels."
+  },
+  {
+    "url": "https://lookmovie2.to",
+    "title": "LookMovie",
+    "description": "A free movie and TV streaming site."
+  },
+  {
+    "url": "https://flixhq.to",
+    "title": "FlixHQ",
+    "description": "A free movie and TV streaming site with a large catalog."
+  },
+  {
+    "url": "https://soaper.live",
+    "title": "Soaper TV",
+    "description": "A free movie and TV show streaming site."
+  },
+  {
+    "url": "https://vidsrc.to",
+    "title": "VidSrc",
+    "description": "An embeddable video source aggregator used by many streaming front-ends."
+  },
+  {
+    "url": "https://goojara.to",
+    "title": "Goojara",
+    "description": "A free movie and TV streaming site."
+  },
+  {
+    "url": "https://fmovies.to",
+    "title": "Fmovies",
+    "description": "A free movie and TV streaming site."
+  },
+  {
+    "url": "https://sflix.to",
+    "title": "SFlix",
+    "description": "A free movie and TV streaming site."
+  },
+  {
+    "url": "https://myflixer.to",
+    "title": "MyFlixer",
+    "description": "A free movie and TV streaming site."
+  },
+  {
+    "url": "https://solarmovie.pe",
+    "title": "SolarMovie",
+    "description": "A free movie streaming site."
+  },
+  {
+    "url": "https://putlocker.vip",
+    "title": "Putlocker",
+    "description": "A long-running brand of free movie/TV streaming mirrors."
+  },
+  {
+    "url": "https://gomovies.sx",
+    "title": "GoMovies",
+    "description": "A free movie and TV streaming site."
+  },
+  {
+    "url": "https://bflix.gg",
+    "title": "Bflix",
+    "description": "A free movie and TV streaming site."
+  },
+  {
+    "url": "https://watchseries.im",
+    "title": "WatchSeries",
+    "description": "A free TV show streaming site."
+  },
+  {
+    "url": "https://vumoo.to",
+    "title": "Vumoo",
+    "description": "A free movie streaming site."
+  },
+  {
+    "url": "https://nicotine-plus.org",
+    "title": "Nicotine+ (Soulseek)",
+    "description": "An open-source Soulseek P2P music-sharing client."
+  },
+  {
+    "url": "https://kemono.cr",
+    "title": "Kemono",
+    "description": "An archiver that mirrors paid creator content from Patreon, Fanbox, and similar platforms."
+  },
+  {
+    "url": "https://prydwen.gg",
+    "title": "Prydwen.gg",
+    "description": "Tier lists and guides for gacha games like Honkai: Star Rail and Genshin Impact."
+  },
+  {
+    "url": "https://www.dlsite.com",
+    "title": "DLsite",
+    "description": "A major Japanese storefront for visual novels, doujin games, and digital media."
+  },
+  {
+    "url": "https://www.mangagamer.com",
+    "title": "MangaGamer",
+    "description": "An English-language publisher and storefront for Japanese visual novels."
+  },
+  {
+    "url": "https://jaststore.com",
+    "title": "JAST USA",
+    "description": "A long-running English localizer and storefront for Japanese visual novels."
+  },
+  {
+    "url": "https://sekaiproject.com",
+    "title": "Sekai Project",
+    "description": "A publisher that localizes and distributes Japanese visual novels in English."
+  },
+  {
+    "url": "https://www.kaguragames.com",
+    "title": "Kagura Games",
+    "description": "A publisher and storefront focused on localized Japanese RPG Maker and visual novel games."
+  },
+  {
+    "url": "https://shiravune.com",
+    "title": "Shiravune",
+    "description": "A Tokyo-based localization team bringing Japanese visual novels to English and Chinese audiences."
+  },
+  {
+    "url": "https://www.qoo-app.com",
+    "title": "QooApp",
+    "description": "A mobile app store specializing in anime-style and Japanese/Asian mobile games."
+  },
+  {
+    "url": "https://g123.jp",
+    "title": "G123",
+    "description": "A browser-based platform for free anime-themed games, no download required."
+  },
+  {
+    "url": "https://everythingmoe.com/s/avn",
+    "title": "AndroidVisualNovels",
+    "description": "A community index for visual novels ported/playable on Android."
+  },
+  {
+    "url": "https://everythingmoe.com/s/hshop",
+    "title": "Erista",
+    "description": "A doujin/visual novel game index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/desonovel",
+    "title": "Deso Novel",
+    "description": "A visual novel download index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/doujinstylegame",
+    "title": "DoujinStyle (Games)",
+    "description": "A doujin game archive and index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/yinghu",
+    "title": "yinghu.asia",
+    "description": "A Japanese PC game index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/japanesepccompendium",
+    "title": "JP Compendium",
+    "description": "A compendium of Japanese PC game resources via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/craneanime",
+    "title": "Craneanime",
+    "description": "A doujin/visual novel index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/visualdise",
+    "title": "VisualDise",
+    "description": "A visual novel index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/retrogametalk",
+    "title": "RetroGameTalk",
+    "description": "A retro gaming and ROM-focused forum community."
+  },
+  {
+    "url": "https://everythingmoe.com/s/axekin",
+    "title": "Axekin",
+    "description": "A ROM download index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/epicroms",
+    "title": "EpicRoms",
+    "description": "A ROM download index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/romshq",
+    "title": "Romslab",
+    "description": "A ROM download index via EverythingMoe's curated link hub."
+  },
+  {
+    "url": "https://everythingmoe.com/s/rroms",
+    "title": "r/Roms Megathread",
+    "description": "The Reddit r/Roms community's pinned megathread of ROM resources."
+  },
+  {
+    "url": "https://f-droid.org/packages/org.fossify.gallery/",
+    "title": "Simple Gallery",
+    "description": "Fossify Gallery, a privacy-respecting photo/video gallery app, available on F-Droid."
+  },
+  {
+    "url": "https://natrongithub.github.io",
+    "title": "Natron",
+    "description": "A free, node-based compositing tool similar to Adobe After Effects or Nuke."
+  },
+  {
+    "url": "https://marshmeadow.netlify.app",
+    "title": "Website",
+    "description": "A personal/project site linked from the Dantotsu updater tooling."
+  },
+  {
+    "url": "https://ampache.org",
+    "title": "Ampache",
+    "description": "A self-hosted web-based audio/video streaming and management server."
+  },
+  {
+    "url": "https://funkwhale.audio",
+    "title": "Funkwhale",
+    "description": "A self-hosted, federated (ActivityPub) music and podcast server."
+  },
+  {
+    "url": "https://mopidy.com",
+    "title": "Mopidy",
+    "description": "An extensible music server written in Python with plugin support."
+  },
+  {
+    "url": "https://quodlibet.readthedocs.io",
+    "title": "Quod Libet",
+    "description": "A GTK-based music player and library manager with powerful tagging/search."
+  },
+  {
+    "url": "https://audacious-media-player.org",
+    "title": "Audacious",
+    "description": "A lightweight, classic-style audio player for Linux, Windows, and macOS."
+  },
+  {
+    "url": "https://deadbeef.sourceforge.io",
+    "title": "DeaDBeeF",
+    "description": "A fast, GTK-based audio player for Linux with a plugin ecosystem."
+  },
+  {
+    "url": "https://getmusicbee.com",
+    "title": "MusicBee",
+    "description": "A feature-rich Windows music player, tagger, and library manager (freeware)."
+  },
+  {
+    "url": "https://picard.musicbrainz.org",
+    "title": "MusicBrainz Picard",
+    "description": "An open-source audio tagger that uses the MusicBrainz database to identify and tag tracks."
+  },
+  {
+    "url": "https://open.spotify.com",
+    "title": "Spotify",
+    "description": "A major freemium music and podcast streaming service."
+  },
+  {
+    "url": "https://music.apple.com",
+    "title": "Apple Music",
+    "description": "Apple's subscription music streaming service."
+  },
+  {
+    "url": "https://music.youtube.com",
+    "title": "YouTube Music",
+    "description": "Google's music streaming service built on YouTube's catalog."
+  },
+  {
+    "url": "https://tidal.com",
+    "title": "Tidal",
+    "description": "A music streaming service focused on high-fidelity/lossless audio."
+  },
+  {
+    "url": "https://www.qobuz.com",
+    "title": "Qobuz",
+    "description": "A music streaming and download service specializing in Hi-Res audio."
+  },
+  {
+    "url": "https://www.deezer.com",
+    "title": "Deezer",
+    "description": "A freemium music streaming service with a large global catalog."
+  },
+  {
+    "url": "https://music.amazon.com",
+    "title": "Amazon Music",
+    "description": "Amazon's music streaming service, free with ads or via Prime/Unlimited."
+  },
+  {
+    "url": "https://www.pandora.com",
+    "title": "Pandora",
+    "description": "A personalized internet radio and music streaming service (US only)."
+  },
+  {
+    "url": "https://soundcloud.com",
+    "title": "SoundCloud",
+    "description": "A platform for independent artists to upload and stream music directly."
+  },
+  {
+    "url": "https://bandcamp.com",
+    "title": "Bandcamp",
+    "description": "An artist-first platform for buying and streaming music directly from creators."
+  },
+  {
+    "url": "https://audius.co",
+    "title": "Audius",
+    "description": "A decentralized, blockchain-based music streaming platform for independent artists."
+  },
+  {
+    "url": "https://newpipe.net",
+    "title": "NewPipe",
+    "description": "A lightweight YouTube/media front-end for Android with no ads and no Google account needed."
+  },
+  {
+    "url": "https://libretube.dev",
+    "title": "LibreTube",
+    "description": "A privacy-focused YouTube client for Android built on the Piped backend."
+  },
+  {
+    "url": "https://skytube-app.com",
+    "title": "SkyTube",
+    "description": "An open-source, ad-free YouTube client for Android."
+  },
+  {
+    "url": "https://freetubeapp.io",
+    "title": "FreeTube",
+    "description": "A privacy-focused desktop YouTube client with no ads or tracking."
+  },
+  {
+    "url": "https://piped.video",
+    "title": "Piped",
+    "description": "A privacy-respecting, ad-free alternative front-end for YouTube."
+  },
+  {
+    "url": "https://invidious.io",
+    "title": "Invidious",
+    "description": "An open-source, privacy-focused alternative front-end for YouTube."
+  },
+  {
+    "url": "https://ytdl-org.github.io/youtube-dl/",
+    "title": "youtube-dl",
+    "description": "The original command-line tool for downloading video/audio from YouTube and other sites."
+  },
+  {
+    "url": "https://element.io",
+    "title": "Element",
+    "description": "A feature-rich, end-to-end encrypted messaging client for the Matrix protocol."
+  },
+  {
+    "url": "https://simplex.chat",
+    "title": "SimpleX Chat",
+    "description": "A private messenger with no user identifiers of any kind, not even random ones."
+  },
+  {
+    "url": "https://jami.net",
+    "title": "Jami",
+    "description": "A free, distributed, end-to-end encrypted communication platform with no central server."
+  },
+  {
+    "url": "https://mattermost.com",
+    "title": "Mattermost",
+    "description": "An open-source, self-hostable team chat and collaboration platform."
+  },
+  {
+    "url": "https://rocket.chat",
+    "title": "Rocket.Chat",
+    "description": "An open-source, self-hostable team chat platform, similar to Slack."
+  },
+  {
+    "url": "https://zulip.com",
+    "title": "Zulip",
+    "description": "An open-source team chat app with unique topic-based threading."
+  },
+  {
+    "url": "https://briarproject.org",
+    "title": "Briar",
+    "description": "A peer-to-peer encrypted messenger that works even without internet access via Bluetooth/Wi-Fi."
+  },
+  {
+    "url": "https://delta.chat",
+    "title": "Delta Chat",
+    "description": "A messaging app that works over plain email servers with end-to-end encryption."
+  },
+  {
+    "url": "https://conversations.im",
+    "title": "Conversations",
+    "description": "A modern, privacy-respecting XMPP (Jabber) messenger for Android."
+  },
+  {
+    "url": "https://tusky.app",
+    "title": "Tusky",
+    "description": "An open-source Android client for Mastodon and other ActivityPub platforms."
+  },
+  {
+    "url": "https://usebottles.com",
+    "title": "Bottles",
+    "description": "A tool for running Windows software on Linux using isolated Wine environments."
+  },
+  {
+    "url": "https://playonlinux.com",
+    "title": "PlayOnLinux",
+    "description": "A front-end for Wine that simplifies installing Windows games and apps on Linux."
+  },
+  {
+    "url": "https://www.hedgewars.org",
+    "title": "Hedgewars",
+    "description": "A free, open-source turn-based strategy game inspired by Worms."
+  },
+  {
+    "url": "https://www.freeciv.org",
+    "title": "Freeciv",
+    "description": "A free and open-source turn-based strategy game inspired by Civilization."
+  },
+  {
+    "url": "https://ublockorigin.com",
+    "title": "uBlock Origin",
+    "description": "A widely-used, efficient open-source ad and tracker blocker for browsers."
+  },
+  {
+    "url": "https://blokada.org",
+    "title": "Blokada",
+    "description": "An open-source, device-wide ad and tracker blocker for Android and iOS."
+  },
+  {
+    "url": "https://www.ghostery.com",
+    "title": "Ghostery",
+    "description": "A privacy browser extension that blocks ads, trackers, and shows who's tracking you."
+  },
+  {
+    "url": "https://keepass.info",
+    "title": "KeePass",
+    "description": "A free, open-source offline password manager for Windows."
+  },
+  {
+    "url": "https://vaultwarden.discourse.group",
+    "title": "Vaultwarden",
+    "description": "A lightweight, self-hosted server implementation of the Bitwarden API."
+  },
+  {
+    "url": "https://www.passwordstore.org",
+    "title": "pass",
+    "description": "A simple command-line password manager that stores passwords in GPG-encrypted files."
+  },
+  {
+    "url": "https://lesspass.com",
+    "title": "LessPass",
+    "description": "A stateless password manager that deterministically generates passwords instead of storing them."
+  },
+  {
+    "url": "https://www.bromite.org",
+    "title": "Bromite",
+    "description": "A privacy-focused Chromium fork for Android with built-in ad blocking."
+  },
+  {
+    "url": "https://mega.nz",
+    "title": "Mega",
+    "description": "A cloud storage service offering end-to-end encrypted file storage with a generous free tier."
+  },
+  {
+    "url": "https://www.pcloud.com",
+    "title": "pCloud",
+    "description": "A cloud storage service with lifetime-plan options and optional client-side encryption."
+  },
+  {
+    "url": "https://filen.io",
+    "title": "Filen",
+    "description": "A zero-knowledge, end-to-end encrypted cloud storage service."
+  },
+  {
+    "url": "https://rclone.org",
+    "title": "rclone",
+    "description": "A command-line tool for managing and syncing files across dozens of cloud storage providers."
+  },
+  {
+    "url": "https://spacedrive.com",
+    "title": "Spacedrive",
+    "description": "An open-source, cross-platform file manager that unifies local and cloud storage into one view."
+  },
+  {
+    "url": "https://obsidian.md",
+    "title": "Obsidian",
+    "description": "A powerful local-first note-taking app built on linked Markdown files."
+  },
+  {
+    "url": "https://simplenote.com",
+    "title": "Simplenote",
+    "description": "A free, simple, and fast cross-platform note-taking app with sync."
+  },
+  {
+    "url": "https://www.notion.so",
+    "title": "Notion",
+    "description": "An all-in-one workspace for notes, docs, wikis, and project management."
+  },
+  {
+    "url": "https://trilium.cc",
+    "title": "Trilium",
+    "description": "A hierarchical, self-hostable note-taking app built for large personal knowledge bases."
+  },
+  {
+    "url": "https://zettlr.com",
+    "title": "Zettlr",
+    "description": "A free, open-source Markdown editor built for academic and Zettelkasten-style writing."
+  },
+  {
+    "url": "https://getaegis.app",
+    "title": "Aegis",
+    "description": "A free, secure, open-source 2FA authenticator app for Android."
+  },
+  {
+    "url": "https://2fas.com",
+    "title": "2FAS",
+    "description": "A free, open-source 2FA authenticator app with encrypted cloud backup."
+  },
+  {
+    "url": "https://ente.io/auth",
+    "title": "Ente Auth",
+    "description": "An open-source, end-to-end encrypted 2FA authenticator with cross-device sync."
+  },
+  {
+    "url": "https://yubico.com",
+    "title": "Yubico",
+    "description": "Maker of the YubiKey hardware security key for 2FA and passwordless login."
+  },
+  {
+    "url": "https://authy.com",
+    "title": "Authy",
+    "description": "A 2FA authenticator app with multi-device sync and encrypted backups."
+  },
+  {
+    "url": "https://flathub.org/apps/com.belmoussaoui.Authenticator",
+    "title": "GNOME Authenticator",
+    "description": "A simple GTK app for generating 2FA codes on Linux, available via Flathub."
+  },
+  {
+    "url": "https://keepassium.com",
+    "title": "Keepassium",
+    "description": "An open-source KeePass-compatible password manager for iOS and macOS."
+  },
+  {
+    "url": "https://lmstudio.ai",
+    "title": "LM Studio",
+    "description": "A desktop app for discovering, downloading, and running local LLMs with a chat UI."
+  },
+  {
+    "url": "https://comfyui.org",
+    "title": "ComfyUI",
+    "description": "A node-based graphical interface for building and running Stable Diffusion image generation workflows."
+  },
+  {
+    "url": "https://koboldai.net",
+    "title": "KoboldAI",
+    "description": "A browser-based interface for running local text-generation and AI roleplay models."
+  },
+  {
+    "url": "https://getfedora.org",
+    "title": "Fedora",
+    "description": "A cutting-edge, community-driven Linux distribution sponsored by Red Hat."
+  },
+  {
+    "url": "https://linuxmint.com",
+    "title": "Linux Mint",
+    "description": "A beginner-friendly Linux distribution based on Ubuntu with a traditional desktop experience."
+  },
+  {
+    "url": "https://pop.system76.com",
+    "title": "Pop!_OS",
+    "description": "An Ubuntu-based Linux distribution by System76, tuned for development and gaming."
+  },
+  {
+    "url": "https://archlinux.org",
+    "title": "Arch Linux",
+    "description": "A lightweight, rolling-release Linux distribution favoring a do-it-yourself philosophy."
+  },
+  {
+    "url": "https://www.debian.org",
+    "title": "Debian",
+    "description": "One of the oldest and most stable community-driven Linux distributions."
+  },
+  {
+    "url": "https://ubuntu.com",
+    "title": "Ubuntu",
+    "description": "The most widely used desktop/server Linux distribution, based on Debian."
+  },
+  {
+    "url": "https://nobaraproject.org",
+    "title": "Nobara",
+    "description": "A Fedora-based Linux distribution tuned for gaming, streaming, and content creation."
+  },
+  {
+    "url": "https://nixos.org",
+    "title": "NixOS",
+    "description": "A Linux distribution built around the Nix package manager for fully reproducible system configs."
+  },
+  {
+    "url": "https://store.steampowered.com",
+    "title": "Steam",
+    "description": "The largest PC gaming storefront, launcher, and community platform."
+  },
+  {
+    "url": "https://www.gog.com",
+    "title": "GOG",
+    "description": "A DRM-free PC game storefront run by CD Projekt."
+  },
+  {
+    "url": "https://itch.io",
+    "title": "itch.io",
+    "description": "An open marketplace for indie games, with flexible pricing set by creators."
+  },
+  {
+    "url": "https://www.epicgames.com/store",
+    "title": "Epic Games Store",
+    "description": "Epic's PC game storefront, known for its free weekly game giveaways."
+  },
+  {
+    "url": "https://www.humblebundle.com",
+    "title": "Humble Bundle",
+    "description": "A storefront selling discounted game/book bundles, with proceeds partly going to charity."
+  },
+  {
+    "url": "https://www.nexusmods.com",
+    "title": "Nexus Mods",
+    "description": "The largest hub for PC game mods across hundreds of titles."
+  },
+  {
+    "url": "https://wiki.archlinux.org/title/List_of_games",
+    "title": "Arch Wiki Games",
+    "description": "The Arch Linux wiki's reference page for gaming on Linux."
+  },
+  {
+    "url": "https://datacrystal.tcrf.net",
+    "title": "Data Crystal",
+    "description": "A wiki documenting reverse-engineered internal game data for ROM hacking."
+  },
+  {
+    "url": "https://theindex.moe",
+    "title": "theindex.moe",
+    "description": "A comparison index of anime/manga streaming sites, apps, and VPN services."
+  },
+  {
+    "url": "https://everythingmoe.com",
+    "title": "everythingmoe",
+    "description": "A continuously updated, curated top-list of otaku-culture websites and tools."
+  },
+  {
+    "url": "https://wotaku.wiki",
+    "title": "wotaku.wiki",
+    "description": "A wiki-style directory of anime, manga, and tokusatsu websites, software, and guides."
+  },
+  {
+    "url": "https://fmhy.net",
+    "title": "fmhy",
+    "description": "FreeMediaHeckYeah, a massive community-maintained directory of free media and tools."
+  },
+  {
+    "url": "https://www.reddit.com/r/Piracy",
+    "title": "r/Piracy",
+    "description": "A Reddit community discussing piracy news, tools, and resources."
+  },
+  {
+    "url": "https://www.reddit.com/r/animepiracy",
+    "title": "r/animepiracy",
+    "description": "A Reddit community focused specifically on anime piracy resources and discussion."
+  },
+  {
+    "url": "https://github.com/recloudstream/cs-repos",
+    "title": "Cloudstream Extensions",
+    "description": "The official repository index of community-made Cloudstream extensions."
+  },
+  {
+    "url": "https://github.com/NuvioMedia/NuvioMobile",
+    "title": "Nuvio Mobile",
+    "description": "Nuvio's Android and iOS mobile app source, built with Kotlin Multiplatform and Compose."
+  },
+  {
+    "url": "https://github.com/NuvioMedia/NuvioTV",
+    "title": "Nuvio TV",
+    "description": "Nuvio's Android TV app source, built with Jetpack Compose for TV."
+  },
+  {
+    "url": "https://github.com/NuvioMedia/NuvioDesktop",
+    "title": "Nuvio Desktop",
+    "description": "Nuvio's desktop client source for Windows, macOS, and Linux."
+  },
+  {
+    "url": "https://github.com/null2264/yokai",
+    "title": "Yokai",
+    "description": "A personal-use manga reader fork of Mihon/Tachiyomi."
+  },
+  {
+    "url": "https://github.com/RockinChaos/Shiru",
+    "title": "Shiru",
+    "description": "A personal anime library manager with near-instant local playback and extension support."
+  },
+  {
+    "url": "https://github.com/Suwayomi/Tachidesk-Server",
+    "title": "Tachidesk",
+    "description": "Suwayomi-Server, an independent desktop manga reader server compatible with Mihon extensions."
+  },
+  {
+    "url": "https://github.com/xgi/houdoku",
+    "title": "Houdoku",
+    "description": "A free, open-source manga reader and library manager for the desktop."
+  },
+  {
+    "url": "https://github.com/dazedcat19/FMD2",
+    "title": "FMD2",
+    "description": "Free Manga Downloader 2, a desktop app for downloading manga from hundreds of sites."
+  },
+  {
+    "url": "https://github.com/manga-download/hakuneko",
+    "title": "Hakuneko",
+    "description": "A cross-platform desktop downloader for manga and anime from many websites."
+  },
+  {
+    "url": "https://github.com/LagradOst/QuickNovel",
+    "title": "QuickNovel",
+    "description": "An Android app for downloading and reading light/web novels."
+  },
+  {
+    "url": "https://github.com/tylergibbs2/Tsundoku",
+    "title": "Tsundoku",
+    "description": "A self-hosted tool that automatically downloads, renames, and organizes airing anime from RSS feeds."
+  },
+  {
+    "url": "https://github.com/lncrawl/lightnovel-crawler",
+    "title": "LnCrawler",
+    "description": "A tool/library for downloading web novels from hundreds of sites and packaging them as e-books."
+  },
+  {
+    "url": "https://github.com/5rahim/seanime",
+    "title": "Seanime",
+    "description": "A self-hosted media server with a web and desktop interface for anime and manga."
+  },
+  {
+    "url": "https://github.com/RyanYuuki/AnymeX",
+    "title": "AnymeX",
+    "description": "An open-source multi-service tracker for anime and manga across AniList, MAL, and Simkl."
+  },
+  {
+    "url": "https://github.com/kodjodevf/mangayomi",
+    "title": "Mangayomi",
+    "description": "A cross-platform Flutter app for reading manga/novels and watching anime."
+  },
+  {
+    "url": "https://github.com/KolbyML/Manatan",
+    "title": "Manatan",
+    "description": "An all-in-one app for watching anime and reading manga/novels with built-in OCR and dictionary lookups."
+  },
+  {
+    "url": "https://github.com/Aleksoid1978/MPC-BE",
+    "title": "MPC-BE",
+    "description": "Media Player Classic - Black Edition, a feature-packed Windows video player."
+  },
+  {
+    "url": "https://github.com/SickChill/SickChill",
+    "title": "SickChill",
+    "description": "A fork of SickBeard/SickRage for automatically managing and downloading TV show episodes."
+  },
+  {
+    "url": "https://github.com/Prowlarr/Prowlarr",
+    "title": "Prowlarr (Source)",
+    "description": "Source code for Prowlarr, an indexer manager that integrates with the Sonarr/Radarr app family."
+  },
+  {
+    "url": "https://github.com/gotson/komga",
+    "title": "Komga",
+    "description": "A media server for comics, manga, and eBooks with OPDS, Kobo, and KOReader sync support."
+  },
+  {
+    "url": "https://github.com/MALSync/MALSync",
+    "title": "MAL-sync",
+    "description": "A browser extension/userscript that auto-tracks episode progress on MyAnimeList/AniList/Kitsu."
+  },
+  {
+    "url": "https://github.com/erengy/taiga",
+    "title": "Taiga",
+    "description": "A lightweight Windows desktop anime tracker that auto-detects what you're watching."
+  },
+  {
+    "url": "https://github.com/Droid-ify/client",
+    "title": "Droid-ify",
+    "description": "A clutter-free, modern F-Droid client for Android."
+  },
+  {
+    "url": "https://github.com/bitwarden/f-droid",
+    "title": "Bitwarden",
+    "description": "The official F-Droid repository for Bitwarden's open-source Android builds."
+  },
+  {
+    "url": "https://github.com/moneytoo/Player",
+    "title": "Just Player",
+    "description": "A simple, lightweight Android video player based on Media3/ExoPlayer."
+  },
+  {
+    "url": "https://github.com/anilbeesetti/nextplayer",
+    "title": "Next Player",
+    "description": "A native Android video player written in Kotlin with a clean, Material You interface."
+  },
+  {
+    "url": "https://github.com/JunkFood02/Seal",
+    "title": "Seal",
+    "description": "An Android video/audio downloader GUI built on top of yt-dlp."
+  },
+  {
+    "url": "https://github.com/limboemu/limbo",
+    "title": "Limbo PC Emulator",
+    "description": "A QEMU-based PC emulator for Android supporting x86, ARM, PowerPC, and Sparc."
+  },
+  {
+    "url": "https://github.com/shad0wrider/BlackHole",
+    "title": "BlackHole",
+    "description": "An open-source Flutter music player and downloader app."
+  },
+  {
+    "url": "https://github.com/TeamAmaze/AmazeFileManager",
+    "title": "Amaze File Manager",
+    "description": "A themeable, material-design file manager for Android."
+  },
+  {
+    "url": "https://github.com/markusfisch/BinaryEye",
+    "title": "Binary Eye",
+    "description": "A fast, open-source QR and barcode scanner for Android."
+  },
+  {
+    "url": "https://github.com/RetroMusicPlayer/RetroMusicPlayer",
+    "title": "Retro Music Player",
+    "description": "A beautiful, open-source material design music player for Android."
+  },
+  {
+    "url": "https://github.com/osmandapp/OsmAnd",
+    "title": "OsmAnd",
+    "description": "Source for OsmAnd, an offline maps and navigation app built on OpenStreetMap data."
+  },
+  {
+    "url": "https://github.com/danny-avila/LibreChat",
+    "title": "LibreChat",
+    "description": "A self-hostable, open-source ChatGPT-style interface supporting many AI model providers."
+  },
+  {
+    "url": "https://github.com/open-webui/open-webui",
+    "title": "Open WebUI",
+    "description": "A feature-rich, self-hosted web interface for running local LLMs via Ollama or OpenAI-compatible APIs."
+  },
+  {
+    "url": "https://github.com/divamgupta/diffusionbee-stable-diffusion-ui",
+    "title": "DiffusionBee",
+    "description": "The easiest way to run Stable Diffusion locally on a Mac, with a one-click installer."
+  },
+  {
+    "url": "https://github.com/prem-research/app",
+    "title": "Prem",
+    "description": "A self-sovereign AI platform for deploying and managing AI models on your own infrastructure."
+  },
+  {
+    "url": "https://github.com/Malopieds/InnerTune",
+    "title": "InnerTune",
+    "description": "A Material 3 YouTube Music client for Android with ad-free playback and offline downloads."
+  },
+  {
+    "url": "https://github.com/vfsfitvnm/ViMusic",
+    "title": "ViMusic",
+    "description": "An Android app for streaming music from YouTube Music with a Jetpack Compose UI."
+  },
+  {
+    "url": "https://github.com/ReVanced/revanced-manager",
+    "title": "ReVanced Manager",
+    "description": "The official Android app used to apply ReVanced patches to YouTube, YouTube Music, and more."
+  },
+  {
+    "url": "https://github.com/ReVanced/revanced-patches",
+    "title": "ReVanced Patches",
+    "description": "The official collection of patches powering the ReVanced ecosystem."
+  },
+  {
+    "url": "https://github.com/MorpheApp/morphe-manager",
+    "title": "Morphe Manager",
+    "description": "The manager app for Morphe, the community-driven continuation of ReVanced Extended."
+  },
+  {
+    "url": "https://github.com/SpotX-Official/SpotX-Bash",
+    "title": "SpotX-Bash",
+    "description": "A Bash port of SpotX that patches the Spotify desktop client to remove ads on macOS and Linux."
+  },
+  {
+    "url": "https://github.com/bitwarden",
+    "title": "Bitwarden (GitHub)",
+    "description": "The official GitHub organization hosting all of Bitwarden's open-source client and server code."
+  },
+  {
+    "url": "https://github.com/henkaku/henkaku",
+    "title": "HENkaku",
+    "description": "The original homebrew enabler exploit chain for the PS Vita."
+  },
+  {
+    "url": "https://github.com/israpps/FreeMcBoot-Installer",
+    "title": "FreeMCBoot",
+    "description": "Custom installers for FreeMcBoot, a homebrew bootloader and launcher for the PS2."
+  },
+  {
+    "url": "https://github.com/awesome-selfhosted",
+    "title": "Awesome Selfhosted",
+    "description": "The GitHub organization behind the massive community-maintained list of self-hostable software."
+  },
+  {
+    "url": "https://github.com/Igglybuff/awesome-piracy",
+    "title": "Awesome Piracy",
+    "description": "The original, long-running curated list of warez and piracy resources that most other 'awesome-piracy' forks descend from."
   }
 ]

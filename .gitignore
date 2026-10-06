@@ -1,0 +1,15 @@
+# Windows stray artifact from accidental `> nul` redirection
+nul
+NUL
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Local tooling
+__pycache__/
+*.pyc
+.venv/
+node_modules/
