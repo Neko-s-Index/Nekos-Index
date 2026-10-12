@@ -3481,7 +3481,14 @@
     "url": "https://github.com/LostRuins/koboldcpp",
     "title": "KoboldCpp",
     "description": "Run GGUF models easily with a KoboldAI UI. One File. Zero Install.",
-    "website": "https://github.com/LostRuins/koboldcpp/releases/latest"
+    "website": "https://github.com/LostRuins/koboldcpp/releases/latest",
+    "socials": [
+      {
+        "url": "https://www.reddit.com/r/KoboldAi/",
+        "type": "reddit",
+        "label": "Reddit"
+      }
+    ]
   },
   {
     "url": "https://github.com/ggerganov/llama.cpp",
@@ -6724,7 +6731,29 @@
   {
     "url": "https://github.com/ReVanced/revanced-manager",
     "title": "ReVanced Manager",
-    "description": "The official Android app used to apply ReVanced patches to YouTube, YouTube Music, and more."
+    "description": "The official Android app used to apply ReVanced patches to YouTube, YouTube Music, and more.",
+    "socials": [
+      {
+        "url": "https://reddit.com/r/revancedapp",
+        "type": "reddit",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://t.me/app_revanced",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://x.com/revancedapp",
+        "type": "x",
+        "label": "X"
+      },
+      {
+        "url": "https://www.youtube.com/@ReVanced",
+        "type": "youtube",
+        "label": "Youtube"
+      }
+    ]
   },
   {
     "url": "https://github.com/ReVanced/revanced-patches",
@@ -6734,12 +6763,26 @@
   {
     "url": "https://github.com/MorpheApp/morphe-manager",
     "title": "Morphe Manager",
-    "description": "The manager app for Morphe, the community-driven continuation of ReVanced Extended."
+    "description": "The manager app for Morphe, the community-driven continuation of ReVanced Extended.",
+    "socials": [
+      {
+        "url": "https://www.reddit.com/r/MorpheApp",
+        "type": "reddit",
+        "label": "Reddit"
+      }
+    ]
   },
   {
     "url": "https://github.com/SpotX-Official/SpotX-Bash",
     "title": "SpotX-Bash",
-    "description": "A Bash port of SpotX that patches the Spotify desktop client to remove ads on macOS and Linux."
+    "description": "A Bash port of SpotX that patches the Spotify desktop client to remove ads on macOS and Linux.",
+    "socials": [
+      {
+        "url": "https://t.me/SpotxCommunity",
+        "type": "telegram",
+        "label": "Telegram"
+      }
+    ]
   },
   {
     "url": "https://github.com/bitwarden",
@@ -6995,6 +7038,60 @@
         "url": "https://discord.gg/HstXbPch7X",
         "type": "discord",
         "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/krtirtho/spotube",
+    "title": "Spotube",
+    "description": "🎧 Open source music streaming app! Available for both desktop & mobile!",
+    "website": "https://spotube.cc/",
+    "socials": [
+      {
+        "url": "https://discord.gg/uJ94vxB6vg",
+        "type": "discord",
+        "label": "Discord"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/metrolistgroup/metrolist",
+    "title": "Metrolist",
+    "description": "YouTube Music client for Android",
+    "website": "https://metrolist.cc",
+    "socials": [
+      {
+        "url": "https://t.me/metrolistapp",
+        "type": "telegram",
+        "label": "Telegram"
+      }
+    ]
+  },
+  {
+    "url": "https://github.com/TeamVanced/VancedMicroG",
+    "title": "Vanced MicroG",
+    "description": "MicroG tweaked to work for applications such as Vanced."
+  },
+  {
+    "url": "https://github.com/ImranR98/Obtainium",
+    "title": "Obtainium",
+    "description": "Get Android app updates straight from the source.",
+    "website": "https://obtainium.imranr.dev"
+  },
+  {
+    "url": "https://github.com/SpotX-Official/SpotX",
+    "title": "SpotX",
+    "description": "SpotX patcher used for patching the desktop version of Spotify",
+    "socials": [
+      {
+        "url": "https://t.me/spotify_windows_mod",
+        "type": "telegram",
+        "label": "Telegram"
+      },
+      {
+        "url": "https://t.me/SpotxCommunity",
+        "type": "telegram",
+        "label": "Telegram"
       }
     ]
   }
